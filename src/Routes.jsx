@@ -9,21 +9,21 @@ const Routes = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-        <Route exact path="/about">
-        <Header>
-            <AboutView />
-          </Header>
-        </Route>
-        <Route exact path="/search">
-        <Header>
-            <SearchView />
-          </Header>
-        </Route>
-        <Route exact path="/">
-          <Header>
-            <IndexView />
-          </Header>
-        </Route>
+        <Route
+          exact
+          path="/about"
+          render={() => <Header component={<AboutView />} />}
+        />
+        <Route
+          exact
+          path="/search"
+          render={() => <Header component={<SearchView />} />}
+        />
+        <Route
+          exact
+          path="/"
+          render={() => <Header component={<IndexView />} />}
+        />
       </Switch>
     </Router>
   );

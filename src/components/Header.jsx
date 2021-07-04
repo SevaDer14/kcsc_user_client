@@ -1,10 +1,10 @@
 import React from "react";
 
-const Header = ({ children }) => {
+const Header = ({ component }) => {
   return (
     <>
       <h1 data-cy="header-title">Kensington & Chelsea Social Council</h1>
-      {children}
+      {component}
     </>
   );
 };
