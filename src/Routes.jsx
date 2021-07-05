@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "./components/Header";
+import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
 import SearchView from "./views/SearchView";
@@ -12,17 +12,17 @@ const Routes = () => {
         <Route
           exact
           path="/about"
-          render={() => <Header component={<AboutView />} />}
+          render={() => <App component={<AboutView />} />}
         />
         <Route
           exact
           path="/search"
-          render={() => <Header component={<SearchView />} />}
+          render={() => <App component={<SearchView />} />}
         />
         <Route
           exact
           path="/"
-          render={() => <Header component={<IndexView />} />}
+          render={() => <App component={<IndexView />} />}
         />
       </Switch>
     </Router>
