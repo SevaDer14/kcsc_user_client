@@ -1,5 +1,5 @@
+/* eslint-disable no-undef */
 describe("visitor cna navigate between views", () => {
-  
   describe("Index View", () => {
     before(() => {
       cy.visit("/");
@@ -25,10 +25,7 @@ describe("visitor cna navigate between views", () => {
         "contain.text",
         "Kensington & Chelsea Social Council"
       );
-      cy.get("[data-cy=header-subtitle]").should(
-        "contain.text",
-        "About us"
-      );
+      cy.get("[data-cy=header-subtitle]").should("contain.text", "About us");
     });
   });
 
@@ -41,10 +38,7 @@ describe("visitor cna navigate between views", () => {
         "contain.text",
         "Kensington & Chelsea Social Council"
       );
-      cy.get("[data-cy=header-subtitle]").should(
-        "contain.text",
-        "Search"
-      );
+      cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
     });
   });
 });
