@@ -3,10 +3,10 @@ import { Input, Button } from "@material-ui/core";
 import axios from "axios";
 
 const SearchView = () => {
-  const [searchText, setSearchText] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const performSearch = async () => {
-    const response = await axios.get(`/api/search?q=${searchText}`);
+    const response = await axios.get(`/api/search?q=${searchQuery}`);
     setSearchResults(response.data);
   };
 
@@ -15,7 +15,7 @@ const SearchView = () => {
       <h3 data-cy="header-subtitle">Search for services</h3>
       <Input
         data-cy="search-query"
-        onChange={(e) => setSearchText(e.target.value)}
+        onChange={(e) => setSearchQuery(e.target.value)}
       />
       <Button
         data-cy="search-submit"

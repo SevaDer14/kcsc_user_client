@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactComponent as Logo } from "../assets/kcsc_logo_horizontal.svg";
 import {
   AppBar,
   Toolbar,
@@ -13,9 +14,11 @@ const ApplicationHeader = () => {
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar>
         <Toolbar>
-          <Typography variant="h6" data-cy="header-title">
-            Kensington & Chelsea Social Council
-          </Typography>
+          <Logo
+            data-cy="header-logo"
+            style={{ height: "30px", width: "auto" }}
+            alt="Kensington & Chelsea Social Council"
+          />
         </Toolbar>
       </AppBar>
     </Slide>
