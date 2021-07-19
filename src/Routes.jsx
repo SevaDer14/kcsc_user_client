@@ -1,9 +1,9 @@
-import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import App from "./components/App";
-import IndexView from "./views/IndexView";
-import AboutView from "./views/AboutView";
-import SearchView from "./views/SearchView";
+import React from "react"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import App from "./components/App"
+import IndexView from "./views/IndexView"
+import AboutView from "./views/AboutView"
+import SearchView from "./views/SearchView"
 
 const Routes = () => {
   return (
@@ -26,7 +26,7 @@ const Routes = () => {
         />
       </Switch>
     </Router>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

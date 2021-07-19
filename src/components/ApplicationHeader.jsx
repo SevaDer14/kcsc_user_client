@@ -1,15 +1,9 @@
-import React from "react";
-import { ReactComponent as Logo } from "../assets/kcsc_logo_horizontal.svg";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  useScrollTrigger,
-  Slide,
-} from "@material-ui/core";
+import React from "react"
+import { ReactComponent as Logo } from "../assets/MainLogoAlt.svg"
+import { AppBar, Toolbar, useScrollTrigger, Slide } from "@material-ui/core"
 
 const ApplicationHeader = () => {
-  const trigger = useScrollTrigger();
+  const trigger = useScrollTrigger()
   return (
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar>
@@ -17,12 +11,12 @@ const ApplicationHeader = () => {
           <Logo
             data-cy="header-logo"
             style={{ height: "30px", width: "auto" }}
-            alt="Kensington & Chelsea Social Council"
+            alt="Community Health West London"
           />
         </Toolbar>
       </AppBar>
     </Slide>
-  );
-};
+  )
+}
 
-export default ApplicationHeader;
+export default ApplicationHeader
