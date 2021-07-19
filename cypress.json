@@ -1,5 +1,6 @@
 {
-
+  "viewPortWidth": 1920,
+  "viewPortHeight": 1080,
   "baseUrl": "http://localhost:3001",
   "chromeWebSecurity": false
 }

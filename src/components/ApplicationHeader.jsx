@@ -1,5 +1,5 @@
 import React from "react"
-import { ReactComponent as Logo } from "../assets/MainLogoAlt.svg"
+import { ReactComponent as Logo } from "../assets/LogoCHWLHorisontal.svg"
 import { AppBar, Toolbar, useScrollTrigger, Slide } from "@material-ui/core"
 
 const ApplicationHeader = () => {
