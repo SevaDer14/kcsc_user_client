@@ -53,9 +53,9 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=image]").should("be.visible");
         });
       cy.get("[data-cy=service-section]")
-        .second()
+        .eq(1)
         .within(() => {
-          cy.get("[data-cy=header]").should("contain.text", "KCSC Sefl Care");
+          cy.get("[data-cy=header]").should("contain.text", "KCSC Self Care");
           cy.get("[data-cy=description]").should(
             "contain.text",
             "This describes what this service do to help you."
@@ -63,7 +63,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=image]").should("be.visible");
           cy.get("[data-cy=button_1]").should(
             "contain.text",
-            "Find sefl-care service"
+            "Find self-care service"
           );
           cy.get("[data-cy=button_1]")
             .invoke("attr", "href")
