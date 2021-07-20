@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Paper, Button } from "@material-ui/core";
+import { Typography, Box, Paper, Button, Grid } from "@material-ui/core";
 
 const Section = ({ header, description, image, buttons }) => {
   const buttonList = buttons.map((button) => (
@@ -14,19 +14,48 @@ const Section = ({ header, description, image, buttons }) => {
   ));
 
   return (
-    <Box data-cy="service-section">
-      <Typography data-cy="header" variant="h4" component="h3" gutterBottom>
-        {header}
-      </Typography>
-      <Typography data-cy="description" variant="body1" component="p">
-        {description}
-      </Typography>
-      <Paper variant="outlined" data-cy="image">
-        <img src={image.url} alt={image.alt} />
-      </Paper>
-      {buttons && buttonList}
-    </Box>
+    <Grid
+      style={styles.section}
+      container
+      alignItems="center"
+      direction="row"
+      data-cy="service-section"
+    >
+      <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
+        <img style={styles.image} src={image.url} alt={image.alt} />
+      </Grid>
+      <Grid item xs={12} lg={6} style={styles.itemContainer}>
+        <Typography data-cy="header" variant="h3" component="h3" gutterBottom>
+          {header}
+        </Typography>
+        <Typography
+          data-cy="description"
+          variant="body1"
+          component="p"
+          gutterBottom
+        >
+          {description}
+        </Typography>
+        <Box style={styles.buttonContainer}>{buttons && buttonList}</Box>
+      </Grid>
+    </Grid>
   );
 };
 
 export default Section;
+
+const styles = {
+  section: {
+    height: "650px",
+  },
+  itemContainer: {
+    padding: "5%",
+  },
+  image: {
+    width: "100%",
+    height: "auto",
+  },
+  buttonContainer: {
+    marginTop: "20px",
+  },
+};

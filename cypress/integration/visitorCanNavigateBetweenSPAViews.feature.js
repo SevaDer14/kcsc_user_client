@@ -35,7 +35,7 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
     });
   });
-  describe("Services View", () => {
+  describe.only("Services View", () => {
     before(() => {
       cy.visit("/services");
       cy.intercept("GET", "**/api/services", { fixture: "services.json" });
@@ -58,7 +58,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=header]").should("contain.text", "KCSC Self Care");
           cy.get("[data-cy=description]").should(
             "contain.text",
-            "This describes what this service do to help you."
+            "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire."
           );
           cy.get("[data-cy=image]").should("be.visible");
           cy.get("[data-cy=button_1]").should(

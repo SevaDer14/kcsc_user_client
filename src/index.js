@@ -12,6 +12,14 @@ const kcscTheme = createMuiTheme({
       contrastText: "#6a0dad ",
     },
   },
+  typography: {
+    body1: {
+      fontSize: 24
+    },
+    button: {
+      fontSize: 24
+    }
+  }
 });
 
 axios.defaults.baseURL = process.env.REACT_APP_API_URL
