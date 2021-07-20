@@ -40,7 +40,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
         });
         cy.get("[data-cy=web-access-text]").should(
-          "contain.text",
+          "contain",
           "This site is built according to Web Content Accessibility Guidlines"
         );
         cy.get("[data-cy=copyrights]").should(
