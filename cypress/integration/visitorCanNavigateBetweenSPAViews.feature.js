@@ -35,7 +35,7 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
     });
   });
-  describe.only("Services View", () => {
+  describe("Services View", () => {
     before(() => {
       cy.visit("/services");
       cy.intercept("GET", "**/api/services", { fixture: "services.json" });

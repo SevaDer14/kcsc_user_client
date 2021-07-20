@@ -9,7 +9,9 @@ const ServicesView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
-      let response = await axios.get("/services");
+      let response = await axios.get("/services", {
+        headers: { API_KEY: process.env.REACT_APP_API_KEY },
+      });
       setSections(response.data.sections);
     };
     fetchPageData();

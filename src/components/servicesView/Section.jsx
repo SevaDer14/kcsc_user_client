@@ -54,6 +54,7 @@ const styles = {
   image: {
     width: "100%",
     height: "auto",
+    borderRadius: "10px"
   },
   buttonContainer: {
     marginTop: "20px",
