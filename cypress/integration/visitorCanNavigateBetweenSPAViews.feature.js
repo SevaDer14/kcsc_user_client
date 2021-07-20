@@ -38,7 +38,7 @@ describe("visitor can navigate between views", () => {
   describe("Services View", () => {
     before(() => {
       cy.visit("/services");
-      cy.intercept('GET', '**/api/services', {fixture: 'services.json'})
+      cy.intercept("GET", "**/api/services", { fixture: "services.json" });
     });
     it("is expected to display service page ", () => {
       cy.get("[data-cy=service-section]").should("have.length", 6);
@@ -50,6 +50,24 @@ describe("visitor can navigate between views", () => {
             "contain.text",
             "On this page, you can find all available services in your area"
           );
+          cy.get("[data-cy=image]").should("be.visible");
+        });
+      cy.get("[data-cy=service-section]")
+        .second()
+        .within(() => {
+          cy.get("[data-cy=header]").should("contain.text", "KCSC Sefl Care");
+          cy.get("[data-cy=description]").should(
+            "contain.text",
+            "This describes what this service do to help you."
+          );
+          cy.get("[data-cy=image]").should("be.visible");
+          cy.get("[data-cy=button_1]").should(
+            "contain.text",
+            "Find sefl-care service"
+          );
+          cy.get("[data-cy=button_1]")
+            .invoke("attr", "href")
+            .should("eq", "http://localhost:3001/search_self_care");
         });
     });
   });
