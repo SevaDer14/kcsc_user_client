@@ -16,28 +16,37 @@ describe("visitor can navigate between views", () => {
         .should("have.attr", "alt")
         .should("equal", "Community Health West London");
     });
-    it('is expected to display footer', () => {
-      cy.get('[data-cy=application-footer]').within(() => {
-        cy.get('[data-cy=logo]').should('be.visible');
-        cy.get('[data-cy=about]').should(
-          'contain.text',
-          'Community Health West London is a Community Interest Company made up'
+    it("is expected to display footer", () => {
+      cy.get("[data-cy=application-footer]").within(() => {
+        cy.get("[data-cy=logo]").should("be.visible");
+        cy.get("[data-cy=about]").should(
+          "contain.text",
+          "Community Health West London is a Community Interest Company made up"
         );
-        cy.get('[data-cy=email]').should(
-          'contain.text',
-          'info@communityhealthwestlondon.org.uk'
+        cy.get("[data-cy=email]").should(
+          "contain.text",
+          "info@communityhealthwestlondon.org.uk"
         );
-        cy.get('[data-cy=phone]').should(
-          'contain.text',
-          'Phone: 0207 243 9806'
-        );        
-        cy.get('[data-cy=navigation]').within(() => {
-          cy.get('[data-cy=link]').should('have.length', 2);
-          cy.get('[data-cy=link]').eq(0).should('contain', 'home');
-          cy.get('[data-cy=about]').eq(1).should('contain', 'about');
+        cy.get("[data-cy=phone]").should(
+          "contain.text",
+          "Phone: 0207 243 9806"
+        );
+        cy.get("[data-cy=navigation]").within(() => {
+          cy.get("[data-cy=link]").should("have.length", 5);
+          cy.get("[data-cy=link]").eq(0).should("contain", "Home");
+          cy.get("[data-cy=link]").eq(1).should("contain", "About");
+          cy.get("[data-cy=link]").eq(2).should("contain", "Find a service");
+          cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
+          cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
         });
-        cy.get('[data-cy=WCAG-text]').should('contain', 'This site is built according to Web Content Accessibility Guidlines')
-        cy.get('[data-cy=copyrights]').should('contain', '2020 All Rights Reserved by Community Health West London.')
+        cy.get("[data-cy=web-access-text]").should(
+          "contain.text",
+          "This site is built according to Web Content Accessibility Guidlines"
+        );
+        cy.get("[data-cy=copyrights]").should(
+          "contain",
+          "2020 All Rights Reserved by Community Health West London."
+        );
       });
     });
   });
