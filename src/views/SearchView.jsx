@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import { Input, Button } from "@material-ui/core"
-import axios from "axios"
+import React, { useState } from "react";
+import { Input, Button } from "@material-ui/core";
+import axios from "axios";
 
 const SearchView = () => {
-  const [searchQuery, setSearchQuery] = useState("")
-  const [searchResults, setSearchResults] = useState({})
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState({});
   const performSearch = async () => {
-    const response = await axios.get(`/api/search?q=${searchQuery}`)
-    setSearchResults(response.data)
-  }
+    const response = await axios.get(`/api/search?q=${searchQuery}`);
+    setSearchResults(response.data);
+  };
 
   return (
     <>
@@ -35,7 +35,7 @@ const SearchView = () => {
           ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SearchView
+export default SearchView;

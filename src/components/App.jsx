@@ -1,6 +1,6 @@
-import React from "react"
-import { Container, Box } from "@material-ui/core"
-import ApplicationHeader from "./ApplicationHeader"
+import React from "react";
+import { Container, Box } from "@material-ui/core";
+import ApplicationHeader from "./ApplicationHeader";
 
 const App = ({ component }) => {
   return (
@@ -10,7 +10,7 @@ const App = ({ component }) => {
         <Box my={10}>{component}</Box>
       </Container>
     </>
-  )
-}
+  );
+};
 
-export default App
+export default App;
