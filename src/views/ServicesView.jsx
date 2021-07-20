@@ -10,7 +10,7 @@ const ServicesView = () => {
   useEffect(() => {
     const fetchPageData = async () => {
       let response = await axios.get("/services", {
-        headers: { API_KEY: process.env.REACT_APP_API_KEY },
+        headers: { API_KEY: process.env.local.REACT_APP_API_KEY },
       });
       setSections(response.data.sections);
     };
