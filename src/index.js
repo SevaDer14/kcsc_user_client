@@ -13,6 +13,8 @@ const kcscTheme = createMuiTheme({
   },
 });
 
+axios.defaults.baseURL = process.env.REACT_APP_API_URL
+
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={kcscTheme}>

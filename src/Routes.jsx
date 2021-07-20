@@ -4,11 +4,17 @@ import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
 import SearchView from "./views/SearchView";
+import ServicesView from "./views/ServicesView";
 
 const Routes = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
+      <Route
+          exact
+          path="/services"
+          render={() => <App component={<ServicesView />} />}
+        />
         <Route
           exact
           path="/about"
@@ -23,7 +29,7 @@ const Routes = () => {
           exact
           path="/"
           render={() => <App component={<IndexView />} />}
-        />
+        />        
       </Switch>
     </Router>
   );
