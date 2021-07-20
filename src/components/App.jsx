@@ -6,7 +6,7 @@ const App = ({ component }) => {
   return (
     <>
       <ApplicationHeader />
-      <Container>
+      <Container maxWidth="xl">
         <Box my={10}>{component}</Box>
       </Container>
     </>
