@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Helmet } from "react-helmet";
 import { Grid } from "@material-ui/core";
 import Section from "../components/servicesView/Section";
 
@@ -30,15 +31,20 @@ const ServicesView = () => {
   });
 
   return (
-    <Grid
-      container
-      spacing={0}
-      direction="column"
-      justifyContent="flex-start"
-      alignItems="stretch"
-    >
-      {sectionList}
-    </Grid>
+    <>
+      <Helmet>
+        <title>Self Care Services</title>
+      </Helmet>
+      <Grid
+        container
+        spacing={0}
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="stretch"
+      >
+        {sectionList}
+      </Grid>
+    </>
   );
 };
 

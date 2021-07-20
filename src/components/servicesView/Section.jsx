@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Box, Paper, Button, Grid } from "@material-ui/core";
+import { Typography, Box, Button, Grid } from "@material-ui/core";
 
 const Section = ({ header, description, image, buttons }) => {
   const buttonList = buttons.map((button) => (
