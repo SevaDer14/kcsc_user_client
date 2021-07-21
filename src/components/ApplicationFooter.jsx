@@ -22,7 +22,7 @@ const ApplicationFooter = () => {
   ];
 
   const navigationMenu = navigationItems.map((item) => (
-    <Link data-cy="link" to={item.link} style={styles.navLink}>
+    <Link data-cy="link" to={item.link} style={navLink}>
       {item.text}
     </Link>
   ));
@@ -30,7 +30,7 @@ const ApplicationFooter = () => {
   return (
     <Box
       data-cy="application-footer"
-      style={mobile ? styles.mobileFooter : styles.footer}
+      style={mobile ? mobileFooter : footer}
     >
       <Grid alignItems="center" justifyContent="center" container spacing={0}>
         <Grid
@@ -40,12 +40,12 @@ const ApplicationFooter = () => {
           lg={3}
           style={
             mobile
-              ? { ...styles.mobileGridItem, ...borderBottom }
-              : { ...styles.gridItem, ...borderRight }
+              ? { ...mobileGridItem, ...borderBottom }
+              : { ...gridItem, ...borderRight }
           }
         >
           <img
-            style={styles.logo}
+            style={logo}
             src={LogoCHWL}
             alt="Community Health West London Logo"
           />
@@ -57,8 +57,8 @@ const ApplicationFooter = () => {
           lg={3}
           style={
             mobile
-              ? { ...styles.mobileGridItem, ...borderBottom }
-              : { ...styles.gridItem, ...borderRight }
+              ? { ...mobileGridItem, ...borderBottom }
+              : { ...gridItem, ...borderRight }
           }
         >
           <Typography variant="body1" component="p" gutterBottom>
@@ -74,8 +74,8 @@ const ApplicationFooter = () => {
           lg={3}
           style={
             mobile
-              ? { ...styles.mobileGridItem, ...borderBottom }
-              : { ...styles.gridItem, ...borderRight }
+              ? { ...mobileGridItem, ...borderBottom }
+              : { ...gridItem, ...borderRight }
           }
         >
           <Typography
@@ -83,7 +83,7 @@ const ApplicationFooter = () => {
             variant="body1"
             component="p"
             gutterBottom
-            style={mobile ? styles.centerText : styles.longWord}
+            style={mobile ? centerText : longWord}
           >
             Phone: 0207 243 9806
             <br />
@@ -96,14 +96,14 @@ const ApplicationFooter = () => {
           direction="column"
           xs={12}
           lg={3}
-          style={mobile ? styles.mobileGridItem : styles.gridItem}
+          style={mobile ? mobileGridItem : gridItem}
           alignItems="center"
         >
-          <Box style={styles.navigation}>{navigationMenu}</Box>
+          <Box style={navigation}>{navigationMenu}</Box>
         </Grid>
       </Grid>
       <Typography
-        style={styles.centerText}
+        style={centerText}
         data-cy="disclamers"
         variant="caption"
         component="p"
@@ -117,9 +117,6 @@ const ApplicationFooter = () => {
 };
 
 export default ApplicationFooter;
-
-const borderBottom = { borderBottom: "1px solid rgba(0,0,0,0.3)" };
-const borderRight = { borderRight: "1px solid rgba(0,0,0,0.3)" };
 
 const styles = {
   mobileFooter: {
@@ -156,6 +153,12 @@ const styles = {
     textDecoration: "none",
     color: "#000",
   },
+  borderBottom: {
+    borderBottom: "1px solid rgba(0,0,0,0.3)",
+  },
+  borderRight: {
+    borderRight: "1px solid rgba(0,0,0,0.3)",
+  },
   centerText: {
     marginTop: "25px",
     textAlign: "center",
@@ -165,3 +168,17 @@ const styles = {
     wordWrap: "break-word",
   },
 };
+
+const {
+  mobileFooter,
+  footer,
+  mobileGridItem,
+  gridItem,
+  logo,
+  navigation,
+  navLink,
+  borderBottom,
+  borderRight,
+  centerText,
+  longWord,
+} = styles;
