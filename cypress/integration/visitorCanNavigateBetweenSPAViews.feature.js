@@ -23,13 +23,9 @@ describe("visitor can navigate between views", () => {
           "contain.text",
           "Community Health West London is a Community Interest Company made up"
         );
-        cy.get("[data-cy=email]").should(
-          "contain.text",
-          "info@communityhealthwestlondon.org.uk"
-        );
-        cy.get("[data-cy=phone]").should(
-          "contain.text",
-          "Phone: 0207 243 9806"
+        cy.get("[data-cy=contacts]").should(
+          "contain",
+          "Phone: 0207 243 9806info@communityhealthwestlondon.org.uk"
         );
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
@@ -39,13 +35,9 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
           cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
         });
-        cy.get("[data-cy=web-access-text]").should(
+        cy.get("[data-cy=disclamers]").should(
           "contain",
-          "This site is built according to Web Content Accessibility Guidlines"
-        );
-        cy.get("[data-cy=copyrights]").should(
-          "contain",
-          "2020 All Rights Reserved by Community Health West London."
+          "This site is built according to Web Content Accessibility Guidlines2020 All Rights Reserved by Community Health West London."
         );
       });
     });
