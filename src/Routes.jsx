@@ -23,7 +23,7 @@ const Routes = () => {
         <Route
           exact
           path="/search_self_care"
-          render={() => <App component={<SearchView />} />}
+          render={() => <App component={<SearchSelfCareView />} />}
         />
         <Route
           exact

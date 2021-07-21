@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Helmet } from "react-helmet";
 import SelfCareSearchBar from "../components/searchSelfCareView/SelfCareSearchBar";
 
-const SearchView = () => {
+const SearchSelfCareView = () => {
   const [searchResults, setSearchResults] = useState({});
 
   return (
@@ -25,4 +25,4 @@ const SearchView = () => {
   );
 };
 
-export default SearchView;
+export default SearchSelfCareView;
