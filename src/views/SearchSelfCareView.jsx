@@ -2,13 +2,14 @@ import React, { useState } from "react";
 import { Input, Button } from "@material-ui/core";
 import axios from "axios";
 import { Helmet } from "react-helmet";
+import SelfCareListings from "../components/searchSelfCareView/SelfCareListings"
 
-const SearchView = () => {
+const SearchSelfCareView = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const performSearch = async () => {
     const response = await axios.get(`/api/search?q=${searchQuery}`, {
-      headers: { API_KEY: process.env.local.REACT_APP_API_KEY },
+      headers: { API_KEY: process.env.REACT_APP_API_KEY },
     });
     setSearchResults(response.data);
   };
@@ -31,17 +32,9 @@ const SearchView = () => {
       >
         Search
       </Button>
-      <div data-cy="search-results">
-        {searchResults.services &&
-          searchResults.services.map((result) => (
-            <div key={result.id}>
-              <h4>{result.name}</h4>
-              <p>{result.description}</p>
-            </div>
-          ))}
-      </div>
+      <SelfCareListings searchResults={searchResults}/>
     </>
   );
 };
 
-export default SearchView;
+export default SearchSelfCareView;
