@@ -1,0 +1,94 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "header": "Find a service",
+      "description": "On this page, you can find all available services in your area.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": []
+    },
+    {
+      "id": 2,
+      "header": "KCSC Self Care",
+      "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Find self-care service",
+          "link": "http://localhost:3001/search_self_care"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "header": "KCSC CLW",
+      "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Take me there",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "header": "KCSC N Ken SC",
+      "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Take me there",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "header": "Link workers",
+      "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Take me there",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "header": "Other VCS lg contracts",
+      "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
+      "image": {
+        "url": "https://wellnesscenter.uic.edu/wp-content/uploads/sites/100/2020/07/01-04-1090x595.jpg",
+        "alt": "Happy girl watering flowers"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Take me there",
+          "link": ""
+        }
+      ]
+    }
+  ]
+}

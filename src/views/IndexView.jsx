@@ -1,24 +1,30 @@
 import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Grid, Box } from "@material-ui/core";
+import { Helmet } from "react-helmet";
 
 const IndexView = () => {
   return (
-    <Grid container justifyItems="center">
-      <Grid item xs={12} lg={6}>
-        <Box component="div" style={styles.gridItem}>
-          <img
-            src={LogoCHWL}
-            data-cy="logo"
-            style={styles.image}
-            alt="Community Health West London"
-          />
-          <h3 data-cy="mission-statement" style={styles.statement}>
-            Our aim is to improve people's health and well-being
-          </h3>
-        </Box>
+    <>
+      <Helmet>
+        <title>Community Health West London</title>
+      </Helmet>
+      <Grid container justifyItems="center">
+        <Grid item xs={12} lg={6}>
+          <Box component="div" style={styles.gridItem}>
+            <img
+              src={LogoCHWL}
+              data-cy="logo"
+              style={styles.image}
+              alt="Community Health West London"
+            />
+            <h3 data-cy="mission-statement" style={styles.statement}>
+              Our aim is to improve people's health and well-being
+            </h3>
+          </Box>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

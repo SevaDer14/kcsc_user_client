@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import axios from "axios";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./index.css";
 import Routes from "./Routes";
@@ -11,7 +12,17 @@ const kcscTheme = createMuiTheme({
       contrastText: "#6a0dad ",
     },
   },
+  typography: {
+    body1: {
+      fontSize: 24
+    },
+    button: {
+      fontSize: 24
+    }
+  }
 });
+
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_BASE_URL
 
 ReactDOM.render(
   <React.StrictMode>
