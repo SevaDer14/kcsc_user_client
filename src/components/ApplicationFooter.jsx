@@ -11,7 +11,7 @@ import LogoCHWL from "../assets/LogoCHWL.png";
 
 const ApplicationFooter = () => {
   const theme = useTheme();
-  const phone = useMediaQuery(theme.breakpoints.down("md"));
+  const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigationItems = [
     { text: "Home", link: "/" },
@@ -30,7 +30,7 @@ const ApplicationFooter = () => {
   return (
     <Box
       data-cy="application-footer"
-      style={phone ? styles.mobileFooter : styles.footer}
+      style={mobile ? styles.mobileFooter : styles.footer}
     >
       <Grid alignItems="center" justifyContent="center" container spacing={0}>
         <Grid
@@ -39,7 +39,7 @@ const ApplicationFooter = () => {
           xs={12}
           lg={3}
           style={
-            phone
+            mobile
               ? { ...styles.mobileGridItem, ...borderBottom }
               : { ...styles.gridItem, ...borderRight }
           }
@@ -56,7 +56,7 @@ const ApplicationFooter = () => {
           xs={12}
           lg={3}
           style={
-            phone
+            mobile
               ? { ...styles.mobileGridItem, ...borderBottom }
               : { ...styles.gridItem, ...borderRight }
           }
@@ -73,7 +73,7 @@ const ApplicationFooter = () => {
           xs={12}
           lg={3}
           style={
-            phone
+            mobile
               ? { ...styles.mobileGridItem, ...borderBottom }
               : { ...styles.gridItem, ...borderRight }
           }
@@ -83,7 +83,7 @@ const ApplicationFooter = () => {
             variant="body1"
             component="p"
             gutterBottom
-            style={phone ? styles.centerText : styles.longWord}
+            style={mobile ? styles.centerText : styles.longWord}
           >
             Phone: 0207 243 9806
             <br />
@@ -96,11 +96,7 @@ const ApplicationFooter = () => {
           direction="column"
           xs={12}
           lg={3}
-          style={
-            phone
-              ? styles.mobileGridItem
-              : styles.gridItem
-          }
+          style={mobile ? styles.mobileGridItem : styles.gridItem}
           alignItems="center"
         >
           <Box style={styles.navigation}>{navigationMenu}</Box>
