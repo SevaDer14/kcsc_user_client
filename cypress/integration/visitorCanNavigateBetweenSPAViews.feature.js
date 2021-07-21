@@ -92,7 +92,7 @@ describe("visitor can navigate between views", () => {
           );
           cy.get("[data-cy=button_1]")
             .invoke("attr", "href")
-            .should("eq", "http://localhost:3001/search_self_care");
+            .should("eq", "http://localhost:3001/search");
         });
     });
   });
