@@ -11,6 +11,10 @@ const kcscTheme = createMuiTheme({
       main: "#FFFFFF",
       contrastText: "#6a0dad ",
     },
+    secondary: {
+      main: "#E86406",
+      contrastText: "#fff ",
+    },
   },
   typography: {
     body1: {

@@ -54,7 +54,7 @@ describe("visitor can navigate between views", () => {
 
   describe("Search View", () => {
     before(() => {
-      cy.visit("/search");
+      cy.visit("/search_self_care");
     });
     it("is expected to display view subtitle", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
