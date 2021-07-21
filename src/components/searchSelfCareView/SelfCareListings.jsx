@@ -1,16 +1,15 @@
 import React from 'react'
+import { Container } from "@material-ui/core";
+import SelfCareListItem from "./SelfCareListItem";
 
 const SelfCareListings = ({searchResults}) => {
   return (
-    <div data-cy="search-results">
+    <Container data-cy="search-results" maxWidth="md">
         {searchResults.services &&
-          searchResults.services.map((result) => (
-            <div key={result.id}>
-              <h4>{result.name}</h4>
-              <p>{result.description}</p>
-            </div>
+          searchResults.services.map((listing) => (
+            <SelfCareListItem listing={listing} />
           ))}
-      </div>
+      </Container>
   )
 }
 
