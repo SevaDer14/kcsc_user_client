@@ -54,7 +54,7 @@ describe("visitor can navigate between views", () => {
 
   describe("Search View", () => {
     before(() => {
-      cy.visit("/search_self_care");
+      cy.visit("/search");
     });
     it("is expected to display view subtitle", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
@@ -92,7 +92,7 @@ describe("visitor can navigate between views", () => {
           );
           cy.get("[data-cy=button_1]")
             .invoke("attr", "href")
-            .should("eq", "http://localhost:3001/search_self_care");
+            .should("eq", "http://localhost:3001/search");
         });
     });
   });
