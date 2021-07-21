@@ -35,7 +35,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
           cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
         });
-        cy.get("[data-cy=disclamers]").should(
+        cy.get("[data-cy=disclaimers]").should(
           "contain",
           "This site is built according to Web Content Accessibility Guidlines2020 All Rights Reserved by Community Health West London."
         );

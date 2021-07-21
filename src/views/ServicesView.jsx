@@ -9,7 +9,7 @@ const ServicesView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
-      let response = await axios.get("/api/services");
+      let response = await axios.get("/services");
       setSections(response.data.sections);
     };
     fetchPageData();

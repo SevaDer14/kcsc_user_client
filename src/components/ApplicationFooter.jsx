@@ -104,7 +104,7 @@ const ApplicationFooter = () => {
       </Grid>
       <Typography
         style={centerText}
-        data-cy="disclamers"
+        data-cy="disclaimers"
         variant="caption"
         component="p"
       >
