@@ -38,7 +38,7 @@ describe("visitor can navigate between views", () => {
   describe("Services View", () => {
     before(() => {
       cy.visit("/services");
-      cy.intercept("GET", "**/api/services", { fixture: "services.json" });
+      cy.intercept("GET", "**/api/services", { fixture: "services_view_section.json" });
     });
     it("is expected to display service page ", () => {
       cy.get("[data-cy=service-section]").should("have.length", 6);

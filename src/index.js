@@ -22,7 +22,7 @@ const kcscTheme = createMuiTheme({
   }
 });
 
-axios.defaults.baseURL = process.env.REACT_APP_API_URL
+axios.defaults.baseURL = process.env.REACT_APP_BACKEND_BASE_URL
 
 ReactDOM.render(
   <React.StrictMode>
