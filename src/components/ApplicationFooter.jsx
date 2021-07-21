@@ -61,7 +61,7 @@ const ApplicationFooter = () => {
               : { ...gridItem, ...borderRight }
           }
         >
-          <Typography variant="body1" component="p" gutterBottom>
+          <Typography variant="subtitle1" component="p" gutterBottom>
             Community Health West London is a Community Interest Company made up
             of six local charities. We are working together with the wider
             community to improve the health and wellbeing of our residents.
@@ -80,7 +80,7 @@ const ApplicationFooter = () => {
         >
           <Typography
             data-cy="contacts"
-            variant="body1"
+            variant="subtitle1"
             component="p"
             gutterBottom
             style={mobile ? centerText : longWord}
