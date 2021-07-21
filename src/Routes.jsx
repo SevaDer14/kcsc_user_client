@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
-import SearchView from "./views/SearchSelfCareView";
+import SearchSelfCareView from "./views/SearchSelfCareView";
 import ServicesView from "./views/ServicesView";
 
 const Routes = () => {

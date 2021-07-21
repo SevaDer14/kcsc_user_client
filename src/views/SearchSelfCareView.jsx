@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import SelfCareSearchBar from "../components/searchSelfCareView/SelfCareSearchBar";
+import ServiceSearch from "../components/searchSelfCareView/ServiceSearch";
 
 const SearchSelfCareView = () => {
   const [searchResults, setSearchResults] = useState({});
@@ -8,10 +8,10 @@ const SearchSelfCareView = () => {
   return (
     <>
       <Helmet>
-        <title>Search Self Care</title>
+        <title>Search for Self Care services</title>
       </Helmet>
       <h3 data-cy="header-subtitle">Search for services</h3>
-      <SelfCareSearchBar setSearchResults={setSearchResults} />
+      <ServiceSearch setSearchResults={setSearchResults} />
       <div data-cy="search-results">
         {searchResults.services &&
           searchResults.services.map((result) => (

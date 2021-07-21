@@ -7,13 +7,13 @@ import {
   OutlinedInput,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import Requests from "../../modules/Requests";
+import Search from "../../modules/Search";
 
-const SelfCareSearchBar = ({ setSearchResults }) => {
+const ServiceSearch = ({ setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const performSearch = async () => {
-    const response = await Requests.searchSelfCare(searchQuery);
+    const response = await Search.create(searchQuery);
     setSearchResults(response.data);
   };
 
@@ -24,7 +24,7 @@ const SelfCareSearchBar = ({ setSearchResults }) => {
           data-cy="search-query"
           onChange={(e) => setSearchQuery(e.target.value)}
           color="secondary"
-          placeholder="Search Self Care"
+          placeholder="Search for a service..."
           aria-describedby="Search for self care services"
           style={styles.queryInput}
         />
@@ -46,7 +46,7 @@ const SelfCareSearchBar = ({ setSearchResults }) => {
   );
 };
 
-export default SelfCareSearchBar;
+export default ServiceSearch;
 
 const styles = {
   searchBar: {
