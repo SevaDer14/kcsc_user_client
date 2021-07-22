@@ -9,7 +9,7 @@ const IndexView = () => {
       <Helmet>
         <title>Community Health West London</title>
       </Helmet>
-      <Grid container justifyItems="center">
+      <Grid container >
         <Grid item xs={12} lg={6}>
           <Box component="div" style={styles.gridItem}>
             <img
