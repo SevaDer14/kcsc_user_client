@@ -28,10 +28,7 @@ const ApplicationFooter = () => {
   ));
 
   return (
-    <Box
-      data-cy="application-footer"
-      style={mobile ? mobileFooter : footer}
-    >
+    <Box data-cy="application-footer" style={mobile ? mobileFooter : footer}>
       <Grid alignItems="center" justifyContent="center" container spacing={0}>
         <Grid
           data-cy="logo"
@@ -61,11 +58,18 @@ const ApplicationFooter = () => {
               : { ...gridItem, ...borderRight }
           }
         >
-          <Typography variant="body1" component="p" gutterBottom>
-            Community Health West London is a Community Interest Company made up
-            of six local charities. We are working together with the wider
-            community to improve the health and wellbeing of our residents.
-          </Typography>
+          <Box style={hiddenScrollContainer}>
+            <Typography
+              variant="subtitle1"
+              component="p"
+              gutterBottom
+              style={hiddenScrollText}
+            >
+              Community Health West London is a Community Interest Company made
+              up of six local charities. We are working together with the wider
+              community to improve the health and wellbeing of our residents.
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           alignItems="center"
@@ -80,7 +84,7 @@ const ApplicationFooter = () => {
         >
           <Typography
             data-cy="contacts"
-            variant="body1"
+            variant="subtitle1"
             component="p"
             gutterBottom
             style={mobile ? centerText : longWord}
@@ -167,6 +171,20 @@ const styles = {
   longWord: {
     wordWrap: "break-word",
   },
+  hiddenScrollContainer: {
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
+    position: "relative",
+  },
+  hiddenScrollText: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    bottom: "-20px",
+    right: "-20px",
+    overflow: "scroll",
+  },
 };
 
 const {
@@ -181,4 +199,6 @@ const {
   borderRight,
   centerText,
   longWord,
+  hiddenScrollContainer,
+  hiddenScrollText,
 } = styles;
