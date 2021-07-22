@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardActionArea, CardContent, Typography } from "@material-ui/core";
 
-const SelfCareListItem = ({ listing }) => {
+const ServiceListItem = ({ listing }) => {
   return (
     <Card key={listing.id} variant="outlined" style={styles.listing}>
       <CardActionArea >
@@ -18,7 +18,7 @@ const SelfCareListItem = ({ listing }) => {
   );
 };
 
-export default SelfCareListItem;
+export default ServiceListItem;
 
 const styles = {
   listing: {
