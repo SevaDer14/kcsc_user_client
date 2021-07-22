@@ -8,17 +8,19 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
   const [activeTab, setActiveTab] = useState(0);
 
-  const handleChange = (event, value) => {};
+  const handleChange = (event, newValue) => {
+    setActiveTab(newValue);
+  };
 
   return (
     <Slide appear={false} direction="down" in={!trigger}>
-      <AppBar data-cy="application-header">
+      <AppBar data-cy="application-header" elevation={0}>
         <Toolbar>
           <Logo
             data-cy="header-logo"
@@ -27,11 +29,25 @@ const ApplicationHeader = () => {
           />
           <Tabs
             value={activeTab}
-            onChange={(event) => setActiveTab(event.value)}
+            onChange={handleChange}
             indicatorColor="secondary"
+            style={styles.navTabs}
+            centered
           >
-            <Tab data-cy="home-tab" label="Home" component={Link} to="/"/>
-            <Tab data-cy="services-tab" label="Services" component={Link} to="/services"/>
+            <Tab
+              style={styles.tabText}
+              data-cy="home-tab"
+              label="Home"
+              component={Link}
+              to="/"
+            />
+            <Tab
+              style={styles.tabText}
+              data-cy="services-tab"
+              label="Services"
+              component={Link}
+              to="/services"
+            />
           </Tabs>
         </Toolbar>
       </AppBar>
@@ -40,3 +56,15 @@ const ApplicationHeader = () => {
 };
 
 export default ApplicationHeader;
+
+const styles = {
+  navTabs: {
+    position: "absolute",
+    width: "100%",
+  },
+  tabText: {
+    color: "#000",
+    fontSize: "1.2rem",
+    width: "50px",
+  },
+};

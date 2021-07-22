@@ -115,7 +115,5 @@ describe("visitor can navigate between views", () => {
       });
       cy.url().should("contain", "http://localhost:3001/")
     });
-  })
-
-  
+  })  
 });
