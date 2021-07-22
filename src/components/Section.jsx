@@ -4,6 +4,7 @@ import { Typography, Box, Button, Grid } from "@material-ui/core";
 const Section = ({ header, description, image, buttons }) => {
   const buttonList = buttons.map((button) => (
     <Button
+      key={button.id}
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
