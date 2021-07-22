@@ -58,7 +58,7 @@ const ApplicationFooter = () => {
               : { ...gridItem, ...borderRight }
           }
         >
-          <Box style={hiddenScrollContainer}>
+          <Box style={mobile ? hiddenScrollContainerMobile : hiddenScrollContainer}>
             <Typography
               variant="subtitle1"
               component="p"
@@ -148,6 +148,28 @@ const styles = {
     width: "100%",
     maxWidth: "400px",
   },
+  hiddenScrollContainer: {
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
+    position: "relative",
+  },
+  hiddenScrollContainerMobile: {
+    width: "100%",
+    height: "100%",
+    marginTop: "50px",
+    textAlign: "center",
+    overflow: "hidden",
+    position: "relative",
+  },
+  hiddenScrollText: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    bottom: "-20px",
+    right: "-20px",
+    overflow: "scroll",
+  },
   navigation: {
     display: "flex",
     flexDirection: "column",
@@ -171,20 +193,6 @@ const styles = {
   longWord: {
     wordWrap: "break-word",
   },
-  hiddenScrollContainer: {
-    width: "100%",
-    height: "100%",
-    overflow: "hidden",
-    position: "relative",
-  },
-  hiddenScrollText: {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    bottom: "-20px",
-    right: "-20px",
-    overflow: "scroll",
-  },
 };
 
 const {
@@ -193,12 +201,13 @@ const {
   mobileGridItem,
   gridItem,
   logo,
+  hiddenScrollContainer,
+  hiddenScrollContainerMobile,
+  hiddenScrollText,
   navigation,
   navLink,
   borderBottom,
   borderRight,
   centerText,
   longWord,
-  hiddenScrollContainer,
-  hiddenScrollText,
 } = styles;
