@@ -1,7 +1,7 @@
 import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Grid, Box } from "@material-ui/core";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const IndexView = () => {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import ServiceSearch from "../components/ServiceSearch";
 
 const SearchSelfCareView = () => {

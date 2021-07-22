@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
 import { Provider } from "react-redux";
-import store from './state/store/configureStore'
+import store from "./state/store/configureStore";
 import { ThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./index.css";
 import Routes from "./Routes";
+import { HelmetProvider } from "react-helmet-async";
 
 const kcscTheme = createMuiTheme({
   palette: {
@@ -34,9 +35,11 @@ axios.defaults.headers.common["API_KEY"] = process.env.REACT_APP_API_KEY;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <ThemeProvider theme={kcscTheme}>
-        <Routes />
-      </ThemeProvider>
+      <HelmetProvider>
+        <ThemeProvider theme={kcscTheme}>
+          <Routes />
+        </ThemeProvider>
+      </HelmetProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
