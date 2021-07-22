@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
 import ServiceSearch from "../components/ServiceSearch";
 
 const SearchSelfCareView = () => {
-  const [searchResults, setSearchResults] = useState({});
+  const { serviceSearchResults } = useSelector((state) => state);
 
   return (
     <>
@@ -11,10 +12,10 @@ const SearchSelfCareView = () => {
         <title>Search for Self Care services</title>
       </Helmet>
       <h3 data-cy="header-subtitle">Search for services</h3>
-      <ServiceSearch setSearchResults={setSearchResults} />
+      <ServiceSearch />
       <div data-cy="search-results">
-        {searchResults.services &&
-          searchResults.services.map((result) => (
+        {serviceSearchResults.services &&
+          serviceSearchResults.services.map((result) => (
             <div key={result.id}>
               <h4>{result.name}</h4>
               <p>{result.description}</p>

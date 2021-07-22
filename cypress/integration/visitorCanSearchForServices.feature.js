@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 describe("Visitor can search for local services", () => {
-  describe("by entering a valid serch term", () => {
+  describe.only("by entering a valid serch term", () => {
     before(() => {
       cy.intercept("**/api/search**", {
         fixture: "search_results_football.json",

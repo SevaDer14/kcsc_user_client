@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Button,
   Box,
@@ -9,12 +10,13 @@ import {
 import SearchIcon from "@material-ui/icons/Search";
 import Search from "../modules/Search";
 
-const ServiceSearch = ({ setSearchResults }) => {
+const ServiceSearch = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const dispatch = useDispatch();
 
   const performSearch = async () => {
     const response = await Search.create(searchQuery);
-    setSearchResults(response.data);
+    dispatch({ type: "SET_SEARCH_RESULTS", payload: response.data });
   };
 
   return (
