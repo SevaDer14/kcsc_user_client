@@ -14,16 +14,16 @@ const ApplicationFooter = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigationItems = [
-    { text: "Home", link: "/" },
-    { text: "About", link: "/about" },
-    { text: "Find a service", link: "/search" },
-    { text: "Contact", link: "/contact" },
-    { text: "News and Info", link: "/news_and_info" },
+    { key: "home", text: "Home", link: "/" },
+    { key: "about", text: "About", link: "/about" },
+    { key: "findService", text: "Find a service", link: "/search" },
+    { key: "contact", text: "Contact", link: "/contact" },
+    { key: "newsAndInfo", text: "News and Info", link: "/news_and_info" },
   ];
 
-  const navigationMenu = navigationItems.map((item) => (
-    <Link data-cy="link" to={item.link} style={navLink}>
-      {item.text}
+  const navigationMenu = navigationItems.map(({key, link, text}) => (
+    <Link data-cy="link" key={key} to={link} style={navLink}>
+      {text}
     </Link>
   ));
 
@@ -32,7 +32,7 @@ const ApplicationFooter = () => {
       data-cy="application-footer"
       style={mobile ? mobileFooter : footer}
     >
-      <Grid alignItems="center" justifyContent="center" container spacing={0}>
+      <Grid alignItems="center" container spacing={0}>
         <Grid
           data-cy="logo"
           item
@@ -68,7 +68,6 @@ const ApplicationFooter = () => {
           </Typography>
         </Grid>
         <Grid
-          alignItems="center"
           item
           xs={12}
           lg={3}
@@ -93,18 +92,16 @@ const ApplicationFooter = () => {
         <Grid
           data-cy="navigation"
           item
-          direction="column"
           xs={12}
           lg={3}
           style={mobile ? mobileGridItem : gridItem}
-          alignItems="center"
         >
           <Box style={navigation}>{navigationMenu}</Box>
         </Grid>
       </Grid>
       <Typography
         style={centerText}
-        data-cy="disclamers"
+        data-cy="disclaimers"
         variant="caption"
         component="p"
       >

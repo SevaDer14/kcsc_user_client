@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
-import SearchView from "./views/SearchView";
+import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
 
 const Routes = () => {
@@ -22,8 +22,8 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/search"
-          render={() => <App component={<SearchView />} />}
+          path="/services/search"
+          render={() => <App component={<ServiceSearchView />} />}
         />
         <Route
           exact
