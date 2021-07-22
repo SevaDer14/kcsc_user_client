@@ -8,11 +8,12 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useRouteMatch } from "react-router-dom";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
   const [activeTab, setActiveTab] = useState(0);
+  const landingPage = useRouteMatch("/home")
 
   const handleChange = (event, newValue) => {
     setActiveTab(newValue);
@@ -22,11 +23,13 @@ const ApplicationHeader = () => {
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar data-cy="application-header" elevation={0}>
         <Toolbar>
-          <Logo
-            data-cy="header-logo"
-            style={{ height: "30px", width: "auto" }}
-            alt="Community Health West London"
-          />
+          {!landingPage && (
+            <Logo
+              data-cy="header-logo"
+              style={styles.headerLogo}
+              alt="Community Health West London"
+            />
+          )}
           <Tabs
             value={activeTab}
             onChange={handleChange}
@@ -39,7 +42,7 @@ const ApplicationHeader = () => {
               data-cy="home-tab"
               label="Home"
               component={Link}
-              to="/"
+              to="/home"
             />
             <Tab
               style={styles.tabText}
@@ -66,8 +69,12 @@ export default ApplicationHeader;
 
 const styles = {
   navTabs: {
+    width: "100%"
+  },
+  headerLogo: {
     position: "absolute",
-    width: "100%",
+    height: "30px",
+    width: "auto"
   },
   tabText: {
     color: "#000",

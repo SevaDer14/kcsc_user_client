@@ -14,7 +14,7 @@ const ApplicationFooter = () => {
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const navigationItems = [
-    { text: "Home", link: "/" },
+    { text: "Home", link: "/home" },
     { text: "About", link: "/about" },
     { text: "Find a service", link: "/search" },
     { text: "Contact", link: "/contact" },

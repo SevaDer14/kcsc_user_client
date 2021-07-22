@@ -1,5 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
@@ -10,7 +15,19 @@ const Routes = () => {
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
-      <Route
+        <Route
+          exact
+          path="/"
+          render={() => {
+            return <Redirect to="/home" />;
+          }}
+        />
+        <Route
+          exact
+          path="/home"
+          render={() => <App component={<IndexView />} />}
+        />
+        <Route
           exact
           path="/services"
           render={() => <App component={<ServicesView />} />}
@@ -25,11 +42,6 @@ const Routes = () => {
           path="/search"
           render={() => <App component={<SearchView />} />}
         />
-        <Route
-          exact
-          path="/"
-          render={() => <App component={<IndexView />} />}
-        />        
       </Switch>
     </Router>
   );

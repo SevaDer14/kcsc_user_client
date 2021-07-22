@@ -2,12 +2,14 @@
 describe("visitor can navigate between views", () => {
   describe("Index View", () => {
     before(() => {
-      cy.visit("/");
+      cy.visit("/home");
     });
+
+    it("is expected not to show logo in the header", () => {
+      cy.get("[data-cy=header-logo]").should("not.exist");
+    });
+
     it("is expected to display logo and mission statement", () => {
-      cy.get("[data-cy=header-logo]")
-        .should("have.attr", "alt")
-        .should("equal", "Community Health West London");
       cy.get("[data-cy=mission-statement]").should(
         "contain.text",
         "Our aim is to improve people's health and well-being"
@@ -16,6 +18,7 @@ describe("visitor can navigate between views", () => {
         .should("have.attr", "alt")
         .should("equal", "Community Health West London");
     });
+
     it("is expected to display footer", () => {
       cy.get("[data-cy=application-footer]").within(() => {
         cy.get("[data-cy=logo]").should("be.visible");
@@ -49,6 +52,13 @@ describe("visitor can navigate between views", () => {
         cy.get("[data-cy=about-tab]").click();
       });
     });
+
+    it("is expected to show logo in the header", () => {
+      cy.get("[data-cy=header-logo]")
+        .should("have.attr", "alt")
+        .should("equal", "Community Health West London");
+    });
+
     it("is expected to display view subtitle", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "About us");
     });
@@ -58,6 +68,13 @@ describe("visitor can navigate between views", () => {
     before(() => {
       cy.visit("/search");
     });
+
+    it("is expected to show logo in the header", () => {
+      cy.get("[data-cy=header-logo]")
+        .should("have.attr", "alt")
+        .should("equal", "Community Health West London");
+    });
+
     it("is expected to display view subtitle", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
     });
@@ -72,6 +89,13 @@ describe("visitor can navigate between views", () => {
         cy.get("[data-cy=services-tab]").click();
       });
     });
+
+    it("is expected to show logo in the header", () => {
+      cy.get("[data-cy=header-logo]")
+        .should("have.attr", "alt")
+        .should("equal", "Community Health West London");
+    });
+
     it("is expected to display service page ", () => {
       cy.get("[data-cy=service-section]").should("have.length", 6);
       cy.get("[data-cy=service-section]")
@@ -104,16 +128,16 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe('navigate back to home page', () => {
+  describe("navigate back to home page", () => {
     before(() => {
       cy.visit("/search");
-    })
+    });
 
-    it('is expected to redirect to home page on tab click', () => {
+    it("is expected to redirect to home page on tab click", () => {
       cy.get("[data-cy=application-header]").within(() => {
         cy.get("[data-cy=home-tab]").click();
       });
-      cy.url().should("contain", "http://localhost:3001/")
+      cy.url().should("contain", "http://localhost:3001/");
     });
-  })  
+  });
 });
