@@ -38,7 +38,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
           cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
         });
-        cy.get("[data-cy=disclamers]").should(
+        cy.get("[data-cy=disclaimers]").should(
           "contain",
           "This site is built according to Web Content Accessibility Guidlines2020 All Rights Reserved by Community Health West London."
         );
@@ -66,7 +66,7 @@ describe("visitor can navigate between views", () => {
 
   describe("Search View", () => {
     before(() => {
-      cy.visit("/search");
+      cy.visit("/services/search");
     });
 
     it("is expected to show logo in the header", () => {
@@ -124,7 +124,7 @@ describe("visitor can navigate between views", () => {
           );
           cy.get("[data-cy=button_1]")
             .invoke("attr", "href")
-            .should("eq", "http://localhost:3001/search_self_care");
+            .should("eq", "http://localhost:3001/search");
         });
     });
   });

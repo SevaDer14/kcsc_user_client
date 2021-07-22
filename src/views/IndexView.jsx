@@ -1,7 +1,7 @@
 import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Grid, Box } from "@material-ui/core";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const IndexView = () => {
   return (
@@ -9,7 +9,7 @@ const IndexView = () => {
       <Helmet>
         <title>Community Health West London</title>
       </Helmet>
-      <Grid container justifyItems="center">
+      <Grid container >
         <Grid item xs={12} lg={6}>
           <Box component="div" style={styles.gridItem}>
             <img
