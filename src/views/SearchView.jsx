@@ -8,7 +8,7 @@ const SearchView = () => {
   const [searchResults, setSearchResults] = useState({});
   const performSearch = async () => {
     const response = await axios.get(`/api/search?q=${searchQuery}`, {
-      headers: { API_KEY: process.env.local.REACT_APP_API_KEY },
+      headers: { API_KEY: process.env.REACT_APP_API_KEY },
     });
     setSearchResults(response.data);
   };

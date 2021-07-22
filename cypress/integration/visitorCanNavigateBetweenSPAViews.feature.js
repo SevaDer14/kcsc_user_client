@@ -65,11 +65,11 @@ describe("visitor can navigate between views", () => {
 
   describe("Services View", () => {
     before(() => {
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=services-tab]").click();
-      });
       cy.intercept("GET", "**/api/services", {
         fixture: "services_view_section.json",
+      });
+      cy.get("[data-cy=application-header]").within(() => {
+        cy.get("[data-cy=services-tab]").click();
       });
     });
     it("is expected to display service page ", () => {
