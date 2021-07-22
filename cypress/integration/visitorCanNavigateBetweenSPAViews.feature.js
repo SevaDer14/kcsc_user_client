@@ -45,7 +45,9 @@ describe("visitor can navigate between views", () => {
 
   describe("About View", () => {
     before(() => {
-      cy.visit("/about");
+      cy.get("[data-cy=application-header]").within(() => {
+        cy.get("[data-cy=about-tab]").click();
+      });
     });
     it("is expected to display view subtitle", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "About us");
@@ -60,10 +62,15 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
     });
   });
+
   describe("Services View", () => {
     before(() => {
-      cy.visit("/services");
-      cy.intercept("GET", "**/api/services", { fixture: "services_view_section.json" });
+      cy.get("[data-cy=application-header]").within(() => {
+        cy.get("[data-cy=services-tab]").click();
+      });
+      cy.intercept("GET", "**/api/services", {
+        fixture: "services_view_section.json",
+      });
     });
     it("is expected to display service page ", () => {
       cy.get("[data-cy=service-section]").should("have.length", 6);
@@ -96,4 +103,19 @@ describe("visitor can navigate between views", () => {
         });
     });
   });
+
+  describe('navigate back to home page', () => {
+    before(() => {
+      cy.visit("/search");
+    })
+
+    it('is expected to redirect to home page on tab click', () => {
+      cy.get("[data-cy=application-header]").within(() => {
+        cy.get("[data-cy=home-tab]").click();
+      });
+      cy.url().should("contain", "http://localhost:3001/")
+    });
+  })
+
+  
 });
