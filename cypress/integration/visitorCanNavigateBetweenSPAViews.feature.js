@@ -131,14 +131,14 @@ describe("visitor can navigate between views", () => {
 
   describe("navigate back to home page", () => {
     before(() => {
-      cy.visit("/search");
+      cy.visit("/services/search");
     });
 
     it("is expected to redirect to home page on tab click", () => {
       cy.get("[data-cy=application-header]").within(() => {
         cy.get("[data-cy=home-tab]").click();
       });
-      cy.url().should("contain", "http://localhost:3001/");
+      cy.url().should("contain", "http://localhost:3001/home");
     });
   });
 });
