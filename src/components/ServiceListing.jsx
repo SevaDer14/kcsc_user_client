@@ -1,17 +1,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container } from "@material-ui/core";
-import SelfCareListItem from "./ServiceListItem";
+import { Container, Typography } from "@material-ui/core";
+import ServiceListItem from "./ServiceListItem";
 
 const ServiceListing = () => {
   const { serviceSearchResults } = useSelector((state) => state);
 
   return (
     <Container data-cy="search-results" maxWidth="md">
-      {serviceSearchResults.services &&
+      {serviceSearchResults.services ?
         serviceSearchResults.services.map((listing) => (
-          <SelfCareListItem listing={listing} />
-        ))}
+          <ServiceListItem key={listing.id} listing={listing} />
+        )) : <Typography>No results to display..</Typography>}
     </Container>
   );
 };
