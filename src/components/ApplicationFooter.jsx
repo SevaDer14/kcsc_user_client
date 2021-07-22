@@ -61,11 +61,18 @@ const ApplicationFooter = () => {
               : { ...gridItem, ...borderRight }
           }
         >
-          <Typography variant="body1" component="p" gutterBottom>
-            Community Health West London is a Community Interest Company made up
-            of six local charities. We are working together with the wider
-            community to improve the health and wellbeing of our residents.
-          </Typography>
+          <Box style={mobile ? hiddenScrollContainerMobile : hiddenScrollContainer}>
+            <Typography
+              variant="subtitle1"
+              component="p"
+              gutterBottom
+              style={hiddenScrollText}
+            >
+              Community Health West London is a Community Interest Company made
+              up of six local charities. We are working together with the wider
+              community to improve the health and wellbeing of our residents.
+            </Typography>
+          </Box>
         </Grid>
         <Grid
           item
@@ -79,7 +86,7 @@ const ApplicationFooter = () => {
         >
           <Typography
             data-cy="contacts"
-            variant="body1"
+            variant="subtitle1"
             component="p"
             gutterBottom
             style={mobile ? centerText : longWord}
@@ -141,6 +148,28 @@ const styles = {
     width: "100%",
     maxWidth: "400px",
   },
+  hiddenScrollContainer: {
+    width: "100%",
+    height: "100%",
+    overflow: "hidden",
+    position: "relative",
+  },
+  hiddenScrollContainerMobile: {
+    width: "100%",
+    height: "100%",
+    marginTop: "50px",
+    textAlign: "center",
+    overflow: "hidden",
+    position: "relative",
+  },
+  hiddenScrollText: {
+    position: "absolute",
+    top: "0",
+    left: "0",
+    bottom: "-40px",
+    right: "-20px",
+    overflow: "scroll",
+  },
   navigation: {
     display: "flex",
     flexDirection: "column",
@@ -172,6 +201,9 @@ const {
   mobileGridItem,
   gridItem,
   logo,
+  hiddenScrollContainer,
+  hiddenScrollContainerMobile,
+  hiddenScrollText,
   navigation,
   navLink,
   borderBottom,
