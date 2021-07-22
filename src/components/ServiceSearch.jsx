@@ -24,12 +24,12 @@ const ServiceSearch = ({ setSearchResults }) => {
           data-cy="search-query"
           onChange={(e) => setSearchQuery(e.target.value)}
           color="secondary"
-          placeholder="Search for a service..."
+          placeholder="Search for a community service..."
           aria-describedby="Search for self care services"
           style={styles.queryInput}
         />
         <FormHelperText style={styles.helperText}>
-          try searching for chess or dancing
+          Try searching for "befriending", "chess" or "sports".
         </FormHelperText>
       </FormControl>
       <Button
