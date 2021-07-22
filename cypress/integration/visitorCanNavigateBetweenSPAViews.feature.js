@@ -81,10 +81,11 @@ describe("visitor can navigate between views", () => {
   });
 
   describe("Services View", () => {
-    before(() => {
+    beforeEach(() => {
       cy.intercept("GET", "**/api/services", {
         fixture: "services_view_section.json",
       });
+      cy.visit("/");
       cy.get("[data-cy=application-header]").within(() => {
         cy.get("[data-cy=services-tab]").click();
       });
