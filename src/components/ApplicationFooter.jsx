@@ -166,7 +166,7 @@ const styles = {
     position: "absolute",
     top: "0",
     left: "0",
-    bottom: "-20px",
+    bottom: "-40px",
     right: "-20px",
     overflow: "scroll",
   },
