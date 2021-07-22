@@ -15,33 +15,28 @@ const ServicesView = () => {
     fetchPageData();
   }, []);
 
-  const sectionList = sections.map((section) => {
-    const { id, header, description, image, buttons } = section;
-    return (
-      <Grid item>
-        <Section
-          id={id}
-          header={header}
-          description={description}
-          image={image}
-          buttons={buttons}
-        />
-      </Grid>
-    );
-  });
+  const sectionList = sections.map(
+    ({ id, header, description, image, buttons }) => {
+      return (
+        <Grid item key={id}>
+          <Section
+            id={id}
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+          />
+        </Grid>
+      );
+    }
+  );
 
   return (
     <>
       <Helmet>
         <title>Self Care Services</title>
       </Helmet>
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="stretch"
-      >
+      <Grid container spacing={0} direction="column" alignItems="stretch">
         {sectionList}
       </Grid>
     </>
