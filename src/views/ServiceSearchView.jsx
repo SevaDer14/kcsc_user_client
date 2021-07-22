@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import ServiceSearch from "../components/searchSelfCareView/ServiceSearch";
+import ServiceSearch from "../components/ServiceSearch";
 
 const SearchSelfCareView = () => {
   const [searchResults, setSearchResults] = useState({});

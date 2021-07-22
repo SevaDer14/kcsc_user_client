@@ -7,7 +7,7 @@ import {
   OutlinedInput,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import Search from "../../modules/Search";
+import Search from "../modules/Search";
 
 const ServiceSearch = ({ setSearchResults }) => {
   const [searchQuery, setSearchQuery] = useState("");

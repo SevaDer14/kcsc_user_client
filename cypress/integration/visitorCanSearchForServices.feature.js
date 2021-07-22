@@ -5,7 +5,7 @@ describe("Visitor can search for local services", () => {
       cy.intercept("**/api/search**", {
         fixture: "search_results_football.json",
       });
-      cy.visit("/search");
+      cy.visit("/services/search");
       cy.get("[data-cy=search-query]").type("football");
       cy.get("[data-cy=search-submit]").click();
     });

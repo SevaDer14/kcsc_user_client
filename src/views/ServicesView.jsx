@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Helmet } from "react-helmet";
 import { Grid } from "@material-ui/core";
-import Section from "../components/servicesView/Section";
+import Section from "../components/Section";
 
 const ServicesView = () => {
   const [sections, setSections] = useState([]);
