@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Container, Typography } from "@material-ui/core";
+import { Typography } from "@material-ui/core";
 import ServiceListItem from "./ServiceListItem";
 
 const ServiceListing = () => {

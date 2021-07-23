@@ -14,14 +14,13 @@ const SearchSelfCareView = () => {
       <ServiceSearch />
       <Grid container>
         <Grid item xs={12} lg={6}>
-          <Box component="div" style={styles.gridItem}>
-            <Map />
-          </Box>
-        </Grid>
-
-        <Grid item xs={12} lg={6}>
           <Box component="div" style={styles.gridItem} data-cy="search-results">
             <ServiceListing />
+          </Box>
+        </Grid>
+        <Grid item xs={12} lg={6}>
+          <Box component="div" style={styles.gridItem}>
+            <Map />
           </Box>
         </Grid>
       </Grid>
@@ -35,7 +34,7 @@ const styles = {
   gridItem: {
     height: "80vh",
     display: "flex",
-    flexDirection: "column",  
+    flexDirection: "column",
     padding: "10px",
   },
 };

@@ -74,10 +74,6 @@ describe("visitor can navigate between views", () => {
         .should("have.attr", "alt")
         .should("equal", "Community Health West London");
     });
-
-    it("is expected to display view subtitle", () => {
-      cy.get("[data-cy=header-subtitle]").should("contain.text", "Search");
-    });
   });
 
   describe("Services View", () => {

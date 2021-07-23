@@ -42,7 +42,14 @@ const Map = () => {
       >
         {serviceSearchResults.services &&
           serviceSearchResults.services.map((service) => (
-            <MapMarker service={service} />
+            <MapMarker
+              key={
+                service.name +
+                service.coords.latitude +
+                service.coords.longitude
+              }
+              service={service}
+            />
           ))}
       </GoogleMap>
     )
