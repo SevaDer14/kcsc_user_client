@@ -14,7 +14,7 @@ const Map = () => {
 
   const containerStyle = {
     width: "100%",
-    height: "900px",
+    height: "100%",
   };
 
   const defaultMapOptions = {
