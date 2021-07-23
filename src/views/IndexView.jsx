@@ -5,7 +5,7 @@ import ScreenSplit from "../components/ScreenSplit";
 
 const IndexView = () => {
 
-  const mainLogo = () => (
+  const mainLogo = (
     <>
       <img
         src={LogoCHWL}

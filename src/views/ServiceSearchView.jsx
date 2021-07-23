@@ -12,7 +12,7 @@ const SearchSelfCareView = () => {
         <title>Search for Self Care services</title>
       </Helmet>
       <ServiceSearch />
-      <ScreenSplit left={() => <ServiceListing />} right={() => <Map />} />
+      <ScreenSplit left={<ServiceListing />} right={<Map />} />
     </>
   );
 };

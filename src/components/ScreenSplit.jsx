@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Box } from "@material-ui/core";
 
-const ScreenSplit = ({ left=[], right=[], centered = false }) => {
+const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
   let styleGridItem = {
     height: "80vh",
     display: "flex",
@@ -10,7 +10,6 @@ const ScreenSplit = ({ left=[], right=[], centered = false }) => {
   }
 
   if (centered) {
-    debugger
     styleGridItem = {
       ...styleGridItem,
       justifyContent: "center",
