@@ -46,7 +46,7 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe.only("About View", () => {
+  describe("About View", () => {
     beforeEach(() => {
       cy.intercept("GET", "**/api/sections**", {
         fixture: "about_us_view_sections.json",
@@ -64,8 +64,8 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to display background and setup section", () => {
-      cy.get("[data-cy=about-us-section]").should("have.length", 1);
-      cy.get("[data-cy=about-us-section]")
+      cy.get("[data-cy=page-section]").should("have.length", 1);
+      cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
           cy.get("[data-cy=header]").should("contain.text", "Background and Set-up");
@@ -112,8 +112,8 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to display service page ", () => {
-      cy.get("[data-cy=service-section]").should("have.length", 6);
-      cy.get("[data-cy=service-section]")
+      cy.get("[data-cy=page-section]").should("have.length", 6);
+      cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
           cy.get("[data-cy=header]").should("contain.text", "Find a service");
@@ -123,7 +123,7 @@ describe("visitor can navigate between views", () => {
           );
           cy.get("[data-cy=image]").should("be.visible");
         });
-      cy.get("[data-cy=service-section]")
+      cy.get("[data-cy=page-section]")
         .eq(1)
         .within(() => {
           cy.get("[data-cy=header]").should("contain.text", "KCSC Self Care");

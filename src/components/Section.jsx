@@ -20,7 +20,7 @@ const Section = ({ header, description, image, buttons }) => {
       container
       alignItems="center"
       direction="row"
-      data-cy="service-section"
+      data-cy="page-section"
     >
       <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
         <img style={styles.image} src={image.url} alt={image.alt} />
