@@ -1,6 +1,6 @@
 const initialState = {
   services: [],
-  serviceSearchResults: {}
+  serviceSearchResults: {},
 }
 
 export default initialState
