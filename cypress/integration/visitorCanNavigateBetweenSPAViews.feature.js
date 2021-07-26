@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
-  describe("Index View", () => {
+  describe.only("Index View", () => {
     before(() => {
       cy.visit("/home");
     });

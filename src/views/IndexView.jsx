@@ -2,6 +2,7 @@ import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Helmet } from "react-helmet-async";
 import ScreenSplit from "../components/ScreenSplit";
+import TestimonialSlider from '../components/TestimonialSlider'
 
 const IndexView = () => {
 
@@ -24,7 +25,7 @@ const IndexView = () => {
       <Helmet>
         <title>Community Health West London</title>
       </Helmet>
-      <ScreenSplit left={mainLogo} centered={true}/>
+      <ScreenSplit left={mainLogo} right={<TestimonialSlider />} centered={true}/>
     </>
   );
 };
