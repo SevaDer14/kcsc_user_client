@@ -41,7 +41,7 @@
       "description": "This section tells vistor about VCS",
       "image": {
         "url": "https://images.squarespace-cdn.com/content/v1/5aa96c579772aea9adaa2ef7/1608213927182-U8CQ7HICVAFDYKJZ7W8A/HealthySelfCareIdeas_1220.jpg",
-        "alt": "Picture of a happy woman"
+        "alt": "Picture of happy woman"
       },
       "buttons": [
         {
@@ -50,7 +50,7 @@
           "link": "https://www.kcsc.org.uk/contact-us"
         },
         {
-          "id": 1,
+          "id": 2,
           "text": "KCSC Website",
           "link": "https://www.kcsc.org.uk"
         }
