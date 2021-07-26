@@ -2,6 +2,7 @@
   "sections": [
     {
       "id": 1,
+      "variant": "regular",
       "header": "Find a service",
       "description": "On this page, you can find all available services in your area.",
       "image": {
@@ -12,6 +13,7 @@
     },
     {
       "id": 2,
+      "variant": "regular",
       "header": "KCSC Self Care",
       "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
       "image": {
@@ -28,6 +30,7 @@
     },
     {
       "id": 3,
+      "variant": "regular",
       "header": "KCSC CLW",
       "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
       "image": {
@@ -44,6 +47,7 @@
     },
     {
       "id": 4,
+      "variant": "regular",
       "header": "KCSC N Ken SC",
       "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
       "image": {
@@ -60,6 +64,7 @@
     },
     {
       "id": 5,
+      "variant": "regular",
       "header": "Link workers",
       "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
       "image": {
@@ -76,6 +81,7 @@
     },
     {
       "id": 6,
+      "variant": "regular",
       "header": "Other VCS lg contracts",
       "description": "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire.",
       "image": {

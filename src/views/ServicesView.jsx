@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import { Helmet } from "react-helmet-async";
 import { Grid } from "@material-ui/core";
 import Section from "../components/Section";
+import Sections from "../modules/Sections";
 
 const ServicesView = () => {
   const [sections, setSections] = useState([]);
 
   useEffect(() => {
     const fetchPageData = async () => {
-      let response = await axios.get("/services");
-      setSections(response.data.sections);
+      let response = await Sections.read("services")
+      setSections(response);
     };
     fetchPageData();
   }, []);
