@@ -8,8 +8,8 @@ const ServiceListing = () => {
 
   return (
     <div data-cy="search-results">
-      {serviceSearchResults ?
-        serviceSearchResults.map((listing) => (
+      {serviceSearchResults.services ?
+        serviceSearchResults.services.map((listing) => (
           <ServiceListItem key={listing.id} listing={listing} />
         )) : <Typography>No results to display..</Typography>}
     </div>

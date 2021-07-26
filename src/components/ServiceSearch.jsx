@@ -13,17 +13,23 @@ import { Redirect, useRouteMatch } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const ServiceSearch = () => {
-  const query = useSelector((state) => state.query);
-  const [searchQuery, setSearchQuery] = useState("");
+  const searchQuery = useSelector((state) => state.query);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
+
+  const setSearchQuery = (query) => {
+    dispatch({
+      type: "SET_SEARCH_QUERY",
+      payload: query,
+    });
+  }
 
   const performSearch = async () => {
     const response = await Search.create(searchQuery);
     dispatch({
       type: "SET_SEARCH_RESULTS",
-      payload: { ...response.data, query: searchQuery },
+      payload: response.data ,
     });
     if (route) {
       setRedirect(true);
@@ -39,7 +45,8 @@ const ServiceSearch = () => {
             data-cy="search-query"
             onChange={(e) => setSearchQuery(e.target.value)}
             color="secondary"
-            placeholder={query ? query : "Search for a community service..."}
+            value={searchQuery}
+            placeholder={"Search for a community service..."}
             aria-describedby="Search for self care services"
             style={styles.queryInput}
           />
