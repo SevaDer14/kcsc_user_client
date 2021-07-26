@@ -46,8 +46,12 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe("About View", () => {
-    before(() => {
+  describe.only("About View", () => {
+    beforeEach(() => {
+      cy.intercept("GET", "**/api/sections**", {
+        fixture: "about_us_view_sections.json",
+      });
+      cy.visit("/");
       cy.get("[data-cy=application-header]").within(() => {
         cy.get("[data-cy=about-tab]").click();
       });
@@ -59,8 +63,18 @@ describe("visitor can navigate between views", () => {
         .should("equal", "Community Health West London");
     });
 
-    it("is expected to display view subtitle", () => {
-      cy.get("[data-cy=header-subtitle]").should("contain.text", "About us");
+    it("is expected to display background and setup section", () => {
+      cy.get("[data-cy=about-us-section]").should("have.length", 1);
+      cy.get("[data-cy=about-us-section]")
+        .first()
+        .within(() => {
+          cy.get("[data-cy=header]").should("contain.text", "Background and Set-up");
+          cy.get("[data-cy=description]").should(
+            "contain.text",
+            "This section tells vistor about Community Health West London background and setup"
+          );
+          cy.get("[data-cy=image]").should("be.visible");
+        });
     });
   });
 

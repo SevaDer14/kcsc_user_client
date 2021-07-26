@@ -1,13 +1,45 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+import Sections from "../modules/Sections";
+import { Grid } from "@material-ui/core";
+import Section from "../components/Section";
 
 const AboutView = () => {
+  const [sections, setSections] = useState([]);
+
+  useEffect(() => {
+    const fetchPageData = async () => {
+      let response = await Sections.read("about_us");
+      setSections(response);
+    };
+    fetchPageData();
+  }, []);
+
+  const sectionList = sections.map(
+    ({ id, variant, header, description, image, buttons }) => {
+      return (
+        <Grid item key={id}>
+          <Section
+            id={id}
+            variant={variant}
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+          />
+        </Grid>
+      );
+    }
+  );
+
   return (
     <>
       <Helmet>
         <title>About: Community Health West London</title>
       </Helmet>
-      <h3 data-cy="header-subtitle">About us</h3>
+      <Grid container spacing={0} direction="column" alignItems="stretch">
+        {sectionList}
+      </Grid>
     </>
   );
 };
