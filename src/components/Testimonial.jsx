@@ -23,7 +23,7 @@ const Testimonial = ({ slider, data }) => {
           <CardMedia
           data-cy="photo"
             component="img"
-            alt={data.name}
+            alt={data.alt}
             height="360px"
             image={data.photo}
             title={data.name}

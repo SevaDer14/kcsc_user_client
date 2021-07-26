@@ -22,18 +22,30 @@ describe("visitor can navigate between views", () => {
         .should("equal", "Community Health West London");
     });
 
-    it('is expected to show testimonials', () => {
+    it("is expected to show testimonials", () => {
       cy.get("[data-cy=testimonial]").within(() => {
-        cy.get("[data-cy=photo]").should("be.visible")
-        cy.get("[data-cy=name]").should("contain.text", "Maggie Black")
-        cy.get("[data-cy=text]").should("contain.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit")
-      })
-      cy.wait(6500)
+        cy.get("[data-cy=photo]")
+          .should("be.visible")
+          .should("have.attr", "alt")
+          .should("equal", "Maggie Black smiling to the camera");
+        cy.get("[data-cy=name]").should("contain.text", "Maggie Black");
+        cy.get("[data-cy=text]").should(
+          "contain.text",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        );
+      });
+      cy.wait(7000);
       cy.get("[data-cy=testimonial]").within(() => {
-        cy.get("[data-cy=photo]").should("be.visible")
-        cy.get("[data-cy=name]").should("contain.text", "Richard Erricson")
-        cy.get("[data-cy=text]").should("contain.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit")
-      })
+        cy.get("[data-cy=photo]")
+          .should("be.visible")
+          .should("have.attr", "alt")
+          .should("equal", "Richard Erricson smiling to the camera");
+        cy.get("[data-cy=name]").should("contain.text", "Richard Erricson");
+        cy.get("[data-cy=text]").should(
+          "contain.text",
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        );
+      });
     });
 
     it("is expected to display footer", () => {
@@ -85,7 +97,10 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
-          cy.get("[data-cy=header]").should("contain.text", "Background and Set-up");
+          cy.get("[data-cy=header]").should(
+            "contain.text",
+            "Background and Set-up"
+          );
           cy.get("[data-cy=description]").should(
             "contain.text",
             "This section tells vistor about Community Health West London background and setup"
