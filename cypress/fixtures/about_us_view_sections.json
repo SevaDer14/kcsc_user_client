@@ -10,6 +10,51 @@
         "alt": "People walk across the field holding each other"
       },
       "buttons": []
+    },
+    {
+      "id": 2,
+      "variant": "no_image",
+      "header": "Plans",
+      "description": "This section tells vistor Community Health West London plans to improve lives of people"
+    },
+    {
+      "id": 3,
+      "variant": "regular",
+      "header": "Work with us",
+      "description": "This section tells vistor how beneficial it is to work with Community Health West London",
+      "image": {
+        "url": "https://www.incimages.com/uploaded_files/image/1920x1080/getty_666823506_385332.jpg",
+        "alt": "Buisness man and woman are about to shake hands"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "Contact us",
+          "link": "http://localhost:3001/contact"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "variant": "regular",
+      "header": "VCS info",
+      "description": "This section tells vistor about VCS",
+      "image": {
+        "url": "https://images.squarespace-cdn.com/content/v1/5aa96c579772aea9adaa2ef7/1608213927182-U8CQ7HICVAFDYKJZ7W8A/HealthySelfCareIdeas_1220.jpg",
+        "alt": "Picture of a happy woman"
+      },
+      "buttons": [
+        {
+          "id": 1,
+          "text": "KCSC Contact",
+          "link": "https://www.kcsc.org.uk/contact-us"
+        },
+        {
+          "id": 1,
+          "text": "KCSC Website",
+          "link": "https://www.kcsc.org.uk"
+        }
+      ]
     }
   ]
 }
