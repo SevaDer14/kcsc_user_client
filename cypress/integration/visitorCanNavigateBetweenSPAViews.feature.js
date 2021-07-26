@@ -96,7 +96,7 @@ describe("visitor can navigate between views", () => {
 
   describe("Services View", () => {
     beforeEach(() => {
-      cy.intercept("GET", "**/api/services", {
+      cy.intercept("GET", "**/api/sections**", {
         fixture: "services_view_section.json",
       });
       cy.visit("/");
