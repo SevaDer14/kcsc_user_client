@@ -55,6 +55,7 @@ const styles = {
     display: "flex",
     flexDirection: "row",
     justifyContent: "center",
+    padding: "25px 0"
   },
   queryInput: {
     borderRadius: "36px 0 0 36px",
