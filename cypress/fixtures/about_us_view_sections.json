@@ -1,0 +1,15 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "variant": "regular",
+      "header": "Background and Set-up",
+      "description": "This section tells vistor about Community Health West London background and setup",
+      "image": {
+        "url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqLT-VZvroTicDcz7wqtwKrUy75Lb9-v9LzQ&usqp=CAU",
+        "alt": "People walk across the field holding each other"
+      },
+      "buttons": []
+    }
+  ]
+}
