@@ -19,8 +19,9 @@ const Testimonial = ({ slider, data }) => {
         transition={{ duration: 1 }}
         style={styles.card}
       >
-        <Card>
+        <Card data-cy="testimonial">
           <CardMedia
+          data-cy="photo"
             component="img"
             alt={data.name}
             height="360px"
@@ -28,10 +29,10 @@ const Testimonial = ({ slider, data }) => {
             title={data.name}
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography data-cy="name" gutterBottom variant="h5" component="h2">
               {data.name}
             </Typography>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography data-cy="text" variant="body2" color="textSecondary" component="p">
               {data.text}
             </Typography>
           </CardContent>

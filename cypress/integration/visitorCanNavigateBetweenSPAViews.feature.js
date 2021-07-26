@@ -1,7 +1,10 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
-  describe.only("Index View", () => {
-    before(() => {
+  describe("Index View", () => {
+    beforeEach(() => {
+      cy.intercept("GET", "**/api/app_data**", {
+        fixture: "testimonials.json",
+      });
       cy.visit("/home");
     });
 
@@ -17,6 +20,20 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=logo]")
         .should("have.attr", "alt")
         .should("equal", "Community Health West London");
+    });
+
+    it('is expected to show testimonials', () => {
+      cy.get("[data-cy=testimonial]").within(() => {
+        cy.get("[data-cy=photo]").should("be.visible")
+        cy.get("[data-cy=name]").should("contain.text", "Maggie Black")
+        cy.get("[data-cy=text]").should("contain.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit")
+      })
+      cy.wait(6500)
+      cy.get("[data-cy=testimonial]").within(() => {
+        cy.get("[data-cy=photo]").should("be.visible")
+        cy.get("[data-cy=name]").should("contain.text", "Richard Erricson")
+        cy.get("[data-cy=text]").should("contain.text", "Lorem ipsum dolor sit amet, consectetur adipiscing elit")
+      })
     });
 
     it("is expected to display footer", () => {
@@ -140,7 +157,10 @@ describe("visitor can navigate between views", () => {
   });
 
   describe("navigate back to home page", () => {
-    before(() => {
+    beforeEach(() => {
+      cy.intercept("GET", "**/api/testimonials**", {
+        fixture: "testimonials.json",
+      });
       cy.visit("/services/search");
     });
 
