@@ -1,56 +1,43 @@
 import React from "react";
 import SectionRegular from "./SectionRegular";
 import SectionNoImage from "./SectionNoImage";
-import SectionCarusel from "./SectionCarusel";
+import SectionCarousel from "./SectionCarousel";
 
-const SectionSelector = ({
-  variant,
-  header,
-  description,
-  image,
-  buttons,
-  cards
-}) => {
+const SectionSelector = (props) => {
   const selector = (variant) => {
     switch (variant) {
       case "regular":
         return (
           <SectionRegular
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
+            header={props.header}
+            description={props.description}
+            image={props.image}
+            buttons={props.buttons}
           />
         );
       case "no_image":
         return (
           <SectionNoImage
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
+            header={props.header}
+            description={props.description}
           />
         );
-        case "carusel":      
-        return (
-          <SectionCarusel
-            header={header}
-            cards={cards}
-          />
-        );
+      case "carousel":
+        return <SectionCarousel header={props.header} cards={props.cards} />;
       default:
         return (
           <SectionRegular
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
+            header={props.header}
+            description={props.description}
+            image={props.image}
+            buttons={props.buttons}
           />
         );
     }
   };
 
-  return <>{selector(variant)}</>;
+  return (
+  <>{selector(props.variant)}</>);
 };
 
 export default SectionSelector;

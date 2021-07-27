@@ -78,7 +78,7 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe.only("About View", () => {
+  describe("About View", () => {
     beforeEach(() => {
       cy.intercept("GET", "**/api/sections**", {
         fixture: "about_us_view_sections.json",
