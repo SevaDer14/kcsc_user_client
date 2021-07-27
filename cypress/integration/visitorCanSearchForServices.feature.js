@@ -14,4 +14,19 @@ describe("Visitor can search for local services", () => {
       cy.get("[data-cy=search-results]").children().should("have.length", 2);
     });
   });
+
+  describe("from home page", () => {
+    beforeEach(() => {
+      cy.intercept("**/api/search**", {
+        fixture: "search_results_football.json",
+      });
+      cy.visit("/home");
+      cy.get("[data-cy=search-query]").type("football");
+      cy.get("[data-cy=search-submit]").click();
+    });
+
+    it("is expected to return results based on query", () => {
+      cy.get("[data-cy=search-results]").children().should("have.length", 2);
+    });
+  });
 });

@@ -4,9 +4,9 @@ import { Helmet } from "react-helmet-async";
 import ScreenSplit from "../components/ScreenSplit";
 import TestimonialSlider from "../components/TestimonialSlider";
 import AppData from "../modules/AppData";
+import ServiceSearch from "../components/ServiceSearch";
 
 const IndexView = () => {
-
   useEffect(() => {
     AppData.read();
   }, []);
@@ -19,9 +19,11 @@ const IndexView = () => {
         style={styles.image}
         alt="Community Health West London"
       />
+
       <h3 data-cy="mission-statement" style={styles.statement}>
         Our aim is to improve people's health and well-being
       </h3>
+      <ServiceSearch />
     </>
   );
 
@@ -47,7 +49,7 @@ const styles = {
   },
   statement: {
     textAlign: "center",
-    fontSize: "36px",
+    fontSize: "28px",
     padding: "0 20px",
   },
 };

@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const Sections = {
-  async read(page) {
-    const response = await axios.get(`/sections?page=${page}`);
+  async read(view) {
+    const response = await axios.get(`/sections?view=${view}`);
     return response.data.sections;
   },
 };
