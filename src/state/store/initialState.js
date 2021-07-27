@@ -4,4 +4,4 @@ const initialState = {
   query: ""
 }
 
-export default initialState
+export default initialState;
