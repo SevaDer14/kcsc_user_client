@@ -1,6 +1,7 @@
 import React from "react";
 import SectionRegular from "./SectionRegular";
 import SectionNoImage from "./SectionNoImage";
+import SectionCarusel from "./SectionCarusel";
 
 const SectionSelector = ({
   variant,
@@ -8,6 +9,7 @@ const SectionSelector = ({
   description,
   image,
   buttons,
+  cards
 }) => {
   const selector = (variant) => {
     switch (variant) {
@@ -27,6 +29,13 @@ const SectionSelector = ({
             description={description}
             image={image}
             buttons={buttons}
+          />
+        );
+        case "carusel":      
+        return (
+          <SectionCarusel
+            header={header}
+            cards={cards}
           />
         );
       default:

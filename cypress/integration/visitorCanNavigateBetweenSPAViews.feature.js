@@ -78,7 +78,7 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe("About View", () => {
+  describe.only("About View", () => {
     beforeEach(() => {
       cy.intercept("GET", "**/api/sections**", {
         fixture: "about_us_view_sections.json",
@@ -96,7 +96,7 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to display background and setup section", () => {
-      cy.get("[data-cy=page-section]").should("have.length", 4);
+      cy.get("[data-cy=page-section]").should("have.length", 5);
       cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
