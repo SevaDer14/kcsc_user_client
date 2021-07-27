@@ -58,6 +58,13 @@ const ApplicationHeader = () => {
               component={Link}
               to="/about"
             />
+            <Tab
+              style={styles.tabText}
+              data-cy="contact-tab"
+              label="Contact"
+              component={Link}
+              to="/contact"
+            />
           </Tabs>
         </Toolbar>
       </AppBar>

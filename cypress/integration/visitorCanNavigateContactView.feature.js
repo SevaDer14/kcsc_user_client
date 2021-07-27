@@ -8,8 +8,8 @@ describe("Visitor can navigate contact view", () => {
     });
     it("navigates to the contact page", () => {
       cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=about-contact]").click();
-        cy.get("[data-cy=about-contact]").should("have.class", "Mui-selected");
+        cy.get("[data-cy=contact-tab]").click();
+        cy.get("[data-cy=contact-tab]").should("have.class", "Mui-selected");
       });
     });
   });

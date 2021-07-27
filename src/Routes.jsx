@@ -8,6 +8,7 @@ import {
 import App from "./components/App";
 import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
+import ContactView from "./views/ContactView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
 
@@ -36,6 +37,11 @@ const Routes = () => {
           exact
           path="/about"
           render={() => <App component={<AboutView />} />}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={() => <App component={<ContactView />} />}
         />
         <Route
           exact
