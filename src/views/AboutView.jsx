@@ -16,7 +16,7 @@ const AboutView = () => {
   }, []);
 
   const sectionList = sections.map(
-    ({ id, variant, header, description, image, buttons }) => {
+    ({ id, variant, header, description, image, buttons, cards }) => {
       return (
         <Grid item key={id}>
           <SectionSelector
@@ -26,6 +26,7 @@ const AboutView = () => {
             description={description}
             image={image}
             buttons={buttons}
+            cards={cards}
           />
         </Grid>
       );
