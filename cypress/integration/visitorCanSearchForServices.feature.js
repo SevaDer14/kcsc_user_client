@@ -1,5 +1,11 @@
 /* eslint-disable no-undef */
 describe("Visitor can search for local services", () => {
+  beforeEach(() => {
+    cy.intercept("GET", "**/api/app_data**", {
+      fixture: "testimonials.json",
+    });
+  });
+
   describe("by entering a valid serch term", () => {
     before(() => {
       cy.intercept("**/api/search**", {

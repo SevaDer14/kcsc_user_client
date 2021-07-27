@@ -1,10 +1,13 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
+  beforeEach(() => {
+    cy.intercept("GET", "**/api/app_data**", {
+      fixture: "testimonials.json",
+    });
+  });
+
   describe("Index View", () => {
     beforeEach(() => {
-      cy.intercept("GET", "**/api/app_data**", {
-        fixture: "testimonials.json",
-      });
       cy.visit("/home");
     });
 
@@ -173,9 +176,6 @@ describe("visitor can navigate between views", () => {
 
   describe("navigate back to home page", () => {
     beforeEach(() => {
-      cy.intercept("GET", "**/api/app_data**", {
-        fixture: "testimonials.json",
-      });
       cy.visit("/services/search");
     });
 
