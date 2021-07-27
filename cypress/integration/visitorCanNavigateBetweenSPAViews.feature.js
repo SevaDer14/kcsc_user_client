@@ -96,7 +96,7 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to display background and setup section", () => {
-      cy.get("[data-cy=page-section]").should("have.length", 1);
+      cy.get("[data-cy=page-section]").should("have.length", 4);
       cy.get("[data-cy=page-section]")
         .first()
         .within(() => {

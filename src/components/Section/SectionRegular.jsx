@@ -9,8 +9,9 @@ const Section = ({ header, description, image, buttons }) => {
       variant="contained"
       color="secondary"
       href={button.link}
+      style={styles.button}
     >
-      <Typography variant="button">{button.text}</Typography>
+      <Typography variant="button" style={styles.buttonText}>{button.text}</Typography>
     </Button>
   ));
 
@@ -60,4 +61,10 @@ const styles = {
   buttonContainer: {
     marginTop: "20px",
   },
+  button: {
+    marginRight: "10px"
+  },
+  buttonText: {
+    marginBottom: "-5px"
+  }
 };

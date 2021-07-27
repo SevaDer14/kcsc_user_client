@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Sections from "../modules/Sections";
 import { Grid } from "@material-ui/core";
-import Section from "../components/Section";
+import SectionSelector from "../components/Section/SectionSelector";
 
 const AboutView = () => {
   const [sections, setSections] = useState([]);
@@ -19,7 +19,7 @@ const AboutView = () => {
     ({ id, variant, header, description, image, buttons }) => {
       return (
         <Grid item key={id}>
-          <Section
+          <SectionSelector
             id={id}
             variant={variant}
             header={header}
