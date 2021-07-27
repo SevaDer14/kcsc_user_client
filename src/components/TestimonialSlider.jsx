@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 const TestimonialSlider = () => {
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
-  const testimonials = useSelector((state) => state.testimonials);
+  const testimonials = useSelector((state) => state.appData.testimonials);
   let slideShow = undefined;
 
   const sliderHandler = (number) => {
