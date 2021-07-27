@@ -32,16 +32,16 @@ const Routes = () => {
           exact
           path="/services"
           render={() => <App component={<ServicesView />} />}
+        />        
+        <Route
+          exact
+          path="/services/search"
+          render={() => <App component={<ServiceSearchView />} />}
         />
         <Route
           exact
           path="/about/us"
           render={() => <App component={<AboutView />} />}
-        />
-        <Route
-          exact
-          path="/services/search"
-          render={() => <App component={<ServiceSearchView />} />}
         />
         <Route
           exact
