@@ -8,7 +8,7 @@ import "swiper/components/navigation/navigation.min.css";
 import { Grid, Box } from "@material-ui/core";
 import CarouselCard from "./CarouselCard";
 
-const PersonsSection = ({ cards }) => {
+const SectionCarousel = ({ cards }) => {
   const isPhone = useMediaQuery("(max-width:620px)");
   const isTablet = useMediaQuery("(max-width:1280px)");
   const isBig = useMediaQuery("(max-width:1920px)");
@@ -48,7 +48,7 @@ const PersonsSection = ({ cards }) => {
   );
 };
 
-export default PersonsSection;
+export default SectionCarousel;
 
 const styles = {
   section: {
