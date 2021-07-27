@@ -14,10 +14,15 @@ import LanguageIcon from "@material-ui/icons/Language";
 
 const CarouselCard = ({ card }) => {
   return (
-    <Card data-cy="testimonial" elevation={0} variant="outlined" style={styles.card}>
+    <Card
+      data-cy="partner-card"
+      elevation={0}
+      variant="outlined"
+      style={styles.card}
+    >
       <Box style={styles.logoContainer}>
         <CardMedia
-          data-cy="photo"
+          data-cy="partner-logo"
           component="img"
           style={styles.logo}
           alt={card.alt}
@@ -47,6 +52,7 @@ const CarouselCard = ({ card }) => {
       <CardActions style={styles.buttonContainer}>
         {card.links.web && (
           <Button
+            data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
@@ -57,6 +63,7 @@ const CarouselCard = ({ card }) => {
         )}
         {card.links.facebook && (
           <Button
+            data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
@@ -67,6 +74,7 @@ const CarouselCard = ({ card }) => {
         )}
         {card.links.twitter && (
           <Button
+            data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
@@ -97,12 +105,12 @@ const styles = {
   buttonContainer: {
     alignSelf: "flex-end",
     position: "absolute",
-    bottom: "20px"
+    bottom: "20px",
   },
   logo: {
     margin: "auto",
     maxHeight: "90%",
     maxWidth: "90%",
-    objectFit: "contain"
+    objectFit: "contain",
   },
 };

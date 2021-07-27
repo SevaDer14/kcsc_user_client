@@ -111,6 +111,25 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=image]").should("be.visible");
         });
     });
+
+    it("is expected to display partners carousel", () => {
+      cy.get("[data-cy=partner-card]")
+        .first()
+        .within(() => {
+          cy.get("[data-cy=partner-logo]").should(
+            "exist"
+          );
+          cy.get("[data-cy=organization]").should(
+            "contain.text",
+            "SMART"
+          );
+          cy.get("[data-cy=description]").should(
+            "contain.text",
+            "Description of what this partner does"
+          );
+          cy.get("[data-cy=link]").should("have.length", 3);
+        });
+    });
   });
 
   describe("Search View", () => {
