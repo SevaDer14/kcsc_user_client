@@ -10,6 +10,7 @@ import IndexView from "./views/IndexView";
 import AboutView from "./views/AboutView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
+import AboutSelfCareView from "./views/AboutSelfCareView";
 
 const Routes = () => {
   return (
@@ -34,13 +35,18 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/about"
+          path="/about/us"
           render={() => <App component={<AboutView />} />}
         />
         <Route
           exact
           path="/services/search"
           render={() => <App component={<ServiceSearchView />} />}
+        />
+        <Route
+          exact
+          path="/about/self_care"
+          render={() => <App component={<AboutSelfCareView />} />}
         />
       </Switch>
     </Router>

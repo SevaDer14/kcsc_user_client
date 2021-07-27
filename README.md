@@ -8,7 +8,7 @@ Client Application for Community Health West London
 
 `/`: Landing page (`<IndexView.jsx />`)
 
-`/about`: About section? (`<AboutView.jsx />`)
+`/about/us`: About section? (`<AboutView.jsx />`)
 
 `/services`: Info page about community services (`<ServicesView.jsx />`)
 
