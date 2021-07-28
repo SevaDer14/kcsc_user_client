@@ -4,19 +4,19 @@ import Sections from "../modules/Sections";
 import { Grid } from "@material-ui/core";
 import SectionSelector from "../components/Section/SectionSelector";
 
-const AboutView = () => {
+const AboutSelfCareView = () => {
   const [sections, setSections] = useState([]);
 
   useEffect(() => {
     const fetchPageData = async () => {
-      let response = await Sections.read("about_us");
+      let response = await Sections.read("about_self_care");
       setSections(response);
     };
     fetchPageData();
   }, []);
 
   const sectionList = sections.map(
-    ({ id, variant, header, description, image, buttons, cards }) => {
+    ({ id, variant, header, description, image, buttons }) => {
       return (
         <Grid item key={id}>
           <SectionSelector
@@ -26,7 +26,6 @@ const AboutView = () => {
             description={description}
             image={image}
             buttons={buttons}
-            cards={cards}
           />
         </Grid>
       );
@@ -36,7 +35,7 @@ const AboutView = () => {
   return (
     <>
       <Helmet>
-        <title>About: Community Health West London</title>
+        <title>About: Self Care</title>
       </Helmet>
       <Grid container spacing={0} direction="column" alignItems="stretch">
         {sectionList}
@@ -45,4 +44,4 @@ const AboutView = () => {
   );
 };
 
-export default AboutView;
+export default AboutSelfCareView;

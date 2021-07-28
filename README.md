@@ -6,9 +6,13 @@ Client Application for Community Health West London
 
 #### Views & Routes
 
-`/`: Landing page (`<IndexView.jsx />`)
+`/`:  Redirects to Home page
 
-`/about`: About section? (`<AboutView.jsx />`)
+`/home`: Home page (`<IndexView.jsx />`)
+
+`/about/us`: About Us section (`<AboutUsView.jsx />`)
+
+`/about/self_care`: About Self Care section (`<AboutSelfCareView.jsx />`)
 
 `/services`: Info page about community services (`<ServicesView.jsx />`)
 
