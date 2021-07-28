@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Helmet } from "react-helmet-async";
 import ScreenSplit from "../components/ScreenSplit";

@@ -14,30 +14,35 @@ import AppData from "../modules/AppData";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
-  //const [activeTab, setActiveTab] = useState(0);
+  const [activeMainTab, setActiveMainTab] = useState(0);
+  const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
   const { main_tabs, secondary_tabs } = appData.navigation;
-  
+
   useEffect(() => {
     const fetchApplicationData = async () => {
       if (!appDataFetched) {
-        debugger;
         await AppData.read();
-      } else {
-        return;
       }
     };
     fetchApplicationData();
   }, [appDataFetched]);
 
-  const toKebabCase = (string) => (
-    string.replace(/\s+/g, "-").toLowerCase()
-  );
+  const handleChangeMain = (event, newValue) => {
+    setActiveMainTab(newValue);
+  };
 
-  const mainTabs = main_tabs.map((tab) => (
+  const handleChangeSecondary = (event, newValue) => {
+    setActiveSecondaryTab(newValue);
+  };
+
+  const toKebabCase = (string) => string.replace(/\s+/g, "-").toLowerCase();
+
+  const mainTabs = main_tabs.map((tab, index) => (
     <Tab
+      key={`main-tab-${index}`}
       style={styles.tabText}
       data-cy={`${toKebabCase(tab.label)}-tab`}
       label={tab.label}
@@ -51,8 +56,9 @@ const ApplicationHeader = () => {
     (tab) => tab.parent === parent
   );
 
-  const secondaryTabs = secondaryTabList.map((tab) => (
+  const secondaryTabs = secondaryTabList.map((tab, index) => (
     <Tab
+      key={`secondary-tab-${index}`}
       style={styles.secondaryTabText}
       data-cy={`${toKebabCase(tab.label)}-sub-tab`}
       label={tab.label}
@@ -74,9 +80,8 @@ const ApplicationHeader = () => {
               />
             )}
             <Tabs
-              //value={activeTab}
-              //onChange={handleChange}
-              indicatorColor="secondary"
+              value={activeMainTab}
+              onChange={handleChangeMain}
               style={styles.navTabs}
               centered
             >
@@ -85,9 +90,14 @@ const ApplicationHeader = () => {
           </Toolbar>
         </AppBar>
       </Slide>
-      {secondaryTabs.length != 0 && (
+      {secondaryTabs.length !== 0 && (
         <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
-          <Tabs style={styles.secondaryNavTabs} centered>
+          <Tabs
+            style={styles.secondaryNavTabs}
+            value={activeSecondaryTab}
+            onChange={handleChangeSecondary}
+            centered
+          >
             {secondaryTabs}
           </Tabs>
         </Toolbar>
