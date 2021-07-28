@@ -34,7 +34,6 @@ const AboutUsView = () => {
       <Helmet>
         <title>About: Community Health West London</title>
       </Helmet>
-      <SecondaryNavBar />
       <Grid container spacing={0} direction="column" alignItems="stretch">
         {sectionList}
       </Grid>

@@ -40,7 +40,7 @@ const SecondaryNavBar = () => {
 export default SecondaryNavBar;
 
 const styles = {
-  navBar: {
+  secondaryNavBar: {
     backgroundColor: "#eee",
     position: "absolute",
     borderTop: "1px solid #ccc",
@@ -49,10 +49,10 @@ const styles = {
     top: "64px",
     width: "100vw",
   },
-  navTabs: {
+  secondaryNavTabs: {
     width: "100%",
   },
-  tabText: {
+  secondaryTabText: {
     color: "#000",
     fontSize: "1rem",
     width: "50px",

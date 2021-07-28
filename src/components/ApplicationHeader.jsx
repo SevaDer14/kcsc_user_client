@@ -20,6 +20,7 @@ const ApplicationHeader = () => {
   };
 
   return (
+    <>
     <Slide appear={false} direction="down" in={!trigger}>
       <AppBar data-cy="application-header" elevation={0}>
         <Toolbar>
@@ -60,8 +61,30 @@ const ApplicationHeader = () => {
             />
           </Tabs>
         </Toolbar>
-      </AppBar>
+      </AppBar>   
     </Slide>
+    <Toolbar style={styles.secondaryNavBar}>
+      <Tabs
+        style={styles.secondaryNavTabs}
+        centered
+      >
+        <Tab
+          style={styles.secondaryTabText}
+          data-cy="about-us-tab"
+          label="About us"
+          component={Link}
+          to="/about/us"
+        />
+        <Tab
+          style={styles.secondaryTabText}
+          data-cy="about-self-care-tab"
+          label="About"
+          component={Link}
+          to="/about/self_care"
+        />
+      </Tabs>
+    </Toolbar>
+    </>
   );
 };
 
@@ -79,6 +102,23 @@ const styles = {
   tabText: {
     color: "#000",
     fontSize: "1.2rem",
+    width: "50px",
+  },
+  secondaryNavBar: {
+    backgroundColor: "#eee",
+    position: "absolute",
+    borderTop: "1px solid #ccc",
+    borderBottom: "1px solid #ccc",
+    left: "0",
+    top: "64px",
+    width: "100vw",
+  },
+  secondaryNavTabs: {
+    width: "100%",
+  },
+  secondaryTabText: {
+    color: "#000",
+    fontSize: "1rem",
     width: "50px",
   },
 };
