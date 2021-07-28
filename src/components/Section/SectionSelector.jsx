@@ -1,5 +1,4 @@
 import React from "react";
-import SectionRegularAlt from "./SectionRegularAlt";
 import SectionRegular from "./SectionRegular";
 import SectionNoImage from "./SectionNoImage";
 import SectionCarousel from "./SectionCarousel";

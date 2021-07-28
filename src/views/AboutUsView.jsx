@@ -16,17 +16,12 @@ const AboutUsView = () => {
   }, []);
 
   const sectionList = sections.map(
-    ({ id, variant, header, description, image, buttons, cards }) => {
+    (section) => {
       return (
-        <Grid item key={id}>
+        <Grid item key={section.id}>
           <SectionSelector
-            id={id}
-            variant={variant}
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
-            cards={cards}
+            id={section.id}
+            section={section}
           />
         </Grid>
       );

@@ -16,16 +16,12 @@ const AboutSelfCareView = () => {
   }, []);
 
   const sectionList = sections.map(
-    ({ id, variant, header, description, image, buttons }) => {
+    (section) => {
       return (
-        <Grid item key={id}>
+        <Grid item key={section.id}>
           <SectionSelector
-            id={id}
-            variant={variant}
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
+            id={section.id}
+            section={section}
           />
         </Grid>
       );
