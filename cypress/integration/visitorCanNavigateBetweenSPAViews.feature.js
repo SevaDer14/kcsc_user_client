@@ -161,7 +161,7 @@ describe("visitor can navigate between views", () => {
         .should("equal", "Community Health West London");
     });
 
-    it.only("is expected to display service page ", () => {
+    it("is expected to display service page ", () => {
       cy.get("[data-cy=page-section]").should("have.length", 6);
       cy.get("[data-cy=page-section]")
         .first()
@@ -171,7 +171,7 @@ describe("visitor can navigate between views", () => {
             "contain.text",
             "On this page, you can find all available services in your area"
           );
-          cy.get("[data-cy=image]").should("be.visible");
+          cy.get("[data-cy=image]").should("not.exist");
         });
       cy.get("[data-cy=page-section]")
         .eq(1)

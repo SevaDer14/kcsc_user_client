@@ -4,32 +4,19 @@ import SectionRegular from "./SectionRegular";
 import SectionNoImage from "./SectionNoImage";
 import SectionCarousel from "./SectionCarousel";
 
-const SectionSelector = (props) => {
-  const section = props.section;
-
+const SectionSelector = ({ section }) => {
   const selector = (variant) => {
     switch (variant) {
       case "regular":
-        if (section.id % 2 === 0) {
-          return (
-            <SectionRegular
-              header={section.header}
-              description={section.description}
-              image={section.image}
-              buttons={section.buttons}
-            />
-          );
-        } else {
-          return (
-            <SectionRegularAlt
-              header={section.header}
-              description={section.description}
-              image={section.image}
-              buttons={section.buttons}
-            />
-          );
-        }
-
+        return (
+          <SectionRegular
+            id={section.id}
+            header={section.header}
+            description={section.description}
+            image={section.image}
+            buttons={section.buttons}
+          />
+        );
       case "no_image":
         return (
           <SectionNoImage
