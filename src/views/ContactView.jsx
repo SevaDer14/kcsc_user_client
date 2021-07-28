@@ -6,14 +6,14 @@ import ScreenSplit from "../components/ScreenSplit";
 import ContactUs from "../components/ContactUs";
 
 const ContactView = () => {
-  const {contact} = useSelector((state) => state.appData);
+  const { contact } = useSelector((state) => state.appData);
 
   return (
     <>
       <Helmet>
         <title>Contact us</title>
       </Helmet>
-      <ScreenSplit left={<ContactUs data={contact}/>} />
+      <ScreenSplit left={<ContactUs data={contact} />} />
     </>
   );
 };

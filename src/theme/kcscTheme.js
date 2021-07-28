@@ -1,6 +1,6 @@
 import NexaLight from "../assets/fonts/Nexa-Light.woff2";
 import NexaBold from "../assets/fonts/Nexa-Bold.woff2";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createMuiTheme} from "@material-ui/core/styles";
 
 const nexaLight = {
   fontFamily: "Nexa",
@@ -44,7 +44,10 @@ const kcscTheme = createMuiTheme({
   typography: {
     fontFamily: "Nexa",
     body1: {
-      fontSize: 24,
+      fontSize: 18,
+    },
+    body2: {
+      fontSize: 16,
     },
     button: {
       fontSize: 24,
@@ -58,5 +61,7 @@ const kcscTheme = createMuiTheme({
     }
   }
 });
+
+
 
 export default kcscTheme

@@ -1,33 +1,80 @@
-import React from 'react'
-import { Typography } from '@material-ui/core'
+import React from "react";
+import { Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
+const ContactUs = ({ data }) => {
+  const classes = useStyles();
 
-
-const ContactUs = ({data}) => {
- 
   return (
-    <div data-cy="contact-us" style={styles.container}>
-    <Typography data-cy="contact-us-header" variant="h2" component="h2">
-      Contact Us
-    </Typography>
-    <Typography data-cy="contact-us-email" style={styles.subCat}>
-      Email: {data.email}
-    </Typography>
-    <Typography data-cy="contact-us-phone" style={styles.subCat}>
-      Phone: {data.phone}
-    </Typography>
-  </div>
-  )
-}
+    <div data-cy="contact-us" className={classes.container} style={styles.container}>
+      <Typography
+        data-cy="contact-us-header"
+        variant="h3"
+        component="h2"
+        className={classes.heading}
+      >
+        Contact Us
+      </Typography>
+      <Typography
+        data-cy="contact-us-email"
+        variant="body1"
+        component="p"
+        className={classes.text}
+      >
+        Email: {data ? data.email : `Sorry can't reach the server please try again later` }
+      </Typography>
+      <Typography
+        data-cy="contact-us-phone"
+        variant={"body1"}
+        component="p"
+        className={classes.text}
+      >
+        Phone: {data ? data.phone : `Sorry can't reach the server please try again later` }
+      </Typography>
+    </div>
+  );
+};
 
-export default ContactUs
+export default ContactUs;
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    [theme.breakpoints.up("xs")]: {
+      maxWidth: "600px",
+      marginTop: "10%",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "15%",
+      marginLeft: "20%",
+    },
+  },
+
+  heading: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "28px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "46px",
+    },
+  },
+
+  text: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "16px",
+      marginTop: "16px",
+      wordWrap: "break-word",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "18px",
+      marginTop: "18px",
+    },
+  },
+}));
+
 
 const styles = {
   container: {
-    marginTop: "15%",
-    marginLeft: "20%",
-  },
-  subCat: {
-    marginTop: "16px",
+    marginLeft: "12%",
+    marginRight: "12%",
   }
-};
+}
