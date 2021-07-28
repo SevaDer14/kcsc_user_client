@@ -1,6 +1,6 @@
 import NexaLight from "../assets/fonts/Nexa-Light.woff2";
 import NexaBold from "../assets/fonts/Nexa-Bold.woff2";
-import { createMuiTheme} from "@material-ui/core/styles";
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const nexaLight = {
   fontFamily: "Nexa",
@@ -55,13 +55,11 @@ const kcscTheme = createMuiTheme({
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
-        '@font-face': [nexaLight, nexaBold],
+      "@global": {
+        "@font-face": [nexaLight, nexaBold],
       },
-    }
-  }
+    },
+  },
 });
 
-
-
-export default kcscTheme
+export default kcscTheme;

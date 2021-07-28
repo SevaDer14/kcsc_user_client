@@ -1,41 +1,6 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
-const ContactUs = ({ data }) => {
-  const classes = useStyles();
-
-  return (
-    <div data-cy="contact-us" className={classes.container} style={styles.container}>
-      <Typography
-        data-cy="contact-us-header"
-        variant="h3"
-        component="h2"
-        className={classes.heading}
-      >
-        Contact Us
-      </Typography>
-      <Typography
-        data-cy="contact-us-email"
-        variant="body1"
-        component="p"
-        className={classes.text}
-      >
-        Email: {data ? data.email : `Sorry can't reach the server please try again later` }
-      </Typography>
-      <Typography
-        data-cy="contact-us-phone"
-        variant={"body1"}
-        component="p"
-        className={classes.text}
-      >
-        Phone: {data ? data.phone : `Sorry can't reach the server please try again later` }
-      </Typography>
-    </div>
-  );
-};
-
-export default ContactUs;
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -70,6 +35,43 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
+
+const ContactUs = ({ data }) => {
+  const classes = useStyles();
+
+  return (
+    <Box data-cy="contact-us" className={classes.container} style={styles.container}>
+      <Typography
+        data-cy="contact-us-header"
+        variant="h3"
+        component="h2"
+        className={classes.heading}
+      >
+        Contact Us
+      </Typography>
+      <Typography
+        data-cy="contact-us-email"
+        variant="body1"
+        component="p"
+        className={classes.text}
+      >
+        Email: {data ? data.email : `Sorry can't reach the server please try again later` }
+      </Typography>
+      <Typography
+        data-cy="contact-us-phone"
+        variant={"body1"}
+        component="p"
+        className={classes.text}
+      >
+        Phone: {data ? data.phone : `Sorry can't reach the server please try again later` }
+      </Typography>
+    </Box>
+  );
+};
+
+export default ContactUs;
+
+
 
 
 const styles = {
