@@ -40,7 +40,11 @@ const ContactUs = ({ data }) => {
   const classes = useStyles();
 
   return (
-    <Box data-cy="contact-us" className={classes.container} style={styles.container}>
+    <Box
+      data-cy="contact-us"
+      className={classes.container}
+      style={styles.container}
+    >
       <Typography
         data-cy="contact-us-header"
         variant="h3"
@@ -55,7 +59,10 @@ const ContactUs = ({ data }) => {
         component="p"
         className={classes.text}
       >
-        Email: {data ? data.email : `Sorry can't reach the server please try again later` }
+        Email:{" "}
+        {data
+          ? data.email
+          : `Sorry can't reach the server please try again later`}
       </Typography>
       <Typography
         data-cy="contact-us-phone"
@@ -63,7 +70,10 @@ const ContactUs = ({ data }) => {
         component="p"
         className={classes.text}
       >
-        Phone: {data ? data.phone : `Sorry can't reach the server please try again later` }
+        Phone:{" "}
+        {data
+          ? data.phone
+          : `Sorry can't reach the server please try again later`}
       </Typography>
     </Box>
   );
@@ -71,12 +81,9 @@ const ContactUs = ({ data }) => {
 
 export default ContactUs;
 
-
-
-
 const styles = {
   container: {
     marginLeft: "12%",
     marginRight: "12%",
-  }
-}
+  },
+};
