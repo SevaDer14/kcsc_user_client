@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
-import AboutView from "./views/AboutView";
+import AboutUsView from "./views/AboutUsView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
 import AboutSelfCareView from "./views/AboutSelfCareView";
@@ -41,7 +41,7 @@ const Routes = () => {
         <Route
           exact
           path="/about/us"
-          render={() => <App component={<AboutView />} />}
+          render={() => <App component={<AboutUsView />} />}
         />
         <Route
           exact

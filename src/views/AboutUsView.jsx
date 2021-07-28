@@ -4,7 +4,7 @@ import Sections from "../modules/Sections";
 import { Grid } from "@material-ui/core";
 import SectionSelector from "../components/Section/SectionSelector";
 
-const AboutView = () => {
+const AboutUsView = () => {
   const [sections, setSections] = useState([]);
 
   useEffect(() => {
@@ -44,4 +44,4 @@ const AboutView = () => {
   );
 };
 
-export default AboutView;
+export default AboutUsView;
