@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 import Sections from "../modules/Sections";
 import { Grid } from "@material-ui/core";
 import SectionSelector from "../components/Section/SectionSelector";
-import SecondaryNavBar from "../components/SecondaryNavBar";
 
 const AboutUsView = () => {
   const [sections, setSections] = useState([]);

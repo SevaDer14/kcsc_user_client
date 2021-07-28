@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReactComponent as Logo } from "../assets/LogoCHWLHorisontal.svg";
 import {
   AppBar,
@@ -10,37 +10,57 @@ import {
 } from "@material-ui/core";
 import { Link, useRouteMatch } from "react-router-dom";
 import { useSelector } from "react-redux";
+import AppData from "../modules/AppData";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
   //const [activeTab, setActiveTab] = useState(0);
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
-  const { navigation } = useSelector((state) => state.app_data);
+  const { appData, appDataFetched } = useSelector((state) => state);
+  const {main_tabs, secondary_tabs} = appData.navigation
+  useEffect(() => {
+    const fetchApplicationData = async () => {
+      if (!appDataFetched) {
+        debugger
+        await AppData.read();
+      } else { return }
+    };
+    fetchApplicationData();
+  }, [appDataFetched]);
 
-  const mainTabs = navigation.main_tabs.map((tab) => (
-    <Tab
-      style={styles.tabText}
-      data-cy={`${tab.label}-tab`}
-      label={tab.label}
-      component={Link}
-      to={tab.link}
-      onClick={setParent(`${tab.label}`)}
-    />
-  ));
+  const toKebabCase = (string) => {
+    return string.replace(/\s+/g, '-').toLowerCase();
+  }
 
-  const secondaryTabs = navigation.secondary_tabs.map((tab) => {
-    {
-      tab.parent === parent && (
-        <Tab
-          style={styles.secondaryTabText}
-          data-cy={`${tab.label}-tab`}
-          label={tab.label}
-          component={Link}
-          to={tab.link}
-        />
-      );
-    }
+  const mainTabs = main_tabs.map((tab) => {
+    return (
+      <Tab
+        style={styles.tabText}
+        data-cy={`${toKebabCase(tab.label)}-tab`}
+        label={tab.label}
+        component={Link}
+        to={tab.link}
+        onClick={() => setParent(`${tab.label}`)}
+      />
+    );
+  });
+
+  const secondaryTabList = secondary_tabs.filter(
+    (tab) => tab.parent === parent
+  );
+  
+  const secondaryTabs = secondaryTabList.map((tab) => {
+    debugger;
+    return (
+      <Tab
+        style={styles.secondaryTabText}
+        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+        label={tab.label}
+        component={Link}
+        to={tab.link}
+      />
+    );
   });
 
   return (
@@ -67,8 +87,8 @@ const ApplicationHeader = () => {
           </Toolbar>
         </AppBar>
       </Slide>
-      {secondaryTabs && (
-        <Toolbar style={styles.secondaryNavBar}>
+      {secondaryTabs.length != 0 && (
+        <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
           <Tabs style={styles.secondaryNavTabs} centered>
             {secondaryTabs}
           </Tabs>

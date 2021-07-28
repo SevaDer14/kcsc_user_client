@@ -10,7 +10,7 @@ Client Application for Community Health West London
 
 `/home`: Home page (`<IndexView.jsx />`)
 
-`/about/us`: About Us section (`<AboutUsView.jsx />`)
+`/about/organization`: About Us section (`<AboutUsView.jsx />`)
 
 `/about/self_care`: About Self Care section (`<AboutSelfCareView.jsx />`)
 
