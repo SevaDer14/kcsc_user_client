@@ -9,81 +9,71 @@ import {
   Tab,
 } from "@material-ui/core";
 import { Link, useRouteMatch } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
-  const [activeTab, setActiveTab] = useState(0);
-  const landingPage = useRouteMatch("/home")
+  //const [activeTab, setActiveTab] = useState(0);
+  const [parent, setParent] = useState("/home");
+  const landingPage = useRouteMatch("/home");
+  const { navigation } = useSelector((state) => state.app_data);
 
-  const handleChange = (event, newValue) => {
-    setActiveTab(newValue);
-  };
+  const mainTabs = navigation.main_tabs.map((tab) => (
+    <Tab
+      style={styles.tabText}
+      data-cy={`${tab.label}-tab`}
+      label={tab.label}
+      component={Link}
+      to={tab.link}
+      onClick={setParent(`${tab.label}`)}
+    />
+  ));
+
+  const secondaryTabs = navigation.secondary_tabs.map((tab) => {
+    {
+      tab.parent === parent && (
+        <Tab
+          style={styles.secondaryTabText}
+          data-cy={`${tab.label}-tab`}
+          label={tab.label}
+          component={Link}
+          to={tab.link}
+        />
+      );
+    }
+  });
 
   return (
     <>
-    <Slide appear={false} direction="down" in={!trigger}>
-      <AppBar data-cy="application-header" elevation={0}>
-        <Toolbar>
-          {!landingPage && (
-            <Logo
-              data-cy="header-logo"
-              style={styles.headerLogo}
-              alt="Community Health West London"
-            />
-          )}
-          <Tabs
-            value={activeTab}
-            onChange={handleChange}
-            indicatorColor="secondary"
-            style={styles.navTabs}
-            centered
-          >
-            <Tab
-              style={styles.tabText}
-              data-cy="home-tab"
-              label="Home"
-              component={Link}
-              to="/home"
-            />
-            <Tab
-              style={styles.tabText}
-              data-cy="services-tab"
-              label="Services"
-              component={Link}
-              to="/services"
-            />
-            <Tab
-              style={styles.tabText}
-              data-cy="about-tab"
-              label="About"
-              component={Link}
-              to="/about/us"
-            />
+      <Slide appear={false} direction="down" in={!trigger}>
+        <AppBar data-cy="application-header" elevation={0}>
+          <Toolbar>
+            {!landingPage && (
+              <Logo
+                data-cy="header-logo"
+                style={styles.headerLogo}
+                alt="Community Health West London"
+              />
+            )}
+            <Tabs
+              //value={activeTab}
+              //onChange={handleChange}
+              indicatorColor="secondary"
+              style={styles.navTabs}
+              centered
+            >
+              {mainTabs}
+            </Tabs>
+          </Toolbar>
+        </AppBar>
+      </Slide>
+      {secondaryTabs && (
+        <Toolbar style={styles.secondaryNavBar}>
+          <Tabs style={styles.secondaryNavTabs} centered>
+            {secondaryTabs}
           </Tabs>
         </Toolbar>
-      </AppBar>   
-    </Slide>
-    <Toolbar style={styles.secondaryNavBar}>
-      <Tabs
-        style={styles.secondaryNavTabs}
-        centered
-      >
-        <Tab
-          style={styles.secondaryTabText}
-          data-cy="about-us-tab"
-          label="About us"
-          component={Link}
-          to="/about/us"
-        />
-        <Tab
-          style={styles.secondaryTabText}
-          data-cy="about-self-care-tab"
-          label="About"
-          component={Link}
-          to="/about/self_care"
-        />
-      </Tabs>
-    </Toolbar>
+      )}
     </>
   );
 };
@@ -92,12 +82,12 @@ export default ApplicationHeader;
 
 const styles = {
   navTabs: {
-    width: "100%"
+    width: "100%",
   },
   headerLogo: {
     position: "absolute",
     height: "30px",
-    width: "auto"
+    width: "auto",
   },
   tabText: {
     color: "#000",

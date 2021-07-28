@@ -1,7 +1,7 @@
 describe("visitor can see About Self Care view", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/api/app_data**", {
-      fixture: "testimonials.json",
+      fixture: "app_data.json",
     });
   });
 

@@ -2,7 +2,7 @@
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/api/app_data**", {
-      fixture: "testimonials.json",
+      fixture: "app_data.json",
     });
   });
 

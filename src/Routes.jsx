@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -11,8 +11,14 @@ import AboutUsView from "./views/AboutUsView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
 import AboutSelfCareView from "./views/AboutSelfCareView";
+import AppData from "./modules/AppData";
 
 const Routes = () => {
+  useEffect(async () => {    
+    await AppData.read();
+    debugger
+  }, []);
+
   return (
     <Router basename={process.env.PUBLIC_URL}>
       <Switch>
@@ -32,7 +38,7 @@ const Routes = () => {
           exact
           path="/services"
           render={() => <App component={<ServicesView />} />}
-        />        
+        />
         <Route
           exact
           path="/services/search"

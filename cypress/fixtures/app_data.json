@@ -17,58 +17,49 @@
       }
     ],
     "navigation": {
-      "tabs": [
+      "main_tabs": [
         {
-          "tab": "home",
-          "link": "/home",
-          "value": 0,
-          "secondary": []
+          "label": "home",
+          "link": "/home"
         },
         {
-          "tab": "services",
-          "link": "/services",
-          "value": 1,
-          "secondary": []
+          "label": "services",
+          "link": "/services"
         },
         {
-          "tab": "about",
-          "link": "/about/organization",
-          "value": 2,
-          "secondary": [
-            {
-              "tab": "organization",
-              "link": "/about/organization",
-              "value": 0
-            },
-            {
-              "tab": "self care",
-              "link": "/about/self_care",
-              "value": 1
-            }
-          ]
+          "label": "about",
+          "link": "/about/organization"
         },
         {
-          "tab": "news & info",
-          "link": "/info/news",
-          "value": 3,
-          "secondary": [
-            {
-              "tab": "news",
-              "link": "/info/news",
-              "value": 0
-            },
-            {
-              "tab": "information",
-              "link": "/info/information",
-              "value": 1
-            }
-          ]
+          "label": "news & info",
+          "link": "/info/news"
         },
         {
-          "tab": "contact",
-          "link": "/contact",
-          "value": 4,
-          "secondary": []
+          "label": "contact",
+          "link": "/contact"
+        }
+      ],
+      "secondary_tabs": [
+        {
+          "parent": "about",
+          "label": "organization",
+          "link": "/about/organization"
+        },
+        {
+          "parent": "about",
+          "label": "self care",
+          "link": "/about/self_care"
+        },
+
+        {
+          "parent": "news & info",
+          "label": "news",
+          "link": "/info/news"
+        },
+        {
+          "parent": "news & info",
+          "label": "information",
+          "link": "/info/information"
         }
       ]
     }
