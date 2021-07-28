@@ -52,20 +52,18 @@ const ApplicationHeader = () => {
     />
   ));
 
-  const secondaryTabList = secondary_tabs.filter(
-    (tab) => tab.parent === parent
-  );
-
-  const secondaryTabs = secondaryTabList.map((tab, index) => (
-    <Tab
-      key={`secondary-tab-${index}`}
-      style={styles.secondaryTabText}
-      data-cy={`${toKebabCase(tab.label)}-sub-tab`}
-      label={tab.label}
-      component={Link}
-      to={tab.link}
-    />
-  ));
+  const secondaryTabs = secondary_tabs
+    .filter((tab) => tab.parent === parent)
+    .map((tab, index) => (
+      <Tab
+        key={`secondary-tab-${index}`}
+        style={styles.secondaryTabText}
+        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+        label={tab.label}
+        component={Link}
+        to={tab.link}
+      />
+    ));
 
   return (
     <>
@@ -93,7 +91,7 @@ const ApplicationHeader = () => {
       {secondaryTabs.length !== 0 && (
         <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
           <Tabs
-            style={styles.secondaryNavTabs}
+            style={styles.navTabs}
             value={activeSecondaryTab}
             onChange={handleChangeSecondary}
             centered
@@ -129,9 +127,6 @@ const styles = {
     borderBottom: "1px solid #ccc",
     left: "0",
     top: "64px",
-    width: "100vw",
-  },
-  secondaryNavTabs: {
     width: "100%",
   },
   secondaryTabText: {
