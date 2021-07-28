@@ -7,10 +7,11 @@ import {
 } from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
-import AboutView from "./views/AboutView";
 import ContactView from "./views/ContactView";
+import AboutUsView from "./views/AboutUsView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
+import AboutSelfCareView from "./views/AboutSelfCareView";
 
 const Routes = () => {
   return (
@@ -32,11 +33,16 @@ const Routes = () => {
           exact
           path="/services"
           render={() => <App component={<ServicesView />} />}
+        />        
+        <Route
+          exact
+          path="/services/search"
+          render={() => <App component={<ServiceSearchView />} />}
         />
         <Route
           exact
-          path="/about"
-          render={() => <App component={<AboutView />} />}
+          path="/about/us"
+          render={() => <App component={<AboutUsView />} />}
         />
         <Route
           exact
@@ -45,8 +51,8 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/services/search"
-          render={() => <App component={<ServiceSearchView />} />}
+          path="/about/self_care"
+          render={() => <App component={<AboutSelfCareView />} />}
         />
       </Switch>
     </Router>

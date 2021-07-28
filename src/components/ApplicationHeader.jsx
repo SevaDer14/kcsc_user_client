@@ -56,7 +56,7 @@ const ApplicationHeader = () => {
               data-cy="about-tab"
               label="About"
               component={Link}
-              to="/about"
+              to="/about/us"
             />
             <Tab
               style={styles.tabText}

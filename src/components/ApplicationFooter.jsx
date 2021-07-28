@@ -15,7 +15,7 @@ const ApplicationFooter = () => {
 
   const navigationItems = [
     { key: "home", text: "Home", link: "/" },
-    { key: "about", text: "About", link: "/about" },
+    { key: "about", text: "About", link: "/about/us" },
     { key: "findService", text: "Find a service", link: "/search" },
     { key: "contact", text: "Contact", link: "/contact" },
     { key: "newsAndInfo", text: "News and Info", link: "/news_and_info" },
