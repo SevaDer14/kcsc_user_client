@@ -108,7 +108,7 @@ describe("visitor can navigate between views", () => {
             "contain.text",
             "This section tells vistor about Community Health West London background and setup"
           );
-          cy.get("[data-cy=image]").should("be.visible");
+          cy.get("[data-cy=image]").should("not.exist");
         });
     });
 
@@ -171,7 +171,7 @@ describe("visitor can navigate between views", () => {
             "contain.text",
             "On this page, you can find all available services in your area"
           );
-          cy.get("[data-cy=image]").should("be.visible");
+          cy.get("[data-cy=image]").should("not.exist");
         });
       cy.get("[data-cy=page-section]")
         .eq(1)

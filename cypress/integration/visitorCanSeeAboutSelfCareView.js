@@ -32,7 +32,7 @@ describe("visitor can see About Self Care view", () => {
             "contain.text",
             "This section tells vistor what is Self Care and how beneficial it is for them"
           );
-          cy.get("[data-cy=image]").should("be.visible");
+          cy.get("[data-cy=image]").should("not.exist");
         });
     });
   });  
