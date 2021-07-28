@@ -96,7 +96,7 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to display background and setup section", () => {
-      cy.get("[data-cy=page-section]").should("have.length", 4);
+      cy.get("[data-cy=page-section]").should("have.length", 5);
       cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
@@ -109,6 +109,25 @@ describe("visitor can navigate between views", () => {
             "This section tells vistor about Community Health West London background and setup"
           );
           cy.get("[data-cy=image]").should("be.visible");
+        });
+    });
+
+    it("is expected to display partners carousel", () => {
+      cy.get("[data-cy=partner-card]")
+        .first()
+        .within(() => {
+          cy.get("[data-cy=partner-logo]").should(
+            "exist"
+          );
+          cy.get("[data-cy=organization]").should(
+            "contain.text",
+            "SMART"
+          );
+          cy.get("[data-cy=description]").should(
+            "contain.text",
+            "Description of what this partner does"
+          );
+          cy.get("[data-cy=link]").should("have.length", 3);
         });
     });
   });
