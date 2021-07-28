@@ -1,7 +1,8 @@
 const initialState = {
   services: [],
   serviceSearchResults: {},
-  query: ""
+  query: "",
+  appData: {},
 }
 
 export default initialState;

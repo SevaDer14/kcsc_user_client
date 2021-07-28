@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import Testimonial from "./Testimonial";
 import { Grid } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useSelector } from "react-redux";
 
+import Testimonial from "./Testimonial";
+
 const TestimonialSlider = () => {
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
-  const testimonials = useSelector((state) => state.appData.testimonials);
+  const {testimonials} = useSelector((state) => state.appData);
   let slideShow = undefined;
 
   const sliderHandler = (number) => {

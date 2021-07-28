@@ -6,7 +6,7 @@ import ScreenSplit from "../components/ScreenSplit";
 import ContactUs from "../components/ContactUs";
 
 const ContactView = () => {
-  const contact = useSelector((state) => state.appData.contact);
+  const {contact} = useSelector((state) => state.appData);
 
   return (
     <>
