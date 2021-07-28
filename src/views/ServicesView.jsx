@@ -16,15 +16,12 @@ const ServicesView = () => {
   }, []);
 
   const sectionList = sections.map(
-    ({ id, header, description, image, buttons }) => {
+    (section) => {
       return (
-        <Grid item key={id}>
+        <Grid item key={section.id}>
           <SectionSelector
-            id={id}
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
+            id={section.id}
+            section={section}
           />
         </Grid>
       );

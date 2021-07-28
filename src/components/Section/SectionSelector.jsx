@@ -1,43 +1,59 @@
 import React from "react";
+import SectionRegularAlt from "./SectionRegularAlt";
 import SectionRegular from "./SectionRegular";
 import SectionNoImage from "./SectionNoImage";
 import SectionCarousel from "./SectionCarousel";
 
 const SectionSelector = (props) => {
+  const section = props.section;
+
   const selector = (variant) => {
     switch (variant) {
       case "regular":
-        return (
-          <SectionRegular
-            header={props.header}
-            description={props.description}
-            image={props.image}
-            buttons={props.buttons}
-          />
-        );
+        if (section.id % 2 === 0) {
+          return (
+            <SectionRegular
+              header={section.header}
+              description={section.description}
+              image={section.image}
+              buttons={section.buttons}
+            />
+          );
+        } else {
+          return (
+            <SectionRegularAlt
+              header={section.header}
+              description={section.description}
+              image={section.image}
+              buttons={section.buttons}
+            />
+          );
+        }
+
       case "no_image":
         return (
           <SectionNoImage
-            header={props.header}
-            description={props.description}
+            header={section.header}
+            description={section.description}
           />
         );
       case "carousel":
-        return <SectionCarousel header={props.header} cards={props.cards} />;
+        return (
+          <SectionCarousel header={section.header} cards={section.cards} />
+        );
       default:
         return (
           <SectionRegular
-            header={props.header}
-            description={props.description}
-            image={props.image}
-            buttons={props.buttons}
+            header={section.header}
+            description={section.description}
+            image={section.image}
+            buttons={section.buttons}
           />
         );
     }
   };
 
-  return (
-  <>{selector(props.variant)}</>);
+  return <>{selector(section.variant)}</>;
 };
 
 export default SectionSelector;

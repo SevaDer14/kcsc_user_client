@@ -161,7 +161,7 @@ describe("visitor can navigate between views", () => {
         .should("equal", "Community Health West London");
     });
 
-    it("is expected to display service page ", () => {
+    it.only("is expected to display service page ", () => {
       cy.get("[data-cy=page-section]").should("have.length", 6);
       cy.get("[data-cy=page-section]")
         .first()
