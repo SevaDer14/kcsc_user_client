@@ -18,50 +18,48 @@ const ApplicationHeader = () => {
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
-  const {main_tabs, secondary_tabs} = appData.navigation
+  const { main_tabs, secondary_tabs } = appData.navigation;
+  
   useEffect(() => {
     const fetchApplicationData = async () => {
       if (!appDataFetched) {
-        debugger
+        debugger;
         await AppData.read();
-      } else { return }
+      } else {
+        return;
+      }
     };
     fetchApplicationData();
   }, [appDataFetched]);
 
-  const toKebabCase = (string) => {
-    return string.replace(/\s+/g, '-').toLowerCase();
-  }
+  const toKebabCase = (string) => (
+    string.replace(/\s+/g, "-").toLowerCase()
+  );
 
-  const mainTabs = main_tabs.map((tab) => {
-    return (
-      <Tab
-        style={styles.tabText}
-        data-cy={`${toKebabCase(tab.label)}-tab`}
-        label={tab.label}
-        component={Link}
-        to={tab.link}
-        onClick={() => setParent(`${tab.label}`)}
-      />
-    );
-  });
+  const mainTabs = main_tabs.map((tab) => (
+    <Tab
+      style={styles.tabText}
+      data-cy={`${toKebabCase(tab.label)}-tab`}
+      label={tab.label}
+      component={Link}
+      to={tab.link}
+      onClick={() => setParent(`${tab.label}`)}
+    />
+  ));
 
   const secondaryTabList = secondary_tabs.filter(
     (tab) => tab.parent === parent
   );
-  
-  const secondaryTabs = secondaryTabList.map((tab) => {
-    debugger;
-    return (
-      <Tab
-        style={styles.secondaryTabText}
-        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
-        label={tab.label}
-        component={Link}
-        to={tab.link}
-      />
-    );
-  });
+
+  const secondaryTabs = secondaryTabList.map((tab) => (
+    <Tab
+      style={styles.secondaryTabText}
+      data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+      label={tab.label}
+      component={Link}
+      to={tab.link}
+    />
+  ));
 
   return (
     <>
