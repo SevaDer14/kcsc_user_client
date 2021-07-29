@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import {
@@ -89,13 +89,15 @@ const MobileApplicationHeader = () => {
         <AppBar data-cy="application-header" elevation={0} style={styles.nav}>
           <Toolbar style={styles.nav} className={classes.nav}>
             {!landingPage && (
-              <img src={CHWLLogo}
+              <img
+                src={CHWLLogo}
                 data-cy="header-logo"
                 style={styles.headerLogo}
                 alt="Community Health West London"
               />
             )}
             <IconButton
+              data-cy="burger-menu"
               {...{
                 edge: "end",
                 "aria-label": "menu",
@@ -111,7 +113,11 @@ const MobileApplicationHeader = () => {
                 open: drawerOpen,
                 onClose: handleDrawerClose,
               }}
-            ><Box style={styles.center} className={classes.drawerContainer}>{mainTabs}</Box></Drawer>
+            >
+              <Box style={styles.center} className={classes.drawerContainer}>
+                {mainTabs}
+              </Box>
+            </Drawer>
           </Toolbar>
         </AppBar>
       </Slide>
@@ -124,7 +130,7 @@ export default MobileApplicationHeader;
 const styles = {
   nav: {
     width: "100%",
-    marginBottom: "0px"
+    marginBottom: "0px",
   },
   headerLogo: {
     width: "70px",
@@ -139,5 +145,5 @@ const styles = {
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-  }
+  },
 };
