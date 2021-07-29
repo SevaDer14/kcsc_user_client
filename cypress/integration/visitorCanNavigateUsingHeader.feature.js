@@ -49,6 +49,13 @@ describe("visitor can navigate between views", () => {
     );
   });
 
+  it("is expected to navigate to news page", () => {
+    cy.get("[data-cy=news-and-info-tab]").click();
+    cy.url().should("include", "/info/news");    
+    cy.get("[data-cy=news-and-info-tab]").should("have.class", "Mui-selected");
+    cy.get("[data-cy=news-sub-tab]").should("have.class", "Mui-selected");
+  });
+
   it("is expected to navigate to about home page", () => {
     cy.get("[data-cy=home-tab]").click();
     cy.url().should("include", "/home");

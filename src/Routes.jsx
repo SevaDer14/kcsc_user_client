@@ -12,6 +12,7 @@ import AboutUsView from "./views/AboutUsView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
 import AboutSelfCareView from "./views/AboutSelfCareView";
+import NewsView from "./views/NewsView";
 
 const Routes = () => {
   return (
@@ -53,6 +54,11 @@ const Routes = () => {
           exact
           path="/about/self_care"
           render={() => <App component={<AboutSelfCareView />} />}
+        />
+           <Route
+          exact
+          path="/info/news"
+          render={() => <App component={<NewsView />} />}
         />
       </Switch>
     </Router>
