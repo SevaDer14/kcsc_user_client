@@ -11,14 +11,18 @@ describe("visitor can navigate between views", () => {
   it("is expected to redirect to home page", () => {
     cy.url().should("include", "/home");
     cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
-    cy.get("[data-cy=home-tab]").should("have.class", "Mui-selected");
   });
+
+  describe("visits all pages", () => {
+    beforeEach(() => {
+      cy.get("[data-cy=burger-menu]").click();
+    })
+  })
 
   it("is expected to navigate to services page", () => {
     cy.get("[data-cy=services-tab]").click();
     cy.url().should("include", "/services");
     cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
-    cy.get("[data-cy=services-tab]").should("have.class", "Mui-selected");
   });
 
   it("is expected to navigate to about organization page", () => {

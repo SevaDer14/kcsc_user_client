@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ReactComponent as Logo } from "../assets/LogoCHWLHorisontal.svg";
+import { useSelector } from "react-redux";
+import { Link, useRouteMatch } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -8,11 +9,27 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import { Link, useRouteMatch } from "react-router-dom";
-import { useSelector } from "react-redux";
-import AppData from "../modules/AppData";
+import MenuIcon from '@material-ui/icons/Menu'
+import { makeStyles } from "@material-ui/core/styles";
 
-const ApplicationHeader = () => {
+import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg"
+import AppData from "../../modules/AppData";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    [theme.breakpoints.up("xs")]: {
+      maxWidth: "600px",
+      marginTop: "10%",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "15%",
+      marginLeft: "20%",
+    },
+  },
+}));
+
+const MobileApplicationHeader = () => {
+  const classes = useStyles();
   const trigger = useScrollTrigger();
   const [activeMainTab, setActiveMainTab] = useState(0);
   const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
@@ -38,7 +55,8 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const toKebabCase = (string) => string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+  const toKebabCase = (string) =>
+    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
@@ -77,14 +95,7 @@ const ApplicationHeader = () => {
                 alt="Community Health West London"
               />
             )}
-            <Tabs
-              value={activeMainTab}
-              onChange={handleChangeMain}
-              style={styles.navTabs}
-              centered
-            >
-              {mainTabs}
-            </Tabs>
+           <MenuIcon fontSize="large" color="main" />
           </Toolbar>
         </AppBar>
       </Slide>
@@ -104,7 +115,8 @@ const ApplicationHeader = () => {
   );
 };
 
-export default ApplicationHeader;
+export default MobileApplicationHeader
+
 
 const styles = {
   navTabs: {
