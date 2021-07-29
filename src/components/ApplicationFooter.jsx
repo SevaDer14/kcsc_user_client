@@ -9,7 +9,6 @@ import {
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { useSelector } from "react-redux";
-import { ArrowBackOutlined, Contacts } from "@material-ui/icons";
 
 const ApplicationFooter = () => {
   const theme = useTheme();
@@ -104,7 +103,7 @@ const ApplicationFooter = () => {
           lg={3}
           style={mobile ? mobileGridItem : gridItem}
         >
-          <Box style={navigation}>{navigationMenu}</Box>
+          <Box style={navigationContainer}>{navigationMenu}</Box>
         </Grid>
       </Grid>
       <Typography
@@ -171,7 +170,7 @@ const styles = {
     right: "-20px",
     overflow: "scroll",
   },
-  navigation: {
+  navigationContainer: {
     display: "flex",
     flexDirection: "column",
   },
@@ -205,7 +204,7 @@ const {
   hiddenScrollContainer,
   hiddenScrollContainerMobile,
   hiddenScrollText,
-  navigation,
+  navigationContainer,
   navLink,
   borderBottom,
   borderRight,
