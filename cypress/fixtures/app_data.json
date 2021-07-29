@@ -19,46 +19,46 @@
     "navigation": {
       "main_tabs": [
         {
-          "label": "home",
+          "label": "Home",
           "link": "/home"
         },
         {
-          "label": "services",
+          "label": "Services",
           "link": "/services"
         },
         {
-          "label": "about",
+          "label": "About",
           "link": "/about/organization"
         },
         {
-          "label": "news & info",
+          "label": "News & Info",
           "link": "/info/news"
         },
         {
-          "label": "contact",
+          "label": "Contact",
           "link": "/contact"
         }
       ],
       "secondary_tabs": [
         {
-          "parent": "about",
-          "label": "organization",
+          "parent": "About",
+          "label": "Organization",
           "link": "/about/organization"
         },
         {
-          "parent": "about",
-          "label": "self care",
+          "parent": "About",
+          "label": "Self Care",
           "link": "/about/self_care"
         },
 
         {
-          "parent": "news & info",
-          "label": "news",
+          "parent": "News & Info",
+          "label": "News",
           "link": "/info/news"
         },
         {
-          "parent": "news & info",
-          "label": "information",
+          "parent": "News & Info",
+          "label": "Information",
           "link": "/info/information"
         }
       ]

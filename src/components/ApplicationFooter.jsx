@@ -15,33 +15,24 @@ const ApplicationFooter = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
   const { appData, appDataFetched } = useSelector((state) => state);
-  const { navigation, contact, about, disclamers } = appData
+  const { navigation, contact, about, disclamers } = appData;
 
-  const toKebabCase = (string) => string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+  const toKebabCase = (string) =>
+    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const navigationItems = navigation.main_tabs.map((tab) => {
-    return {key: toKebabCase(tab.label), text: tab.label, link: tab.link}
-  })
+    return { key: toKebabCase(tab.label), text: tab.label, link: tab.link };
+  });
 
-  // const navigationItems = [
-  //   { key: "home", text: "Home", link: "/" },
-  //   { key: "about", text: "About", link: "/about/us" },
-  //   { key: "findService", text: "Find a service", link: "/search" },
-  //   { key: "contact", text: "Contact", link: "/contact" },
-  //   { key: "newsAndInfo", text: "News and Info", link: "/news_and_info" },
-  // ];
-
-  const navigationMenu = navigationItems.map(({key, link, text}) => (
-    <Link data-cy="link" key={key} to={link} style={navLink}>
-      {text}
-    </Link>
-  ));
+  const navigationMenu = navigationItems.map(({ key, link, text }) => (
+      <Link data-cy="link" key={key} to={link} style={navLink}>
+        {text}
+      </Link>
+    )
+  );
 
   return (
-    <Box
-      data-cy="application-footer"
-      style={mobile ? mobileFooter : footer}
-    >
+    <Box data-cy="application-footer" style={mobile ? mobileFooter : footer}>
       <Grid alignItems="center" container spacing={0}>
         <Grid
           data-cy="logo"
@@ -71,7 +62,9 @@ const ApplicationFooter = () => {
               : { ...gridItem, ...borderRight }
           }
         >
-          <Box style={mobile ? hiddenScrollContainerMobile : hiddenScrollContainer}>
+          <Box
+            style={mobile ? hiddenScrollContainerMobile : hiddenScrollContainer}
+          >
             <Typography
               variant="subtitle1"
               component="p"
@@ -99,7 +92,7 @@ const ApplicationFooter = () => {
             gutterBottom
             style={mobile ? centerText : longWord}
           >
-            {contact.phone}
+            Phone: {contact.phone}
             <br />
             {contact.email}
           </Typography>
