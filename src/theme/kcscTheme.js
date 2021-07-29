@@ -44,7 +44,10 @@ const kcscTheme = createMuiTheme({
   typography: {
     fontFamily: "Nexa",
     body1: {
-      fontSize: 24,
+      fontSize: 18,
+    },
+    body2: {
+      fontSize: 16,
     },
     button: {
       fontSize: 24,
@@ -52,11 +55,11 @@ const kcscTheme = createMuiTheme({
   },
   overrides: {
     MuiCssBaseline: {
-      '@global': {
-        '@font-face': [nexaLight, nexaBold],
+      "@global": {
+        "@font-face": [nexaLight, nexaBold],
       },
-    }
-  }
+    },
+  },
 });
 
-export default kcscTheme
+export default kcscTheme;

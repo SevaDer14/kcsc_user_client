@@ -5,7 +5,7 @@ const rootReducer = (state = initialState, action) => {
     case "SET_SEARCH_RESULTS":
       return { ...state, serviceSearchResults: action.payload };
     case "SET_APP_DATA":
-      return { ...state, testimonials: action.payload.testimonials };
+      return { ...state, appData: action.payload };
     case "SET_SEARCH_QUERY":
       return {
         ...state,

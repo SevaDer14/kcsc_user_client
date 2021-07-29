@@ -28,3 +28,21 @@ Client Application for Community Health West London
 REACT_APP_BACKEND_BASE_URL=http://localhost:3000/api
 REACT_APP_API_KEY="122211"
 ```
+
+**Desktop view**
+```
+  "viewportWidth": 1920,
+  "viewportHeight": 1080,
+```
+
+**iPad view**
+```
+  "viewportWidth": 768,
+  "viewportHeight": 1024,
+```
+
+**iPhone X view**
+```
+  "viewportWidth": 375,
+  "viewportHeight": 812,
+```
