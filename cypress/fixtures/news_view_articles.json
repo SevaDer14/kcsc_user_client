@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": 1,
+      "title": "Most recent article",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-12",
+      "image": {
+        "url": "https://healthtechmagazine.net/sites/healthtechmagazine.net/files/styles/cdw_hero/public/articles/%5Bcdw_tech_site%3Afield_site_shortname%5D/202007/20200630_HT_Web_MonITor_Tech-Organizations-Should-Consider.jpg?itok=adOWwJ9x",
+        "alt": "Nice doctor picture"
+      }
+    },
+    {
+      "id": 2,
+      "title": "Article 2",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-11",
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 3,
+      "title": "Article 3",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-10",
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 4,
+      "title": "Article 4",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-09",
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 5,
+      "title": "Article 5",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-08",
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 6,
+      "title": "Article 6",
+      "teaser": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "date": "2021-05-07",
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    }
+  ]
+}

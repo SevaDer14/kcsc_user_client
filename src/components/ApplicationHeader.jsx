@@ -38,7 +38,7 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const toKebabCase = (string) => string.replace(/\s+/g, "-").toLowerCase();
+  const toKebabCase = (string) => string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
