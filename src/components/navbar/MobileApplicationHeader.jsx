@@ -34,6 +34,8 @@ const MobileApplicationHeader = () => {
   const classes = useStyles();
   const trigger = useScrollTrigger();
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [activeMainTab, setActiveMainTab] = useState(0);
+  const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
@@ -47,6 +49,14 @@ const MobileApplicationHeader = () => {
     };
     fetchApplicationData();
   }, [appDataFetched]);
+
+  const handleChangeMain = (event, newValue) => {
+    setActiveMainTab(newValue);
+  };
+
+  const handleChangeSecondary = (event, newValue) => {
+    setActiveSecondaryTab(newValue);
+  };
 
   const toKebabCase = (string) =>
     string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
@@ -63,18 +73,18 @@ const MobileApplicationHeader = () => {
     />
   ));
 
-  // const secondaryTabs = secondary_tabs
-  //   .filter((tab) => tab.parent === parent)
-  //   .map((tab, index) => (
-  //     <Tab
-  //       key={`secondary-tab-${index}`}
-  //       style={styles.secondaryTabText}
-  //       data-cy={`${toKebabCase(tab.label)}-sub-tab`}
-  //       label={tab.label}
-  //       component={Link}
-  //       to={tab.link}
-  //     />
-  //   ));
+  const secondaryTabs = secondary_tabs
+    .filter((tab) => tab.parent === parent)
+    .map((tab, index) => (
+      <Tab
+        key={`secondary-tab-${index}`}
+        style={styles.secondaryTabText}
+        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+        label={tab.label}
+        component={Link}
+        to={tab.link}
+      />
+    ));
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -98,25 +108,39 @@ const MobileApplicationHeader = () => {
             )}
             <IconButton
               data-cy="burger-menu"
-              {...{
-                edge: "end",
-                "aria-label": "menu",
-                "aria-haspopup": "true",
-                onClick: handleDrawerOpen,
-              }}
+              edge="end"
+              aria-label="menu"
+              aria-haspopup="true"
+              onClick={() => handleDrawerOpen()}
             >
               <MenuIcon fontSize="large" style={styles.burger} />
             </IconButton>
             <Drawer
-              {...{
-                anchor: "top",
-                open: drawerOpen,
-                onClose: handleDrawerClose,
-              }}
+                anchor= "top"
+                onClose={() => handleDrawerClose()} 
+                {...{
+                  open: drawerOpen, 
+                }}
             >
-              <Box style={styles.center} className={classes.drawerContainer}>
+              <Box style={styles.center} className={classes.drawerContainer} value={activeMainTab}
+              onChange={handleChangeMain} >
                 {mainTabs}
               </Box>
+              {secondaryTabs.length !== 0 && (
+                <Toolbar
+                  data-cy="secondary-nav-bar"
+                  style={styles.secondaryNavBar}
+                >
+                  <Box
+                    style={styles.navTabs}
+                    value={activeSecondaryTab}
+                    onChange={handleChangeSecondary}
+                    centered
+                  >
+                    {secondaryTabs}
+                  </Box>
+                </Toolbar>
+              )}
             </Drawer>
           </Toolbar>
         </AppBar>
