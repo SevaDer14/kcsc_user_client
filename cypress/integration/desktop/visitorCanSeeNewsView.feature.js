@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-describe("visitor can see About Self Care view", () => {
+describe("Vistor is able to see list of Articles", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
