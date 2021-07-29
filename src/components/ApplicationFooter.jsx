@@ -13,8 +13,7 @@ import { useSelector } from "react-redux";
 const ApplicationFooter = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { appData, appDataFetched } = useSelector((state) => state);
-  const { navigation, contact, about, disclamers } = appData;
+  const { navigation, contact, about, disclamers } = useSelector((state) => state.appData);
 
   const toKebabCase = (string) =>
     string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();

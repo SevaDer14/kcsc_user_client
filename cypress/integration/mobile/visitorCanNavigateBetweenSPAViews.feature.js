@@ -61,19 +61,19 @@ describe("visitor can navigate between views", () => {
         );
         cy.get("[data-cy=contacts]").should(
           "contain",
-          "Phone: 0207 243 9806info@communityhealthwestlondon.org.uk"
+          "Phone: 0207-243 9806info@communityhealthwestlondon.org.uk"
         );
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
           cy.get("[data-cy=link]").eq(0).should("contain", "Home");
-          cy.get("[data-cy=link]").eq(1).should("contain", "About");
-          cy.get("[data-cy=link]").eq(2).should("contain", "Find a service");
-          cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
-          cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
+          cy.get("[data-cy=link]").eq(1).should("contain", "Services");
+          cy.get("[data-cy=link]").eq(2).should("contain", "About");
+          cy.get("[data-cy=link]").eq(3).should("contain", "News & Info");    
+          cy.get("[data-cy=link]").eq(4).should("contain", "Contact");          
         });
         cy.get("[data-cy=disclaimers]").should(
           "contain",
-          "This site is built according to Web Content Accessibility Guidlines2020 All Rights Reserved by Community Health West London."
+          "This site is built according to Web Content Accessibility Guidlines2021 All Rights Reserved by Community Health West London."
         );
       });
     });
