@@ -27,11 +27,11 @@ describe("visitor can see About Self Care view", () => {
       cy.get("[data-cy=article]")
         .first()
         .within(() => {
-          cy.get("[data-cy=header]").should(
+          cy.get("[data-cy=title]").should(
             "contain.text",
             "Most recent article"
           );
-          cy.get("[data-cy=description]").should(
+          cy.get("[data-cy=teaser]").should(
             "contain.text",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           );
@@ -41,13 +41,13 @@ describe("visitor can see About Self Care view", () => {
 
     it("is expected to display regular article", () => {
       cy.get("[data-cy=article]")
-        .first()
+        .eq(1)
         .within(() => {
-          cy.get("[data-cy=header]").should(
+          cy.get("[data-cy=title]").should(
             "contain.text",
             "Article 2"
           );
-          cy.get("[data-cy=description]").should(
+          cy.get("[data-cy=teaser]").should(
             "contain.text",
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
           );

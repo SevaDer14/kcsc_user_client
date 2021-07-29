@@ -15,10 +15,10 @@ const NewsView = () => {
     fetchPageData();
   }, []);
 
-  const articlesList = articles.map((article) => {
+  const articlesList = articles.map((article, index) => {
     return (
       <Grid item key={article.id}>
-        <Article />
+        <Article index={index} article={article}  />
       </Grid>
     );
   });
