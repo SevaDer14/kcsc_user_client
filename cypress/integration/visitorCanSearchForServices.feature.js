@@ -7,7 +7,7 @@ describe("Visitor can search for local services", () => {
   });
 
   describe("by entering a valid serch term", () => {
-    before(() => {
+    beforeEach(() => {
       cy.intercept("**/api/search**", {
         fixture: "search_results_football.json",
       });

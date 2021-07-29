@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import App from "./components/App";
 import IndexView from "./views/IndexView";
+import ContactView from "./views/ContactView";
 import AboutUsView from "./views/AboutUsView";
 import ServiceSearchView from "./views/ServiceSearchView";
 import ServicesView from "./views/ServicesView";
@@ -42,6 +43,11 @@ const Routes = () => {
           exact
           path="/about/organization"
           render={() => <App component={<AboutUsView />} />}
+        />
+        <Route
+          exact
+          path="/contact"
+          render={() => <App component={<ContactView />} />}
         />
         <Route
           exact
