@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Redirect, useRouteMatch } from "react-router-dom";
 import {
   Button,
   Box,
@@ -8,11 +9,54 @@ import {
   OutlinedInput,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
+import { makeStyles } from "@material-ui/core/styles";
+
 import Search from "../modules/Search";
-import { Redirect, useRouteMatch } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+const useStyles = makeStyles((theme) => ({
+  searchBar: {
+    [theme.breakpoints.up("xs")]: {
+      height: "45.6px",
+      marginLeft: "5%",
+      marginBottom: "20%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "420px",
+      height: "55.6px",
+      marginBottom: "10%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "420px",
+      height: "65.6px",
+      marginBottom: "5%",
+    },
+  },
+  queryInput: {
+    [theme.breakpoints.up("xs")]: {
+      height: "45.6px",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "55.6px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: "65.6px",
+    },
+  },
+  searchButton: {
+    [theme.breakpoints.up("xs")]: {
+      height: "45.6px",
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "55.6px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: "59px",
+    },
+  },
+}));
 
 const ServiceSearch = () => {
+  const classes = useStyles();
   const searchQuery = useSelector((state) => state.query);
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
@@ -23,13 +67,13 @@ const ServiceSearch = () => {
       type: "SET_SEARCH_QUERY",
       payload: query,
     });
-  }
+  };
 
   const performSearch = async () => {
     const response = await Search.create(searchQuery);
     dispatch({
       type: "SET_SEARCH_RESULTS",
-      payload: response.data ,
+      payload: response.data,
     });
     if (route) {
       setRedirect(true);
@@ -39,31 +83,39 @@ const ServiceSearch = () => {
   return (
     <>
       {redirect && <Redirect to="/services/search" />}
-      <Box data-cy="self-care-search-bar" style={styles.searchBar}>
-        <FormControl>
-          <OutlinedInput
-            data-cy="search-query"
-            onChange={(e) => setSearchQuery(e.target.value)}
-            color="secondary"
-            value={searchQuery}
-            placeholder={"Search for a community service..."}
-            aria-describedby="Search for self care services"
-            style={styles.queryInput}
-          />
-          <FormHelperText style={styles.helperText}>
-            Try searching for "befriending", "chess" or "sports".
-          </FormHelperText>
-        </FormControl>
-        <Button
-          data-cy="search-submit"
-          onClick={() => performSearch()}
-          variant="contained"
-          color="secondary"
-          style={styles.searchButton}
-          disableElevation
+      <Box centered style={styles.fullWidth}>
+        <Box
+          data-cy="self-care-search-bar"
+          className={classes.searchBar}
+          style={styles.searchBar}
         >
-          <SearchIcon />
-        </Button>
+          <FormControl>
+            <OutlinedInput
+              data-cy="search-query"
+              onChange={(e) => setSearchQuery(e.target.value)}
+              color="secondary"
+              value={searchQuery}
+              placeholder={"Search for a community service..."}
+              aria-describedby="Search for self care services"
+              className={classes.queryInput}
+              style={styles.queryInput}
+            />
+            <FormHelperText style={styles.helperText}>
+              Try searching for "befriending", "chess" or "sports".
+            </FormHelperText>
+          </FormControl>
+          <Button
+            data-cy="search-submit"
+            onClick={() => performSearch()}
+            variant="contained"
+            color="secondary"
+            className={classes.searchButton}
+            style={styles.searchButton}
+            disableElevation
+          >
+            <SearchIcon />
+          </Button>
+        </Box>
       </Box>
     </>
   );
@@ -75,18 +127,21 @@ const styles = {
   searchBar: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "center",
     padding: "25px 0",
   },
   queryInput: {
+    width: "100%",
     borderRadius: "36px 0 0 36px",
-    width: "420px",
   },
   helperText: {
     marginLeft: "24px",
   },
   searchButton: {
-    height: "65.6px",
     borderRadius: "0 36px 36px 0",
   },
+  fullWidth: {
+    display: "flex",
+    width: "100%",
+    justifyContent: "center",
+  }
 };
