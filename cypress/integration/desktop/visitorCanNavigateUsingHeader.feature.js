@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/api/app_data**", {

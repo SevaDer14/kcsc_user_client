@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("visitor can see About Self Care view", () => {
   beforeEach(() => {
     cy.viewport('iphone-x')

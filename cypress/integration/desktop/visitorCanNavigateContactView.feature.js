@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("Visitor can navigate contact view", () => {
   describe("Visitor navigate to contact view from home view", () => {
     beforeEach(() => {
