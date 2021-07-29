@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import { useSelector } from "react-redux";
 import { Link, useRouteMatch } from "react-router-dom";
 import {
@@ -6,20 +6,21 @@ import {
   Toolbar,
   useScrollTrigger,
   Slide,
-  Tabs,
+  IconButton,
+  Drawer,
   Tab,
+  Box,
 } from "@material-ui/core";
-import MenuIcon from '@material-ui/icons/Menu'
+import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg"
+import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 
 const useStyles = makeStyles((theme) => ({
-  container: {
+  nav: {
     [theme.breakpoints.up("xs")]: {
-      maxWidth: "600px",
-      marginTop: "10%",
+      marginLeft: "80%",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "15%",
@@ -31,8 +32,7 @@ const useStyles = makeStyles((theme) => ({
 const MobileApplicationHeader = () => {
   const classes = useStyles();
   const trigger = useScrollTrigger();
-  const [activeMainTab, setActiveMainTab] = useState(0);
-  const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
@@ -47,14 +47,6 @@ const MobileApplicationHeader = () => {
     fetchApplicationData();
   }, [appDataFetched]);
 
-  const handleChangeMain = (event, newValue) => {
-    setActiveMainTab(newValue);
-  };
-
-  const handleChangeSecondary = (event, newValue) => {
-    setActiveSecondaryTab(newValue);
-  };
-
   const toKebabCase = (string) =>
     string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
@@ -66,28 +58,35 @@ const MobileApplicationHeader = () => {
       label={tab.label}
       component={Link}
       to={tab.link}
-      onClick={() => setParent(`${tab.label}`)}
+      onClick={() => handleDrawerClose()}
     />
   ));
 
-  const secondaryTabs = secondary_tabs
-    .filter((tab) => tab.parent === parent)
-    .map((tab, index) => (
-      <Tab
-        key={`secondary-tab-${index}`}
-        style={styles.secondaryTabText}
-        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
-        label={tab.label}
-        component={Link}
-        to={tab.link}
-      />
-    ));
+  // const secondaryTabs = secondary_tabs
+  //   .filter((tab) => tab.parent === parent)
+  //   .map((tab, index) => (
+  //     <Tab
+  //       key={`secondary-tab-${index}`}
+  //       style={styles.secondaryTabText}
+  //       data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+  //       label={tab.label}
+  //       component={Link}
+  //       to={tab.link}
+  //     />
+  //   ));
+
+  const handleDrawerOpen = () => {
+    setDrawerOpen(true);
+  };
+  const handleDrawerClose = () => {
+    setDrawerOpen(false);
+  };
 
   return (
     <>
       <Slide appear={false} direction="down" in={!trigger}>
-        <AppBar data-cy="application-header" elevation={0}>
-          <Toolbar>
+        <AppBar data-cy="application-header" elevation={0} style={styles.nav}>
+          <Toolbar style={styles.nav} className={classes.nav}>
             {!landingPage && (
               <Logo
                 data-cy="header-logo"
@@ -95,55 +94,37 @@ const MobileApplicationHeader = () => {
                 alt="Community Health West London"
               />
             )}
-           <MenuIcon fontSize="large" color="main" />
+            <IconButton
+              {...{
+                edge: "end",
+                "aria-label": "menu",
+                "aria-haspopup": "true",
+                onClick: handleDrawerOpen,
+              }}
+            >
+              <MenuIcon fontSize="large" style={styles.burger} />
+            </IconButton>
+            <Drawer
+              {...{
+                anchor: "top",
+                open: drawerOpen,
+                onClose: handleDrawerClose,
+              }}
+            ><Box>{mainTabs}</Box></Drawer>
           </Toolbar>
         </AppBar>
       </Slide>
-      {secondaryTabs.length !== 0 && (
-        <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
-          <Tabs
-            style={styles.navTabs}
-            value={activeSecondaryTab}
-            onChange={handleChangeSecondary}
-            centered
-          >
-            {secondaryTabs}
-          </Tabs>
-        </Toolbar>
-      )}
     </>
   );
 };
 
-export default MobileApplicationHeader
-
+export default MobileApplicationHeader;
 
 const styles = {
-  navTabs: {
+  nav: {
     width: "100%",
-  },
-  headerLogo: {
-    position: "absolute",
-    height: "30px",
-    width: "auto",
   },
   tabText: {
-    color: "#000",
-    fontSize: "1.2rem",
-    width: "50px",
-  },
-  secondaryNavBar: {
-    backgroundColor: "#eee",
-    position: "absolute",
-    borderTop: "1px solid #ccc",
-    borderBottom: "1px solid #ccc",
-    left: "0",
-    top: "64px",
-    width: "100%",
-  },
-  secondaryTabText: {
-    color: "#000",
-    fontSize: "1rem",
-    width: "50px",
-  },
+    display: "block"
+  }
 };
