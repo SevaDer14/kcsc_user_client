@@ -33,7 +33,7 @@ const Routes = () => {
           exact
           path="/services"
           render={() => <App component={<ServicesView />} />}
-        />        
+        />
         <Route
           exact
           path="/services/search"
@@ -41,7 +41,7 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/about/us"
+          path="/about/organization"
           render={() => <App component={<AboutUsView />} />}
         />
         <Route

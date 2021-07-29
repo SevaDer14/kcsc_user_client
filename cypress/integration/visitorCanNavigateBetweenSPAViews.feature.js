@@ -133,7 +133,7 @@ describe("visitor can navigate between views", () => {
   });
 
   describe("Search View", () => {
-    before(() => {
+    beforeEach(() => {
       cy.visit("/services/search");
     });
 

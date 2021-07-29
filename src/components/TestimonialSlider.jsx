@@ -10,7 +10,7 @@ import Testimonial from "./Testimonial";
 const TestimonialSlider = () => {
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
-  const { testimonials } = useSelector((testimonials) => testimonials.appData);
+  const { testimonials } = useSelector((state) => state.appData);
   let slideShow = undefined;
 
   const sliderHandler = (number) => {
@@ -48,7 +48,7 @@ const TestimonialSlider = () => {
 
   return (
     <Grid container style={styles.testimonialContainer}>
-      {testimonials && (
+      {testimonials.length !== 0 && (
         <>
           <Grid item xs={1} style={styles.sliderItem}>
             <IconButton

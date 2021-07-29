@@ -1,15 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { Helmet } from "react-helmet-async";
 import ScreenSplit from "../components/ScreenSplit";
 import TestimonialSlider from "../components/TestimonialSlider";
-import AppData from "../modules/AppData";
 import ServiceSearch from "../components/ServiceSearch";
 
-const IndexView = () => {
-  useEffect(() => {
-    AppData.read();
-  }, []);
+const IndexView = () => {  
 
   const mainLogo = (
     <>
