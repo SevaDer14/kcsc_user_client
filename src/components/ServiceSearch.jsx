@@ -83,7 +83,7 @@ const ServiceSearch = () => {
   return (
     <>
       {redirect && <Redirect to="/services/search" />}
-      <Box centered style={styles.fullWidth}>
+      <Box style={styles.fullWidth}>
         <Box
           data-cy="self-care-search-bar"
           className={classes.searchBar}

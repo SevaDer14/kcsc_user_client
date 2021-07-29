@@ -122,13 +122,13 @@ describe("visitor can navigate between views", () => {
           );
           cy.get("[data-cy=organization]").should(
             "contain.text",
-            "SMART"
+            "Open Age"
           );
           cy.get("[data-cy=description]").should(
             "contain.text",
             "Description of what this partner does"
           );
-          cy.get("[data-cy=link]").should("have.length", 3);
+          cy.get("[data-cy=link]").should("have.length", 2);
         });
     });
   });
