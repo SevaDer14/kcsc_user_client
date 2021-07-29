@@ -1,6 +1,8 @@
+/* eslint-disable no-undef */
 describe("Visitor can navigate contact view", () => {
   describe("Visitor navigate to contact view from home view", () => {
     beforeEach(() => {
+      cy.viewport('iphone-x', 'landscape')
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });

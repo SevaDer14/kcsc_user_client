@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 describe("visitor can see About Self Care view", () => {
   beforeEach(() => {
+    cy.viewport('iphone-x', 'landscape')
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
