@@ -14,18 +14,19 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import { makeStyles } from "@material-ui/core/styles";
 
-import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
+import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
 
 const useStyles = makeStyles((theme) => ({
-  nav: {
-    [theme.breakpoints.up("xs")]: {
-      marginLeft: "80%",
-    },
-    [theme.breakpoints.up("md")]: {
-      marginTop: "15%",
-      marginLeft: "20%",
-    },
+  drawerContainer: {
+    // [theme.breakpoints.up("xs")]: {
+    //   paddingLeft: "15%",
+    //   paddingRight: "60px",
+    // },
+    // [theme.breakpoints.up("sm")]: {
+    //   paddingLeft: "35%",
+    //   paddingRight: "60px",
+    // },
   },
 }));
 
@@ -88,7 +89,7 @@ const MobileApplicationHeader = () => {
         <AppBar data-cy="application-header" elevation={0} style={styles.nav}>
           <Toolbar style={styles.nav} className={classes.nav}>
             {!landingPage && (
-              <Logo
+              <img src={CHWLLogo}
                 data-cy="header-logo"
                 style={styles.headerLogo}
                 alt="Community Health West London"
@@ -110,7 +111,7 @@ const MobileApplicationHeader = () => {
                 open: drawerOpen,
                 onClose: handleDrawerClose,
               }}
-            ><Box>{mainTabs}</Box></Drawer>
+            ><Box style={styles.center} className={classes.drawerContainer}>{mainTabs}</Box></Drawer>
           </Toolbar>
         </AppBar>
       </Slide>
@@ -123,8 +124,20 @@ export default MobileApplicationHeader;
 const styles = {
   nav: {
     width: "100%",
+    marginBottom: "0px"
+  },
+  headerLogo: {
+    width: "70px",
+    paddingTop: "10px",
+    paddingBottom: "10px",
   },
   tabText: {
-    display: "block"
+    fontSize: "1.2rem",
+  },
+  center: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
   }
 };

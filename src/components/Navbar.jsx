@@ -3,7 +3,7 @@ import DesktopNav from "./navbar/ApplicationHeader";
 import MobileNav from "./navbar/MobileApplicationHeader";
 
 const Navbar = () => {
-  const mql = window.matchMedia("(max-width: 600px)");
+  const mql = window.matchMedia("(max-width: 1200px)");
   let mobileView = mql.matches;
   return <>{mobileView ? <MobileNav /> : <DesktopNav />}</>;
 };
