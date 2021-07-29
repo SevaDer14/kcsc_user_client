@@ -11,7 +11,6 @@ const TestimonialSlider = () => {
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
   const { testimonials } = useSelector((state) => state.appData);
-  //const { testimonials } = useSelector((testimonials) => testimonials.appData);
   let slideShow = undefined;
 
   const sliderHandler = (number) => {
