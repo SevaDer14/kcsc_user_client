@@ -8,18 +8,28 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
+import { useSelector } from "react-redux";
+import { ArrowBackOutlined, Contacts } from "@material-ui/icons";
 
 const ApplicationFooter = () => {
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("md"));
+  const { appData, appDataFetched } = useSelector((state) => state);
+  const { navigation, contact, about, disclamers } = appData
 
-  const navigationItems = [
-    { key: "home", text: "Home", link: "/" },
-    { key: "about", text: "About", link: "/about/us" },
-    { key: "findService", text: "Find a service", link: "/search" },
-    { key: "contact", text: "Contact", link: "/contact" },
-    { key: "newsAndInfo", text: "News and Info", link: "/news_and_info" },
-  ];
+  const toKebabCase = (string) => string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+
+  const navigationItems = navigation.main_tabs.map((tab) => {
+    return {key: toKebabCase(tab.label), text: tab.label, link: tab.link}
+  })
+
+  // const navigationItems = [
+  //   { key: "home", text: "Home", link: "/" },
+  //   { key: "about", text: "About", link: "/about/us" },
+  //   { key: "findService", text: "Find a service", link: "/search" },
+  //   { key: "contact", text: "Contact", link: "/contact" },
+  //   { key: "newsAndInfo", text: "News and Info", link: "/news_and_info" },
+  // ];
 
   const navigationMenu = navigationItems.map(({key, link, text}) => (
     <Link data-cy="link" key={key} to={link} style={navLink}>
@@ -68,9 +78,7 @@ const ApplicationFooter = () => {
               gutterBottom
               style={hiddenScrollText}
             >
-              Community Health West London is a Community Interest Company made
-              up of six local charities. We are working together with the wider
-              community to improve the health and wellbeing of our residents.
+              {about}
             </Typography>
           </Box>
         </Grid>
@@ -91,9 +99,9 @@ const ApplicationFooter = () => {
             gutterBottom
             style={mobile ? centerText : longWord}
           >
-            Phone: 0207 243 9806
+            {contact.phone}
             <br />
-            info@communityhealthwestlondon.org.uk
+            {contact.email}
           </Typography>
         </Grid>
         <Grid
@@ -112,9 +120,9 @@ const ApplicationFooter = () => {
         variant="caption"
         component="p"
       >
-        This site is built according to Web Content Accessibility Guidlines
+        {disclamers.accessability}
         <br />
-        2020 All Rights Reserved by Community Health West London.
+        {disclamers.copyright}
       </Typography>
     </Box>
   );
