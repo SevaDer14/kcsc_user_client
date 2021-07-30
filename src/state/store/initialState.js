@@ -8,7 +8,10 @@ const initialState = {
     navigation: {
       main_tabs: [],
       secondary_tabs: []
-    }
+    },
+    contact: {},
+    about: "",
+    disclamers: {}
   }
 }
 

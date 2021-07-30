@@ -108,7 +108,11 @@ The request happens once in the begining of user session.
       "email": "info@communityhealthwestlondon.org.uk",
       "phone": "0207-243 9806"
     },
-    "about": "footer text about CHWL"
+    "about": "footer text about CHWL",
+    "disclamers": {
+      "copyright": "2021 All Rights Reserved by Community Health West London.",
+      "accessability": "This site is built according to Web Content Accessibility Guidlines"
+    }
   }
 }
 ```
