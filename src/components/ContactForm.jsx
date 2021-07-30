@@ -3,8 +3,10 @@ import {
   TextField,
   Box,
   Button,
+  Typography,
+  Select,
   FormControl,
-  Typography
+  InputLabel,
 } from "@material-ui/core";
 import Inquiries from "../modules/Inquiries";
 import { useSelector } from "react-redux";
@@ -12,8 +14,8 @@ import { useSelector } from "react-redux";
 const RentOutForm = () => {
   const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
+    purpose: "",
     name: "",
-    phone: "",
     email: "",
     message: "",
   });
@@ -24,27 +26,54 @@ const RentOutForm = () => {
   };
 
   const saveToState = (event, dataKey) => {
-    let data = formData;
-    data[dataKey] = event.target.value;
-    setFormData(data);
+    setFormData({
+      ...formData,
+      [dataKey]: event.target.value,
+    });
   };
 
   const formElements = form.map((formField, index) => {
-    let { dataKey, text, type, required, multiline, rows } = formField;
-    return (
-      <TextField
-        key={`form-input-${index}`}
-        onChange={(event) => saveToState(event, dataKey)}
-        label={text}
-        data-cy={dataKey}
-        type={type}
-        required={required}
-        multiline={multiline}
-        rows={rows}
-        variant="outlined"
-        style={{ margin: "10px", backgroundColor: "#fff" }}
-      />
-    );
+    let { dataKey, placeholder, options, type, required, multiline, rows } =
+      formField;
+    if (formField.type === "dropdown") {
+      return (
+        <FormControl variant="outlined">
+          <InputLabel data-cy={dataKey} style={{margin: "12px"}} htmlFor="form-dropdown">
+            {placeholder}
+          </InputLabel>
+          <Select
+            native
+            value={formData.purpose}
+            style={styles.formInput}
+            onChange={(event) => saveToState(event, dataKey)}
+            label={placeholder}
+            inputProps={{
+              name: { dataKey },
+              id: "form-dropdown",
+            }}
+          >
+            {options.map((option) => (
+              <option value={option}>{option}</option>
+            ))}
+          </Select>
+        </FormControl>
+      );
+    } else {
+      return (
+        <TextField
+          key={`form-input-${index}`}
+          onChange={(event) => saveToState(event, dataKey)}
+          label={placeholder}
+          data-cy={dataKey}
+          type={type}
+          required={required}
+          multiline={multiline}
+          rows={rows}
+          variant="outlined"
+          style={styles.formInput}
+        />
+      );
+    }
   });
 
   return (
@@ -81,10 +110,14 @@ const styles = {
     maxWidth: "800px",
     padding: "0 50px",
   },
+  formInput: {
+    margin: "10px",
+    backgroundColor: "#fff",
+  },
   button: {
     width: "200px",
     marginTop: "12px",
-    alignSelf: "center"
+    alignSelf: "center",
   },
   buttonText: {
     marginBottom: "-5px",
@@ -92,5 +125,5 @@ const styles = {
   form: {
     display: "flex",
     flexDirection: "column",
-  }
+  },
 };
