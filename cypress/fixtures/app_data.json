@@ -28,7 +28,16 @@
         },
         {
           "label": "about",
-          "link": "/about/organization"
+          "secondary_tabs": [
+            {
+              "label": "organization",
+              "link": "/about/organization"
+            },
+            {
+              "label": "self care",
+              "link": "/about/self_care"
+            }
+          ] 
         },
         {
           "label": "news & info",
@@ -50,7 +59,6 @@
           "label": "self care",
           "link": "/about/self_care"
         },
-
         {
           "parent": "news & info",
           "label": "news",
