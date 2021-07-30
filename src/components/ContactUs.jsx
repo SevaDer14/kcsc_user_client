@@ -7,10 +7,12 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       maxWidth: "600px",
       marginTop: "10%",
+      marginLeft: "12%",
     },
     [theme.breakpoints.up("md")]: {
-      marginTop: "15%",
-      marginLeft: "20%",
+      marginTop: "0%",
+      marginBottom: "20%",
+      marginLeft: "30%",
     },
   },
 
@@ -82,8 +84,7 @@ const ContactUs = ({ data }) => {
 export default ContactUs;
 
 const styles = {
-  container: {
-    marginLeft: "12%",
+  container: {  
     marginRight: "12%",
   },
 };

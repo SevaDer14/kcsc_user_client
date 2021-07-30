@@ -1,106 +1,92 @@
-import React, { useState, useEffect } from 'react'
-import { Link, Redirect } from 'react-router-dom'
-import { useTranslation } from 'react-i18next'
-import { TextField, IconButton } from '@material-ui/core'
-import CloseIcon from '@material-ui/icons/Close'
-import Header from './Header'
-import Inquiries from '../modules/Inquiries'
-import CustomButton from './custom/CustomButton'
+import React, { useState } from "react";
+import {
+  TextField,
+  Box,
+  Button,
+  FormControl,
+  Typography
+} from "@material-ui/core";
+import Inquiries from "../modules/Inquiries";
+import { useSelector } from "react-redux";
 
 const RentOutForm = () => {
-  const { t } = useTranslation()
-  const [loading, setLoading] = useState(false)
-  const [redirect, setRedirect] = useState(false)
+  const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
     officeProvider: true,
-    name: '',
-    phone: '',
-    email: '',
-    notes: '',
-  })
-
-  const questions = [
-    {
-      text: t('rentOutQuestions.name'),
-      type: 'text',
-      required: true,
-      multiline: false,
-      dataKey: 'name',
-    },
-    {
-      text: t('rentOutQuestions.phone'),
-      type: 'number',
-      required: true,
-      multiline: false,
-      dataKey: 'phone',
-    },
-    {
-      text: t('rentOutQuestions.email'),
-      type: 'email',
-      required: true,
-      multiline: false,
-      dataKey: 'email',
-    },
-    {
-      text: t('rentOutQuestions.extraText'),
-      type: 'text',
-      required: false,
-      multiline: true,
-      rows: 4,
-      dataKey: 'notes',
-    },
-  ]
+    name: "",
+    phone: "",
+    email: "",
+    notes: "",
+  });
 
   const handleSubmit = async (event) => {
-    event.preventDefault()
-    await Inquiries.create(formData)
-  }
+    event.preventDefault();
+    await Inquiries.create(formData);
+  };
 
   const saveToState = (event, dataKey) => {
-    let data = formData
-    data[dataKey] = event.target.value
-    setFormData(data)
-  }
+    let data = formData;
+    data[dataKey] = event.target.value;
+    setFormData(data);
+  };
 
-  const formElements = questions.map((question, index) => (
-    <TextField
-      key={index}
-      className='form-input'
-      onChange={(event) => saveToState(event, question.dataKey)}
-      label={question.text}
-      data-cy={question.dataKey}
-      type={question.type}
-      required={question.required}
-      multiline={question.multiline}
-      rows={question.rows}
-      variant='outlined'
-      style={{ margin: '10px' }}
-    />
-  ))
+  const formElements = form.map((formField, index) => {
+    let { dataKey, text, type, required, multiline, rows } = formField;
+    return (
+      <TextField
+        key={`form-input-${index}`}
+        onChange={(event) => saveToState(event, dataKey)}
+        label={text}
+        data-cy={dataKey}
+        type={type}
+        required={required}
+        multiline={multiline}
+        rows={rows}
+        variant="outlined"
+        style={{ margin: "10px", backgroundColor: "#fff" }}
+      />
+    );
+  });
 
   return (
-    <div className='rent-out-page'>
-      {redirect && <Redirect to='/' />}
-      <Header />
-      <div className='form-container'>
-        <IconButton className='close-form-button'>
-          <Link to='/'>
-            <CloseIcon style={{ color: '#333', fontSize: '24px' }} />
-          </Link>
-        </IconButton>
-        <form data-cy='rent-out-form' onSubmit={(event) => handleSubmit(event)}>
-          {formElements}
-          <CustomButton
-            className='custom-button'
-            loading={loading}        
-            submit={true}
-            dataCy='submit-button'>
-            {t('submitButton')}
-          </CustomButton>
-        </form>
-      </div>
-    </div>
-  )
-}
+    <Box style={styles.formContainer}>
+      <FormControl
+        data-cy="rent-out-form"
+        onSubmit={(event) => handleSubmit(event)}
+      >
+        {formElements}
+        <Button
+          variant="contained"
+          color="secondary"
+          submit={true}
+          data-cy="submit-button"
+          style={styles.button}
+        >
+          <Typography variant="button" style={styles.buttonText}>
+            Submit
+          </Typography>
+        </Button>
+      </FormControl>
+    </Box>
+  );
+};
 
-export default RentOutForm
+export default RentOutForm;
+
+const styles = {
+  formContainer: {
+    display: "flex",
+    flexDirection: "column",
+    width: "100%",
+    maxWidth: "800px",
+    padding: "0 50px",
+  },
+  button: {
+    width: "200px",
+    marginTop: "12px",
+    alignSelf: "center"
+  },
+  buttonText: {
+    marginBottom: "-5px",
+  },
+};

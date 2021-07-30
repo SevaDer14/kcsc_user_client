@@ -65,7 +65,38 @@
     },
     "contact": {
       "email": "info@communityhealthwestlondon.org.uk",
-      "phone": "0207-243 9806"
+      "phone": "0207-243 9806",
+      "form": [
+        {
+          "text": "Purpose of request",
+          "type": "text",
+          "required": true,
+          "multiline": false,
+          "dataKey": "purpose"
+        },
+        {
+          "text": "Enter your name",
+          "type": "text",
+          "required": true,
+          "multiline": false,
+          "dataKey": "name"
+        },
+        {
+          "text": "Enter your email",
+          "type": "email",
+          "required": true,
+          "multiline": false,
+          "dataKey": "email"
+        },
+        {
+          "text": "Enter your message...",
+          "type": "text",
+          "required": false,
+          "multiline": true,
+          "rows": 4,
+          "dataKey": "message"
+        }
+      ]
     }
   }
 }
