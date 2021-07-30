@@ -85,9 +85,9 @@ describe("visitor can navigate between views", () => {
         fixture: "about_us_view_sections.json",
       });
       cy.visit("/");
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=about-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=about-tab]").click();
+      cy.get("[data-cy=organization-tab]").click();
     });
 
     it("is expected to show logo in the header", () => {
@@ -149,9 +149,8 @@ describe("visitor can navigate between views", () => {
         fixture: "services_view_section.json",
       });
       cy.visit("/");
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=services-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=services-tab]").click();
     });
 
     it("is expected to show logo in the header", () => {
@@ -198,9 +197,8 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to redirect to home page on tab click", () => {
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=home-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=home-tab]").click();
       cy.url().should("contain", "http://localhost:3001/home");
     });
   });
