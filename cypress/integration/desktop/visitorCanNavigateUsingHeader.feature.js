@@ -22,6 +22,7 @@ describe("visitor can navigate between views", () => {
 
   it("is expected to navigate to about organization page", () => {
     cy.get("[data-cy=about-tab]").click();
+    cy.get("[data-cy=organization-sub-tab]").click();
     cy.url().should("include", "/about/organization");
     cy.get("[data-cy=about-tab]").should("have.class", "Mui-selected");
     cy.get("[data-cy=organization-sub-tab]").should(

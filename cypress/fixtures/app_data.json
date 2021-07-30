@@ -28,6 +28,7 @@
         },
         {
           "label": "about",
+          "link": "/about/organization",
           "secondary_tabs": [
             {
               "label": "organization",
