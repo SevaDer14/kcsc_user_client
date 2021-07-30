@@ -14,7 +14,7 @@ axios.defaults.headers.common["API_KEY"] = process.env.REACT_APP_API_KEY;
 window.store = store
 
 ReactDOM.render(
-  <React.StrictMode>
+  <React.Fragment>
     <Provider store={store}>
       <HelmetProvider>
         <ThemeProvider theme={kcscTheme}>
@@ -23,6 +23,6 @@ ReactDOM.render(
         </ThemeProvider>
       </HelmetProvider>
     </Provider>
-  </React.StrictMode>,
+  </React.Fragment>,
   document.getElementById("root")
 );
