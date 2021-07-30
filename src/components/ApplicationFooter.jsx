@@ -176,6 +176,7 @@ const styles = {
   navLink: {
     marginBottom: "12px",
     textDecoration: "none",
+    textTransform: "uppercase",
     color: "#000",
   },
   borderBottom: {
