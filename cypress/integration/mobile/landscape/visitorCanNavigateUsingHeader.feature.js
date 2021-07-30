@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x', 'landscape')
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -26,9 +26,9 @@ describe("visitor can navigate between views", () => {
 
     it("is expected to navigate to about organization page", () => {
       cy.get("[data-cy=about-tab]").click();
-      cy.get("[data-cy=organization-tab]").should("contain", "organization")
-      cy.get("[data-cy=self-care-tab]").should("contain", "self care")
-      cy.get("[data-cy=organization-tab]").click()
+      cy.get("[data-cy=organization-tab]").should("contain", "organization");
+      cy.get("[data-cy=self-care-tab]").should("contain", "self care");
+      cy.get("[data-cy=organization-tab]").click();
       cy.url().should("include", "/about/organization");
     });
 

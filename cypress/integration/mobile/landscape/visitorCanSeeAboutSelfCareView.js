@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can see About Self Care view", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x', 'landscape')
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -26,10 +26,7 @@ describe("visitor can see About Self Care view", () => {
       cy.get("[data-cy=page-section]")
         .first()
         .within(() => {
-          cy.get("[data-cy=header]").should(
-            "contain.text",
-            "Self Care"
-          );
+          cy.get("[data-cy=header]").should("contain.text", "Self Care");
           cy.get("[data-cy=description]").should(
             "contain.text",
             "This section tells vistor what is Self Care and how beneficial it is for them"
@@ -37,5 +34,5 @@ describe("visitor can see About Self Care view", () => {
           cy.get("[data-cy=image]").should("not.exist");
         });
     });
-  });  
-})
+  });
+});

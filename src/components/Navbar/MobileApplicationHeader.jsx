@@ -77,7 +77,10 @@ const MobileApplicationHeader = () => {
         />
       ));
       return (
-        <Box style={{...styles.center, width: "100%"}} key={`main-tab-${index}`}>
+        <Box
+          style={{ ...styles.center, width: "100%" }}
+          key={`main-tab-${index}`}
+        >
           <Tab
             style={styles.tabText}
             data-cy={`${toKebabCase(tab.label)}-tab`}

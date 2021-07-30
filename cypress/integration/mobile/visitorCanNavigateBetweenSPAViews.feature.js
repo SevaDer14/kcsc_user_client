@@ -197,8 +197,8 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to redirect to home page on tab click", () => {
-        cy.get("[data-cy=burger-menu]").click();
-        cy.get("[data-cy=home-tab]").click();
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=home-tab]").click();
       cy.url().should("contain", "http://localhost:3001/home");
     });
   });
