@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Box } from "@material-ui/core";
-import Navbar from "./Navbar";
+import Navbar from "./Navbar/Navbar";
 import ApplicationFooter from "./ApplicationFooter";
 
 const App = ({ component }) => {

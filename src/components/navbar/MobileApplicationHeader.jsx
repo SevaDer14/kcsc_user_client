@@ -83,6 +83,7 @@ const MobileApplicationHeader = () => {
         label={tab.label}
         component={Link}
         to={tab.link}
+        onClick={() => handleDrawerClose()}
       />
     ));
 
@@ -97,7 +98,7 @@ const MobileApplicationHeader = () => {
     <>
       <Slide appear={false} direction="down" in={!trigger}>
         <AppBar data-cy="application-header" elevation={0} style={styles.nav}>
-          <Toolbar style={styles.nav} className={classes.nav}>
+          <Toolbar style={!landingPage ? styles.nav : {...styles.nav, justifyContent: "flex-end"}} className={classes.nav}>
             {!landingPage && (
               <img
                 src={CHWLLogo}
@@ -153,8 +154,10 @@ export default MobileApplicationHeader;
 
 const styles = {
   nav: {
+    display: "flex",
     width: "100%",
     marginBottom: "0px",
+    justifyContent: "space-between",
   },
   headerLogo: {
     width: "70px",
