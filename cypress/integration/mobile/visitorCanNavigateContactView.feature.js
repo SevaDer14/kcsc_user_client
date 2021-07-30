@@ -7,10 +7,8 @@ describe("Visitor can navigate contact view", () => {
         fixture: "app_data.json",
       });
       cy.visit("/home")
-      cy.get("[data-cy=application-header]").within(() => {
+        cy.get("[data-cy=burger-menu]").click();
         cy.get("[data-cy=contact-tab]").click();
-        cy.get("[data-cy=contact-tab]").should("have.class", "Mui-selected");
-      });
     });
     it('checks contact us field', () => {
       cy.get("[data-cy=contact-us]").within(() => {
