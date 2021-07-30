@@ -11,22 +11,23 @@ import ServiceSearch from "../components/ServiceSearch";
 const useStyles = makeStyles((theme) => ({
   leftSection: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "-40%",
+      marginTop: "35%",
     },
     [theme.breakpoints.up("sm")]: {
       display: "flex",
-      marginTop: "15%",
+      marginTop: "0",
       flexDirection: "column",
       alignItems: "center",
     },
     [theme.breakpoints.up("md")]: {
-      marginTop: "0",
+      marginTop: "15%",
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "-60%",
       width: "100%",
+      height: "100%",
     },
     [theme.breakpoints.up("sm")]: {
       marginTop: "0",
@@ -49,7 +50,6 @@ const IndexView = () => {
         className={classes.image}
         alt="Community Health West London"
       />
-
       <h3 data-cy="mission-statement" style={styles.statement}>
         Our aim is to improve people's health and well-being
       </h3>

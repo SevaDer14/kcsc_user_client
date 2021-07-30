@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, Box, makeStyles } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -7,7 +7,24 @@ import { useSelector } from "react-redux";
 
 import Testimonial from "./Testimonial";
 
+const useStyles = makeStyles((theme) => ({
+  testimonialContainer: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "100%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "50%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "100%",
+      height: "auto",
+      padding: "0 10%",
+    },
+  },
+}));
+
 const TestimonialSlider = () => {
+  const classes = useStyles();
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
   const { testimonials } = useSelector((state) => state.appData);
@@ -47,48 +64,48 @@ const TestimonialSlider = () => {
   }, []);
 
   return (
-    <Grid container style={styles.testimonialContainer}>
-      {testimonials.length !== 0 && (
-        <>
-          <Grid item xs={1} style={styles.sliderItem}>
-            <IconButton
-              onClick={() => {
-                sliderHandler(-1);
-                stopTimer();
-              }}
+    <Box>
+      <Grid container className={classes.testimonialContainer}>
+        {testimonials.length !== 0 && (
+          <>
+            <Grid item xs={1} style={styles.sliderItem}>
+              <IconButton
+                onClick={() => {
+                  sliderHandler(-1);
+                  stopTimer();
+                }}
+              >
+                <ChevronLeftIcon style={styles.sliderButton} fontSize="large" />
+              </IconButton>
+            </Grid>
+            <Grid
+              item
+              xs={10}
+              style={{ ...styles.sliderItem, ...styles.sliderCardContainer }}
             >
-              <ChevronLeftIcon style={styles.sliderButton} fontSize="large" />
-            </IconButton>
-          </Grid>
-          <Grid
-            item
-            xs={10}
-            style={{ ...styles.sliderItem, ...styles.sliderCardContainer }}
-          >
-            <Testimonial slider={slider} data={testimonials[slider - 1]} />
-          </Grid>
-          <Grid item xs={1} style={styles.sliderItem}>
-            <IconButton
-              onClick={() => {
-                sliderHandler(1);
-                stopTimer();
-              }}
-            >
-              <ChevronRightIcon style={styles.sliderButton} fontSize="large" />
-            </IconButton>
-          </Grid>
-        </>
-      )}
-    </Grid>
+              <Testimonial slider={slider} data={testimonials[slider - 1]} />
+            </Grid>
+            <Grid item xs={1} style={styles.sliderItem}>
+              <IconButton
+                onClick={() => {
+                  sliderHandler(1);
+                  stopTimer();
+                }}
+              >
+                <ChevronRightIcon
+                  style={styles.sliderButton}
+                  fontSize="large"
+                />
+              </IconButton>
+            </Grid>
+          </>
+        )}
+      </Grid>
+    </Box>
   );
 };
 export default TestimonialSlider;
 const styles = {
-  testimonialContainer: {
-    width: "100%",
-    height: "100%",
-    padding: "0 10%",
-  },
   sliderItem: {
     display: "flex",
     alignItems: "center",
