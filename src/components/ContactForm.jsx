@@ -49,15 +49,16 @@ const RentOutForm = () => {
 
   return (
     <Box style={styles.formContainer}>
-      <FormControl
+      <form
         data-cy="contact-form"
+        style={styles.form}
         onSubmit={(event) => handleSubmit(event)}
       >
         {formElements}
         <Button
           variant="contained"
           color="secondary"
-          submit={true}
+          type="submit"
           data-cy="submit-button"
           style={styles.button}
         >
@@ -65,7 +66,7 @@ const RentOutForm = () => {
             Submit
           </Typography>
         </Button>
-      </FormControl>
+      </form>
     </Box>
   );
 };
@@ -88,4 +89,8 @@ const styles = {
   buttonText: {
     marginBottom: "-5px",
   },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+  }
 };

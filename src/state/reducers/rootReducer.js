@@ -11,6 +11,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         query: action.payload,
       };
+    case "SET_SUCCESS_MESSAGE":
+      return {
+        ...state,
+        messageOpen: true,
+        messageType: "succes",
+      };
+    case "CLOSE_MESSAGE":
+      return {
+        ...state,
+        messageOpen: false,
+      };
     default:
       return state;
   }
