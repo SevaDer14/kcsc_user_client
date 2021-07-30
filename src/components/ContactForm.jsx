@@ -10,8 +10,21 @@ import {
 } from "@material-ui/core";
 import Inquiries from "../modules/Inquiries";
 import { useSelector } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  formContainer: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "0",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "0 50px",
+    },
+  },
+}));
 
 const RentOutForm = () => {
+  const classes = useStyles();
   const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
     purpose: "",
@@ -78,7 +91,7 @@ const RentOutForm = () => {
   });
 
   return (
-    <Box style={styles.formContainer}>
+    <Box style={styles.formContainer} className={classes.formContainer}>
       <form
         data-cy="contact-form"
         style={styles.form}
@@ -108,8 +121,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    maxWidth: "800px",
-    padding: "0 50px",
+    maxWidth: "800px",    
   },
   formInput: {
     margin: "10px",

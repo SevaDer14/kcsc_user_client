@@ -6,8 +6,7 @@ const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
       maxWidth: "600px",
-      marginTop: "10%",
-      marginLeft: "12%",
+      margin: "10% 0 10% 12%",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "0%",

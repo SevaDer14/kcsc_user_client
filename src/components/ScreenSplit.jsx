@@ -5,14 +5,17 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   gridItem: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "20%",
-      marginBottom: "20%"
+      height: "auto",
+      marginTop: "0",
+      marginBottom: "0%"
     },
     [theme.breakpoints.up("sm")]: {
-      marginTop: "40%",
-      marginBottom: "20%"
+      height: "auto",
+      marginTop: "0",
+      marginBottom: "0%"
     },
     [theme.breakpoints.up("lg")]: {
+      height: "80vh",
       marginTop: "0%",
       marginBottom: "0%"
     },
@@ -22,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
 const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
   const classes = useStyles()
   let styleGridItem = {
-    height: "80vh",
     display: "flex",
     flexDirection: "column",
     padding: "10px",
@@ -39,7 +41,7 @@ const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
     <Grid container>
       {left && (
         <Grid item xs={12} lg={6}>
-          <Box component="div" style={styleGridItem}>
+          <Box component="div" className={classes.gridItem} style={styleGridItem}>
             {left}
           </Box>
         </Grid>

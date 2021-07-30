@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 describe("Visitor can navigate contact view", () => {
   beforeEach(() => {
+    cy.viewport('iphone-x', 'landscape')
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -28,7 +29,7 @@ describe("Visitor can navigate contact view", () => {
     });
   });
 
-  describe("User can contact CHWL using form", () => {
+  describe.only("User can contact CHWL using form", () => {
     beforeEach(() => {
       cy.intercept("POST", "**/api/inquiries", {
         body: {
