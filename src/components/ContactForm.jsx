@@ -12,11 +12,10 @@ import { useSelector } from "react-redux";
 const RentOutForm = () => {
   const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
-    officeProvider: true,
     name: "",
     phone: "",
     email: "",
-    notes: "",
+    message: "",
   });
 
   const handleSubmit = async (event) => {
@@ -51,7 +50,7 @@ const RentOutForm = () => {
   return (
     <Box style={styles.formContainer}>
       <FormControl
-        data-cy="rent-out-form"
+        data-cy="contact-form"
         onSubmit={(event) => handleSubmit(event)}
       >
         {formElements}
