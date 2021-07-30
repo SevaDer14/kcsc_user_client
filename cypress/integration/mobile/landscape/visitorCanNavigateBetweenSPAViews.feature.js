@@ -7,7 +7,7 @@ describe("visitor can navigate between views", () => {
     });
   });
 
-  describe("Index View", () => {
+  describe.only("Index View", () => {
     beforeEach(() => {
       cy.visit("/home");
     });
