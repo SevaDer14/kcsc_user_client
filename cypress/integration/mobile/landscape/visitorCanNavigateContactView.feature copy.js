@@ -29,7 +29,7 @@ describe("Visitor can navigate contact view", () => {
     });
   });
 
-  describe.only("User can contact CHWL using form", () => {
+  describe("User can contact CHWL using form", () => {
     beforeEach(() => {
       cy.intercept("POST", "**/api/inquiries", {
         body: {
