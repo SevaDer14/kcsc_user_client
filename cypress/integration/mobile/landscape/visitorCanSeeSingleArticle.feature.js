@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 describe("Vistor is able to see a single article", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x', 'landscape')
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });

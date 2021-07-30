@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x', 'landscape')
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -61,33 +61,33 @@ describe("visitor can navigate between views", () => {
         );
         cy.get("[data-cy=contacts]").should(
           "contain",
-          "Phone: 0207 243 9806info@communityhealthwestlondon.org.uk"
+          "Phone: 0207-243 9806info@communityhealthwestlondon.org.uk"
         );
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
-          cy.get("[data-cy=link]").eq(0).should("contain", "Home");
-          cy.get("[data-cy=link]").eq(1).should("contain", "About");
-          cy.get("[data-cy=link]").eq(2).should("contain", "Find a service");
-          cy.get("[data-cy=link]").eq(3).should("contain", "Contact");
-          cy.get("[data-cy=link]").eq(4).should("contain", "News and Info");
+          cy.get("[data-cy=link]").eq(0).should("contain", "home");
+          cy.get("[data-cy=link]").eq(1).should("contain", "services");
+          cy.get("[data-cy=link]").eq(2).should("contain", "about");
+          cy.get("[data-cy=link]").eq(3).should("contain", "news & info");
+          cy.get("[data-cy=link]").eq(4).should("contain", "contact");
         });
         cy.get("[data-cy=disclaimers]").should(
           "contain",
-          "This site is built according to Web Content Accessibility Guidlines2020 All Rights Reserved by Community Health West London."
+          "This site is built according to Web Content Accessibility Guidlines2021 All Rights Reserved by Community Health West London."
         );
       });
     });
   });
 
-  describe("About View", () => {
+  describe("About organization View", () => {
     beforeEach(() => {
       cy.intercept("GET", "**/api/sections**", {
         fixture: "about_us_view_sections.json",
       });
       cy.visit("/");
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=about-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=about-tab]").click();
+      cy.get("[data-cy=organization-tab]").click();
     });
 
     it("is expected to show logo in the header", () => {
@@ -117,13 +117,8 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=partner-card]")
         .first()
         .within(() => {
-          cy.get("[data-cy=partner-logo]").should(
-            "exist"
-          );
-          cy.get("[data-cy=organization]").should(
-            "contain.text",
-            "Open Age"
-          );
+          cy.get("[data-cy=partner-logo]").should("exist");
+          cy.get("[data-cy=organization]").should("contain.text", "Open Age");
           cy.get("[data-cy=description]").should(
             "contain.text",
             "Description of what this partner does"
@@ -151,9 +146,8 @@ describe("visitor can navigate between views", () => {
         fixture: "services_view_section.json",
       });
       cy.visit("/");
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=services-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=services-tab]").click();
     });
 
     it("is expected to show logo in the header", () => {
@@ -200,9 +194,8 @@ describe("visitor can navigate between views", () => {
     });
 
     it("is expected to redirect to home page on tab click", () => {
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=home-tab]").click();
-      });
+      cy.get("[data-cy=burger-menu]").click();
+      cy.get("[data-cy=home-tab]").click();
       cy.url().should("contain", "http://localhost:3001/home");
     });
   });

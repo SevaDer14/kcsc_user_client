@@ -10,11 +10,13 @@ const initialState = {
     navigation: {
       main_tabs: [],
       secondary_tabs: [],
-    },
+    },    
     contact: {
       form: [],
     },
-  },
-};
+    about: "",
+    disclamers: {}
+  }
+}
 
 export default initialState;

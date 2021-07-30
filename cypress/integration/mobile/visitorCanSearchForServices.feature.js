@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("Visitor can search for local services", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x')
+    cy.viewport("iphone-x");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });

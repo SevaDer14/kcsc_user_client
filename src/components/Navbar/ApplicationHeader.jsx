@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { ReactComponent as Logo } from "../assets/LogoCHWLHorisontal.svg";
+import { useSelector } from "react-redux";
+import { Link, useRouteMatch } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -8,9 +9,9 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-import { Link, useRouteMatch } from "react-router-dom";
-import { useSelector } from "react-redux";
-import AppData from "../modules/AppData";
+
+import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
+import AppData from "../../modules/AppData";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -38,7 +39,8 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const toKebabCase = (string) => string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+  const toKebabCase = (string) =>
+    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab

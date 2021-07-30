@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Box } from "@material-ui/core";
-import ApplicationHeader from "./ApplicationHeader";
+import Navbar from "./Navbar/Navbar";
 import ApplicationFooter from "./ApplicationFooter";
 import MessageModal from './MessageModal'
 
@@ -8,7 +8,7 @@ const App = ({ component }) => {
   return (
     <>
       <MessageModal />
-      <ApplicationHeader />
+      <Navbar />
       <Container maxWidth="xl">
         <Box my={10}>{component}</Box>
       </Container>
