@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x')
+    cy.viewport("iphone-x");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -65,11 +65,11 @@ describe("visitor can navigate between views", () => {
         );
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
-          cy.get("[data-cy=link]").eq(0).should("contain", "Home");
-          cy.get("[data-cy=link]").eq(1).should("contain", "Services");
-          cy.get("[data-cy=link]").eq(2).should("contain", "About");
-          cy.get("[data-cy=link]").eq(3).should("contain", "News & Info");    
-          cy.get("[data-cy=link]").eq(4).should("contain", "Contact");          
+          cy.get("[data-cy=link]").eq(0).should("contain", "home");
+          cy.get("[data-cy=link]").eq(1).should("contain", "services");
+          cy.get("[data-cy=link]").eq(2).should("contain", "about");
+          cy.get("[data-cy=link]").eq(3).should("contain", "news & info");
+          cy.get("[data-cy=link]").eq(4).should("contain", "contact");
         });
         cy.get("[data-cy=disclaimers]").should(
           "contain",
@@ -117,9 +117,7 @@ describe("visitor can navigate between views", () => {
       cy.get("[data-cy=partner-card]")
         .first()
         .within(() => {
-          cy.get("[data-cy=partner-logo]").should(
-            "exist"
-          );
+          cy.get("[data-cy=partner-logo]").should("exist");
           cy.get("[data-cy=organization]").should(
             "contain.text",
             "One Westminster"
