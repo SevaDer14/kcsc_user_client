@@ -40,9 +40,12 @@ describe("Visitor can navigate contact view", () => {
 
     it("is expected to submit form and receive success message", () => {
       cy.get("[data-cy=contact-form]").within(() => {
-        cy.get("[data-cy=purpose]").should("contain", "Purpose of inquiry");
-        cy.get("[data-cy=purpose]").click();
-        cy.get("[data-cy=purpose]").click();
+        cy.get("[data-cy=purpose-lable]").should(
+          "contain",
+          "Purpose of inquiry"
+        );
+        cy.get("select").select("I want to donate");
+        cy.get("[data-cy=purpose]").should("contain", "I want to donate");
         cy.get("[data-cy=name]").should("contain", "Enter your name");
         cy.get("[data-cy=name]").type("Bob Kramer");
         cy.get("[data-cy=email]").should("contain", "Enter your email");
@@ -52,7 +55,7 @@ describe("Visitor can navigate contact view", () => {
         cy.get("[data-cy=submit-button]").should("contain", "Submit");
         cy.get("[data-cy=submit-button]").click();
       });
-      cy.get("[data-cy=success-message]").should(
+      cy.get("[data-cy=message]").should(
         "contain",
         "Thank you for your inquiry, we'll be in touch soon!"
       );

@@ -38,11 +38,12 @@ const RentOutForm = () => {
     if (formField.type === "dropdown") {
       return (
         <FormControl variant="outlined">
-          <InputLabel data-cy={dataKey} style={{margin: "12px"}} htmlFor="form-dropdown">
+          <InputLabel data-cy={`${dataKey}-lable`} style={{margin: "12px"}} htmlFor="form-dropdown">
             {placeholder}
           </InputLabel>
           <Select
             native
+            data-cy={dataKey}
             value={formData.purpose}
             style={styles.formInput}
             onChange={(event) => saveToState(event, dataKey)}
@@ -52,8 +53,8 @@ const RentOutForm = () => {
               id: "form-dropdown",
             }}
           >
-            {options.map((option) => (
-              <option value={option}>{option}</option>
+            {options.map((option, index) => (
+              <option value={option} data-cy={`option-${index}`}>{option}</option>
             ))}
           </Select>
         </FormControl>
