@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "20%"
     },
     [theme.breakpoints.up("sm")]: {
-      marginTop: "40",
+      marginTop: "40%",
       marginBottom: "20%"
     },
     [theme.breakpoints.up("lg")]: {

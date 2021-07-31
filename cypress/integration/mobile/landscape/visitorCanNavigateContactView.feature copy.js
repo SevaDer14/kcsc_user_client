@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("Visitor can navigate contact view", () => {
   beforeEach(() => {
-    cy.viewport('iphone-x', 'landscape')
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
@@ -9,10 +9,9 @@ describe("Visitor can navigate contact view", () => {
   describe("Visitor navigate to contact view from home view", () => {
     beforeEach(() => {
       cy.visit("/home");
-      cy.get("[data-cy=application-header]").within(() => {
-        cy.get("[data-cy=contact-tab]").click();
-        cy.get("[data-cy=contact-tab]").should("have.class", "Mui-selected");
-      });
+      cy.get("[data-cy=burger-menu]").click();
+
+      cy.get("[data-cy=contact-tab]").click();
     });
     it("checks contact us field", () => {
       cy.get("[data-cy=contact-us]").within(() => {

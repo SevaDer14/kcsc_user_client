@@ -58,6 +58,13 @@ describe("visitor can navigate between views", () => {
     cy.get("[data-cy=news-sub-tab]").should("have.class", "Mui-selected");
   });
 
+  it("is expected to navigate to contact page", () => {
+    cy.get("[data-cy=contact-tab]").click();
+    cy.url().should("include", "/contact");
+    cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
+    cy.get("[data-cy=contact-tab]").should("have.class", "Mui-selected");
+  });
+
   it("is expected to navigate to about home page", () => {
     cy.get("[data-cy=home-tab]").click();
     cy.url().should("include", "/home");
