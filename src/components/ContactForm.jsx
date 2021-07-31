@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RentOutForm = () => {
+const ContactForm = () => {
   const classes = useStyles();
   const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
@@ -113,7 +113,7 @@ const RentOutForm = () => {
   );
 };
 
-export default RentOutForm;
+export default ContactForm;
 
 const styles = {
   formContainer: {
