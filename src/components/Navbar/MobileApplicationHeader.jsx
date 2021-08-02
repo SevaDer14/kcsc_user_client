@@ -14,9 +14,9 @@ import {
   Divider,
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-
 import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
+import { HashLink } from "react-router-hash-link";
 
 const MobileApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -24,7 +24,10 @@ const MobileApplicationHeader = () => {
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
   const { main_tabs } = appData.navigation;
-  const [aboutOpen, setAboutOpen] = useState(false);
+  const [tabOpen, setTabOpen] = useState({
+    about: false,
+    services: false,
+  });
 
   useEffect(() => {
     const fetchApplicationData = async () => {
@@ -43,12 +46,15 @@ const MobileApplicationHeader = () => {
   };
   const handleDrawerClose = () => {
     setDrawerOpen(false);
+    setTabOpen({
+      about: false,
+      services: false,
+    });
   };
 
   const toggleOpen = (tabLabel) => {
-    if (tabLabel === "about") {
-      setAboutOpen(!aboutOpen);
-    }
+    let open = tabOpen[tabLabel];
+    setTabOpen({ ...tabOpen, [tabLabel]: !open });
   };
 
   const mainTabs = main_tabs.map((tab, index) => {
@@ -71,8 +77,13 @@ const MobileApplicationHeader = () => {
           style={styles.secondaryTabText}
           data-cy={`${toKebabCase(secondaryTab.label)}-tab`}
           label={secondaryTab.label}
-          component={Link}
-          to={secondaryTab.link}
+          component={secondaryTab.ref ? HashLink : Link}
+          smooth={secondaryTab.ref ? true : undefined}
+          to={
+            secondaryTab.ref
+              ? `${secondaryTab.link}#${secondaryTab.ref}`
+              : secondaryTab.link
+          }
           onClick={() => handleDrawerClose()}
         />
       ));
@@ -89,7 +100,7 @@ const MobileApplicationHeader = () => {
           />
           <Collapse
             style={{ width: "100%" }}
-            in={aboutOpen}
+            in={tabOpen[tab.label]}
             timeout="auto"
             unmountOnExit
           >
