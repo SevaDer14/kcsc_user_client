@@ -9,16 +9,16 @@ import Testimonial from "./Testimonial";
 
 const useStyles = makeStyles((theme) => ({
   testimonialContainer: {
-    [theme.breakpoints.up("xs")]: {
-      marginTop: "100%",
-    },
     [theme.breakpoints.up("sm")]: {
-      marginTop: "50%",
+      marginTop: "55%",
+      marginBottom: "20%",
     },
     [theme.breakpoints.up("md")]: {
       width: "100%",
       height: "auto",
       padding: "0 10%",
+      marginTop: "15%",
+      marginBottom: "0%",
     },
   },
 }));

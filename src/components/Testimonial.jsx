@@ -17,17 +17,9 @@ const useStyles = makeStyles((theme) => ({
       width: "90%",
       height: "auto",
     },
-    [theme.breakpoints.up("sm")]: {
-      position: "absolute",
-      width: "90%",
-      height: "auto",
-    },
     [theme.breakpoints.up("md")]: {
       margin: "0 20px",
-      position: "absolute",
-      width: "90%",
       maxWidth: "1024px",
-      height: "auto",
     },
   },
   image: {

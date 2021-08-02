@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import { Box } from "@material-ui/core";
+import { Box, Typography, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 import ScreenSplit from "../components/ScreenSplit";
@@ -11,27 +11,31 @@ import ServiceSearch from "../components/ServiceSearch";
 const useStyles = makeStyles((theme) => ({
   leftSection: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "35%",
-    },
-    [theme.breakpoints.up("sm")]: {
       display: "flex",
-      marginTop: "0",
       flexDirection: "column",
       alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      marginBottom: "-20%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: "30%",
     },
     [theme.breakpoints.up("md")]: {
-      marginTop: "15%",
+      marginTop: "0",
+      marginBottom: "0",
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "-60%",
+      marginBottom: "30px",
       width: "100%",
       height: "100%",
+      objectFit: "contain",
     },
     [theme.breakpoints.up("sm")]: {
-      marginTop: "0",
-      width: "50%",
+      width: "80%",
+      height: "80%",
     },
     [theme.breakpoints.up("md")]: {
       width: "100%",
@@ -44,15 +48,16 @@ const IndexView = () => {
 
   const mainLogo = (
     <Box className={classes.leftSection}>
-      <img
-        src={LogoCHWL}
+      <CardMedia
+        component="img"
+        image={LogoCHWL}
         data-cy="logo"
         className={classes.image}
         alt="Community Health West London"
       />
-      <h3 data-cy="mission-statement" style={styles.statement}>
+      <Typography data-cy="mission-statement" style={styles.statement}>
         Our aim is to improve people's health and well-being
-      </h3>
+      </Typography>
       <ServiceSearch />
     </Box>
   );
