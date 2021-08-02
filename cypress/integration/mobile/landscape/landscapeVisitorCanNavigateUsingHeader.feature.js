@@ -20,8 +20,9 @@ describe("visitor can navigate between views", () => {
 
     it("is expected to navigate to services page", () => {
       cy.get("[data-cy=services-tab]").click();
-      cy.get("[data-cy=kcsc-clw-tab]").click();
-      cy.url().should("include", "/services");      
+      cy.get("[data-cy=find-a-service-tab]").click();
+      cy.url().should("include", "/services#find-a-service");
+      cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
     });
 
     it("is expected to navigate to about organization page", () => {

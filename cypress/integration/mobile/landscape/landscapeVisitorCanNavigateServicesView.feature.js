@@ -1,6 +1,7 @@
+/* eslint-disable no-undef */
 describe("visitor can navigate Services View", () => {
   beforeEach(() => {
-    cy.viewport("iphone-x");
+    cy.viewport("iphone-x", "landscape");
     cy.intercept("GET", "**/api/sections**", {
       fixture: "services_view_section.json",
     });
