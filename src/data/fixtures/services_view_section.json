@@ -24,7 +24,7 @@
         {
           "id": 1,
           "text": "Find self-care service",
-          "link": "http://localhost:3001/search"
+          "link": "http://localhost:3001/services/search"
         }
       ]
     },
