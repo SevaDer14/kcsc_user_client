@@ -3,17 +3,127 @@ import {
   Box,
   Grid,
   Typography,
-  useMediaQuery,
-  useTheme,
+  CardMedia,
+  makeStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { useSelector } from "react-redux";
 
+const useStyles = makeStyles((theme) => ({
+  footerContainer: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      width: "90%",
+      maxWidth: "800px",
+      marginLeft: "auto",
+      marginRight: "auto",
+      position: "relative",
+      bottom: "0",
+    },
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "90%",
+      marginLeft: "10%",
+      marginRight: "5%",
+    },
+  },
+  gridItemWithDivider: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      padding: "12px 24px",
+      height: "180px",
+      borderBottom: "1px solid rgba(0,0,0,0.3)",
+    },
+    [theme.breakpoints.up("lg")]: {
+      borderBottom: "none",
+      borderRight: "1px solid rgba(0,0,0,0.3)",
+    },
+  },
+  gridItemNoDivider: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      alignItems: "center",
+      alignContent: "center",
+      justifyContent: "center",
+      textAlign: "center",
+      padding: "12px 24px",
+      height: "180px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      justifyContent: "flex-start",
+    },
+  },
+  hiddenScrollContainer: {
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+      height: "100%",
+      marginTop: "20px",
+      marginBottom: "20px",
+      paddingTop: "10px",
+      textAlign: "center",
+      overflow: "hidden",
+      position: "relative",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "40px",
+      marginBottom: "0px",
+      paddingTop: "20px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginTop: "0px",
+      marginBottom: "0px",
+      paddingTop: "20px",
+    },
+  },
+  hiddenScrollText: {
+    [theme.breakpoints.up("xs")]: {
+      top: "0",
+      left: "0",
+      bottom: "-40px",
+      right: "-20px",
+      overflow: "hidden",
+    },
+  },
+  longWord: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "25px",
+      textAlign: "center",
+      wordWrap: "break-word",
+      overflow: "hidden",
+    },
+  },
+  navigationContainer: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+    },
+  },
+  logo: {
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+      maxWidth: "400px",
+    },
+  },
+  navLink: {
+    [theme.breakpoints.up("xs")]: {
+      marginBottom: "12px",
+      textDecoration: "none",
+      textTransform: "uppercase",
+      color: "#000",
+    },
+  },
+}));
+
 const ApplicationFooter = () => {
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("md"));
-  const { navigation, contact, about, disclamers } = useSelector((state) => state.appData);
+  const classes = useStyles();
+  const { navigation, contact, about, disclamers } = useSelector(
+    (state) => state.appData
+  );
 
   const toKebabCase = (string) =>
     string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
@@ -23,29 +133,25 @@ const ApplicationFooter = () => {
   });
 
   const navigationMenu = navigationItems.map(({ key, link, text }) => (
-      <Link data-cy="link" key={key} to={link} style={navLink}>
-        {text}
-      </Link>
-    )
-  );
+    <Link data-cy="link" key={key} to={link} className={classes.navLink}>
+      {text}
+    </Link>
+  ));
 
   return (
-    <Box data-cy="application-footer" style={mobile ? mobileFooter : footer}>
+    <Box data-cy="application-footer" className={classes.footerContainer}>
       <Grid alignItems="center" container spacing={0}>
         <Grid
           data-cy="logo"
           item
           xs={12}
           lg={3}
-          style={
-            mobile
-              ? { ...mobileGridItem, ...borderBottom }
-              : { ...gridItem, ...borderRight }
-          }
+          className={classes.gridItemWithDivider}
         >
-          <img
-            style={logo}
-            src={LogoCHWL}
+          <CardMedia
+            component="img"
+            image={LogoCHWL}
+            className={classes.logo}
             alt="Community Health West London Logo"
           />
         </Grid>
@@ -54,41 +160,26 @@ const ApplicationFooter = () => {
           item
           xs={12}
           lg={3}
-          style={
-            mobile
-              ? { ...mobileGridItem, ...borderBottom }
-              : { ...gridItem, ...borderRight }
-          }
+          className={classes.gridItemWithDivider}
         >
-          <Box
-            style={mobile ? hiddenScrollContainerMobile : hiddenScrollContainer}
-          >
+          <Box className={classes.hiddenScrollContainer}>
             <Typography
               variant="subtitle1"
               component="p"
               gutterBottom
-              style={hiddenScrollText}
+              className={classes.hiddenScrollText}
             >
               {about}
             </Typography>
           </Box>
         </Grid>
-        <Grid
-          item
-          xs={12}
-          lg={3}
-          style={
-            mobile
-              ? { ...mobileGridItem, ...borderBottom }
-              : { ...gridItem, ...borderRight }
-          }
-        >
+        <Grid item xs={12} lg={3} className={classes.gridItemWithDivider}>
           <Typography
             data-cy="contacts"
             variant="subtitle1"
             component="p"
             gutterBottom
-            style={mobile ? centerText : longWord}
+            className={classes.longWord}
           >
             Phone: {contact.phone}
             <br />
@@ -100,13 +191,13 @@ const ApplicationFooter = () => {
           item
           xs={12}
           lg={3}
-          style={mobile ? mobileGridItem : gridItem}
+          className={classes.gridItemNoDivider}
         >
-          <Box style={navigationContainer}>{navigationMenu}</Box>
+          <Box className={classes.navigationContainer}>{navigationMenu}</Box>
         </Grid>
       </Grid>
       <Typography
-        style={centerText}
+        className={classes.longWord}
         data-cy="disclaimers"
         variant="caption"
         component="p"
@@ -120,94 +211,3 @@ const ApplicationFooter = () => {
 };
 
 export default ApplicationFooter;
-
-const styles = {
-  mobileFooter: {
-    maxWidth: "600px",
-    marginLeft: "auto",
-    marginRight: "auto",
-  },
-  footer: {
-    maxWidth: "90%",
-    marginLeft: "10%",
-    marginRight: "5%",
-  },
-  mobileGridItem: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: "12px 24px",
-    height: "180px",
-  },
-  gridItem: {
-    padding: "12px 24px",
-    height: "180px",
-  },
-  logo: {
-    width: "100%",
-    maxWidth: "400px",
-  },
-  hiddenScrollContainer: {
-    width: "100%",
-    height: "100%",
-    overflow: "hidden",
-    position: "relative",
-  },
-  hiddenScrollContainerMobile: {
-    width: "100%",
-    height: "100%",
-    marginTop: "50px",
-    textAlign: "center",
-    overflow: "hidden",
-    position: "relative",
-  },
-  hiddenScrollText: {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    bottom: "-40px",
-    right: "-20px",
-    overflow: "scroll",
-  },
-  navigationContainer: {
-    display: "flex",
-    flexDirection: "column",
-  },
-  navLink: {
-    marginBottom: "12px",
-    textDecoration: "none",
-    textTransform: "uppercase",
-    color: "#000",
-  },
-  borderBottom: {
-    borderBottom: "1px solid rgba(0,0,0,0.3)",
-  },
-  borderRight: {
-    borderRight: "1px solid rgba(0,0,0,0.3)",
-  },
-  centerText: {
-    marginTop: "25px",
-    textAlign: "center",
-    wordWrap: "break-word",
-  },
-  longWord: {
-    wordWrap: "break-word",
-  },
-};
-
-const {
-  mobileFooter,
-  footer,
-  mobileGridItem,
-  gridItem,
-  logo,
-  hiddenScrollContainer,
-  hiddenScrollContainerMobile,
-  hiddenScrollText,
-  navigationContainer,
-  navLink,
-  borderBottom,
-  borderRight,
-  centerText,
-  longWord,
-} = styles;
