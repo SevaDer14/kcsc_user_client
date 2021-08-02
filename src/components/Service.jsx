@@ -72,21 +72,6 @@ const ScreenSplit = ({ data }) => {
   );
 };
 
-// {
-//   "id": 45,
-//   "name": "Boy's Football Club",
-//   "description": "The brilliant QPR Community Trust is running a football club for boys aged 12-14. Sign up at www.bookwhen.com/dalgarnotrust.\n",
-//   "telephone": "02033981833",
-//   "email": "youth@dalgarnotrust.org.uk",
-//   "address": null,
-//   "postcode": null,
-//   "website": null,
-//   "coords": {
-//     "latitude": 51.49955620887601,
-//     "longitude": -0.2000188663810555
-//   }
-// }
-
 export default ScreenSplit;
 
 const styles = {
