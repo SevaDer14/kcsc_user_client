@@ -74,7 +74,42 @@
     },
     "contact": {
       "email": "info@communityhealthwestlondon.org.uk",
-      "phone": "0207-243 9806"
+      "phone": "0207-243 9806",
+      "form": [
+        {
+          "placeholder": "Purpose of inquiry",
+          "options": [
+            "I have a question",
+            "I want to donate",
+            "I want to be a partner"
+          ],
+          "type": "dropdown",
+          "required": true,
+          "dataKey": "purpose"
+        },
+        {
+          "placeholder": "Enter your name",
+          "type": "text",
+          "required": true,
+          "multiline": false,
+          "dataKey": "name"
+        },
+        {
+          "placeholder": "Enter your email",
+          "type": "email",
+          "required": true,
+          "multiline": false,
+          "dataKey": "email"
+        },
+        {
+          "placeholder": "Enter your message...",
+          "type": "text",
+          "required": false,
+          "multiline": true,
+          "rows": 4,
+          "dataKey": "message"
+        }
+      ]
     },
     "about": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
     "disclamers": {
