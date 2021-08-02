@@ -12,6 +12,7 @@ import {
 
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
+import { HashLink } from "react-router-hash-link";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -33,6 +34,7 @@ const ApplicationHeader = () => {
 
   const handleChangeMain = (event, newValue) => {
     setActiveMainTab(newValue);
+    setActiveSecondaryTab(0);
   };
 
   const handleChangeSecondary = (event, newValue) => {
@@ -62,8 +64,9 @@ const ApplicationHeader = () => {
         style={styles.secondaryTabText}
         data-cy={`${toKebabCase(tab.label)}-sub-tab`}
         label={tab.label}
-        component={Link}
-        to={tab.link}
+        component={tab.ref ? HashLink : Link}
+        smooth={tab.ref ? true : undefined}
+        to={tab.ref ? `${tab.link}#${tab.ref}` : tab.link}
       />
     ));
 
@@ -88,20 +91,20 @@ const ApplicationHeader = () => {
               {mainTabs}
             </Tabs>
           </Toolbar>
+          {secondaryTabs.length !== 0 && (
+            <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
+              <Tabs
+                style={styles.navTabs}
+                value={activeSecondaryTab}
+                onChange={handleChangeSecondary}
+                centered
+              >
+                {secondaryTabs}
+              </Tabs>
+            </Toolbar>
+          )}
         </AppBar>
       </Slide>
-      {secondaryTabs.length !== 0 && (
-        <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
-          <Tabs
-            style={styles.navTabs}
-            value={activeSecondaryTab}
-            onChange={handleChangeSecondary}
-            centered
-          >
-            {secondaryTabs}
-          </Tabs>
-        </Toolbar>
-      )}
     </>
   );
 };
@@ -124,11 +127,9 @@ const styles = {
   },
   secondaryNavBar: {
     backgroundColor: "#eee",
-    position: "absolute",
     borderTop: "1px solid #ccc",
     borderBottom: "1px solid #ccc",
     left: "0",
-    top: "64px",
     width: "100%",
   },
   secondaryTabText: {

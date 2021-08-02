@@ -8,6 +8,9 @@ import SectionSelector from "../components/Section/SectionSelector";
 const ServicesView = () => {
   const [sections, setSections] = useState([]);
 
+  const toKebabCase = (string) =>
+  string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+
   useEffect(() => {
     const fetchPageData = async () => {
       //let response = await Sections.read("services")
@@ -20,7 +23,7 @@ const ServicesView = () => {
   const sectionList = sections.map(
     (section) => {
       return (
-        <Grid item key={section.id}>
+        <Grid item key={section.id} id={toKebabCase(section.header)}>
           <SectionSelector
             id={section.id}
             section={section}
