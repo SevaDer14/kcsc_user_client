@@ -27,6 +27,11 @@
           "link": "/services",
           "secondary_tabs": [
             {
+              "label": "Find a service",
+              "link": "/services",
+              "ref": "find-a-service"
+            },
+            {
               "label": "KCSC Self Care",
               "link": "/services",
               "ref": "kcsc-self-care"
@@ -96,6 +101,12 @@
           "parent": "news & info",
           "label": "information",
           "link": "/info/information"
+        },
+        {
+          "parent": "services",
+          "label": "Find a service",
+          "link": "/services",
+          "ref": "find-a-service"
         },
         {
           "parent": "services",
