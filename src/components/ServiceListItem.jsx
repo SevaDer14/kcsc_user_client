@@ -20,12 +20,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ServiceListItem = ({ listing }) => {
+const ServiceListItem = ({ listing, index }) => {
   const classes = useStyles()
 
   return (
     <>
-      <Accordion key={listing.id} variant="outlined" style={styles.listing}>
+      <Accordion data-cy={`search-result-${index}`} key={listing.id} variant="outlined" style={styles.listing}>
         <AccordionSummary>
           <Typography  variant="h5" component="h2" className={classes.heading}>
             {listing.name}
@@ -36,7 +36,7 @@ const ServiceListItem = ({ listing }) => {
           </Typography>
           </Hidden>
         </AccordionSummary>
-        <AccordionDetails>
+        <AccordionDetails data-cy={`search-result-${index}-details`}>
           <Service data={listing} />
         </AccordionDetails>
       </Accordion>

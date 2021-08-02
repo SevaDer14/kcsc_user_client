@@ -102,7 +102,7 @@ const ServiceSearch = () => {
               style={styles.queryInput}
             />
             <FormHelperText style={styles.helperText}>
-              Try searching for "befriending", "chess" or "sports".
+              Try "befriending" or "sports".
             </FormHelperText>
           </FormControl>
           <Button

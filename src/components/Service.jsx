@@ -30,11 +30,11 @@ const ScreenSplit = ({ data }) => {
 
   const mapDisplay = () => {
     if (collapse) {
-      return <Button size="small" color="secondary" onClick={()=>setCollapse(false)}>Show on map</Button>;
+      return <Button data-cy="toggle-map-visibility-button" size="small" color="secondary" onClick={()=>setCollapse(false)}>Show on map</Button>;
     } else {
       return (
         <Box component="div" style={styles.map}>
-          <Button size="small" color="secondary" onClick={()=>setCollapse(true)}>Collapse map</Button>
+          <Button data-cy="toggle-map-visibility-button" size="small" color="secondary" onClick={()=>setCollapse(true)}>Collapse map</Button>
           <Map coordinates={data.coords} />
         </Box>
       );
@@ -51,7 +51,7 @@ const ScreenSplit = ({ data }) => {
           <Typography variant="h6" gutterBottom>
             Description:
           </Typography>
-          <Typography variant="body2" component="p" className={classes.text}>
+          <Typography data-cy="description" variant="body2" component="p" className={classes.text}>
             {data.description}
           </Typography>
         </Grid>
@@ -59,7 +59,7 @@ const ScreenSplit = ({ data }) => {
           <Typography variant="h6" gutterBottom>
             Contacts:
           </Typography>
-          <Typography variant="body2" component="p" style={styles.contacts} className={classes.text}>
+          <Typography data-cy="contacts" variant="body2" component="p" style={styles.contacts} className={classes.text}>
             {data.telephone && `phone: ${data.telephone}\n`}
             {data.email && `email: ${data.email}\n`}
             {data.address && `address: ${data.address}\n`}
