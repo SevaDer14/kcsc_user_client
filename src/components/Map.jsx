@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { mapStyles } from "../data/mapStyles";
-import { useSelector } from "react-redux";
 import MapMarker from "./MapMarker";
+import { Collapse } from "@material-ui/core";
 
-const Map = () => {
-  const { serviceSearchResults } = useSelector((state) => state);
+const Map = ({ coordinates }) => {
+  const [collapse, setCollapse] = useState(false);
 
   const center = {
     lat: 51.49955620887601,
@@ -22,8 +22,8 @@ const Map = () => {
     streetViewControl: false,
     mapTypeControl: false,
     styles: mapStyles,
-    gestureHandling: "none",
-    zoomControl: false,
+    //gestureHandling: "none",
+    //zoomControl: false,
     fullscreenControl: false,
   };
 
@@ -40,17 +40,10 @@ const Map = () => {
         center={center}
         zoom={14}
       >
-        {serviceSearchResults.services &&
-          serviceSearchResults.services.map((service) => (
-            <MapMarker
-              key={
-                service.name +
-                service.coords.latitude +
-                service.coords.longitude
-              }
-              service={service}
-            />
-          ))}
+        <MapMarker
+          key={coordinates.latitude + coordinates.longitude}
+          coordinates={coordinates}
+        />
       </GoogleMap>
     )
   );
