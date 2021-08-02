@@ -52,10 +52,12 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       textAlign: "center",
       padding: "12px 24px",
+      marginTop: "40px",
       height: "180px",
     },
     [theme.breakpoints.up("lg")]: {
       justifyContent: "flex-start",
+      marginTop: "15px",
     },
   },
   hiddenScrollContainer: {
@@ -82,11 +84,12 @@ const useStyles = makeStyles((theme) => ({
   },
   hiddenScrollText: {
     [theme.breakpoints.up("xs")]: {
+      position: "absolute",
       top: "0",
       left: "0",
-      bottom: "-40px",
-      right: "-20px",
-      overflow: "hidden",
+      bottom: "0",
+      right: "-15px",
+      overflowY: "scroll",
     },
   },
   longWord: {
