@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("visitor can navigate Services View", () => {
   beforeEach(() => {
     cy.intercept("GET", "**/api/sections**", {
