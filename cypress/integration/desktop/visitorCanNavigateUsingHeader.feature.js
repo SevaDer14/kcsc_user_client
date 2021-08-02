@@ -16,7 +16,6 @@ describe("visitor can navigate between views", () => {
   it("is expected to navigate to services page", () => {
     cy.get("[data-cy=services-tab]").click();
     cy.url().should("include", "/services");
-    cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
     cy.get("[data-cy=services-tab]").should("have.class", "Mui-selected");
   });
 
