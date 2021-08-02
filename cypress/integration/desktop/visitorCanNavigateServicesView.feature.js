@@ -47,6 +47,7 @@ describe("visitor can navigate Services View", () => {
   });
 
   it("is expected to scroll when using secondary navbar", () => {
+    cy.scrollTo(0, 0)
     cy.get("[data-cy=other-vcs-lg-contracts-sub-tab]").click();
     cy.window()
       .its("scrollY")

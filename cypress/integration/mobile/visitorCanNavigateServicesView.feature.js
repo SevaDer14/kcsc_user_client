@@ -1,12 +1,13 @@
 describe("visitor can navigate Services View", () => {
   beforeEach(() => {
+    cy.viewport("iphone-x");
     cy.intercept("GET", "**/api/sections**", {
       fixture: "services_view_section.json",
     });
     cy.visit("/");
-    cy.get("[data-cy=application-header]").within(() => {
-      cy.get("[data-cy=services-tab]").click();
-    });
+    cy.get("[data-cy=burger-menu]").click();
+    cy.get("[data-cy=services-tab]").click();
+    cy.get("[data-cy=kcsc-clw-tab]").click();
   });
 
   it("is expected to show logo in the header", () => {
@@ -47,7 +48,10 @@ describe("visitor can navigate Services View", () => {
   });
 
   it("is expected to scroll when using secondary navbar", () => {
-    cy.get("[data-cy=other-vcs-lg-contracts-sub-tab]").click();
+    cy.scrollTo(0, 0)
+    cy.get("[data-cy=burger-menu]").click();
+    cy.get("[data-cy=services-tab]").click();
+    cy.get("[data-cy=other-vcs-lg-contracts-tab]").click();
     cy.window()
       .its("scrollY")
       .should("not.equal", 0);
