@@ -5,19 +5,16 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   gridItem: {
     [theme.breakpoints.up("xs")]: {
-      marginBottom: "-130%",
+      display: "flex",
+      flexDirection: "column",
       height: "80vh",
     },
     [theme.breakpoints.up("sm")]: {
-      marginTop: "0",
-      marginBottom: "0",
+      marginBottom: "50%",
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: "0",
       marginBottom: "0",
       height: "80vh",
-      display: "flex",
-      flexDirection: "column",
       padding: "10px",
     },
   },
