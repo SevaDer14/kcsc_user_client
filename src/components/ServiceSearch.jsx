@@ -73,7 +73,8 @@ const ServiceSearch = () => {
     const response = await Search.create(searchQuery);
     dispatch({
       type: "SET_SEARCH_RESULTS",
-      payload: response.data,
+      //payload: response.data,
+      payload: response,
     });
     if (route) {
       setRedirect(true);

@@ -68,7 +68,7 @@ export default ArticleView;
 
 const styles = {
   container: {
-    marginTop: "124px",
+    marginTop: "180px",
   },
   information: {
     marginTop: "12px",
