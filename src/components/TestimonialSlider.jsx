@@ -64,8 +64,8 @@ const TestimonialSlider = () => {
   }, []);
 
   return (
-    <Box>
-      <Grid container className={classes.testimonialContainer}>
+    <Box className={classes.testimonialContainer}>
+      <Grid container >
         {testimonials.length !== 0 && (
           <>
             <Grid item xs={1} style={styles.sliderItem}>
