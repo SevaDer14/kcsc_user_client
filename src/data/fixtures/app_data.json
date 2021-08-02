@@ -69,6 +69,36 @@
           "parent": "news & info",
           "label": "information",
           "link": "/info/information"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC Self Care",
+          "link": "/services",
+          "ref": "kcsc-self-care"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC CLW",
+          "link": "/services",
+          "ref": "kcsc-clw"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC N Ken SC",
+          "link": "/services",
+          "ref": "kcsc-n-ken-sc"
+        },
+        {
+          "parent": "services",
+          "label": "Link workers",
+          "link": "/services",
+          "ref": "link-workers"
+        },
+        {
+          "parent": "services",
+          "label": "Other VCS lg contracts",
+          "link": "/services",
+          "ref": "other-vcs-lg-contracts"
         }
       ]
     },
