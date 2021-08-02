@@ -14,10 +14,14 @@ const useStyles = makeStyles((theme) => ({
   card: {
     [theme.breakpoints.up("xs")]: {
       position: "absolute",
-      width: "100%",
+      width: "90%",
       height: "auto",
     },
-    [theme.breakpoints.up("sm")]: {},
+    [theme.breakpoints.up("sm")]: {
+      position: "absolute",
+      width: "90%",
+      height: "auto",
+    },
     [theme.breakpoints.up("md")]: {
       margin: "0 20px",
       position: "absolute",
@@ -26,19 +30,18 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
     },
   },
-  // cardImage: {
-  //   [theme.breakpoints.up("xs")]: {
-  //     width: "100%",
-  //     height: "100%",
-  //   },
-  //   [theme.breakpoints.up("sm")]: {},
-  //   [theme.breakpoints.up("md")]: {
-  //     // margin: "0 20px",
-  //     // position: "absolute",
-  //     // width: "90%",
-  //     // maxWidth: "1024px",
-  //   },
-  // },
+  image: {
+    [theme.breakpoints.up("xs")]: {
+      width: "100%",
+      height: "150px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      height: "300px"
+    },
+    [theme.breakpoints.up("md")]: {
+      height: "350px"
+    },
+  },
 }));
 
 const Testimonial = ({ slider, data }) => {
@@ -55,7 +58,7 @@ const Testimonial = ({ slider, data }) => {
       >
         <Card data-cy="testimonial">
           <CardMedia
-            style={styles.cardImage}
+            className={classes.image}
             data-cy="photo"
             component="img"
             alt={data.alt}
@@ -63,7 +66,7 @@ const Testimonial = ({ slider, data }) => {
             image={data.photo}
             title={data.name}
           />
-          <CardContent>
+          <CardContent className={classes.text}>
             <Typography data-cy="name" gutterBottom variant="h5" component="h2">
               {data.name}
             </Typography>
@@ -87,9 +90,3 @@ const Testimonial = ({ slider, data }) => {
   );
 };
 export default Testimonial;
-const styles = {
-  card: {
-    width: "100%",
-    height: "100%",
-  },
-};
