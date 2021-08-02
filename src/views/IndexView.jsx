@@ -1,26 +1,65 @@
 import React from "react";
-import LogoCHWL from "../assets/LogoCHWL.png";
 import { Helmet } from "react-helmet-async";
+import { Box, Typography, CardMedia } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
 import ScreenSplit from "../components/ScreenSplit";
+import LogoCHWL from "../assets/LogoCHWL.png";
 import TestimonialSlider from "../components/TestimonialSlider";
 import ServiceSearch from "../components/ServiceSearch";
 
-const IndexView = () => {  
+const useStyles = makeStyles((theme) => ({
+  leftSection: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      width: "100%",
+      marginBottom: "-20%",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginBottom: "30%",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "0",
+      marginBottom: "0",
+    },
+  },
+  image: {
+    [theme.breakpoints.up("xs")]: {
+      marginBottom: "30px",
+      width: "100%",
+      height: "100%",
+      objectFit: "contain",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "80%",
+      height: "80%",
+    },
+    [theme.breakpoints.up("md")]: {
+      width: "100%",
+    },
+  },
+}));
+
+const IndexView = () => {
+  const classes = useStyles();
 
   const mainLogo = (
-    <>
-      <img
-        src={LogoCHWL}
+    <Box className={classes.leftSection}>
+      <CardMedia
+        component="img"
+        image={LogoCHWL}
         data-cy="logo"
-        style={styles.image}
+        className={classes.image}
         alt="Community Health West London"
       />
-
-      <h3 data-cy="mission-statement" style={styles.statement}>
+      <Typography data-cy="mission-statement" style={styles.statement}>
         Our aim is to improve people's health and well-being
-      </h3>
+      </Typography>
       <ServiceSearch />
-    </>
+    </Box>
   );
 
   return (
@@ -41,7 +80,7 @@ export default IndexView;
 
 const styles = {
   image: {
-    width: "100%",
+    width: "50%",
   },
   statement: {
     textAlign: "center",

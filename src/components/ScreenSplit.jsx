@@ -3,30 +3,31 @@ import { Grid, Box } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
-  gridItem: {
+  gridContainer: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "20%",
-      marginBottom: "20%"
+      marginBottom: "-30%",
+      marginTop: "-40%",
     },
     [theme.breakpoints.up("sm")]: {
+      marginBottom: "30%",
       marginTop: "40%",
-      marginBottom: "20%"
     },
     [theme.breakpoints.up("lg")]: {
+      marginBottom: "0%",
       marginTop: "0%",
-      marginBottom: "0%"
     },
   },
 }));
 
-const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
-  const classes = useStyles()
+const ScreenSplit = ({ left = <></>, right = <></>, centered = false }) => {
+  const classes = useStyles();
   let styleGridItem = {
     height: "80vh",
     display: "flex",
     flexDirection: "column",
+    alignContent: "flex-start",
     padding: "10px",
-  }
+  };
 
   if (centered) {
     styleGridItem = {
@@ -36,7 +37,7 @@ const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
   }
 
   return (
-    <Grid container>
+    <Grid container className={classes.gridContainer}>
       {left && (
         <Grid item xs={12} lg={6}>
           <Box component="div" style={styleGridItem}>
@@ -46,7 +47,7 @@ const ScreenSplit = ({ left=(<></>), right=(<></>), centered = false }) => {
       )}
       {right && (
         <Grid item xs={12} lg={6}>
-          <Box component="div" className={classes.gridItem} style={styleGridItem}>
+          <Box component="div" style={styleGridItem}>
             {right}
           </Box>
         </Grid>
