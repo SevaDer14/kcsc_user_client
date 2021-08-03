@@ -82,7 +82,6 @@ const ServiceSearch = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      
       if (!searchQuery) {  
         const response = await Search.index();
         dispatch({
@@ -92,7 +91,7 @@ const ServiceSearch = () => {
       }
     };
     getAllServices();
-  }, []);
+  }, [searchQuery, dispatch]);
 
   return (
     <>

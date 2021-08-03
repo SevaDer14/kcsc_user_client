@@ -5,8 +5,8 @@ import MapMarker from "./MapMarker";
 
 const Map = ({ coordinates }) => {
   const center = {
-    lat: 51.49955620887601,
-    lng: -0.2000188663810555,
+    lat: coordinates.latitude,
+    lng: coordinates.longitude,
   };
 
   const containerStyle = {
