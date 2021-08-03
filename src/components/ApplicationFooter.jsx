@@ -35,13 +35,14 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "center",
       justifyContent: "center",
       textAlign: "center",
-      padding: "12px 24px",
+      padding: "12px 12px",
       height: "180px",
       borderBottom: "1px solid rgba(0,0,0,0.3)",
     },
     [theme.breakpoints.up("lg")]: {
       borderBottom: "none",
       borderRight: "1px solid rgba(0,0,0,0.3)",
+      padding: "12px 24px",
     },
   },
   gridItemNoDivider: {
