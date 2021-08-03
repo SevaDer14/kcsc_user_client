@@ -1,17 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import {
   Button,
   Box,
-  FormControl,
   FormHelperText,
   OutlinedInput,
   Grid,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
-
+import store from "../state/store/configureStore";
 import Search from "../modules/Search";
 
 const useStyles = makeStyles((theme) => ({
@@ -47,12 +46,12 @@ const useStyles = makeStyles((theme) => ({
 
 const ServiceSearch = () => {
   const classes = useStyles();
-  const searchQuery = useSelector((state) => state.query);
+  const [query, setQuery] = useState()
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
 
-  const setSearchQuery = (query) => {
+  const setSearchQuery = () => {
     dispatch({
       type: "SET_SEARCH_QUERY",
       payload: query,
@@ -60,28 +59,23 @@ const ServiceSearch = () => {
   };
 
   const performSearch = async () => {
-    const response = await Search.create(searchQuery);
-    dispatch({
-      type: "SET_SEARCH_RESULTS",
-      payload: response.data,
-    });
+    setSearchQuery();
+    await Search.create(store.getState().query);    
     if (route) {
       setRedirect(true);
     }
   };
 
   useEffect(() => {
+    let storeQuery = store.getState().query
     const getAllServices = async () => {
-      if (!searchQuery) {
-        const response = await Search.index();
-        dispatch({
-          type: "SET_SEARCH_RESULTS",
-          payload: response.data,
-        });
+      if (!storeQuery) {
+        await Search.index();        
       }
     };
     getAllServices();
-  }, [searchQuery, dispatch]);
+    setQuery(storeQuery);
+  }, [dispatch]);
 
   return (
     <>
@@ -96,9 +90,9 @@ const ServiceSearch = () => {
             <Grid item xs={6}>
               <OutlinedInput
                 data-cy="search-query"
-                onChange={(e) => setSearchQuery(e.target.value)}
+                onChange={(e) => setQuery(e.target.value)}
                 color="secondary"
-                value={searchQuery}
+                value={query}
                 placeholder={"Search for a community service..."}
                 aria-describedby="Search for self care services"
                 className={classes.queryInput}
@@ -147,7 +141,7 @@ const styles = {
   },
   searchButton: {
     borderRadius: "0 36px 36px 0",
-    height: "100%"
+    height: "100%",
   },
   fullWidth: {
     display: "flex",
