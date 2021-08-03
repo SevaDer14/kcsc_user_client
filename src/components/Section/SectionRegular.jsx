@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography, Button, Grid, makeStyles } from "@material-ui/core";
+import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
 
 import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "space-around",
       height: "auto",
       width: "100vw",
-      marginBottom: "50px",
+      // marginBottom: "20%",
       textAlign: "center",
     },
   },
@@ -38,28 +38,27 @@ const Section = ({ id, header, description, image, buttons }) => {
   ));
 
   return (
-    <Grid 
-    item
-    className={classes.section}
-    data-cy="page-section">
-      {idEven ? (
-        <SectionCenter
-          header={header}
-          description={description}
-          image={image}
-          buttons={buttons}
-          buttonList={buttonList}
-        />
-      ) : (
-        <SectionWide
-          header={header}
-          description={description}
-          image={image}
-          buttons={buttons}
-          buttonList={buttonList}
-        />
-      )}
-    </Grid>
+    <Paper className={classes.section} elevation={0}>
+      <Grid item className={classes.section} data-cy="page-section">
+        {idEven ? (
+          <SectionCenter
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+            buttonList={buttonList}
+          />
+        ) : (
+          <SectionWide
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+            buttonList={buttonList}
+          />
+        )}
+      </Grid>
+    </Paper>
   );
 };
 

@@ -15,14 +15,12 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "500px",
       width: "100%",
       overFlow: "hidden",
-      paddingBottom: "50px",
+      marginBottom: "10%",
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
-      // zIndex: "-1",
-      height: "360px",
-      width: "100%",
+      height: "200px",
       objectFit: "cover",
     },
   },
@@ -40,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
   button: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "35px",
-      position: "relative",
     },
   },
 }));
