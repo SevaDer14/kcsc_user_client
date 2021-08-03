@@ -7,6 +7,13 @@ import {
   FormHelperText,
   OutlinedInput,
   Grid,
+  FormGroup,
+  FormControl,
+  FormControlLabel,
+  Checkbox,
+  Select,
+  InputLabel,
+  MenuItem,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,36 +28,33 @@ const useStyles = makeStyles((theme) => ({
       marginBottom: "20%",
     },
     [theme.breakpoints.up("sm")]: {
-      width: "420px",
       height: "55.6px",
       marginBottom: "10%",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "420px",
       height: "65.6px",
       marginBottom: "5%",
-    },
-  },
-  queryInput: {
-    [theme.breakpoints.up("xs")]: {
-      height: "45.6px",
-    },
-    [theme.breakpoints.up("md")]: {
-      height: "55.6px",
-    },
-    [theme.breakpoints.up("lg")]: {
-      height: "65.6px",
     },
   },
 }));
 
 const ServiceSearch = () => {
   const classes = useStyles();
-  const [query, setQuery] = useState()
+  const [query, setQuery] = useState();
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
-  const [advanced, setAdvanced] = useState(false)
+  const [advanced, setAdvanced] = useState(false);
+  const [serviceCategory, setServiceCategory] = useState("");
+
+  const categories = [
+    "Category 1",
+    "Category 2",
+    "Category 3",
+    "Category 4",
+    "Category 5",
+    "Category 6",
+  ];
 
   const setSearchQuery = () => {
     dispatch({
@@ -61,17 +65,17 @@ const ServiceSearch = () => {
 
   const performSearch = async () => {
     setSearchQuery();
-    await Search.create(store.getState().query);    
+    await Search.create(store.getState().query);
     if (route) {
       setRedirect(true);
     }
   };
 
   useEffect(() => {
-    let storeQuery = store.getState().query
+    let storeQuery = store.getState().query;
     const getAllServices = async () => {
       if (!storeQuery) {
-        await Search.index();        
+        await Search.index();
       }
     };
     getAllServices();
@@ -88,19 +92,47 @@ const ServiceSearch = () => {
           style={styles.searchBar}
         >
           <Grid container justify="center">
-            <Grid item xs={6}>
+            <Grid item xs={5}>
               <OutlinedInput
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
                 color="secondary"
                 value={query}
-                placeholder={"Search for a community service..."}
+                placeholder={"Search for a service..."}
                 aria-describedby="Search for self care services"
                 className={classes.queryInput}
                 style={styles.queryInput}
               />
             </Grid>
-            <Grid item xs={2}>
+            {advanced && (
+              <Grid item xs={3}>
+                <FormControl
+                  variant="outlined"
+                  style={styles.dropdownContainer}
+                >
+                  <InputLabel htmlFor="dropdown">Category</InputLabel>
+                  <Select
+                    color="secondary"
+                    data-cy="advanced-search-dropdown"
+                    style={styles.dropdown}
+                    onChange={(e) => setServiceCategory(e.target.value)}
+                    value={serviceCategory}
+                    label="Category"
+                    aria-describedby="Choose categories of self care services"
+                    inputProps={{
+                      id: "dropdown",
+                    }}
+                  >
+                    {categories.map((category) => (
+                      <MenuItem key={category} value={category}>
+                        {category}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+            )}
+            <Grid item xs={1.5}>
               <Button
                 data-cy="search-submit"
                 onClick={() => performSearch()}
@@ -113,20 +145,22 @@ const ServiceSearch = () => {
                 <SearchIcon />
               </Button>
             </Grid>
-            <Grid item xs={2}>
-              <Button
-                data-cy="search-submit"
-                onClick={() => performSearch()}
-                variant="contained"
-                color="secondary"
-                className={classes.searchButton}
-                style={styles.searchButton}
-                disableElevation
-              >
-                <SearchIcon />
-              </Button>
+            <Grid item xs={2.5} style={styles.center}>
+              <FormGroup row>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      data-cy="advanced-search-checkbox"
+                      checked={advanced}
+                      onChange={(e) => setAdvanced(e.target.checked)}
+                    />
+                  }
+                  style={styles.checkboxLable}
+                  label="Advanced"
+                />
+              </FormGroup>
             </Grid>
-            <Grid container xs={8}>
+            <Grid container xs={advanced ? 12 : 9}>
               <FormHelperText style={styles.helperText}>
                 Try "befriending" or "sports".
               </FormHelperText>
@@ -147,8 +181,23 @@ const styles = {
     padding: "25px 0",
   },
   queryInput: {
+    height: "100%",
     width: "100%",
     borderRadius: "36px 0 0 36px",
+    backgroundColor: "white",
+  },
+  dropdownContainer: {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "white",
+  },
+  dropdown: {
+    borderRadius: "0px",
+    //border: "0.1px solid #aaa"
+  },
+  checkboxLable: {
+    marginLeft: "12px",
+    fontSize: "8px",
   },
   helperText: {
     marginLeft: "24px",
@@ -161,5 +210,8 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "center",
+  },
+  center: {
+    alignSelf: "center",
   },
 };
