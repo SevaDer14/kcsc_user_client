@@ -1,12 +1,13 @@
-//import axios from "axios";
-import search_results_football from '../data/fixtures/search_results_football.json'
+import axios from "axios";
 
 const Search = {
-  async create() {
-  //async create(searchQuery) {
-    //const response = await axios.get(`/search?q=${searchQuery}`);
-    //return response;
-    return search_results_football
+  async create(searchQuery) {
+    const response = await axios.post(`/search?q=${searchQuery}`)
+    return response;
+  },
+  async index() {
+    const response = await axios.get(`/services`)
+    return response;
   },
 };
 

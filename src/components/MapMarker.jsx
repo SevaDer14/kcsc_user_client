@@ -1,7 +1,7 @@
 import React from "react";
 import { Marker } from "@react-google-maps/api";
 
-const MapMarker = ({ service }) => {
+const MapMarker = ({ coordinates }) => {
   return (
     <Marker
       icon={{
@@ -15,8 +15,8 @@ const MapMarker = ({ service }) => {
       }}
       
       position={{
-        lat: parseFloat(service.coords.latitude),
-        lng: parseFloat(service.coords.longitude),
+        lat: parseFloat(coordinates.latitude),
+        lng: parseFloat(coordinates.longitude),
       }}
     />
   );

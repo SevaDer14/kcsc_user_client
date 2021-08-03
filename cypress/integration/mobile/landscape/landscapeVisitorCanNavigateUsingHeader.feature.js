@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate between views", () => {
   beforeEach(() => {
-    cy.viewport("iphone-x", "landscape");
+    cy.viewport("iphone-x");
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });

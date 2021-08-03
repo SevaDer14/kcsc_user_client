@@ -1,20 +1,46 @@
 import React from "react";
-import { Card, CardActionArea, CardContent, Typography } from "@material-ui/core";
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Hidden
+} from "@material-ui/core";
+import Service from "./Service";
+import { makeStyles } from "@material-ui/core/styles";
 
-const ServiceListItem = ({ listing }) => {
+const useStyles = makeStyles((theme) => ({
+  heading: {
+    [theme.breakpoints.up("xs")]: {
+      fontSize: "18px",
+    },
+    [theme.breakpoints.up("md")]: {
+      fontSize: "28px",
+    },
+  },
+}));
+
+const ServiceListItem = ({ listing, index }) => {
+  const classes = useStyles()
+
   return (
-    <Card key={listing.id} variant="outlined" style={styles.listing}>
-      <CardActionArea >
-        <CardContent >
-          <Typography gutterBottom variant="h5" component="h2">
+    <>
+      <Accordion data-cy={`search-result-${index}`} key={listing.id} variant="outlined" style={styles.listing}>
+        <AccordionSummary>
+          <Typography  variant="h5" component="h2" className={classes.heading}>
             {listing.name}
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {listing.description}
+          <Hidden xsDown>
+          <Typography variant="body2" component="p" style={styles.shortDescription}>
+            Can be some short description here...
           </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
+          </Hidden>
+        </AccordionSummary>
+        <AccordionDetails data-cy={`search-result-${index}-details`}>
+          <Service data={listing} />
+        </AccordionDetails>
+      </Accordion>
+    </>
   );
 };
 
@@ -22,6 +48,11 @@ export default ServiceListItem;
 
 const styles = {
   listing: {
-    margin: "5px"
-  }
-}
+    margin: "5px",
+  },
+  shortDescription: {
+    color: "#696969",
+    marginLeft: "30px",
+    alignSelf: "center"
+  },
+};

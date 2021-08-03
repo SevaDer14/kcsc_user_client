@@ -1,15 +1,12 @@
 import React from "react";
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 import { mapStyles } from "../data/mapStyles";
-import { useSelector } from "react-redux";
 import MapMarker from "./MapMarker";
 
-const Map = () => {
-  const { serviceSearchResults } = useSelector((state) => state);
-
+const Map = ({ coordinates }) => {
   const center = {
-    lat: 51.49955620887601,
-    lng: -0.2000188663810555,
+    lat: coordinates.latitude,
+    lng: coordinates.longitude,
   };
 
   const containerStyle = {
@@ -22,8 +19,6 @@ const Map = () => {
     streetViewControl: false,
     mapTypeControl: false,
     styles: mapStyles,
-    gestureHandling: "none",
-    zoomControl: false,
     fullscreenControl: false,
   };
 
@@ -34,24 +29,19 @@ const Map = () => {
 
   return (
     isLoaded && (
-      <GoogleMap
-        options={defaultMapOptions}
-        mapContainerStyle={containerStyle}
-        center={center}
-        zoom={14}
-      >
-        {serviceSearchResults.services &&
-          serviceSearchResults.services.map((service) => (
-            <MapMarker
-              key={
-                service.name +
-                service.coords.latitude +
-                service.coords.longitude
-              }
-              service={service}
-            />
-          ))}
-      </GoogleMap>
+      <div data-cy="map" style={{width: "100%", height: "100%"}}>
+        <GoogleMap
+          options={defaultMapOptions}
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={14}
+        >
+          <MapMarker
+            key={coordinates.latitude + coordinates.longitude}
+            coordinates={coordinates}
+          />
+        </GoogleMap>
+      </div>
     )
   );
 };
