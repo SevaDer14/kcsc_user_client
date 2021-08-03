@@ -50,6 +50,7 @@ const ServiceSearch = () => {
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
+  const [advanced, setAdvanced] = useState(false)
 
   const setSearchQuery = () => {
     dispatch({
@@ -98,6 +99,19 @@ const ServiceSearch = () => {
                 className={classes.queryInput}
                 style={styles.queryInput}
               />
+            </Grid>
+            <Grid item xs={2}>
+              <Button
+                data-cy="search-submit"
+                onClick={() => performSearch()}
+                variant="contained"
+                color="secondary"
+                className={classes.searchButton}
+                style={styles.searchButton}
+                disableElevation
+              >
+                <SearchIcon />
+              </Button>
             </Grid>
             <Grid item xs={2}>
               <Button
