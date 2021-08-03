@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
       height: "315px",
       marginTop: "-357px",
+      textAlign: "left"
     },
   },
   header: {
@@ -51,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "10px",
     },
     [theme.breakpoints.up("lg")]: {
+      marginLeft: "50px",
       color: "#fff",
     },
   },
@@ -60,6 +62,7 @@ const useStyles = makeStyles((theme) => ({
       marginRight: "30px",
     },
     [theme.breakpoints.up("lg")]: {
+      marginLeft: "50px",
       color: "#fff",
     },
   },
@@ -68,6 +71,9 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "30px",
       marginLeft: "20px",
       marginRight: "20px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginLeft: "50px",
     },
   },
 }));
