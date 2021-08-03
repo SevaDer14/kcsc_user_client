@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useRouteMatch } from "react-router-dom";
 import {
@@ -73,13 +73,26 @@ const ServiceSearch = () => {
     const response = await Search.create(searchQuery);
     dispatch({
       type: "SET_SEARCH_RESULTS",
-      //payload: response.data,
-      payload: response,
+      payload: response.data,
     });
     if (route) {
       setRedirect(true);
     }
   };
+
+  useEffect(() => {
+    const getAllServices = async () => {
+      
+      if (!searchQuery) {  
+        const response = await Search.index();
+        dispatch({
+          type: "SET_SEARCH_RESULTS",
+          payload: response.data,
+        });
+      }
+    };
+    getAllServices();
+  }, []);
 
   return (
     <>
@@ -144,5 +157,5 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "center",
-  }
+  },
 };
