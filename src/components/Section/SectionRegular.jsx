@@ -1,10 +1,26 @@
 import React from "react";
-import { Typography, Button, Box } from "@material-ui/core";
+import { Typography, Button, Grid, makeStyles } from "@material-ui/core";
 
 import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 
+const useStyles = makeStyles((theme) => ({
+  section: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignContent: "space-around",
+      height: "auto",
+      width: "100vw",
+      marginBottom: "50px",
+      textAlign: "center",
+    },
+  },
+}));
+
 const Section = ({ id, header, description, image, buttons }) => {
+  const classes = useStyles();
   let idEven = id % 2 === 0;
 
   const buttonList = buttons.map((button) => (
@@ -14,7 +30,6 @@ const Section = ({ id, header, description, image, buttons }) => {
       variant="contained"
       color="secondary"
       href={button.link}
-      style={styles.button}
     >
       <Typography variant="button" style={styles.buttonText}>
         {button.text}
@@ -23,9 +38,10 @@ const Section = ({ id, header, description, image, buttons }) => {
   ));
 
   return (
-    <Box
-      data-cy="page-section"
-    >
+    <Grid 
+    item
+    className={classes.section}
+    data-cy="page-section">
       {idEven ? (
         <SectionCenter
           header={header}
@@ -43,7 +59,7 @@ const Section = ({ id, header, description, image, buttons }) => {
           buttonList={buttonList}
         />
       )}
-    </Box>
+    </Grid>
   );
 };
 
@@ -64,11 +80,5 @@ const styles = {
   },
   buttonContainer: {
     marginTop: "20px",
-  },
-  button: {
-    marginRight: "10px",
-  },
-  buttonText: {
-    marginBottom: "-5px",
   },
 };

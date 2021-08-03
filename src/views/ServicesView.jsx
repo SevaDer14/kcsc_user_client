@@ -38,7 +38,7 @@ const ServicesView = () => {
       <Helmet>
         <title>Self Care Services</title>
       </Helmet>
-      <Grid container spacing={0} direction="column" alignItems="stretch">
+      <Grid container spacing={0} direction="column" justifyContent="space-around" alignItems="center" wrap="nowrap">
         {sectionList}
       </Grid>
     </>

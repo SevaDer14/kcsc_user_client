@@ -12,26 +12,43 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
-      height: "400px",
-      width: "100vw",
-      // backgroundSize: "cover",
+      maxHeight: "500px",
+      width: "100%",
+      overFlow: "hidden",
+      paddingBottom: "50px",
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
-      zIndex: "-1",
+      // zIndex: "-1",
       height: "360px",
-      width: "100vw",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
+      width: "100%",
+      objectFit: "cover",
     },
-  }
+  },
+  header: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "10px",
+    },
+  },
+  description: {
+    [theme.breakpoints.up("xs")]: {
+      marginLeft: "30px",
+      marginRight: "30px",
+    },
+  },
+  button: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "35px",
+      position: "relative",
+    },
+  },
 }));
 
 const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
   const classes = useStyles();
   return (
-    <Grid container className={classes.section}>
+    <Grid item className={classes.section}>
       <CardMedia
         component="img"
         image={image.url}
@@ -41,36 +58,38 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
       />
       <Grid
         item
-        xs={12}
-        lg={6}
+        // xs={12}
+        // lg={6}
         // style={
         //   idEven
         //     ? styles.itemContainer
         //     : { ...styles.itemContainer, backgroundColor: "#0008" }
         // }
       >
-        <Typography
-          data-cy="header"
-          variant="h3"
-          component="h3"
-          // style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {header}
-        </Typography>
-        <Typography
-          data-cy="description"
-          variant="body1"
-          component="p"
-          // style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {description}
-        </Typography>
-        <Box>{buttons && buttonList}</Box>
-        {/* <Box style={styles.buttonContainer}>{buttons && buttonList}</Box> */}
+        <Box>
+          <Typography
+            data-cy="header"
+            variant="h3"
+            component="h3"
+            className={classes.header}
+            // style={idEven ? { color: "#000" } : { color: "#fff" }}
+            gutterBottom
+          >
+            {header}
+          </Typography>
+          <Typography
+            data-cy="description"
+            variant="body1"
+            component="p"
+            className={classes.description}
+            // style={idEven ? { color: "#000" } : { color: "#fff" }}
+            gutterBottom
+          >
+            {description}
+          </Typography>
+          <Box className={classes.button}>{buttons && buttonList}</Box>
+        </Box>
       </Grid>
-      {header}
     </Grid>
   );
 };
