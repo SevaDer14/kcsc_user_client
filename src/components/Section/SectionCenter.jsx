@@ -41,9 +41,7 @@ const useStyles = makeStyles((theme) => ({
   },
   contentContainer: {
     [theme.breakpoints.up("lg")]: {
-      width: "70%",
-      paddingLeft: "40px",
-      paddingRight: "40px",
+      paddingTop: "20px",
     },
   },
   header: {

@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
       padding: "0",
-      // width: "100%",
     },
   },
   section: {
@@ -22,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
       textAlign: "center",
     },
     [theme.breakpoints.up("lg")]: {
-      display: "flex",
       flexDirection: "row",
       left: "0px"
     },

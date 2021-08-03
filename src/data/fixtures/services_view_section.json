@@ -11,7 +11,7 @@
       },
       "buttons": [{
         "id": 1,
-        "text": "search self-care service",
+        "text": "Placeholder Button",
         "link": "http://localhost:3001/services/search"
       }]
     },
