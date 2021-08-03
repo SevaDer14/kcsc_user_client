@@ -109,7 +109,6 @@ describe("visitor can navigate between views", () => {
             "contain.text",
             "This section tells vistor about Community Health West London background and setup"
           );
-          cy.get("[data-cy=image]").should("not.exist");
         });
     });
 

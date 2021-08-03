@@ -52,7 +52,7 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
       <CardMedia
         component="img"
         image={image.url}
-        data-cy="logo"
+        data-cy="image"
         className={classes.image}
         alt="Community Health West London"
       />
