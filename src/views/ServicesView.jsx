@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Grid } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 //import Sections from "../modules/Sections";
-import services_view_section from '../data/fixtures/services_view_section.json'
+import services_view_section from "../data/fixtures/services_view_section.json";
 import SectionSelector from "../components/Section/SectionSelector";
 
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      flexWrap: "nowrap",
+    },
+  },
+}));
+
 const ServicesView = () => {
+  const classes = useStyles();
   const [sections, setSections] = useState([]);
 
   const toKebabCase = (string) =>
-  string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -20,25 +32,24 @@ const ServicesView = () => {
     fetchPageData();
   }, []);
 
-  const sectionList = sections.map(
-    (section) => {
-      return (
-        <Grid item key={section.id} id={toKebabCase(section.header)}>
-          <SectionSelector
-            id={section.id}
-            section={section}
-          />
-        </Grid>
-      );
-    }
-  );
+  const sectionList = sections.map((section) => {
+    return (
+      <Grid item key={section.id} id={toKebabCase(section.header)}>
+        <SectionSelector id={section.id} section={section} />
+      </Grid>
+    );
+  });
 
   return (
     <>
       <Helmet>
         <title>Self Care Services</title>
       </Helmet>
-      <Grid container spacing={0} direction="column"  alignItems="center" wrap="nowrap">
+      <Grid
+        container
+        className={classes.grid}
+        spacing={0}
+      >
         {sectionList}
       </Grid>
     </>

@@ -5,6 +5,12 @@ import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 
 const useStyles = makeStyles((theme) => ({
+  container: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "0",
+      // width: "100%",
+    },
+  },
   section: {
     [theme.breakpoints.up("xs")]: {
       display: "flex",
@@ -13,8 +19,12 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "space-around",
       height: "auto",
       width: "100vw",
-      // marginBottom: "20%",
       textAlign: "center",
+    },
+    [theme.breakpoints.up("lg")]: {
+      display: "flex",
+      flexDirection: "row",
+      left: "0px"
     },
   },
 }));
@@ -31,14 +41,14 @@ const Section = ({ id, header, description, image, buttons }) => {
       color="secondary"
       href={button.link}
     >
-      <Typography variant="button" style={styles.buttonText}>
+      <Typography variant="button" >
         {button.text}
       </Typography>
     </Button>
   ));
 
   return (
-    <Paper className={classes.section} elevation={0}>
+    <Paper className={classes.container} elevation={0}>
       <Grid item className={classes.section} data-cy="page-section">
         {idEven ? (
           <SectionCenter
@@ -63,21 +73,3 @@ const Section = ({ id, header, description, image, buttons }) => {
 };
 
 export default Section;
-
-const styles = {
-  section: {
-    height: "650px",
-    backgroundSize: "cover",
-  },
-  itemContainer: {
-    padding: "5%",
-  },
-  image: {
-    width: "100%",
-    maxHeight: "400px",
-    borderRadius: "10px",
-  },
-  buttonContainer: {
-    marginTop: "20px",
-  },
-};

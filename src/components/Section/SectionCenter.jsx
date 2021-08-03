@@ -17,11 +17,33 @@ const useStyles = makeStyles((theme) => ({
       overFlow: "hidden",
       marginBottom: "10%",
     },
+    [theme.breakpoints.up("lg")]: {
+      flexDirection: "row",
+      justifyContent: "center",
+      marginBottom: "80px",
+      marginRight: "13%",
+      marginLeft: "10%",
+    },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
       height: "200px",
       objectFit: "cover",
+    },
+    [theme.breakpoints.up("lg")]: {
+      height: "300px",
+      width: "660px",
+      objectFit: "contain",
+      borderRadius: "10px",
+      marginRight: "40px",
+      marginLeft: "60px",
+    },
+  },
+  contentContainer: {
+    [theme.breakpoints.up("lg")]: {
+      width: "70%",
+      paddingLeft: "40px",
+      paddingRight: "40px",
     },
   },
   header: {
@@ -45,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
 const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
   const classes = useStyles();
   return (
-    <Grid item className={classes.section}>
+    <Grid item xs={12} className={classes.section}>
       <CardMedia
         component="img"
         image={image.url}
@@ -53,39 +75,26 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
         className={classes.image}
         alt="Community Health West London"
       />
-      <Grid
-        item
-        // xs={12}
-        // lg={6}
-        // style={
-        //   idEven
-        //     ? styles.itemContainer
-        //     : { ...styles.itemContainer, backgroundColor: "#0008" }
-        // }
-      >
-        <Box>
-          <Typography
-            data-cy="header"
-            variant="h3"
-            component="h3"
-            className={classes.header}
-            // style={idEven ? { color: "#000" } : { color: "#fff" }}
-            gutterBottom
-          >
-            {header}
-          </Typography>
-          <Typography
-            data-cy="description"
-            variant="body1"
-            component="p"
-            className={classes.description}
-            // style={idEven ? { color: "#000" } : { color: "#fff" }}
-            gutterBottom
-          >
-            {description}
-          </Typography>
-          <Box className={classes.button}>{buttons && buttonList}</Box>
-        </Box>
+      <Grid item className={classes.contentContainer}>
+        <Typography
+          data-cy="header"
+          variant="h3"
+          component="h3"
+          className={classes.header}
+          gutterBottom
+        >
+          {header}
+        </Typography>
+        <Typography
+          data-cy="description"
+          variant="body1"
+          component="p"
+          className={classes.description}
+          gutterBottom
+        >
+          {description}
+        </Typography>
+        <Box className={classes.button}>{buttons && buttonList}</Box>
       </Grid>
     </Grid>
   );

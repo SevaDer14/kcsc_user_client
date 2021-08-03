@@ -16,7 +16,10 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "500px",
       width: "100%",
       overFlow: "hidden",
-      marginBottom: "10%",
+      marginBottom: "40px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginBottom: "80px",
     },
   },
   image: {
@@ -24,16 +27,37 @@ const useStyles = makeStyles((theme) => ({
       height: "200px",
       objectFit: "cover",
     },
+    [theme.breakpoints.up("lg")]: {
+      height: "400px",
+    },
+  },
+  contentContainer: {
+    [theme.breakpoints.up("lg")]: {
+      backgroundColor: "rgba(0,0,0,0.7)",
+      position: "absolute",
+      zIndex: "50",
+      left: "0px",
+      paddingTop: "30px",
+      width: "50%",
+      height: "315px",
+      marginTop: "-357px",
+    },
   },
   header: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "10px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      color: "#fff",
     },
   },
   description: {
     [theme.breakpoints.up("xs")]: {
       marginLeft: "30px",
       marginRight: "30px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      color: "#fff",
     },
   },
   button: {
@@ -49,7 +73,7 @@ const SectionWide = ({ header, description, image, buttons, buttonList }) => {
   const classes = useStyles();
   return (
     <Paper className={classes.section} elevation={0}>
-      <Grid item>
+      <Grid item xs={12}>
         <CardMedia
           component="img"
           image={image.url}
@@ -57,22 +81,12 @@ const SectionWide = ({ header, description, image, buttons, buttonList }) => {
           className={classes.image}
           alt="Community Health West London"
         />
-        <Grid
-          item
-          xs={12}
-          // lg={6}
-          // style={
-          //   idEven
-          //     ? styles.itemContainer
-          //     : { ...styles.itemContainer, backgroundColor: "#0008" }
-          // }
-        >
+        <Grid className={classes.contentContainer} item xs={12}>
           <Typography
             data-cy="header"
             variant="h3"
             component="h3"
             className={classes.header}
-            // style={idEven ? { color: "#000" } : { color: "#fff" }}
             gutterBottom
           >
             {header}
@@ -82,7 +96,6 @@ const SectionWide = ({ header, description, image, buttons, buttonList }) => {
             variant="body1"
             component="p"
             className={classes.description}
-            // style={idEven ? { color: "#000" } : { color: "#fff" }}
             gutterBottom
           >
             {description}
