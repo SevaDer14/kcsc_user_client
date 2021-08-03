@@ -1,5 +1,8 @@
 import React from "react";
-import { Typography, Box, Button, Grid } from "@material-ui/core";
+import { Typography, Button, Box } from "@material-ui/core";
+
+import SectionWide from "./SectionWide";
+import SectionCenter from "./SectionCenter";
 
 const Section = ({ id, header, description, image, buttons }) => {
   let idEven = id % 2 === 0;
@@ -20,54 +23,27 @@ const Section = ({ id, header, description, image, buttons }) => {
   ));
 
   return (
-    <Grid
-      style={
-        idEven
-          ? styles.section
-          : { ...styles.section, backgroundImage: `url(${image.url})` }
-      }
-      container
-      alignItems="center"
-      direction="row"
+    <Box
       data-cy="page-section"
     >
-      {idEven && (
-        <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
-          <img style={styles.image} src={image.url} alt={image.alt} />
-        </Grid>
+      {idEven ? (
+        <SectionCenter
+          header={header}
+          description={description}
+          image={image}
+          buttons={buttons}
+          buttonList={buttonList}
+        />
+      ) : (
+        <SectionWide
+          header={header}
+          description={description}
+          image={image}
+          buttons={buttons}
+          buttonList={buttonList}
+        />
       )}
-
-      <Grid
-        item
-        xs={12}
-        lg={6}
-        style={
-          idEven
-            ? styles.itemContainer
-            : { ...styles.itemContainer, backgroundColor: "#0008" }
-        }
-      >
-        <Typography
-          data-cy="header"
-          variant="h3"
-          component="h3"
-          style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {header}
-        </Typography>
-        <Typography
-          data-cy="description"
-          variant="body1"
-          component="p"
-          style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {description}
-        </Typography>
-        <Box style={styles.buttonContainer}>{buttons && buttonList}</Box>
-      </Grid>
-    </Grid>
+    </Box>
   );
 };
 
