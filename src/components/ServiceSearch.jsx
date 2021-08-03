@@ -7,6 +7,7 @@ import {
   FormControl,
   FormHelperText,
   OutlinedInput,
+  Grid,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
@@ -42,17 +43,6 @@ const useStyles = makeStyles((theme) => ({
       height: "65.6px",
     },
   },
-  searchButton: {
-    [theme.breakpoints.up("xs")]: {
-      height: "45.6px",
-    },
-    [theme.breakpoints.up("md")]: {
-      height: "55.6px",
-    },
-    [theme.breakpoints.up("lg")]: {
-      height: "59px",
-    },
-  },
 }));
 
 const ServiceSearch = () => {
@@ -82,7 +72,7 @@ const ServiceSearch = () => {
 
   useEffect(() => {
     const getAllServices = async () => {
-      if (!searchQuery) {  
+      if (!searchQuery) {
         const response = await Search.index();
         dispatch({
           type: "SET_SEARCH_RESULTS",
@@ -102,32 +92,38 @@ const ServiceSearch = () => {
           className={classes.searchBar}
           style={styles.searchBar}
         >
-          <FormControl>
-            <OutlinedInput
-              data-cy="search-query"
-              onChange={(e) => setSearchQuery(e.target.value)}
-              color="secondary"
-              value={searchQuery}
-              placeholder={"Search for a community service..."}
-              aria-describedby="Search for self care services"
-              className={classes.queryInput}
-              style={styles.queryInput}
-            />
-            <FormHelperText style={styles.helperText}>
-              Try "befriending" or "sports".
-            </FormHelperText>
-          </FormControl>
-          <Button
-            data-cy="search-submit"
-            onClick={() => performSearch()}
-            variant="contained"
-            color="secondary"
-            className={classes.searchButton}
-            style={styles.searchButton}
-            disableElevation
-          >
-            <SearchIcon />
-          </Button>
+          <Grid container justify="center">
+            <Grid item xs={6}>
+              <OutlinedInput
+                data-cy="search-query"
+                onChange={(e) => setSearchQuery(e.target.value)}
+                color="secondary"
+                value={searchQuery}
+                placeholder={"Search for a community service..."}
+                aria-describedby="Search for self care services"
+                className={classes.queryInput}
+                style={styles.queryInput}
+              />
+            </Grid>
+            <Grid item xs={2}>
+              <Button
+                data-cy="search-submit"
+                onClick={() => performSearch()}
+                variant="contained"
+                color="secondary"
+                className={classes.searchButton}
+                style={styles.searchButton}
+                disableElevation
+              >
+                <SearchIcon />
+              </Button>
+            </Grid>
+            <Grid container xs={8}>
+              <FormHelperText style={styles.helperText}>
+                Try "befriending" or "sports".
+              </FormHelperText>
+            </Grid>
+          </Grid>
         </Box>
       </Box>
     </>
@@ -139,7 +135,7 @@ export default ServiceSearch;
 const styles = {
   searchBar: {
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     padding: "25px 0",
   },
   queryInput: {
@@ -151,6 +147,7 @@ const styles = {
   },
   searchButton: {
     borderRadius: "0 36px 36px 0",
+    height: "100%"
   },
   fullWidth: {
     display: "flex",
