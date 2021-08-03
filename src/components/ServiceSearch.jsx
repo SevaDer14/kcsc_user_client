@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ServiceSearch = () => {
   const classes = useStyles();
-  const [query, setQuery] = useState();
+  const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
@@ -105,34 +105,34 @@ const ServiceSearch = () => {
               />
             </Grid>
             <Hidden xsDown>
-            {advanced && (
-              <Grid item sm={3}>
-                <FormControl
-                  variant="outlined"
-                  style={styles.dropdownContainer}
-                >
-                  <InputLabel htmlFor="dropdown">Category</InputLabel>
-                  <Select
-                    color="secondary"
-                    data-cy="advanced-search-dropdown"
-                    style={styles.dropdown}
-                    onChange={(e) => setServiceCategory(e.target.value)}
-                    value={serviceCategory}
-                    label="Category"
-                    aria-describedby="Choose categories of self care services"
-                    inputProps={{
-                      id: "dropdown",
-                    }}
+              {advanced && (
+                <Grid item sm={3}>
+                  <FormControl
+                    variant="outlined"
+                    style={styles.dropdownContainer}
                   >
-                    {categories.map((category) => (
-                      <MenuItem key={category} value={category}>
-                        {category}
-                      </MenuItem>
-                    ))}
-                  </Select>
-                </FormControl>
-              </Grid>
-            )}
+                    <InputLabel htmlFor="dropdown">Category</InputLabel>
+                    <Select
+                      color="secondary"
+                      data-cy="advanced-search-dropdown"
+                      style={styles.dropdown}
+                      onChange={(e) => setServiceCategory(e.target.value)}
+                      value={serviceCategory}
+                      label="Category"
+                      aria-describedby="Choose categories of self care services"
+                      inputProps={{
+                        id: "dropdown",
+                      }}
+                    >
+                      {categories.map((category) => (
+                        <MenuItem key={category} value={category}>
+                          {category}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              )}
             </Hidden>
             <Grid item xs={2} sm={1}>
               <Button
@@ -147,26 +147,26 @@ const ServiceSearch = () => {
                 <SearchIcon />
               </Button>
             </Grid>
-
-            <Hidden xsDown>
-              <Grid item xs={3} style={styles.center}>
-                <FormGroup row>
-                  <FormControlLabel
-                    control={
-                      <Checkbox
-                        data-cy="advanced-search-checkbox"
-                        checked={advanced}
-                        onChange={(e) => setAdvanced(e.target.checked)}
-                      />
-                    }
-                    label="Advanced"
-                    style={styles.checkbox}
-                  />
-                </FormGroup>
-              </Grid>
-            </Hidden>
-            
-            <Grid container sm={12}>
+            {!route && (
+              <Hidden xsDown>
+                <Grid item xs={3} style={styles.center}>
+                  <FormGroup row>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          data-cy="advanced-search-checkbox"
+                          checked={advanced}
+                          onChange={(e) => setAdvanced(e.target.checked)}
+                        />
+                      }
+                      label="Advanced"
+                      style={styles.checkbox}
+                    />
+                  </FormGroup>
+                </Grid>
+              </Hidden>
+            )}
+            <Grid container>
               <FormHelperText style={styles.helperText}>
                 Try "befriending" or "sports".
               </FormHelperText>
@@ -202,7 +202,7 @@ const styles = {
     //border: "0.1px solid #aaa"
   },
   checkbox: {
-    paddingLeft: "24px"
+    paddingLeft: "24px",
   },
   helperText: {
     marginLeft: "24px",

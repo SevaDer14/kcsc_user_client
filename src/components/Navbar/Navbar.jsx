@@ -1,11 +1,19 @@
 import React from "react";
 import DesktopNav from "./ApplicationHeader";
 import MobileNav from "./MobileApplicationHeader";
+import { Hidden } from "@material-ui/core";
 
 const Navbar = () => {
-  const mql = window.matchMedia("(max-width: 1200px)");
-  let mobileView = mql.matches;
-  return <>{mobileView ? <MobileNav /> : <DesktopNav />}</>;
+  return (
+    <>
+      <Hidden smDown>
+        <DesktopNav />
+      </Hidden>
+      <Hidden mdUp>
+        <MobileNav />
+      </Hidden>
+    </>
+  );
 };
 
 export default Navbar;
