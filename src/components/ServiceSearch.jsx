@@ -14,6 +14,7 @@ import {
   Select,
   InputLabel,
   MenuItem,
+  Hidden,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
@@ -24,7 +25,6 @@ const useStyles = makeStyles((theme) => ({
   searchBar: {
     [theme.breakpoints.up("xs")]: {
       height: "45.6px",
-      marginLeft: "5%",
       marginBottom: "20%",
     },
     [theme.breakpoints.up("sm")]: {
@@ -92,7 +92,7 @@ const ServiceSearch = () => {
           style={styles.searchBar}
         >
           <Grid container justify="center">
-            <Grid item xs={5}>
+            <Grid item xs={10} sm={advanced ? 5 : 8}>
               <OutlinedInput
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
@@ -104,8 +104,9 @@ const ServiceSearch = () => {
                 style={styles.queryInput}
               />
             </Grid>
+            <Hidden xsDown>
             {advanced && (
-              <Grid item xs={3}>
+              <Grid item sm={3}>
                 <FormControl
                   variant="outlined"
                   style={styles.dropdownContainer}
@@ -132,7 +133,8 @@ const ServiceSearch = () => {
                 </FormControl>
               </Grid>
             )}
-            <Grid item xs={1.5}>
+            </Hidden>
+            <Grid item xs={2} sm={1}>
               <Button
                 data-cy="search-submit"
                 onClick={() => performSearch()}
@@ -145,22 +147,26 @@ const ServiceSearch = () => {
                 <SearchIcon />
               </Button>
             </Grid>
-            <Grid item xs={2.5} style={styles.center}>
-              <FormGroup row>
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      data-cy="advanced-search-checkbox"
-                      checked={advanced}
-                      onChange={(e) => setAdvanced(e.target.checked)}
-                    />
-                  }
-                  style={styles.checkboxLable}
-                  label="Advanced"
-                />
-              </FormGroup>
-            </Grid>
-            <Grid container xs={advanced ? 12 : 9}>
+
+            <Hidden xsDown>
+              <Grid item xs={3} style={styles.center}>
+                <FormGroup row>
+                  <FormControlLabel
+                    control={
+                      <Checkbox
+                        data-cy="advanced-search-checkbox"
+                        checked={advanced}
+                        onChange={(e) => setAdvanced(e.target.checked)}
+                      />
+                    }
+                    label="Advanced"
+                    style={styles.checkbox}
+                  />
+                </FormGroup>
+              </Grid>
+            </Hidden>
+            
+            <Grid container sm={12}>
               <FormHelperText style={styles.helperText}>
                 Try "befriending" or "sports".
               </FormHelperText>
@@ -195,9 +201,8 @@ const styles = {
     borderRadius: "0px",
     //border: "0.1px solid #aaa"
   },
-  checkboxLable: {
-    marginLeft: "12px",
-    fontSize: "8px",
+  checkbox: {
+    paddingLeft: "24px"
   },
   helperText: {
     marginLeft: "24px",
