@@ -136,8 +136,8 @@ const ApplicationFooter = () => {
     return { key: toKebabCase(tab.label), text: tab.label, link: tab.link };
   });
 
-  const navigationMenu = navigationItems.map(({ key, link, text }) => (
-    <Link data-cy="link" key={key} to={link} className={classes.navLink}>
+  const navigationMenu = navigationItems.map(({ link, text }, index) => (
+    <Link data-cy="link" key={`footer-link-${index}`} to={link} className={classes.navLink}>
       {text}
     </Link>
   ));

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import {
+  Container,
+  Grid,
+  makeStyles,
+  Typography,
+} from "@material-ui/core";
 import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
@@ -39,7 +44,7 @@ const InformationView = () => {
 
   const sectionList = sections.map((section) => {
     return (
-      <Grid item key={section.id} id={toKebabCase(section.header)}>
+      <Grid item key={`section-${section.id}`} id={toKebabCase(section.header)}>
         <SectionSelector id={section.id} section={section} />
       </Grid>
     );
@@ -47,16 +52,16 @@ const InformationView = () => {
 
   const otherItemsList = otherItems.map((item, index) => {
     return (
-      <Grid item key={item.id}>
-        <InformationItem index={index} item={item} />
+      <Grid item key={`other-item-${index}`}>
+        <InformationItem item={item} />
       </Grid>
     );
   });
 
   const pinnedItemsList = pinnedItems.map((item, index) => {
     return (
-      <Grid item key={item.id} md={4}>
-        <InformationCard index={index} item={item} />
+      <Grid item key={`pinned-item-${index}`} sm={6}>
+        <InformationCard item={item} />
       </Grid>
     );
   });
@@ -69,17 +74,29 @@ const InformationView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Container maxWidth="md">
-        <Grid container spacing={2}>
+      <Container maxWidth="md" >
+        <Typography variant="h3" component="h3" style={styles.sectionHeader}>
+          Pinned Info:
+        </Typography>
+        <Grid container spacing={3} >
           {pinnedItemsList}
         </Grid>
-
-        {/* <Grid container spacing={0} direction="column" alignItems="stretch">
-        {otherItemsList}
-      </Grid> */}
+        <Grid container spacing={0} direction="column" alignItems="stretch">
+          <Typography variant="h3" component="h3" style={styles.sectionHeader}>
+            Other Info:
+          </Typography>
+          {otherItemsList}
+        </Grid>
       </Container>
     </>
   );
 };
 
 export default InformationView;
+
+const styles = {
+  sectionHeader: {
+    marginTop: "60px",
+    marginBottom: "20px",
+  },
+};

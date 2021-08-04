@@ -16,10 +16,6 @@ const useStyles = makeStyles((theme) => ({
       maxHeight: "500px",
       width: "100%",
       overFlow: "hidden",
-      marginBottom: "40px",
-    },
-    [theme.breakpoints.up("lg")]: {
-      marginBottom: "80px",
     },
   },
   image: {
