@@ -3,10 +3,11 @@ describe("Visitor can search for local services", () => {
   beforeEach(() => {
     cy.intercept("**/api/services**", {
       fixture: "search_all_services.json",
-    });
+    });  
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
+    cy.viewport("macbook-15");
   });
 
   describe("by entering a valid serch term", () => {

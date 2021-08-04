@@ -50,7 +50,7 @@ const kcscTheme = createMuiTheme({
       fontSize: 16,
     },
     button: {
-      fontSize: 24,
+      fontSize: 18,
     },
   },
   overrides: {

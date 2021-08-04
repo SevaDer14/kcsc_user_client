@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 describe("visitor can navigate Services View", () => {
   beforeEach(() => {
+    cy.viewport("macbook-15");
     cy.intercept("GET", "**/api/sections**", {
       fixture: "services_view_section.json",
     });
@@ -26,7 +27,6 @@ describe("visitor can navigate Services View", () => {
           "contain.text",
           "On this page, you can find all available services in your area"
         );
-        cy.get("[data-cy=image]").should("not.exist");
       });
     cy.get("[data-cy=page-section]")
       .eq(1)
@@ -48,10 +48,8 @@ describe("visitor can navigate Services View", () => {
   });
 
   it("is expected to scroll when using secondary navbar", () => {
-    cy.scrollTo(0, 0)
+    cy.scrollTo(0, 0);
     cy.get("[data-cy=other-vcs-lg-contracts-sub-tab]").click();
-    cy.window()
-      .its("scrollY")
-      .should("not.equal", 0);
+    cy.window().its("scrollY").should("not.equal", 0);
   });
 });
