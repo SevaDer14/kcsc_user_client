@@ -4,6 +4,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 //import Sections from "../modules/Sections";
 import services_view_section from "../data/fixtures/services_view_section.json";
 import SectionSelector from "../components/Section/SectionSelector";
+import {toKebabCase} from '../modules/Functions.js'
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -19,9 +20,6 @@ const useStyles = makeStyles((theme) => ({
 const ServicesView = () => {
   const classes = useStyles();
   const [sections, setSections] = useState([]);
-
-  const toKebabCase = (string) =>
-    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   useEffect(() => {
     const fetchPageData = async () => {

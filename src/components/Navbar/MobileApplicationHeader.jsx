@@ -17,6 +17,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
+import {toKebabCase} from '../modules/Functions.js'
 
 const MobileApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -38,8 +39,6 @@ const MobileApplicationHeader = () => {
     fetchApplicationData();
   }, [appDataFetched]);
 
-  const toKebabCase = (string) =>
-    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);

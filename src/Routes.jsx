@@ -56,10 +56,15 @@ const Routes = () => {
           path="/about/self_care"
           render={() => <App component={<AboutSelfCareView />} />}
         />
-           <Route
+        <Route
           exact
           path="/info/news"
           render={() => <App component={<NewsView />} />}
+        />
+        <Route
+          exact
+          path="/info/information"
+          render={() => <App component={<InformationView />} />}
         />
         <Route
           exact

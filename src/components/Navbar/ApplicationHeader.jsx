@@ -13,6 +13,7 @@ import {
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
+import {toKebabCase} from '../modules/Functions.js'
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -40,9 +41,6 @@ const ApplicationHeader = () => {
   const handleChangeSecondary = (event, newValue) => {
     setActiveSecondaryTab(newValue);
   };
-
-  const toKebabCase = (string) =>
-    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
