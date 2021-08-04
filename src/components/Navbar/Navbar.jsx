@@ -6,10 +6,10 @@ import { Hidden } from "@material-ui/core";
 const Navbar = () => {
   return (
     <>
-      <Hidden smDown>
+      <Hidden mdDown>
         <DesktopNav />
       </Hidden>
-      <Hidden mdUp>
+      <Hidden lgUp>
         <MobileNav />
       </Hidden>
     </>

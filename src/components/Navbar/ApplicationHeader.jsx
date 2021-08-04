@@ -8,7 +8,6 @@ import {
   Slide,
   Tabs,
   Tab,
-  Hidden,
 } from "@material-ui/core";
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
@@ -76,13 +75,11 @@ const ApplicationHeader = () => {
         <AppBar data-cy="application-header" elevation={0}>
           <Toolbar>
             {!landingPage && (
-              <Hidden mdDown>
                 <Logo
                   data-cy="header-logo"
                   style={styles.headerLogo}
                   alt="Community Health West London"
                 />
-              </Hidden>
             )}
             <Tabs
               value={activeMainTab}
