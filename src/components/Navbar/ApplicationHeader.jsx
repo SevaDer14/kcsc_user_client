@@ -75,11 +75,11 @@ const ApplicationHeader = () => {
         <AppBar data-cy="application-header" elevation={0}>
           <Toolbar>
             {!landingPage && (
-                <Logo
-                  data-cy="header-logo"
-                  style={styles.headerLogo}
-                  alt="Community Health West London"
-                />
+              <Logo
+                data-cy="header-logo"
+                style={styles.headerLogo}
+                alt="Community Health West London"
+              />
             )}
             <Tabs
               value={activeMainTab}
