@@ -13,16 +13,11 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
-      height: "550px",
+      height: "auto",
       width: "100%",
       overFlow: "hidden",
       marginBottom: "0px",
-    },
-    [theme.breakpoints.up("sm")]: {
-      height: "470px",
-    },
-    [theme.breakpoints.up("md")]: {
-      height: "485px",
+      paddingBottom: "40px"
     },
     [theme.breakpoints.up("lg")]: {
       height: "400px",

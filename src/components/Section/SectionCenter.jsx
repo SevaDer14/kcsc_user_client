@@ -12,22 +12,16 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
-      maxHeight: "530px",
+      height: "auto",
       width: "100%",
       overFlow: "hidden",
-      marginBottom: "10%",
-    },
-    [theme.breakpoints.up("sm")]: {
-      maxHeight: "400px",
-    },
-    [theme.breakpoints.up("md")]: {
-      // maxHeight: "380px",
+      paddingBottom: "40px"
     },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "center",
-      paddingTop: "65px",
-      marginBottom: "80px",
+      paddingTop: "80px",
+      paddingBottom: "80px",
       marginRight: "13%",
       marginLeft: "10%",
     },

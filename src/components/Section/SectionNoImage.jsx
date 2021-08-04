@@ -4,6 +4,7 @@ import { Typography, Grid } from "@material-ui/core";
 const Section = ({ header, description }) => {
   return (
     <Grid
+      item
       style={styles.section}
       container
       alignItems="center"
