@@ -29,7 +29,7 @@ export default Section;
 
 const styles = {
   section: {
-    height: "650px",
+    height: "auto",
     padding: "40px 15%",
   },
 };
