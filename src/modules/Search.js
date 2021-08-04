@@ -1,13 +1,20 @@
 import axios from "axios";
+import store from "../state/store/configureStore";
 
 const Search = {
   async create(searchQuery) {
     const response = await axios.post(`/search?q=${searchQuery}`)
-    return response;
+    store.dispatch({
+      type: "SET_SEARCH_RESULTS",
+      payload: response.data,
+    });
   },
   async index() {
     const response = await axios.get(`/services`)
-    return response;
+    store.dispatch({
+      type: "SET_SEARCH_RESULTS",
+      payload: response.data,
+    });
   },
 };
 

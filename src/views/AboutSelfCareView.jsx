@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 //import Sections from "../modules/Sections";
-import about_self_care_view_sections from '../data/fixtures/about_self_care_view_sections.json'
+import about_self_care_view_sections from "../data/fixtures/about_self_care_view_sections.json";
 import { Grid } from "@material-ui/core";
 import SectionSelector from "../components/Section/SectionSelector";
 
@@ -17,18 +17,13 @@ const AboutSelfCareView = () => {
     fetchPageData();
   }, []);
 
-  const sectionList = sections.map(
-    (section) => {
-      return (
-        <Grid item key={section.id}>
-          <SectionSelector
-            id={section.id}
-            section={section}
-          />
-        </Grid>
-      );
-    }
-  );
+  const sectionList = sections.map((section) => {
+    return (
+      <Grid item key={section.id}>
+        <SectionSelector id={section.id} section={section} />
+      </Grid>
+    );
+  });
 
   return (
     <>

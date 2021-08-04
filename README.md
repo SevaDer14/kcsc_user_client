@@ -62,6 +62,22 @@ The request happens once in the begining of user session.
 ```
 {
   "app_data": {
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Maggie Black",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "photo": "https://freerangestock.com/sample/114840/a-caucasian-woman-posing-with-a-smile.jpg",
+        "alt": "Maggie Black smiling to the camera"
+      },
+      {
+        "id": 2,
+        "name": "Richard Erricson",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "photo": "https://t3.ftcdn.net/jpg/01/15/46/70/360_F_115467073_9hWxkk2M8b4obn3Aq0JW3YDxtYt5nXqn.jpg",
+        "alt": "Richard Erricson smiling to the camera"
+      }
+    ],
     "navigation": {
       "main_tabs": [
         {
@@ -70,11 +86,53 @@ The request happens once in the begining of user session.
         },
         {
           "label": "services",
-          "link": "/services"
+          "link": "/services",
+          "secondary_tabs": [
+            {
+              "label": "Find a service",
+              "link": "/services",
+              "ref": "find-a-service"
+            },
+            {
+              "label": "KCSC Self Care",
+              "link": "/services",
+              "ref": "kcsc-self-care"
+            },
+            {
+              "label": "KCSC CLW",
+              "link": "/services",
+              "ref": "kcsc-clw"
+            },
+            {
+              "label": "KCSC N Ken SC",
+              "link": "/services",
+              "ref": "kcsc-n-ken-sc"
+            },
+            {
+              "label": "Link workers",
+              "link": "/services",
+              "ref": "link-workers"
+            },
+            {
+              "label": "Other VCS lg contracts",
+              "link": "/services",
+              "ref": "other-vcs-lg-contracts"
+            }
+          ]
         },
         {
           "label": "about",
-          "link": "/about/organization"
+          "link": "/about/organization",
+          "secondary_tabs": [
+            {
+              "label": "organization",
+              "link": "/about/organization"
+            },
+            {
+              "label": "self care",
+              "link": "/about/self_care"
+            }
+          ]
         },
         {
           "label": "news & info",
@@ -87,7 +145,7 @@ The request happens once in the begining of user session.
       ],
       "secondary_tabs": [
         {
-          "parent": "about",              <----- Specifies to which Main Nav Tab it belongs to
+          "parent": "about",
           "label": "organization",
           "link": "/about/organization"
         },
@@ -96,7 +154,6 @@ The request happens once in the begining of user session.
           "label": "self care",
           "link": "/about/self_care"
         },
-
         {
           "parent": "news & info",
           "label": "news",
@@ -106,14 +163,85 @@ The request happens once in the begining of user session.
           "parent": "news & info",
           "label": "information",
           "link": "/info/information"
+        },
+        {
+          "parent": "services",
+          "label": "Find a service",
+          "link": "/services",
+          "ref": "find-a-service"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC Self Care",
+          "link": "/services",
+          "ref": "kcsc-self-care"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC CLW",
+          "link": "/services",
+          "ref": "kcsc-clw"
+        },
+        {
+          "parent": "services",
+          "label": "KCSC N Ken SC",
+          "link": "/services",
+          "ref": "kcsc-n-ken-sc"
+        },
+        {
+          "parent": "services",
+          "label": "Link workers",
+          "link": "/services",
+          "ref": "link-workers"
+        },
+        {
+          "parent": "services",
+          "label": "Other VCS lg contracts",
+          "link": "/services",
+          "ref": "other-vcs-lg-contracts"
         }
       ]
     },
     "contact": {
       "email": "info@communityhealthwestlondon.org.uk",
-      "phone": "0207-243 9806"
+      "phone": "0207-243 9806",
+      "form": [
+        {
+          "placeholder": "Purpose of inquiry",
+          "options": [
+            "I have a question",
+            "I want to donate",
+            "I want to be a partner"
+          ],
+          "type": "dropdown",
+          "required": true,
+          "dataKey": "purpose"
+        },
+        {
+          "placeholder": "Enter your name",
+          "type": "text",
+          "required": true,
+          "multiline": false,
+          "dataKey": "name"
+        },
+        {
+          "placeholder": "Enter your email",
+          "type": "email",
+          "required": true,
+          "multiline": false,
+          "dataKey": "email"
+        },
+        {
+          "placeholder": "Enter your message...",
+          "type": "text",
+          "required": false,
+          "multiline": true,
+          "rows": 4,
+          "dataKey": "message"
+        }
+      ]
     },
-    "about": "footer text about CHWL",
+    "about": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
     "disclamers": {
       "copyright": "2021 All Rights Reserved by Community Health West London.",
       "accessability": "This site is built according to Web Content Accessibility Guidlines"
@@ -277,7 +405,7 @@ By clicking read more on the article visitor is being redirectied to `ArticleVie
 }
 ```
 
-## GET `/search?q=${searchQuery}`
+## POST `/search?q=${searchQuery}`
 
 One of the features is to search for the list of Self Care services using `searchQuery`.
 
@@ -319,6 +447,7 @@ One of the features is to search for the list of Self Care services using `searc
 
 ```
 
+
 ## GET `/information`
 
 index action to get all information items in Information Veiw
@@ -354,3 +483,58 @@ index action to get all information items in Information Veiw
   }
 }
 ```
+
+## GET `/services`
+
+index axtion for all servides
+
+```
+{
+  "services": [
+    {
+      "id": 112,
+      "name": "Service 0",
+      "description": "Description of this service\n",
+      "telephone": null,
+      "email": null,
+      "address": null,
+      "postcode": null,
+      "website": "https://www.expample.com",
+      "coords": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": 142,
+      "name": "Service 1",
+      "description": "Turn Up & Play session for adults in North Kensington and the grenfell affected community,takes place 3 Fridays a month at : \nWestway Sports Centre Pitch 5 \n2.45 - 3.45 pm\nThe 2nd Friday of each month we have 3 teams in the Middlesex FA North \nwest London Mental Health League at Brunel University.\n",
+      "telephone": null,
+      "email": "lydia.mindsunitedfc@gmail.com",
+      "address": null,
+      "postcode": null,
+      "website": "https://www.mindsunitedfc.com",
+      "coords": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": 45,
+      "name": "Service 2",
+      "description": "The brilliant QPR Community Trust is running a football club for boys aged 12-14. Sign up at www.bookwhen.com/dalgarnotrust.\n",
+      "telephone": "02033981833",
+      "email": "youth@dalgarnotrust.org.uk",
+      "address": null,
+      "postcode": null,
+      "website": null,
+      "coords": {
+        "latitude": 51.49955620887601,
+        "longitude": -0.2000188663810555
+      }
+    }
+  ]
+}
+
+```
+
