@@ -1,0 +1,46 @@
+{
+  "services": [
+    {
+      "id": 112,
+      "name": "Service 0",
+      "description": "Description of this service\n",
+      "telephone": null,
+      "email": null,
+      "address": null,
+      "postcode": null,
+      "website": "https://www.expample.com",
+      "coords": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": 142,
+      "name": "Service 1",
+      "description": "Turn Up & Play session for adults in North Kensington and the grenfell affected community,takes place 3 Fridays a month at : \nWestway Sports Centre Pitch 5 \n2.45 - 3.45 pm\nThe 2nd Friday of each month we have 3 teams in the Middlesex FA North \nwest London Mental Health League at Brunel University.\n",
+      "telephone": null,
+      "email": "lydia.mindsunitedfc@gmail.com",
+      "address": null,
+      "postcode": null,
+      "website": "https://www.mindsunitedfc.com",
+      "coords": {
+        "latitude": null,
+        "longitude": null
+      }
+    },
+    {
+      "id": 45,
+      "name": "Service 2",
+      "description": "The brilliant QPR Community Trust is running a football club for boys aged 12-14. Sign up at www.bookwhen.com/dalgarnotrust.\n",
+      "telephone": "02033981833",
+      "email": "youth@dalgarnotrust.org.uk",
+      "address": null,
+      "postcode": null,
+      "website": null,
+      "coords": {
+        "latitude": 51.49955620887601,
+        "longitude": -0.2000188663810555
+      }
+    }
+  ]
+}

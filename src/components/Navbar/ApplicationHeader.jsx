@@ -9,7 +9,6 @@ import {
   Tabs,
   Tab,
 } from "@material-ui/core";
-
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
