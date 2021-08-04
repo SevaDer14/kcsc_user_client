@@ -8,6 +8,10 @@ const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
       padding: "0",
+      width: "100vw",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "99.2vw",
     },
   },
   section: {
@@ -17,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignContent: "space-around",
       height: "auto",
-      width: "100vw",
+      width: "100%",
       textAlign: "center",
     },
     [theme.breakpoints.up("lg")]: {
