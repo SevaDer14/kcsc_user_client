@@ -17,7 +17,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import {toKebabCase} from '../../modules/Functions.js'
+import Functions from '../../modules/Functions'
 
 const MobileApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -62,7 +62,7 @@ const MobileApplicationHeader = () => {
         <Tab
           key={`main-tab-${index}`}
           style={styles.tabText}
-          data-cy={`${toKebabCase(tab.label)}-tab`}
+          data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
           label={tab.label}
           component={Link}
           to={tab.link}
@@ -74,7 +74,7 @@ const MobileApplicationHeader = () => {
         <Tab
           key={`secondary-tab-${index}`}
           style={styles.secondaryTabText}
-          data-cy={`${toKebabCase(secondaryTab.label)}-tab`}
+          data-cy={`${Functions.toKebabCase(secondaryTab.label)}-tab`}
           label={secondaryTab.label}
           component={secondaryTab.ref ? HashLink : Link}
           smooth={secondaryTab.ref ? true : undefined}
@@ -93,7 +93,7 @@ const MobileApplicationHeader = () => {
         >
           <Tab
             style={styles.tabText}
-            data-cy={`${toKebabCase(tab.label)}-tab`}
+            data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
             label={tab.label}
             onClick={() => toggleOpen(tab.label)}
           />

@@ -1,3 +1,7 @@
-export function toKebabCase(string) {
-  string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
-}
+const Functions = {
+  toKebabCase(string) {
+    return string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
+  },
+};
+
+export default Functions;

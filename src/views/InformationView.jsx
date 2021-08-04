@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import {
-  Container,
-  Grid,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
+import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
 import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
 import information_view_sections from "../data/fixtures/information_view_sections.json";
-import { toKebabCase } from "../modules/Functions.js";
+import Functions from '../modules/Functions'
 import SectionSelector from "../components/Section/SectionSelector";
 
 const useStyles = makeStyles((theme) => ({
@@ -44,7 +39,7 @@ const InformationView = () => {
 
   const sectionList = sections.map((section) => {
     return (
-      <Grid item key={`section-${section.id}`} id={toKebabCase(section.header)}>
+      <Grid item key={`section-${section.id}`} id={Functions.toKebabCase(section.header)}>
         <SectionSelector id={section.id} section={section} />
       </Grid>
     );
@@ -52,7 +47,7 @@ const InformationView = () => {
 
   const otherItemsList = otherItems.map((item, index) => {
     return (
-      <Grid item key={`other-item-${index}`}>
+      <Grid item key={`other-item-${index}`} data-cy="information-card">
         <InformationItem item={item} />
       </Grid>
     );
@@ -60,7 +55,7 @@ const InformationView = () => {
 
   const pinnedItemsList = pinnedItems.map((item, index) => {
     return (
-      <Grid item key={`pinned-item-${index}`} sm={6}>
+      <Grid item key={`pinned-item-${index}`} sm={6} data-cy="information-card">
         <InformationCard item={item} />
       </Grid>
     );
@@ -74,14 +69,20 @@ const InformationView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Container maxWidth="md" >
+      <Container maxWidth="md">
         <Typography variant="h3" component="h3" style={styles.sectionHeader}>
           Pinned Info:
         </Typography>
-        <Grid container spacing={3} >
+        <Grid container spacing={3} data-cy="pinned-information-items">
           {pinnedItemsList}
         </Grid>
-        <Grid container spacing={0} direction="column" alignItems="stretch">
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="stretch"
+          data-cy="other-information-items"
+        >
           <Typography variant="h3" component="h3" style={styles.sectionHeader}>
             Other Info:
           </Typography>

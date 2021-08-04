@@ -4,7 +4,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 //import Sections from "../modules/Sections";
 import services_view_section from "../data/fixtures/services_view_section.json";
 import SectionSelector from "../components/Section/SectionSelector";
-import {toKebabCase} from '../modules/Functions.js'
+import Functions from '../modules/Functions'
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -32,7 +32,7 @@ const ServicesView = () => {
 
   const sectionList = sections.map((section) => {
     return (
-      <Grid item key={section.id} id={toKebabCase(section.header)}>
+      <Grid item key={section.id} id={Functions.toKebabCase(section.header)}>
         <SectionSelector id={section.id} section={section} />
       </Grid>
     );

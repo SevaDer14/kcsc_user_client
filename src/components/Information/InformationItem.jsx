@@ -12,7 +12,7 @@ const InformationItem = ({ item }) => {
   const { header, description, link } = item;
   return (
     <Card elevation={0} variant="outlined" >
-      <CardActionArea href={link} style={styles.card}>
+      <CardActionArea href={link} style={styles.card} data-cy="action-area">
         <Grid container direction="row">
           <Grid item xs={11}>
             <CardContent style={styles.cardContent}>
@@ -20,10 +20,11 @@ const InformationItem = ({ item }) => {
                 gutterBottom
                 variant="h5"
                 component="h2"
+                data-cy="header"
               >
                 {header}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p" >
+              <Typography variant="body2" color="textSecondary" component="p" data-cy="description">
                 {description}
               </Typography>
             </CardContent>

@@ -5,7 +5,7 @@ describe("visitor can see information view", () => {
       fixture: "app_data.json",
     });
     cy.intercept("GET", "**/api/sections**", {
-      fixture: "information_sections.json",
+      fixture: "information_view_sections.json",
     });
     cy.visit("/info/information");
   });
@@ -37,7 +37,7 @@ describe("visitor can see information view", () => {
         .within(() => {
           cy.get("[data-cy=header]").should("contain", "Item-0");
           cy.get("[data-cy=description]").should("contain.text", "Lorem ipsum");
-          cy.get("[data-cy=read-more-button]")
+          cy.get("[data-cy=action-area]")
             .invoke("attr", "href")
             .should(
               "eq",
@@ -55,7 +55,7 @@ describe("visitor can see information view", () => {
         .within(() => {
           cy.get("[data-cy=header]").should("contain", "Other Item-0");
           cy.get("[data-cy=description]").should("contain.text", "Lorem ipsum");
-          cy.get("[data-cy=read-more-button]")
+          cy.get("[data-cy=action-area]")
             .invoke("attr", "href")
             .should(
               "eq",

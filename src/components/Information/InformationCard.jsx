@@ -4,7 +4,7 @@ import {
   CardActionArea,
   CardContent,
   Typography,
-  Grid
+  Grid,
 } from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 
@@ -12,15 +12,14 @@ const InformationCard = ({ item }) => {
   const { header, description, link } = item;
   return (
     <Card elevation={2} style={styles.fullHeight}>
-      <CardActionArea href={link} style={styles.fullHeight}>
+      <CardActionArea href={link} style={styles.fullHeight} data-cy="action-area">
         <Grid container direction="row" style={styles.fullHeight}>
           <Grid item sm={10} xs={11}>
             <CardContent style={styles.cardContent}>
-              <Typography gutterBottom variant="h5" component="h2">
+              <Typography gutterBottom variant="h5" component="h2" data-cy="header">
                 {header}
               </Typography>
-
-              <Typography variant="body2" color="textSecondary" component="p">
+              <Typography variant="body2" color="textSecondary" component="p" data-cy="description">
                 {description}
               </Typography>
             </CardContent>

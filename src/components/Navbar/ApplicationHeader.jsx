@@ -13,7 +13,7 @@ import {
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import {toKebabCase} from '../../modules/Functions.js'
+import Functions from '../../modules/Functions'
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -46,7 +46,7 @@ const ApplicationHeader = () => {
     <Tab
       key={`main-tab-${index}`}
       style={styles.tabText}
-      data-cy={`${toKebabCase(tab.label)}-tab`}
+      data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
       label={tab.label}
       component={Link}
       to={tab.link}
@@ -60,7 +60,7 @@ const ApplicationHeader = () => {
       <Tab
         key={`secondary-tab-${index}`}
         style={styles.secondaryTabText}
-        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+        data-cy={`${Functions.toKebabCase(tab.label)}-sub-tab`}
         label={tab.label}
         component={tab.ref ? HashLink : Link}
         smooth={tab.ref ? true : undefined}
