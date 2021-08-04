@@ -12,14 +12,21 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
-      maxHeight: "500px",
+      maxHeight: "530px",
       width: "100%",
       overFlow: "hidden",
       marginBottom: "10%",
     },
+    [theme.breakpoints.up("sm")]: {
+      maxHeight: "400px",
+    },
+    [theme.breakpoints.up("md")]: {
+      // maxHeight: "380px",
+    },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "center",
+      paddingTop: "65px",
       marginBottom: "80px",
       marginRight: "13%",
       marginLeft: "10%",
@@ -47,6 +54,12 @@ const useStyles = makeStyles((theme) => ({
   header: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "10px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "20px",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "30px",
     },
   },
   description: {
