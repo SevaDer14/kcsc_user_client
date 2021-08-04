@@ -15,25 +15,27 @@ import {
   InputLabel,
   MenuItem,
   Hidden,
+  useMediaQuery
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { makeStyles } from "@material-ui/core/styles";
+import { useTheme } from '@material-ui/core/styles';
 import store from "../state/store/configureStore";
 import Search from "../modules/Search";
 
 const useStyles = makeStyles((theme) => ({
   searchBar: {
     [theme.breakpoints.up("xs")]: {
-      height: "45.6px",
+      height: "100px",
       marginBottom: "20%",
     },
     [theme.breakpoints.up("sm")]: {
-      height: "55.6px",
-      marginBottom: "10%",
+      height: "85px",
+      marginBottom: "4%",
     },
     [theme.breakpoints.up("lg")]: {
-      height: "65.6px",
-      marginBottom: "5%",
+      height: "65px",
+      marginBottom: "6%",
     },
   },
 }));
@@ -46,6 +48,8 @@ const ServiceSearch = () => {
   const route = useRouteMatch("/home");
   const [advanced, setAdvanced] = useState(false);
   const [serviceCategory, setServiceCategory] = useState("");
+  const theme = useTheme();
+  const mobile = useMediaQuery(theme.breakpoints.down('xs'));
 
   const categories = [
     "Category 1",
@@ -91,8 +95,8 @@ const ServiceSearch = () => {
           className={classes.searchBar}
           style={styles.searchBar}
         >
-          <Grid container justify="center">
-            <Grid item xs={10} sm={advanced ? 5 : 8}>
+          <Grid container justify={mobile ? "flex-start" : "center"} style={{flexWrap: "wrap-reverse"}}>
+            <Grid item xs={10} sm={advanced ? 5 : route ? 10 : 8}>
               <OutlinedInput
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
@@ -134,7 +138,7 @@ const ServiceSearch = () => {
                 </Grid>
               )}
             </Hidden>
-            <Grid item xs={2} sm={1}>
+            <Grid item xs={2} sm={route ? 2 : 1}>
               <Button
                 data-cy="search-submit"
                 onClick={() => performSearch()}
@@ -146,10 +150,10 @@ const ServiceSearch = () => {
               >
                 <SearchIcon />
               </Button>
-            </Grid>
+            </Grid>            
             {!route && (
-              <Hidden xsDown>
-                <Grid item xs={3} style={styles.center}>
+              
+                <Grid item xs={4} sm={3} style={styles.checkbox}>
                   <FormGroup row>
                     <FormControlLabel
                       control={
@@ -164,14 +168,44 @@ const ServiceSearch = () => {
                     />
                   </FormGroup>
                 </Grid>
-              </Hidden>
+              
             )}
-            <Grid container>
+            <Hidden smUp >
+              {advanced && (
+                <Grid item xs={7}>
+                  <FormControl
+                    variant="outlined"
+                    style={styles.dropdownContainer}
+                  >
+                    <InputLabel htmlFor="dropdown">Category</InputLabel>
+                    <Select
+                      color="secondary"
+                      data-cy="advanced-search-dropdown"
+                      style={styles.dropdownMobile}
+                      onChange={(e) => setServiceCategory(e.target.value)}
+                      value={serviceCategory}
+                      label="Category"
+                      aria-describedby="Choose categories of self care services"
+                      inputProps={{
+                        id: "dropdown",
+                      }}
+                    >
+                      {categories.map((category) => (
+                        <MenuItem key={category} value={category}>
+                          {category}
+                        </MenuItem>
+                      ))}
+                    </Select>
+                  </FormControl>
+                </Grid>
+              )}
+            </Hidden>          
+          </Grid>
+          <Grid container>
               <FormHelperText style={styles.helperText}>
                 Try "befriending" or "sports".
               </FormHelperText>
             </Grid>
-          </Grid>
         </Box>
       </Box>
     </>
@@ -199,10 +233,14 @@ const styles = {
   },
   dropdown: {
     borderRadius: "0px",
-    //border: "0.1px solid #aaa"
+  },
+  dropdownMobile: {
+    borderRadius: "10px",
+    marginBottom: "10px"
   },
   checkbox: {
-    paddingLeft: "24px",
+    paddingLeft: "18px",
+    alignSelf: "center",
   },
   helperText: {
     marginLeft: "24px",
@@ -215,8 +253,5 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "center",
-  },
-  center: {
-    alignSelf: "center",
   },
 };

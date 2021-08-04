@@ -53,9 +53,10 @@ describe("Visitor can search for local services", () => {
       cy.visit("/services/search");
     });
 
-    it("is expected not to have advanced search", () => {
+    it("is expected to toggle advanced search", () => {
       cy.get("[data-cy=advanced-search-dropdown]").should("not.exist");
-      cy.get("[data-cy=advanced-search-checkbox]").should("not.exist");
+      cy.get("[data-cy=advanced-search-checkbox]").click();
+      cy.get("[data-cy=advanced-search-dropdown]").should("be.visible");
     });
   });
 });
