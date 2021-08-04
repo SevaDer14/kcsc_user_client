@@ -12,15 +12,16 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
-      maxHeight: "500px",
+      height: "auto",
       width: "100%",
       overFlow: "hidden",
-      marginBottom: "10%",
+      paddingBottom: "40px",
     },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "center",
-      marginBottom: "80px",
+      paddingTop: "80px",
+      paddingBottom: "80px",
       marginRight: "13%",
       marginLeft: "10%",
     },
@@ -47,6 +48,12 @@ const useStyles = makeStyles((theme) => ({
   header: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "10px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      marginTop: "20px",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginTop: "30px",
     },
   },
   description: {

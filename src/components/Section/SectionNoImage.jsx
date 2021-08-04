@@ -1,16 +1,60 @@
 import React from "react";
-import { Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, makeStyles } from "@material-ui/core";
 
-const Section = ({ header, description }) => {
+const useStyles = makeStyles((theme) => ({
+  sectionUnEven: {
+    [theme.breakpoints.up("xs")]: {
+      backgroundColor: "#ddd",
+      height: "auto",
+      textAlign: "center",
+      padding: "30px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: "40px 80px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      padding: "40px 400px",
+    },
+  },
+  sectionEven: {
+    [theme.breakpoints.up("xs")]: {
+      backgroundColor: "#eee",
+      height: "auto",
+      textAlign: "center",
+      padding: "30px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: "40px 80px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      padding: "40px 400px",
+    },
+  },
+  header: {
+    [theme.breakpoints.up("xs")]: {
+      paddingBottom: "25px",
+    },
+  },
+}));
+
+const Section = ({ header, description, id }) => {
+  const classes = useStyles();
+  let idEven = id % 2 === 0;
   return (
     <Grid
-      style={styles.section}
+      item
+      className={idEven ? classes.sectionEven : classes.sectionUnEven}
       container
       alignItems="center"
       direction="column"
       data-cy="page-section"
     >
-      <Typography data-cy="header" variant="h3" component="h3">
+      <Typography
+        data-cy="header"
+        variant="h3"
+        component="h3"
+        className={classes.header}
+      >
         {header}
       </Typography>
       <Typography
@@ -26,10 +70,3 @@ const Section = ({ header, description }) => {
 };
 
 export default Section;
-
-const styles = {
-  section: {
-    height: "650px",
-    padding: "40px 15%",
-  },
-};

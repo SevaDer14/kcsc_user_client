@@ -7,7 +7,15 @@ import SectionCenter from "./SectionCenter";
 const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
-      padding: "0",
+      backgroundColor: "#eee",
+      width: "100vw",
+      padding: "0px",
+      borderRadius: "0px",
+      marginTop: "0px",
+      marginBottom: "0px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "99.2vw",
     },
   },
   section: {
@@ -17,12 +25,17 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       alignContent: "space-around",
       height: "auto",
-      width: "100vw",
+      width: "100%",
       textAlign: "center",
     },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
-      left: "0px"
+      left: "0px",
+    },
+  },
+  button: {
+    [theme.breakpoints.up("xs")]: {
+      margin: "10px",
     },
   },
 }));
@@ -33,15 +46,14 @@ const Section = ({ id, header, description, image, buttons }) => {
 
   const buttonList = buttons.map((button) => (
     <Button
+      className={classes.button}
       key={button.id}
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
       href={button.link}
     >
-      <Typography variant="button" >
-        {button.text}
-      </Typography>
+      <Typography variant="button">{button.text}</Typography>
     </Button>
   ));
 

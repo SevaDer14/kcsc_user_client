@@ -11,7 +11,7 @@ const App = ({ component }) => {
       <ScrollToTop />
       <MessageModal />
       <Navbar />
-      <Container maxWidth="xl">
+      <Container maxWidth="xl" style={styles.zeroLRpadding}>
         <Box my={10}>{component}</Box>
       </Container>
       <ApplicationFooter />
@@ -20,3 +20,10 @@ const App = ({ component }) => {
 };
 
 export default App;
+
+const styles = {
+  zeroLRpadding: {
+    paddingLeft: "0px",
+    paddingRight: "0px",
+  },
+};

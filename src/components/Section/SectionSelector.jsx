@@ -19,6 +19,7 @@ const SectionSelector = ({ section }) => {
       case "no_image":
         return (
           <SectionNoImage
+            id={section.id}
             header={section.header}
             description={section.description}
           />
