@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
       width: "100%",
       overFlow: "hidden",
       marginBottom: "0px",
-      paddingBottom: "40px"
+      paddingBottom: "40px",
     },
     [theme.breakpoints.up("lg")]: {
       height: "400px",
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
       width: "50%",
       height: "315px",
       marginTop: "-357px",
-      textAlign: "left"
+      textAlign: "left",
     },
   },
   header: {

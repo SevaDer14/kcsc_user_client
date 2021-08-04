@@ -25,5 +25,5 @@ const styles = {
   zeroLRpadding: {
     paddingLeft: "0px",
     paddingRight: "0px",
-  }
-}
+  },
+};

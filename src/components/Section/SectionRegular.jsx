@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     [theme.breakpoints.up("xs")]: {
-      margin: "10px"
+      margin: "10px",
     },
   },
 }));

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
       width: "100%",
       overFlow: "hidden",
-      paddingBottom: "40px"
+      paddingBottom: "40px",
     },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
