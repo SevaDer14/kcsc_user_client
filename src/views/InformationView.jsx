@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Grid, makeStyles } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
 import information_view_sections from "../data/fixtures/information_view_sections.json";
-import {toKebabCase} from '../modules/Functions.js'
+import { toKebabCase } from "../modules/Functions.js";
 import SectionSelector from "../components/Section/SectionSelector";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,7 +23,7 @@ const InformationView = () => {
   const [pinnedItems, setPinnedItems] = useState([]);
   const [otherItems, setOtherItems] = useState([]);
   const [sections, setSections] = useState([]);
-  const classes = useStyles()
+  const classes = useStyles();
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -35,7 +35,7 @@ const InformationView = () => {
       setOtherItems(response.other);
     };
     fetchPageData();
-  }, []);  
+  }, []);
 
   const sectionList = sections.map((section) => {
     return (
@@ -69,12 +69,15 @@ const InformationView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Grid container spacing={5} md={4} sm={6} xs={12}>
-        {pinnedItemsList}
-      </Grid>
-      <Grid container spacing={0} direction="column" alignItems="stretch">
+      <Container maxWidth="md">
+        <Grid container spacing={2}>
+          {pinnedItemsList}
+        </Grid>
+
+        {/* <Grid container spacing={0} direction="column" alignItems="stretch">
         {otherItemsList}
-      </Grid>
+      </Grid> */}
+      </Container>
     </>
   );
 };
