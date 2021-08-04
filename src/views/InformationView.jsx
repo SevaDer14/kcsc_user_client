@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Grid } from "@material-ui/core";
+import { Grid, makeStyles } from "@material-ui/core";
 import Information from "../modules/Information";
-import InformationItem from "../components/InformationItem";
+import InformationItem from "../components/Information/InformationItem";
+import InformationCard from "../components/Information/InformationCard";
 import information_view_sections from "../data/fixtures/information_view_sections.json";
 import {toKebabCase} from '../modules/Functions.js'
+import SectionSelector from "../components/Section/SectionSelector";
 
-const NewsView = () => {
+const useStyles = makeStyles((theme) => ({
+  grid: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      flexWrap: "nowrap",
+    },
+  },
+}));
+
+const InformationView = () => {
   const [pinnedItems, setPinnedItems] = useState([]);
   const [otherItems, setOtherItems] = useState([]);
   const [sections, setSections] = useState([]);
+  const classes = useStyles()
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -55,7 +69,7 @@ const NewsView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Grid container spacing={5}>
+      <Grid container spacing={5} md={4} sm={6} xs={12}>
         {pinnedItemsList}
       </Grid>
       <Grid container spacing={0} direction="column" alignItems="stretch">
@@ -65,4 +79,4 @@ const NewsView = () => {
   );
 };
 
-export default NewsView;
+export default InformationView;

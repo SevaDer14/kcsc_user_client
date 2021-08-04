@@ -17,7 +17,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import {toKebabCase} from '../modules/Functions.js'
+import {toKebabCase} from '../../modules/Functions.js'
 
 const MobileApplicationHeader = () => {
   const trigger = useScrollTrigger();

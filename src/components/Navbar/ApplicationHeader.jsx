@@ -13,7 +13,7 @@ import {
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import {toKebabCase} from '../modules/Functions.js'
+import {toKebabCase} from '../../modules/Functions.js'
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();

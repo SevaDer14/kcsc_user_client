@@ -14,6 +14,7 @@ import ServicesView from "./views/ServicesView";
 import AboutSelfCareView from "./views/AboutSelfCareView";
 import NewsView from "./views/NewsView";
 import ArticleView from "./views/ArticleView";
+import InformationView from "./views/InformationView";
 
 const Routes = () => {
   return (
