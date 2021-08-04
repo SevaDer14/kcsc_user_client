@@ -1,7 +1,34 @@
 import React from "react";
-import { Typography, Box, Button, Grid } from "@material-ui/core";
+import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
+
+import SectionWide from "./SectionWide";
+import SectionCenter from "./SectionCenter";
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    [theme.breakpoints.up("xs")]: {
+      padding: "0",
+    },
+  },
+  section: {
+    [theme.breakpoints.up("xs")]: {
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignContent: "space-around",
+      height: "auto",
+      width: "100vw",
+      textAlign: "center",
+    },
+    [theme.breakpoints.up("lg")]: {
+      flexDirection: "row",
+      left: "0px"
+    },
+  },
+}));
 
 const Section = ({ id, header, description, image, buttons }) => {
+  const classes = useStyles();
   let idEven = id % 2 === 0;
 
   const buttonList = buttons.map((button) => (
@@ -11,88 +38,36 @@ const Section = ({ id, header, description, image, buttons }) => {
       variant="contained"
       color="secondary"
       href={button.link}
-      style={styles.button}
     >
-      <Typography variant="button" style={styles.buttonText}>
+      <Typography variant="button" >
         {button.text}
       </Typography>
     </Button>
   ));
 
   return (
-    <Grid
-      style={
-        idEven
-          ? styles.section
-          : { ...styles.section, backgroundImage: `url(${image.url})` }
-      }
-      container
-      alignItems="center"
-      direction="row"
-      data-cy="page-section"
-    >
-      {idEven && (
-        <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
-          <img style={styles.image} src={image.url} alt={image.alt} />
-        </Grid>
-      )}
-
-      <Grid
-        item
-        xs={12}
-        lg={6}
-        style={
-          idEven
-            ? styles.itemContainer
-            : { ...styles.itemContainer, backgroundColor: "#0008" }
-        }
-      >
-        <Typography
-          data-cy="header"
-          variant="h3"
-          component="h3"
-          style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {header}
-        </Typography>
-        <Typography
-          data-cy="description"
-          variant="body1"
-          component="p"
-          style={idEven ? { color: "#000" } : { color: "#fff" }}
-          gutterBottom
-        >
-          {description}
-        </Typography>
-        <Box style={styles.buttonContainer}>{buttons && buttonList}</Box>
+    <Paper className={classes.container} elevation={0}>
+      <Grid item className={classes.section} data-cy="page-section">
+        {idEven ? (
+          <SectionCenter
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+            buttonList={buttonList}
+          />
+        ) : (
+          <SectionWide
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+            buttonList={buttonList}
+          />
+        )}
       </Grid>
-    </Grid>
+    </Paper>
   );
 };
 
 export default Section;
-
-const styles = {
-  section: {
-    height: "650px",
-    backgroundSize: "cover",
-  },
-  itemContainer: {
-    padding: "5%",
-  },
-  image: {
-    width: "100%",
-    maxHeight: "400px",
-    borderRadius: "10px",
-  },
-  buttonContainer: {
-    marginTop: "20px",
-  },
-  button: {
-    marginRight: "10px",
-  },
-  buttonText: {
-    marginBottom: "-5px",
-  },
-};

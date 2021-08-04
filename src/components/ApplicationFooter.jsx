@@ -35,13 +35,14 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "center",
       justifyContent: "center",
       textAlign: "center",
-      padding: "12px 24px",
+      padding: "12px 12px",
       height: "180px",
       borderBottom: "1px solid rgba(0,0,0,0.3)",
     },
     [theme.breakpoints.up("lg")]: {
       borderBottom: "none",
       borderRight: "1px solid rgba(0,0,0,0.3)",
+      padding: "12px 24px",
     },
   },
   gridItemNoDivider: {
@@ -51,11 +52,15 @@ const useStyles = makeStyles((theme) => ({
       alignContent: "center",
       justifyContent: "center",
       textAlign: "center",
-      padding: "12px 24px",
+      paddingLeft: "24px",
+      paddingTop: "12px",
+      paddingBottom: "12px",
+      marginTop: "40px",
       height: "180px",
     },
     [theme.breakpoints.up("lg")]: {
       justifyContent: "flex-start",
+      marginTop: "15px",
     },
   },
   hiddenScrollContainer: {
@@ -82,11 +87,12 @@ const useStyles = makeStyles((theme) => ({
   },
   hiddenScrollText: {
     [theme.breakpoints.up("xs")]: {
+      position: "absolute",
       top: "0",
       left: "0",
-      bottom: "-40px",
-      right: "-20px",
-      overflow: "hidden",
+      bottom: "0",
+      right: "-15px",
+      overflowY: "scroll",
     },
   },
   longWord: {
