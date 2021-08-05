@@ -63,6 +63,14 @@ describe("visitor can navigate between views", () => {
           "contain",
           "Phone: 0207-243 9806info@communityhealthwestlondon.org.uk"
         );
+        cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
+          cy.get("[data-cy=input]").type("example@mail.com");
+          cy.get("[data-cy=submit-button]").click();
+          cy.get("[data-cy=message]").should(
+            "contain.text",
+            "You've been successfully subscribed to KCSC"
+          );
+        });
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
           cy.get("[data-cy=link]").eq(0).should("contain", "home");
