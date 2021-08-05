@@ -75,7 +75,15 @@ describe("visitor can navigate between views", () => {
           "contain",
           "This site is built according to Web Content Accessibility Guidlines2021 All Rights Reserved by Community Health West London."
         );
+        cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
+          cy.get("[data-cy=input]").type("example@mail.com");
+          cy.get("[data-cy=submit-button]").click();
+        });
       });
+      cy.get("[data-cy=message]").should(
+        "contain.text",
+        "You've been successfully subscribed to KCSC!"
+      );
     });
   });
 

@@ -16,6 +16,7 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         messageOpen: true,
         messageType: "success",
+        message: action.payload
       };
     case "CLOSE_MESSAGE":
       return {
