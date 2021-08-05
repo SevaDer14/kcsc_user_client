@@ -68,7 +68,7 @@ describe("visitor can navigate between views", () => {
           cy.get("[data-cy=submit-button]").click();
           cy.get("[data-cy=message]").should(
             "contain.text",
-            "You've been successfully subscribed to KCSC"
+            "You've been successfully subscribed to KCSC!"
           );
         });
         cy.get("[data-cy=navigation]").within(() => {

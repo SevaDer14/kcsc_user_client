@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Modal, Paper, Typography } from "@material-ui/core";
 
 const MessageModal = () => {
-  const { messageOpen, messageType } = useSelector((state) => state);
+  const { messageOpen, messageType, message } = useSelector((state) => state);
   const dispatch = useDispatch();
 
   return (
@@ -15,7 +15,7 @@ const MessageModal = () => {
     >
       <Paper style={styles.modal}>
         <Typography id="modal-title" variant="h4" style={{textTransform: "uppercase", marginBottom: "10px"}}>{messageType}</Typography>
-        <Typography id="modal-description" data-cy="message" variant="h6">Thank you for your inquiry, we'll be in touch soon!</Typography>
+        <Typography id="modal-description" data-cy="message" variant="h6">{message}</Typography>
       </Paper>
     </Modal>
   );
