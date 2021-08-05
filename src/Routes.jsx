@@ -14,6 +14,7 @@ import ServicesView from "./views/ServicesView";
 import AboutSelfCareView from "./views/AboutSelfCareView";
 import NewsView from "./views/NewsView";
 import ArticleView from "./views/ArticleView";
+import InformationView from "./views/InformationView";
 
 const Routes = () => {
   return (
@@ -56,10 +57,15 @@ const Routes = () => {
           path="/about/self_care"
           render={() => <App component={<AboutSelfCareView />} />}
         />
-           <Route
+        <Route
           exact
           path="/info/news"
           render={() => <App component={<NewsView />} />}
+        />
+        <Route
+          exact
+          path="/info/information"
+          render={() => <App component={<InformationView />} />}
         />
         <Route
           exact

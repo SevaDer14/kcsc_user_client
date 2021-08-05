@@ -1,10 +1,10 @@
-# KCSC Client 
+# KCSC Client
 
 Client Application for Community Health West London
 
 ## Views & Routes
 
-`/`:  Redirects to Home page
+`/`: Redirects to Home page
 
 `/home`: Home page (`<IndexView.jsx />`)
 
@@ -23,24 +23,28 @@ Client Application for Community Health West London
 ## Config
 
 **`.env` file**
+
 ```
 REACT_APP_BACKEND_BASE_URL=http://localhost:3000/api
 REACT_APP_API_KEY="122211"
 ```
 
 **Desktop view**
+
 ```
   "viewportWidth": 1920,
   "viewportHeight": 1080,
 ```
 
 **iPad view**
+
 ```
   "viewportWidth": 768,
   "viewportHeight": 1024,
 ```
 
 **iPhone X view**
+
 ```
   "viewportWidth": 375,
   "viewportHeight": 812,
@@ -54,6 +58,7 @@ Fetches basic application data to construct: `contacts`, `navigation` and `foote
 The request happens once in the begining of user session.
 
 **Example of response from fixture:**
+
 ```
 {
   "app_data": {
@@ -252,6 +257,7 @@ The App is built from different `Views`. Each `View` is dynamically built from `
 For a different `Views` response would have different array of `Sections`. Sections come in different `variants`: `regular`, `no_image`, `carousel`, `slider`. Depending on it, case statment in `SectionSelector` component handles which type of section to render.
 
 **Example of response from fixture:**
+
 ```
 {
   "sections": [
@@ -282,7 +288,7 @@ For a different `Views` response would have different array of `Sections`. Secti
       "variant": "no_image",
       "header": "Plans",
       "description": "This section tells vistor Community Health West London plans to improve lives of people"
-    },    
+    },
     {
       "id": 3,
       "variant": "carousel",
@@ -337,7 +343,7 @@ For a different `Views` response would have different array of `Sections`. Secti
           }
         }
       ]
-    },    
+    },
   ]
 }
 
@@ -348,6 +354,7 @@ For a different `Views` response would have different array of `Sections`. Secti
 NewsView is different from others as is constructed from `Articles` that are separated from `Sections`. This request returns all `Articles` in database. The articles in the array should be sorted from the most recent to the oldest.
 
 **Example of response from fixture:**
+
 ```
 {
   "articles": [
@@ -381,6 +388,7 @@ NewsView is different from others as is constructed from `Articles` that are sep
 By clicking read more on the article visitor is being redirectied to `ArticleView` where this request is sent. The rendering supports line breaks `/n` to make paragraphs.
 
 **Example of response from fixture:**
+
 ```
 {
   "article": {
@@ -402,6 +410,7 @@ By clicking read more on the article visitor is being redirectied to `ArticleVie
 One of the features is to search for the list of Self Care services using `searchQuery`.
 
 **Example of response from fixture:**
+
 ```
 {
   "services": [
@@ -436,6 +445,47 @@ One of the features is to search for the list of Self Care services using `searc
   ]
 }
 
+```
+
+
+## GET `/information`
+
+index action to get all information items in Information Veiw
+
+**Example of response from fixture:**
+```
+{
+  "information_items": {
+    "pinned": [
+      {
+        "id": 1,
+        "header": "Item-0",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
+      },
+      {
+        "id": 2,
+        "header": "Item-1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
+      }
+    ],
+    "other": [
+      {
+        "id": 1,
+        "header": "Other Item-0",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "link": "https://www.nhs.uk/nhs-services/"
+      },
+      {
+        "id": 2,
+        "header": "Other Item-1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "link": "https://www.nhs.uk/nhs-services/"
+      }
+    ]
+  }
+}
 ```
 
 ## GET `/services`
@@ -491,3 +541,4 @@ index axtion for all servides
 }
 
 ```
+

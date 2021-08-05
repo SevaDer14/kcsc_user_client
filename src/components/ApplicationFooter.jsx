@@ -9,6 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { useSelector } from "react-redux";
+import Functions from '../modules/Functions'
 
 const useStyles = makeStyles((theme) => ({
   footerContainer: {
@@ -131,15 +132,12 @@ const ApplicationFooter = () => {
     (state) => state.appData
   );
 
-  const toKebabCase = (string) =>
-    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
-
   const navigationItems = navigation.main_tabs.map((tab) => {
-    return { key: toKebabCase(tab.label), text: tab.label, link: tab.link };
+    return { key: Functions.toKebabCase(tab.label), text: tab.label, link: tab.link };
   });
 
-  const navigationMenu = navigationItems.map(({ key, link, text }) => (
-    <Link data-cy="link" key={key} to={link} className={classes.navLink}>
+  const navigationMenu = navigationItems.map(({ link, text }, index) => (
+    <Link data-cy="link" key={`footer-link-${index}`} to={link} className={classes.navLink}>
       {text}
     </Link>
   ));

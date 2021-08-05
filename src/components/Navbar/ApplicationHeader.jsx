@@ -12,6 +12,7 @@ import {
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
+import Functions from '../../modules/Functions'
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
@@ -40,14 +41,11 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const toKebabCase = (string) =>
-    string.replace(/\s+/g, "-").replace("&", "and").toLowerCase();
-
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
       key={`main-tab-${index}`}
       style={styles.tabText}
-      data-cy={`${toKebabCase(tab.label)}-tab`}
+      data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
       label={tab.label}
       component={Link}
       to={tab.link}
@@ -61,7 +59,7 @@ const ApplicationHeader = () => {
       <Tab
         key={`secondary-tab-${index}`}
         style={styles.secondaryTabText}
-        data-cy={`${toKebabCase(tab.label)}-sub-tab`}
+        data-cy={`${Functions.toKebabCase(tab.label)}-sub-tab`}
         label={tab.label}
         component={tab.ref ? HashLink : Link}
         smooth={tab.ref ? true : undefined}
