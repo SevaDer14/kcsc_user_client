@@ -9,7 +9,8 @@ import {
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { useSelector } from "react-redux";
-import Functions from '../modules/Functions'
+import Functions from "../modules/Functions";
+import SubscribeToKCSC from "./SubscribeToKCSC";
 
 const useStyles = makeStyles((theme) => ({
   footerContainer: {
@@ -133,11 +134,20 @@ const ApplicationFooter = () => {
   );
 
   const navigationItems = navigation.main_tabs.map((tab) => {
-    return { key: Functions.toKebabCase(tab.label), text: tab.label, link: tab.link };
+    return {
+      key: Functions.toKebabCase(tab.label),
+      text: tab.label,
+      link: tab.link,
+    };
   });
 
   const navigationMenu = navigationItems.map(({ link, text }, index) => (
-    <Link data-cy="link" key={`footer-link-${index}`} to={link} className={classes.navLink}>
+    <Link
+      data-cy="link"
+      key={`footer-link-${index}`}
+      to={link}
+      className={classes.navLink}
+    >
       {text}
     </Link>
   ));
@@ -177,18 +187,30 @@ const ApplicationFooter = () => {
             </Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} lg={3} className={classes.gridItemWithDivider}>
-          <Typography
-            data-cy="contacts"
-            variant="subtitle1"
-            component="p"
-            gutterBottom
-            className={classes.longWord}
-          >
-            Phone: {contact.phone}
-            <br />
-            {contact.email}
-          </Typography>
+        <Grid
+          item
+          container
+          direction="column"
+          xs={12}
+          lg={3}
+          className={classes.gridItemWithDivider}
+          style={{justifyContent: "flex-start"}}
+        >
+          <Grid item >
+            <Typography
+              data-cy="contacts"
+              variant="subtitle1"
+              component="p"
+              gutterBottom
+              className={classes.longWord}
+              style={{textAlign: "left", marginTop: "0px", wordWrap: "break-word",}}
+            >
+              Phone: {contact.phone}
+              <br />
+              {contact.email}
+            </Typography>
+          </Grid>
+          <SubscribeToKCSC />
         </Grid>
         <Grid
           data-cy="navigation"
