@@ -5,7 +5,7 @@ import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
 import information_view_sections from "../data/fixtures/information_view_sections.json";
-import Functions from '../modules/Functions'
+import Functions from "../modules/Functions";
 import SectionSelector from "../components/Section/SectionSelector";
 
 const useStyles = makeStyles((theme) => ({
@@ -15,6 +15,12 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       alignItems: "center",
       flexWrap: "nowrap",
+    },
+    sectionHeader: {
+      [theme.breakpoints.up("xs")]: { 
+        marginTop: "60px", 
+        marginBottom: "20px" 
+      },
     },
   },
 }));
@@ -39,7 +45,11 @@ const InformationView = () => {
 
   const sectionList = sections.map((section) => {
     return (
-      <Grid item key={`section-${section.id}`} id={Functions.toKebabCase(section.header)}>
+      <Grid
+        item
+        key={`section-${section.id}`}
+        id={Functions.toKebabCase(section.header)}
+      >
         <SectionSelector id={section.id} section={section} />
       </Grid>
     );
@@ -70,7 +80,7 @@ const InformationView = () => {
         {sectionList}
       </Grid>
       <Container maxWidth="md">
-        <Typography variant="h3" component="h3" style={styles.sectionHeader}>
+        <Typography variant="h3" component="h3" className={classes.sectionHeader}>
           Pinned Info:
         </Typography>
         <Grid container spacing={3} data-cy="pinned-information-items">
@@ -83,7 +93,7 @@ const InformationView = () => {
           alignItems="stretch"
           data-cy="other-information-items"
         >
-          <Typography variant="h3" component="h3" style={styles.sectionHeader}>
+          <Typography variant="h3" component="h3" className={classes.sectionHeader}>
             Other Info:
           </Typography>
           {otherItemsList}
@@ -94,10 +104,3 @@ const InformationView = () => {
 };
 
 export default InformationView;
-
-const styles = {
-  sectionHeader: {
-    marginTop: "60px",
-    marginBottom: "20px",
-  },
-};

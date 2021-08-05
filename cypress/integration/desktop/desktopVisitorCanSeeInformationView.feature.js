@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 describe("visitor can see information view", () => {
   beforeEach(() => {
     cy.viewport("macbook-15");

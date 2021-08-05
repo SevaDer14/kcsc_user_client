@@ -329,11 +329,13 @@ index action to get all information items in Information Veiw
   "information_items": {
     "pinned": [
       {
+        "id": 1,
         "header": "Item-0",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       },
       {
+        "id": 2,
         "header": "Item-1",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
@@ -341,11 +343,13 @@ index action to get all information items in Information Veiw
     ],
     "other": [
       {
+        "id": 1,
         "header": "Other Item-0",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
+        "id": 2,
         "header": "Other Item-1",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "link": "https://www.nhs.uk/nhs-services/"
