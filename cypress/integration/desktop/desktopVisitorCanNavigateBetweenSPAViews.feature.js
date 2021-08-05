@@ -52,7 +52,7 @@ describe("visitor can navigate between views", () => {
       });
     });
 
-    it.only("is expected to display footer", () => {
+    it("is expected to display footer", () => {
       cy.get("[data-cy=application-footer]").within(() => {
         cy.get("[data-cy=logo]").should("be.visible");
         cy.get("[data-cy=about]").should(
