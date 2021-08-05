@@ -27,11 +27,11 @@ const SubscribeToKCSC = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    Inquiries.subscribe(email)
-  }
+    Inquiries.subscribe(email);
+  };
 
   return (
-    <form onSubmit={(event) => handleSubmit(event)}>
+    <form data-cy="subscribe-to-kcsc" onSubmit={(event) => handleSubmit(event)}>
       <Grid container className={classes.searchBar}>
         <Grid item xs={10}>
           <OutlinedInput
@@ -47,7 +47,7 @@ const SubscribeToKCSC = () => {
         </Grid>
         <Grid item xs={2}>
           <Button
-            data-cy="submit-button"            
+            data-cy="submit-button"
             type="submit"
             variant="contained"
             color="secondary"

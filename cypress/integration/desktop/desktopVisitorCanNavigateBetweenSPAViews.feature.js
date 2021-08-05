@@ -52,7 +52,7 @@ describe("visitor can navigate between views", () => {
       });
     });
 
-    it("is expected to display footer", () => {
+    it.only("is expected to display footer", () => {
       cy.get("[data-cy=application-footer]").within(() => {
         cy.get("[data-cy=logo]").should("be.visible");
         cy.get("[data-cy=about]").should(
@@ -63,14 +63,6 @@ describe("visitor can navigate between views", () => {
           "contain",
           "Phone: 0207-243 9806info@communityhealthwestlondon.org.uk"
         );
-        cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
-          cy.get("[data-cy=input]").type("example@mail.com");
-          cy.get("[data-cy=submit-button]").click();
-          cy.get("[data-cy=message]").should(
-            "contain.text",
-            "You've been successfully subscribed to KCSC!"
-          );
-        });
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
           cy.get("[data-cy=link]").eq(0).should("contain", "home");
@@ -83,7 +75,15 @@ describe("visitor can navigate between views", () => {
           "contain",
           "This site is built according to Web Content Accessibility Guidlines2021 All Rights Reserved by Community Health West London."
         );
+        cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
+          cy.get("[data-cy=input]").type("example@mail.com");
+          cy.get("[data-cy=submit-button]").click();
+        });
       });
+      cy.get("[data-cy=message]").should(
+        "contain.text",
+        "You've been successfully subscribed to KCSC!"
+      );
     });
   });
 
