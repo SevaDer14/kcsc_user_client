@@ -9,6 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -72,7 +73,12 @@ const Testimonial = ({ slider, data }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small" color="secondary">
+            <Button
+              component={Link}
+              to={`/info/news/articles/${data.article_id}`}
+              size="small"
+              color="secondary"
+            >
               Learn More
             </Button>
           </CardActions>
