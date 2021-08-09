@@ -8,7 +8,7 @@ describe("visitor can navigate Services View", () => {
     cy.visit("/");
     cy.get("[data-cy=burger-menu]").click();
     cy.get("[data-cy=services-tab]").click();
-    cy.get("[data-cy=kcsc-clw-tab]").click();
+    cy.get("[data-cy=mental-health-tab]").click();
   });
 
   it("is expected to show logo in the header", () => {
@@ -18,25 +18,15 @@ describe("visitor can navigate Services View", () => {
   });
 
   it("is expected to display service page ", () => {
-    cy.get("[data-cy=page-section]").should("have.length", 6);
+    cy.get("[data-cy=page-section]").should("have.length", 5);
     cy.get("[data-cy=page-section]")
       .first()
       .within(() => {
-        cy.get("[data-cy=header]").should("contain.text", "Find a service");
+        cy.get("[data-cy=header]").should("contain.text", "Find a Self-Care service");
         cy.get("[data-cy=description]").should(
           "contain.text",
-          "On this page, you can find all available services in your area"
+          "Find local health and wellbeing services in the West London community."
         );
-      });
-    cy.get("[data-cy=page-section]")
-      .eq(1)
-      .within(() => {
-        cy.get("[data-cy=header]").should("contain.text", "KCSC Self Care");
-        cy.get("[data-cy=description]").should(
-          "contain.text",
-          "The Voluntary & Community Sector provide health and wellbeing services in North Kensington Communities to support those affected by the Grenfell Tower fire."
-        );
-        cy.get("[data-cy=image]").should("be.visible");
         cy.get("[data-cy=button_1]").should(
           "contain.text",
           "Find self-care service"
@@ -45,13 +35,30 @@ describe("visitor can navigate Services View", () => {
           .invoke("attr", "href")
           .should("eq", "http://localhost:3001/services/search");
       });
+    cy.get("[data-cy=page-section]")
+      .eq(1)
+      .within(() => {
+        cy.get("[data-cy=header]").should("contain.text", "Long term Self Care");
+        cy.get("[data-cy=description]").should(
+          "contain.text",
+          "Need support with your long term health conditions & are registered for"
+        );
+        cy.get("[data-cy=image]").should("be.visible");
+        cy.get("[data-cy=button_1]").should(
+          "contain.text",
+          "my care my way"
+        );
+        cy.get("[data-cy=button_1]")
+          .invoke("attr", "href")
+          .should("eq", "http://mycaremyway.co.uk/");
+      });
   });
 
   it("is expected to scroll when using secondary navbar", () => {
     cy.scrollTo(0, 0);
     cy.get("[data-cy=burger-menu]").click();
     cy.get("[data-cy=services-tab]").click();
-    cy.get("[data-cy=other-vcs-lg-contracts-tab]").click();
+    cy.get("[data-cy=mental-health-tab]").click();
     cy.window().its("scrollY").should("not.equal", 0);
   });
 });

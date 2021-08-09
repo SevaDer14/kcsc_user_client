@@ -35,7 +35,7 @@ describe("visitor can navigate between views", () => {
         cy.get("[data-cy=name]").should("contain.text", "Maggie Black");
         cy.get("[data-cy=text]").should(
           "contain.text",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          "\"In my personal life, I am a daughter,"
         );
       });
       cy.wait(7000);
@@ -47,7 +47,7 @@ describe("visitor can navigate between views", () => {
         cy.get("[data-cy=name]").should("contain.text", "Richard Erricson");
         cy.get("[data-cy=text]").should(
           "contain.text",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          "\"I work with patients with life threatening"
         );
       });
     });
