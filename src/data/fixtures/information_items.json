@@ -4,25 +4,25 @@
       {
         "id": 1,
         "header": "Item-0",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Often just simple changes aimed at meeting the needs of local communities can be very effective at encouraging increased self care.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       },
       {
         "id": 2,
         "header": "Item-1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "description": "In the GP consultation itself, involving patients in their care through shared decision making has also proved to be a successful approach.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       },
       {
         "id": 3,
         "header": "Item-2",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "description": "Self care has progressively gained widespread support from healthcare professionals and from key organisations in primary care.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       },
       {
         "id": 4,
         "header": "Item-3",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut",
+        "description": "More cost-effective use of stretched NHS resources allows money to be spent where it’s most needed and improve health outcomes.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       }
     ],
@@ -30,37 +30,37 @@
       {
         "id": 1,
         "header": "Other Item-0",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "Empowering people with the confidence and information to look after themselves when they can, and visit the GP when they need to,",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
         "id": 2,
         "header": "Other Item-1",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "Progressing self care is crucial and is seen by the Self Care Forum (SCF) as a significant solution towards achieving a sustainable health system.",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
         "id": 3,
         "header": "Other Item-3",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "description": "The Self Care Forum believes the NHS Mandate should be seen as a blueprint for the integration of self care throughout the NHS.",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
         "id": 4,
         "header": "Other Item-4",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "description": "We believe that there needs to be a whole systems approach to delivering care and for this to be successful there must be an inclusion of opportunities to self care.",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
         "id": 5,
         "header": "Other Item-5",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "description": " NHS England is a partner in the Forum, as are a number of eminent GPs and organisations including the Royal College of Nursing (RCN) and the National Association for Patient Participation (NAPP). ",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
         "id": 6,
         "header": "Other Item-6",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "description": "The purpose of the Forum is to further the reach of self care and embed it into everyday life.",
         "link": "https://www.nhs.uk/nhs-services/"
       }
     ]
