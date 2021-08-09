@@ -35,7 +35,7 @@ describe("Vistor is able to see list of Articles", () => {
           );
           cy.get("[data-cy=teaser]").should(
             "contain.text",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            "As self-care has become more mainstream, the"
           );
           cy.get("[data-cy=image]").should("not.exist");
         });
@@ -48,7 +48,7 @@ describe("Vistor is able to see list of Articles", () => {
           cy.get("[data-cy=title]").should("contain.text", "Article 2");
           cy.get("[data-cy=teaser]").should(
             "contain.text",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+            "Several organizations and researchers take a"
           );
           cy.get("[data-cy=image]").should("be.visible");
         });

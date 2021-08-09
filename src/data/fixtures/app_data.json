@@ -4,7 +4,7 @@
       {
         "id": 1,
         "name": "Maggie Black",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        "text": "\"In my personal life, I am a daughter, a mother, a sister, a wife, a friend, a counselor, a working woman, etc. Even though and because I know I am all these things, I often forget who I am. I know I will use mindfulness as part of a lifestyle change to focus on my self-care and reconnecting with myself. I also learned some things I want to practice with my 3 young children to teach them now self-care lessons that will last their lifetime. Life is too short and precious to miss any of it.\"",
         "photo": "https://freerangestock.com/sample/114840/a-caucasian-woman-posing-with-a-smile.jpg",
         "alt": "Maggie Black smiling to the camera",
         "article_id": 2
@@ -12,7 +12,7 @@
       {
         "id": 2,
         "name": "Richard Erricson",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "text": "\"I work with patients with life threatening illnesses who often feel so uncertain, anxious and depressed about their future. I so many times feel powerless for them. I feel that mindfulness is something they all can utilize anywhere, anytime. It is good to have a tool they can take home with them, to empower them to also help themselves.\"",
         "photo": "https://t3.ftcdn.net/jpg/01/15/46/70/360_F_115467073_9hWxkk2M8b4obn3Aq0JW3YDxtYt5nXqn.jpg",
         "alt": "Richard Erricson smiling to the camera",
         "article_id": 3
@@ -31,32 +31,27 @@
             {
               "label": "Find a service",
               "link": "/services",
-              "ref": "find-a-service"
+              "ref": "find-a-self-care-service"
             },
             {
-              "label": "KCSC Self Care",
+              "label": "Long term Self Care",
               "link": "/services",
-              "ref": "kcsc-self-care"
+              "ref": "long-term-self-care"
             },
             {
-              "label": "KCSC CLW",
+              "label": "Mental health",
               "link": "/services",
-              "ref": "kcsc-clw"
+              "ref": "mental-health"
             },
             {
-              "label": "KCSC N Ken SC",
+              "label": "n.kensington self-care",
               "link": "/services",
-              "ref": "kcsc-n-ken-sc"
+              "ref": "north-kensington-self-care"
             },
             {
-              "label": "Link workers",
+              "label": "find a link workers",
               "link": "/services",
-              "ref": "link-workers"
-            },
-            {
-              "label": "Other VCS lg contracts",
-              "link": "/services",
-              "ref": "other-vcs-lg-contracts"
+              "ref": "find-a-link-workers"
             }
           ]
         },
@@ -108,37 +103,31 @@
           "parent": "services",
           "label": "Find a service",
           "link": "/services",
-          "ref": "find-a-service"
+          "ref": "find-a-self-care-service"
         },
         {
           "parent": "services",
-          "label": "KCSC Self Care",
+          "label": "Long term Self Care",
           "link": "/services",
-          "ref": "kcsc-self-care"
+          "ref": "long-term-self-care"
         },
         {
           "parent": "services",
-          "label": "KCSC CLW",
+          "label": "Mental health",
           "link": "/services",
-          "ref": "kcsc-clw"
+          "ref": "mental-health"
         },
         {
           "parent": "services",
-          "label": "KCSC N Ken SC",
+          "label": "n.kensington self-care",
           "link": "/services",
-          "ref": "kcsc-n-ken-sc"
+          "ref": "north-kensington-self-care"
         },
         {
           "parent": "services",
-          "label": "Link workers",
+          "label": "find a link workers",
           "link": "/services",
-          "ref": "link-workers"
-        },
-        {
-          "parent": "services",
-          "label": "Other VCS lg contracts",
-          "link": "/services",
-          "ref": "other-vcs-lg-contracts"
+          "ref": "find-a-link-workers"
         }
       ]
     },
