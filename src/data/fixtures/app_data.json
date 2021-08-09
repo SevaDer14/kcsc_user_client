@@ -29,32 +29,27 @@
             {
               "label": "Find a service",
               "link": "/services",
-              "ref": "find-a-service"
+              "ref": "find-a-self-care-service"
             },
             {
-              "label": "KCSC Self Care",
+              "label": "Long term Self Care",
               "link": "/services",
-              "ref": "kcsc-self-care"
+              "ref": "long-term-self-care"
             },
             {
-              "label": "KCSC CLW",
+              "label": "Mental health",
               "link": "/services",
-              "ref": "kcsc-clw"
+              "ref": "mental-health"
             },
             {
-              "label": "KCSC N Ken SC",
+              "label": "n.kensington self-care",
               "link": "/services",
-              "ref": "kcsc-n-ken-sc"
+              "ref": "north-kensington-self-care"
             },
             {
-              "label": "Link workers",
+              "label": "find a link workers",
               "link": "/services",
-              "ref": "link-workers"
-            },
-            {
-              "label": "Other VCS lg contracts",
-              "link": "/services",
-              "ref": "other-vcs-lg-contracts"
+              "ref": "find-a-link-workers"
             }
           ]
         },
@@ -106,37 +101,31 @@
           "parent": "services",
           "label": "Find a service",
           "link": "/services",
-          "ref": "find-a-service"
+          "ref": "find-a-self-care-service"
         },
         {
           "parent": "services",
-          "label": "KCSC Self Care",
+          "label": "Long term Self Care",
           "link": "/services",
-          "ref": "kcsc-self-care"
+          "ref": "long-term-self-care"
         },
         {
           "parent": "services",
-          "label": "KCSC CLW",
+          "label": "Mental health",
           "link": "/services",
-          "ref": "kcsc-clw"
+          "ref": "mental-health"
         },
         {
           "parent": "services",
-          "label": "KCSC N Ken SC",
+          "label": "n.kensington self-care",
           "link": "/services",
-          "ref": "kcsc-n-ken-sc"
+          "ref": "north-kensington-self-care"
         },
         {
           "parent": "services",
-          "label": "Link workers",
+          "label": "find a link workers",
           "link": "/services",
-          "ref": "link-workers"
-        },
-        {
-          "parent": "services",
-          "label": "Other VCS lg contracts",
-          "link": "/services",
-          "ref": "other-vcs-lg-contracts"
+          "ref": "find-a-link-workers"
         }
       ]
     },
