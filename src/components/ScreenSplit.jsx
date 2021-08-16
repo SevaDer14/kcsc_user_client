@@ -5,16 +5,17 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   gridContainer: {
     [theme.breakpoints.up("xs")]: {
-      marginBottom: "-30%",
-      marginTop: "-40%",
-    },
-    [theme.breakpoints.up("sm")]: {
-      marginBottom: "30%",
-      marginTop: "40%",
+      display: "flex",
+      flexDirection: "column",
+      alignContent: "flex-start",
+      justifyContent: "space-evenly",
+      marginBottom: "50px",
     },
     [theme.breakpoints.up("lg")]: {
-      marginBottom: "0%",
-      marginTop: "0%",
+      flexDirection: "row",
+      alignContent: "center",
+      justifyContent: "center",
+      height: "100vh",
     },
   },
 }));
@@ -22,17 +23,18 @@ const useStyles = makeStyles((theme) => ({
 const ScreenSplit = ({ left = <></>, right = <></>, centered = false }) => {
   const classes = useStyles();
   let styleGridItem = {
-    height: "80vh",
     display: "flex",
     flexDirection: "column",
     alignContent: "flex-start",
-    padding: "10px",
+    justifyContent: "space-evenly",
+    padding: "15px",
   };
 
   if (centered) {
     styleGridItem = {
       ...styleGridItem,
-      justifyContent: "center",
+      height: "606px",
+      justifyContent: "space-evenly",
     };
   }
 
