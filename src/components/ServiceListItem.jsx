@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
-  Hidden
+  Hidden,
+  Grid
 } from "@material-ui/core";
 import Service from "./Service";
 import { makeStyles } from "@material-ui/core/styles";
@@ -12,29 +13,54 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   heading: {
     [theme.breakpoints.up("xs")]: {
-      fontSize: "18px",
+      fontSize: "14px",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "28px",
+      fontSize: "22px",
     },
   },
 }));
 
 const ServiceListItem = ({ listing, index }) => {
-  const classes = useStyles()
+  const [expanded, setExpanded] = useState(false)
+  const classes = useStyles();
 
   return (
     <>
-      <Accordion data-cy={`search-result-${index}`} key={listing.id} variant="outlined" style={styles.listing}>
+      <Accordion
+        data-cy={`search-result-${index}`}
+        key={listing.id}
+        variant="outlined"
+        expanded={expanded}
+        onChange={() => setExpanded(!expanded)}
+        style={styles.listing}
+      >
         <AccordionSummary>
-          <Typography  variant="h5" component="h2" className={classes.heading}>
-            {listing.name}
-          </Typography>
-          <Hidden xsDown>
-          <Typography variant="body2" component="p" style={styles.shortDescription}>
-            Can be some short description here...
-          </Typography>
-          </Hidden>
+          <Grid container>
+            <Grid item xs={10}>
+              <Typography
+                variant="h5"
+                component="h2"
+                className={classes.heading}
+              >
+                {listing.name}
+              </Typography>
+              <Hidden xsDown>
+                <Typography
+                  variant="body2"
+                  component="p"
+                  style={styles.shortDescription}
+                >
+                  Can be some short description here...
+                </Typography>
+              </Hidden>
+            </Grid>
+            <Grid item xs={2} style={styles.readMore}>
+              <Typography variant="body2" component="p" style={{fontSize: '14px'}}>
+                {!expanded ? "Show More" : "Show Less"}
+              </Typography>
+            </Grid>
+          </Grid>
         </AccordionSummary>
         <AccordionDetails data-cy={`search-result-${index}-details`}>
           <Service data={listing} />
@@ -53,6 +79,11 @@ const styles = {
   shortDescription: {
     color: "#696969",
     marginLeft: "30px",
-    alignSelf: "center"
+    alignSelf: "center",
+  },
+  readMore: {
+    color: "#E86406",
+    textAlign: "right",
+    alignSelf: 'center'
   },
 };
