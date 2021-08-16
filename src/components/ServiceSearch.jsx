@@ -110,6 +110,7 @@ const ServiceSearch = () => {
               error={emptyQuery}              
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
+                onKeyPress={(e) => {e.key === 'Enter' && performSearch()}}
                 color="secondary"
                 value={query}
                 placeholder={"Search for a service..."}
