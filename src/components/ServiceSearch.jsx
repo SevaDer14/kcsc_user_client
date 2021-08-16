@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const ServiceSearch = () => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
+  const [emptyQuery, setEmptyQuery] = useState(false)
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
@@ -68,10 +69,13 @@ const ServiceSearch = () => {
   };
 
   const performSearch = async () => {
-    setSearchQuery();
-    await Search.create(store.getState().query);
-    if (route) {
-      setRedirect(true);
+    if (query === "") {
+      setEmptyQuery(true)
+    } else {
+      setEmptyQuery(false)
+      setSearchQuery();
+      await Search.create(store.getState().query);
+      route && setRedirect(true);
     }
   };
 
@@ -102,6 +106,8 @@ const ServiceSearch = () => {
           >
             <Grid item xs={10} sm={advanced ? 5 : route ? 10 : 8}>
               <OutlinedInput
+              variant="outlined"
+              error={emptyQuery}              
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
                 color="secondary"
@@ -204,8 +210,9 @@ const ServiceSearch = () => {
             </Hidden>
           </Grid>
           <Grid container>
-            <FormHelperText style={styles.helperText}>
-              Try "befriending" or "sports".
+          
+            <FormHelperText style={emptyQuery ? styles.errorText : styles.helperText}>
+              {emptyQuery ? "Field cannot be empty" : 'Try "befriending" or "sports"'}
             </FormHelperText>
           </Grid>
         </Box>
@@ -246,6 +253,11 @@ const styles = {
   },
   helperText: {
     marginLeft: "24px",
+  },
+  errorText: {
+    marginLeft: "24px",
+    color: 'red',
+    fontWeight: '600'
   },
   searchButton: {
     borderRadius: "0 36px 36px 0",
