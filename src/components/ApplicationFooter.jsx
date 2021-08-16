@@ -98,6 +98,12 @@ const useStyles = makeStyles((theme) => ({
       width: "75%",
       objectFit: "contain",
     },
+    [theme.breakpoints.up("sm")]: {
+      width: "40%",
+    },
+    [theme.breakpoints.up("lg")]: {
+      width: "75%",
+    },
   },
   navLink: {
     [theme.breakpoints.up("xs")]: {
