@@ -14,31 +14,21 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      justifyContent: "center",
+      justifyContent: "flex-start",
       width: "100%",
-      marginBottom: "-20%",
-    },
-    [theme.breakpoints.up("sm")]: {
-      marginBottom: "30%",
-    },
-    [theme.breakpoints.up("md")]: {
-      marginTop: "0",
-      marginBottom: "0",
+      height: "100%",
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
-      marginBottom: "30px",
       width: "100%",
-      height: "100%",
       objectFit: "contain",
     },
     [theme.breakpoints.up("sm")]: {
       width: "80%",
-      height: "80%",
     },
     [theme.breakpoints.up("md")]: {
-      width: "100%",
+      width: "70%",
     },
   },
 }));
@@ -79,9 +69,6 @@ const IndexView = () => {
 export default IndexView;
 
 const styles = {
-  image: {
-    width: "50%",
-  },
   statement: {
     textAlign: "center",
     fontSize: "28px",

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box, makeStyles } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
@@ -7,24 +7,7 @@ import { useSelector } from "react-redux";
 
 import Testimonial from "./Testimonial";
 
-const useStyles = makeStyles((theme) => ({
-  testimonialContainer: {
-    [theme.breakpoints.up("sm")]: {
-      marginTop: "55%",
-      marginBottom: "20%",
-    },
-    [theme.breakpoints.up("md")]: {
-      width: "100%",
-      height: "auto",
-      padding: "0 10%",
-      marginTop: "15%",
-      marginBottom: "0%",
-    },
-  },
-}));
-
 const TestimonialSlider = () => {
-  const classes = useStyles();
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
   const { testimonials } = useSelector((state) => state.appData);
@@ -64,7 +47,7 @@ const TestimonialSlider = () => {
   }, []);
 
   return (
-    <Box className={classes.testimonialContainer}>
+    <Box>
       <Grid container >
         {testimonials.length !== 0 && (
           <>
