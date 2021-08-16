@@ -34,10 +34,13 @@ describe("visitor can navigate Services View", () => {
           "contain.text",
           "Find self-care service"
         );
-        cy.get("[data-cy=button_1]")
-          .invoke("attr", "href")
-          .should("eq", "http://localhost:3001/services/search");
+        cy.get("[data-cy=button_1]").click();
+        cy.url().should("eq", "http://localhost:3001/services/search");
       });
+    cy.visit("/services");
+    cy.window().then((win) => {
+      cy.spy(win, 'open').as('redirect')
+    })
     cy.get("[data-cy=page-section]")
       .eq(1)
       .within(() => {
@@ -51,9 +54,8 @@ describe("visitor can navigate Services View", () => {
         );
         cy.get("[data-cy=image]").should("be.visible");
         cy.get("[data-cy=button_1]").should("contain.text", "my care my way");
-        cy.get("[data-cy=button_1]")
-          .invoke("attr", "href")
-          .should("eq", "http://mycaremyway.co.uk/");
+        cy.get("[data-cy=button_1]").click();
+        cy.get('@redirect').should("be.calledWith", "http://mycaremyway.co.uk/");
       });
   });
 
