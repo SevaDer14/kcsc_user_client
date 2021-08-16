@@ -18,33 +18,31 @@ const useStyles = makeStyles((theme) => ({
       display: "flex",
       flexDirection: "column",
       width: "90%",
-      maxWidth: "800px",
+      maxWidth: "100vw",
       marginLeft: "auto",
       marginRight: "auto",
       position: "relative",
-      bottom: "0",
+      alignItems: "center",
     },
     [theme.breakpoints.up("lg")]: {
       maxWidth: "90%",
-      marginLeft: "10%",
-      marginRight: "5%",
     },
   },
   gridItemWithDivider: {
     [theme.breakpoints.up("xs")]: {
       display: "flex",
-      alignItems: "center",
+      alignItems: "stretch",
       alignContent: "center",
       justifyContent: "center",
       textAlign: "center",
-      padding: "12px 12px",
-      height: "180px",
+      height: "auto",
       borderBottom: "1px solid rgba(0,0,0,0.3)",
     },
     [theme.breakpoints.up("lg")]: {
       borderBottom: "none",
       borderRight: "1px solid rgba(0,0,0,0.3)",
-      padding: "12px 24px",
+      height: "180px",
+      width: "auto"
     },
   },
   gridItemNoDivider: {
@@ -65,56 +63,40 @@ const useStyles = makeStyles((theme) => ({
       marginTop: "15px",
     },
   },
-  hiddenScrollContainer: {
+  textField: {
     [theme.breakpoints.up("xs")]: {
       width: "100%",
       height: "100%",
-      marginTop: "20px",
-      marginBottom: "20px",
-      paddingTop: "10px",
-      textAlign: "center",
-      overflow: "hidden",
-      position: "relative",
-    },
-    [theme.breakpoints.up("sm")]: {
-      marginTop: "40px",
-      marginBottom: "0px",
-      paddingTop: "20px",
+      textAlign: "left",
+      padding: "20px",
     },
     [theme.breakpoints.up("lg")]: {
-      marginTop: "0px",
-      marginBottom: "0px",
-      paddingTop: "20px",
+      padding: "10px 20px",
     },
   },
-  hiddenScrollText: {
+  contactField: {
     [theme.breakpoints.up("xs")]: {
-      position: "absolute",
-      top: "0",
-      left: "0",
-      bottom: "0",
-      right: "-15px",
-      overflowY: "scroll",
+      justifySelf: "center",
+      textAlign: "left",
     },
   },
   longWord: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "25px",
-      textAlign: "center",
-      wordWrap: "break-word",
-      overflow: "hidden",
+      paddingTop: "25px",
+      marginBottom: "20px",
     },
   },
   navigationContainer: {
     [theme.breakpoints.up("xs")]: {
+      textAlign: "left",
       display: "flex",
       flexDirection: "column",
     },
   },
   logo: {
     [theme.breakpoints.up("xs")]: {
-      width: "100%",
-      maxWidth: "400px",
+      width: "75%",
+      objectFit: "contain",
     },
   },
   navLink: {
@@ -123,6 +105,13 @@ const useStyles = makeStyles((theme) => ({
       textDecoration: "none",
       textTransform: "uppercase",
       color: "#000",
+    },
+  },
+  disclaimers: {
+    [theme.breakpoints.up("xs")]: {
+    textAlign: "center",
+    paddingTop: "60px",
+    paddingBottom: "20px",
     },
   },
 }));
@@ -176,7 +165,7 @@ const ApplicationFooter = () => {
           lg={3}
           className={classes.gridItemWithDivider}
         >
-          <Box className={classes.hiddenScrollContainer}>
+          <Box className={classes.textField}>
             <Typography
               variant="subtitle1"
               component="p"
@@ -192,38 +181,37 @@ const ApplicationFooter = () => {
           container
           direction="column"
           xs={12}
-          lg={3}
+          lg={4}
           className={classes.gridItemWithDivider}
-          style={{justifyContent: "flex-start"}}
+          style={{ justifyContent: "flex-start" }}
         >
-          <Grid item >
+          <Grid item className={classes.contactField}>
             <Typography
               data-cy="contacts"
               variant="subtitle1"
               component="p"
               gutterBottom
               className={classes.longWord}
-              style={{textAlign: "left", marginTop: "0px", wordWrap: "break-word",}}
             >
               Phone: {contact.phone}
               <br />
               {contact.email}
             </Typography>
+            <SubscribeToKCSC />
           </Grid>
-          <SubscribeToKCSC />
         </Grid>
         <Grid
           data-cy="navigation"
           item
           xs={12}
-          lg={3}
+          lg={2}
           className={classes.gridItemNoDivider}
         >
           <Box className={classes.navigationContainer}>{navigationMenu}</Box>
         </Grid>
       </Grid>
       <Typography
-        className={classes.longWord}
+        className={classes.disclaimers}
         data-cy="disclaimers"
         variant="caption"
         component="p"
