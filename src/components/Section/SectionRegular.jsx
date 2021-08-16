@@ -1,6 +1,6 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
-
+import { Link } from "react-router-dom";
 import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 
@@ -51,7 +51,8 @@ const Section = ({ id, header, description, image, buttons }) => {
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
-      href={button.link}
+      component={Link}
+      to={button.link}
     >
       <Typography variant="button">{button.text}</Typography>
     </Button>
