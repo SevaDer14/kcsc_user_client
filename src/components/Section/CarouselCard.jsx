@@ -56,7 +56,7 @@ const CarouselCard = ({ card }) => {
             size="large"
             variant="contained"
             color="secondary"
-            href={card.links.web}
+            onClick={()=> window.open(card.links.web)}
           >
             <LanguageIcon />
           </Button>
@@ -67,7 +67,7 @@ const CarouselCard = ({ card }) => {
             size="large"
             variant="contained"
             color="secondary"
-            href={card.links.facebook}
+            href={()=>window.open(card.links.facebook)}
           >
             <FacebookIcon />
           </Button>
@@ -78,7 +78,7 @@ const CarouselCard = ({ card }) => {
             size="large"
             variant="contained"
             color="secondary"
-            href={card.links.twitter}
+            href={()=>window.open(card.links.twitter)}
           >
             <TwitterIcon />
           </Button>

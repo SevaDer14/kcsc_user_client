@@ -57,8 +57,6 @@ const ApplicationHeader = () => {
     currentUrl,
     setActiveMainTab,
     setActiveSecondaryTab,
-    main_tabs,
-    secondary_tabs,
   ]);
 
   const handleChangeSecondary = (event, newValue) => {
@@ -108,7 +106,7 @@ const ApplicationHeader = () => {
                   data-cy="header-logo"
                   style={styles.headerLogo}
                   alt="Community Health West London"
-                  onClick={window.scrollTo({ top: 0, behavior: "smooth" })}
+                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 />
               </Button>
             )}
