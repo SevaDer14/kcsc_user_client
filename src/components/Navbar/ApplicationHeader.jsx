@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Link, useRouteMatch } from "react-router-dom";
+import { Link, useRouteMatch, useLocation } from "react-router-dom";
 import {
   AppBar,
   Toolbar,
@@ -12,12 +12,14 @@ import {
 import { ReactComponent as Logo } from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import Functions from '../../modules/Functions'
+import Functions from "../../modules/Functions";
+import AdaptiveHelper from "../../modules/AdaptiveHelper";
 
 const ApplicationHeader = () => {
   const trigger = useScrollTrigger();
   const [activeMainTab, setActiveMainTab] = useState(0);
   const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
+  let currentUrl = useLocation().pathname;
   const [parent, setParent] = useState("/home");
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
@@ -30,16 +32,30 @@ const ApplicationHeader = () => {
       }
     };
     fetchApplicationData();
-  }, [appDataFetched]);
+    AdaptiveHelper.muiActiveTabSelect(
+      currentUrl,
+      main_tabs,
+      secondary_tabs,
+      setActiveMainTab,
+      setActiveSecondaryTab
+    );
+  }, [
+    appDataFetched,
+    currentUrl,
+    setActiveMainTab,
+    setActiveSecondaryTab,
+    main_tabs,
+    secondary_tabs,
+  ]);
 
-  const handleChangeMain = (event, newValue) => {
-    setActiveMainTab(newValue);
-    setActiveSecondaryTab(0);
-  };
+  // const handleChangeMain = (event, newValue) => {
+  //   setActiveMainTab(newValue);
+  //   setActiveSecondaryTab(0);
+  // };
 
-  const handleChangeSecondary = (event, newValue) => {
-    setActiveSecondaryTab(newValue);
-  };
+  // const handleChangeSecondary = (event, newValue) => {
+  //   setActiveSecondaryTab(newValue);
+  // };
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
@@ -81,7 +97,7 @@ const ApplicationHeader = () => {
             )}
             <Tabs
               value={activeMainTab}
-              onChange={handleChangeMain}
+              //onChange={handleChangeMain}
               style={styles.navTabs}
               centered
             >
@@ -93,7 +109,7 @@ const ApplicationHeader = () => {
               <Tabs
                 style={styles.navTabs}
                 value={activeSecondaryTab}
-                onChange={handleChangeSecondary}
+                //onChange={handleChangeSecondary}
                 centered
               >
                 {secondaryTabs}
@@ -119,8 +135,8 @@ const styles = {
   },
   tabText: {
     color: "#000",
-    fontSize: "1.2rem",
-    width: "50px",
+    fontSize: "1.1rem",
+    minWidth: 140,
   },
   secondaryNavBar: {
     backgroundColor: "#eee",
