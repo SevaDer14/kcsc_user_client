@@ -34,8 +34,6 @@ const ApplicationHeader = () => {
     fetchApplicationData();
     AdaptiveHelper.muiActiveTabSelect(
       currentUrl,
-      main_tabs,
-      secondary_tabs,
       setActiveMainTab,
       setActiveSecondaryTab
     );
@@ -45,17 +43,12 @@ const ApplicationHeader = () => {
     setActiveMainTab,
     setActiveSecondaryTab,
     main_tabs,
-    secondary_tabs,
+    secondary_tabs
   ]);
 
-  // const handleChangeMain = (event, newValue) => {
-  //   setActiveMainTab(newValue);
-  //   setActiveSecondaryTab(0);
-  // };
-
-  // const handleChangeSecondary = (event, newValue) => {
-  //   setActiveSecondaryTab(newValue);
-  // };
+  const handleChangeSecondary = (event, newValue) => {
+    setActiveSecondaryTab(newValue);
+  };
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
@@ -97,7 +90,6 @@ const ApplicationHeader = () => {
             )}
             <Tabs
               value={activeMainTab}
-              //onChange={handleChangeMain}
               style={styles.navTabs}
               centered
             >
@@ -109,7 +101,7 @@ const ApplicationHeader = () => {
               <Tabs
                 style={styles.navTabs}
                 value={activeSecondaryTab}
-                //onChange={handleChangeSecondary}
+                onChange={handleChangeSecondary}
                 centered
               >
                 {secondaryTabs}
