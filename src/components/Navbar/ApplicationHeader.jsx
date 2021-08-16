@@ -39,6 +39,7 @@ const ApplicationHeader = () => {
   const landingPage = useRouteMatch("/home");
   const { appData, appDataFetched } = useSelector((state) => state);
   const { main_tabs, secondary_tabs } = appData.navigation;
+  let currentUrl = useLocation()
 
   useEffect(() => {
     const fetchApplicationData = async () => {
@@ -63,7 +64,7 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const mainTabs = main_tabs.map((tab, index) => (
+  const mainTabs = main_tabs.map((tab, index) => (  
     <Tab
       key={`main-tab-${index}`}
       style={styles.tabText}
@@ -114,7 +115,7 @@ const ApplicationHeader = () => {
               {mainTabs}
             </Tabs>
           </Toolbar>
-          {secondaryTabs.length !== 0 && (
+          {(secondaryTabs.length !== 0  && currentUrl.pathname !== '/services/search') && (
             <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
               <Tabs
                 style={styles.navTabs}

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
-
 import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 import { Redirect } from "react-router-dom";
