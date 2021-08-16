@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
-import { Link } from "react-router-dom";
 import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
+import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -43,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 const Section = ({ id, header, description, image, buttons }) => {
   const classes = useStyles();
   let idEven = id % 2 === 0;
+  const [redirect, setRedirect] = useState("");
 
   const buttonList = buttons.map((button) => (
     <Button
@@ -51,35 +52,43 @@ const Section = ({ id, header, description, image, buttons }) => {
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
-      component={Link}
-      to={button.link}
+      onClick={() => {
+        if (button.link.includes("http")) {
+          window.open(button.link);
+        } else {
+          setRedirect(button.link);
+        }
+      }}
     >
       <Typography variant="button">{button.text}</Typography>
     </Button>
   ));
 
   return (
-    <Paper className={classes.container} elevation={0}>
-      <Grid item className={classes.section} data-cy="page-section">
-        {idEven ? (
-          <SectionCenter
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
-            buttonList={buttonList}
-          />
-        ) : (
-          <SectionWide
-            header={header}
-            description={description}
-            image={image}
-            buttons={buttons}
-            buttonList={buttonList}
-          />
-        )}
-      </Grid>
-    </Paper>
+    <>
+      {redirect && <Redirect to={redirect} />}
+      <Paper className={classes.container} elevation={0}>
+        <Grid item className={classes.section} data-cy="page-section">
+          {idEven ? (
+            <SectionCenter
+              header={header}
+              description={description}
+              image={image}
+              buttons={buttons}
+              buttonList={buttonList}
+            />
+          ) : (
+            <SectionWide
+              header={header}
+              description={description}
+              image={image}
+              buttons={buttons}
+              buttonList={buttonList}
+            />
+          )}
+        </Grid>
+      </Paper>
+    </>
   );
 };
 
