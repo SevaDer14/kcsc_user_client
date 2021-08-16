@@ -9,11 +9,15 @@ const AdaptiveHelper = {
         setActiveMainTab(1);
         setActiveSecondaryTab(0);
         break;
+      case "/services/search":
+        setActiveMainTab(1);
+        setActiveSecondaryTab(0);
+        break;
       case "/services#find-a-self-care-service":
         setActiveMainTab(1);
         setActiveSecondaryTab(0);
         break;
-      case "/services#long-term-self-care":        
+      case "/services#long-term-self-care":
         setActiveMainTab(1);
         setActiveSecondaryTab(1);
         break;
