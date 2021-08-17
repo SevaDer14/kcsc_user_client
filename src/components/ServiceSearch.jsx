@@ -59,12 +59,15 @@ const ServiceSearch = () => {
     });
   };
 
-  const performSearch = async () => {
+  const performSearch = async (category) => {
     if (query === "") {
       await Search.index();
     } else {
       setSearchQuery();
-      await Search.create(store.getState().query, serviceCategory);
+      await Search.create(
+        store.getState().query,
+        category ? category : serviceCategory
+      );
       route && setRedirect(true);
     }
   };
@@ -185,7 +188,10 @@ const ServiceSearch = () => {
                       color="secondary"
                       data-cy="advanced-search-dropdown"
                       style={styles.dropdownMobile}
-                      onChange={(e) => setServiceCategory(e.target.value)}
+                      onChange={(e) => {
+                        setServiceCategory(e.target.value);
+                        performSearch(e.target.value);
+                      }}
                       value={serviceCategory}
                       label="Category"
                       aria-describedby="Choose categories of self care services"
@@ -205,9 +211,7 @@ const ServiceSearch = () => {
             </Hidden>
           </Grid>
           <Grid container>
-            <FormHelperText
-              style={styles.helperText}
-            >
+            <FormHelperText style={styles.helperText}>
               {'Try "befriending" or "sports"'}
             </FormHelperText>
           </Grid>
