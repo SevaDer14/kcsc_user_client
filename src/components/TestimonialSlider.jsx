@@ -1,13 +1,31 @@
 import React, { useState, useEffect } from "react";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box, CardMedia, makeStyles } from "@material-ui/core";
 import IconButton from "@material-ui/core/IconButton";
 import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { useSelector } from "react-redux";
 
 import Testimonial from "./Testimonial";
+import spalsh from "../assets/splash.svg";
+
+const useStyles = makeStyles((theme) => ({
+  footerContainer: {
+    [theme.breakpoints.up("xs")]: {
+      zIndex: "-1",
+      left: "50%",
+      position: "absolute",
+    },
+  },
+  slider: {
+    [theme.breakpoints.up("xs")]: {
+      position: "relative",
+      top: "-50%",
+    },
+  },
+}));
 
 const TestimonialSlider = () => {
+  const classes = useStyles();
   const [slider, setSlider] = useState(1);
   const [timeoutActive, setTimeoutActive] = useState(true);
   const { testimonials } = useSelector((state) => state.appData);
@@ -48,7 +66,15 @@ const TestimonialSlider = () => {
 
   return (
     <Box>
-      <Grid container >
+      <CardMedia
+        className={classes.image}
+        data-cy="photo"
+        component="img"
+        alt=""
+        height="auto"
+        image={spalsh}
+      />
+      <Grid container className={classes.slider}>
         {testimonials.length !== 0 && (
           <>
             <Grid item xs={1} style={styles.sliderItem}>
