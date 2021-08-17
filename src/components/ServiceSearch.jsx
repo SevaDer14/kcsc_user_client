@@ -120,7 +120,11 @@ const ServiceSearch = () => {
                     variant="outlined"
                     style={styles.dropdownContainer}
                   >
-                    <InputLabel htmlFor="dropdown">Category</InputLabel>
+                    <InputLabel
+                      htmlFor="dropdown"
+                    >
+                      Category
+                    </InputLabel>
                     <Select
                       color="secondary"
                       data-cy="advanced-search-dropdown"
