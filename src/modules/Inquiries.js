@@ -7,8 +7,11 @@ const Inquiries = {
     //let params = { inquiry: formData }
     //await axios.post(`/inquiries`, params)
     const action = {
-      type: "SET_SUCCESS_MESSAGE",
-      payload: "Thank you for your inquiry, we'll be in touch soon!",
+      type: "SET_POPUP_MESSAGE",
+      payload: {
+        type: "success",
+        message: "Thank you for your inquiry, we'll be in touch soon!",
+      },
     };
     store.dispatch(action);
   },
@@ -17,8 +20,11 @@ const Inquiries = {
     //let params = { email: email }
     //await axios.post(`/subscribe`, params)
     const action = {
-      type: "SET_SUCCESS_MESSAGE",
-      payload: "You've been successfully subscribed to KCSC!",
+      type: "SET_POPUP_MESSAGE",
+      payload: {
+        type: "success",
+        message: "You've been successfully subscribed to KCSC!",
+      },
     };
     store.dispatch(action);
   },

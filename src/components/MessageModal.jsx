@@ -13,9 +13,23 @@ const MessageModal = () => {
       aria-labelledby="modal-title"
       aria-describedby="modal-description"
     >
-      <Paper style={styles.modal}>
-        <Typography id="modal-title" variant="h4" style={{textTransform: "uppercase", marginBottom: "10px"}}>{messageType}</Typography>
-        <Typography id="modal-description" data-cy="message" variant="h6">{message}</Typography>
+      <Paper
+        style={
+          messageType === "error"
+            ? { ...styles.modal, backgroundColor: "red" }
+            : styles.modal
+        }
+      >
+        <Typography
+          id="modal-title"
+          variant="h4"
+          style={{ textTransform: "uppercase", marginBottom: "10px" }}
+        >
+          {messageType}
+        </Typography>
+        <Typography id="modal-description" data-cy="message" variant="h6">
+          {message}
+        </Typography>
       </Paper>
     </Modal>
   );
@@ -24,7 +38,7 @@ const MessageModal = () => {
 export default MessageModal;
 
 const styles = {
-  modal: {    
+  modal: {
     position: "absolute",
     top: "50%",
     left: "50%",
@@ -32,7 +46,7 @@ const styles = {
     width: "90%",
     maxWidth: "400px",
     padding: "20px",
-    border: "1px solid #000",  
+    border: "1px solid #000",
     borderRadius: "10px",
     backgroundColor: "limeGreen",
     color: "white",
