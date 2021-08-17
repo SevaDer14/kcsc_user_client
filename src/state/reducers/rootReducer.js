@@ -16,12 +16,17 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         messageOpen: true,
         messageType: "success",
-        message: action.payload
+        message: action.payload,
       };
     case "CLOSE_MESSAGE":
       return {
         ...state,
         messageOpen: false,
+      };
+    case "SET_LAYOUT_LOAD_ERROR":
+      return {
+        ...state,
+        layoutLoadError: action.payload,
       };
     default:
       return state;

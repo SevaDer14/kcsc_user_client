@@ -5,6 +5,7 @@ const initialState = {
   appDataFeched: false,
   messageOpen: false,
   messageType: "success",
+  layoutLoadError: false,
   appData: {
     testimonials: [],
     navigation: {
