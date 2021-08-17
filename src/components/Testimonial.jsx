@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       width: "90%",
       height: "auto",
+      border: "4px solid #ea7005",
+      borderRadius: "7px",
     },
     [theme.breakpoints.up("md")]: {
       margin: "0 20px",

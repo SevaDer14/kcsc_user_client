@@ -61,7 +61,11 @@ describe("visitor can navigate between views", () => {
         );
         cy.get("[data-cy=contacts]").should(
           "contain",
-          "Phone: 0207-243 9806info@communityhealthwestlondon.org.uk"
+          "Phone: 0207-243 9806Email: info@communityhealthwestlondon.org.uk"
+        );
+        cy.get("[data-cy=subscribe-text]").should(
+          "contain",
+          "Subscribe to KCSC newsletter"
         );
         cy.get("[data-cy=navigation]").within(() => {
           cy.get("[data-cy=link]").should("have.length", 5);
