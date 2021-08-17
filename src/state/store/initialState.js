@@ -4,7 +4,8 @@ const initialState = {
   query: "",
   appDataFeched: false,
   messageOpen: false,
-  messageType: "success",
+  messageType: "Success",
+  layoutLoadError: false,
   appData: {
     testimonials: [],
     navigation: {

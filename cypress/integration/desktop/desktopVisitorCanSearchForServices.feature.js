@@ -3,14 +3,14 @@ describe("Visitor can search for local services", () => {
   beforeEach(() => {
     cy.intercept("**/api/services**", {
       fixture: "search_all_services.json",
-    });  
+    });
     cy.intercept("GET", "**/api/app_data**", {
       fixture: "app_data.json",
     });
     cy.viewport("macbook-15");
   });
 
-  describe("by entering a valid serch term", () => {
+  describe("by entering a valid search term", () => {
     beforeEach(() => {
       cy.intercept("**/api/search**", {
         fixture: "search_results_football.json",
@@ -70,23 +70,29 @@ describe("Visitor can search for local services", () => {
       cy.url().should("include", "/services/search");
       cy.get("[data-cy=search-results]").children().should("have.length", 2);
       cy.get("[data-cy=search-query]").within(() => {
-        cy.get('input').should('have.value', 'football')
+        cy.get("input").should("have.value", "football");
       });
     });
   });
 
-  describe("by using advanced search", () => {
+  describe("unsuccessfully", () => {
     beforeEach(() => {
       cy.intercept("**/api/search**", {
-        fixture: "search_results_football.json",
+        statusCode: 404,
+        body: {
+          message: "Resource cannot be found",
+        },
       });
       cy.visit("/services/search");
     });
 
     it("is expected to toggle advanced search", () => {
-      cy.get("[data-cy=advanced-search-dropdown]").should("not.exist");
-      cy.get("[data-cy=advanced-search-checkbox]").click();
-      cy.get("[data-cy=advanced-search-dropdown]").should("be.visible");
+      cy.get("[data-cy=search-query]").type("football");
+      cy.get("[data-cy=search-submit]").click();
+      cy.get("[data-cy=message]").should(
+        "contain.text",
+        "An error occurred during request, please try again"
+      );
     });
   });
 });

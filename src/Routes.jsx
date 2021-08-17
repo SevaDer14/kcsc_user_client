@@ -15,6 +15,7 @@ import AboutSelfCareView from "./views/AboutSelfCareView";
 import NewsView from "./views/NewsView";
 import ArticleView from "./views/ArticleView";
 import InformationView from "./views/InformationView";
+import ErrorView from "./views/ErrorView";
 
 const Routes = () => {
   return (
@@ -71,6 +72,11 @@ const Routes = () => {
           exact
           path="/info/news/articles/:id"
           render={() => <App component={<ArticleView />} />}
+        />
+        <Route
+          exact
+          path="/error"
+          render={() => <App component={<ErrorView />} />}
         />
       </Switch>
     </Router>

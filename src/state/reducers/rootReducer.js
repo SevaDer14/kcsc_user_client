@@ -11,17 +11,22 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         query: action.payload,
       };
-    case "SET_SUCCESS_MESSAGE":
+    case "SET_POPUP_MESSAGE":
       return {
         ...state,
         messageOpen: true,
-        messageType: "success",
-        message: action.payload
+        messageType: action.payload.type,
+        message: action.payload.message,
       };
     case "CLOSE_MESSAGE":
       return {
         ...state,
         messageOpen: false,
+      };
+    case "SET_LAYOUT_LOAD_ERROR":
+      return {
+        ...state,
+        layoutLoadError: action.payload,
       };
     default:
       return state;
