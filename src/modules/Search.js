@@ -5,7 +5,6 @@ import Functions from './Functions'
 const Search = {
   async create(searchQuery, category) {
     try {
-      debugger
       const response = await axios.post(`/search?q=${searchQuery}&category=${category}`);
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
