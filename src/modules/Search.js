@@ -1,5 +1,6 @@
 import axios from "axios";
 import store from "../state/store/configureStore";
+import Functions from './Functions'
 
 const Search = {
   async create(searchQuery) {
@@ -10,7 +11,10 @@ const Search = {
         payload: response.data,
       });
     } catch (error) {
-      dispatchError();
+      Functions.dispatchPopup(
+        "error",
+        "An error occurred during request, please try again"
+      );
     }
   },
   async index() {
@@ -21,18 +25,12 @@ const Search = {
         payload: response.data,
       });
     } catch (error) {
-      dispatchError();
+      Functions.dispatchPopup(
+        "error",
+        "An error occurred during request, please try again"
+      );
     }
   },
 };
 
 export default Search;
-
-const dispatchError = () => {
-  store.dispatch({
-    type: "SET_POPUP_MESSAGE",
-    payload: {
-      type: 'error',
-      message: "An error occurred during request, please try again"},
-  });
-};

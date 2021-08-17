@@ -5,6 +5,9 @@ describe("visitor can navigate Services View", () => {
     cy.intercept("GET", "**/api/sections**", {
       fixture: "services_view_section.json",
     });
+    cy.intercept("GET", "**/api/app_data**", {
+      fixture: "app_data.json",
+    });
     cy.visit("/");
     cy.get("[data-cy=application-header]").within(() => {
       cy.get("[data-cy=services-tab]").click();

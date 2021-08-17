@@ -1,6 +1,7 @@
 import axios from "axios";
 import app_data from "../data/fixtures/app_data.json";
 import store from "../state/store/configureStore";
+import Functions from './Functions'
 
 const AppData = {
   async read() {
@@ -15,7 +16,7 @@ const AppData = {
         store.dispatch({ type: "SET_APP_DATA", payload: app_data.app_data });
       }
     } catch (error) {
-      store.dispatch({ type: "SET_LAYOUT_LOAD_ERROR", payload: true });
+      Functions.redirectToErrorPage()
     }
   },
 };
