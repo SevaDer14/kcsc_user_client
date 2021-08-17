@@ -2,6 +2,9 @@
 describe("visitor can navigate Services View", () => {
   beforeEach(() => {
     cy.viewport("macbook-15");
+    cy.intercept("GET", "**/api/app_data**", {
+      fixture: "app_data.json",
+    });
     cy.intercept("GET", "**/api/sections**", {
       fixture: "services_view_section.json",
     });
