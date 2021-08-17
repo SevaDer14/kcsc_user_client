@@ -6,7 +6,9 @@ describe("if API call to get page layout fails", () => {
         message: "Page cannot be found",
       },
     });
-    cy.visit("/");
+    cy.intercept("**/api/services**", {
+      fixture: "search_all_services.json",
+    }); 
   });
 
   it("is expected to redirect to Error View", () => {

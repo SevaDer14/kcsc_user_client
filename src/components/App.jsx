@@ -28,6 +28,7 @@ export default App;
 
 const styles = {
   zeroLRpadding: {
+    minHeight: '65vh',
     paddingLeft: "0px",
     paddingRight: "0px",
   },

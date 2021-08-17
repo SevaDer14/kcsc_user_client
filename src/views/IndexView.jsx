@@ -2,7 +2,6 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { Box, Typography, CardMedia } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-
 import ScreenSplit from "../components/ScreenSplit";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import TestimonialSlider from "../components/TestimonialSlider";
