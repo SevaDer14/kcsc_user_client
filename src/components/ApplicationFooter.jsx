@@ -78,6 +78,8 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       justifySelf: "center",
       textAlign: "left",
+      paddingLeft: "20px",
+      paddingRight: "20px",
     },
   },
   longWord: {
@@ -201,7 +203,10 @@ const ApplicationFooter = () => {
             >
               Phone: {contact.phone}
               <br />
-              {contact.email}
+              Email: {contact.email}
+            </Typography>
+            <Typography  data-cy="subscribe-text" variant="subtitle1">
+              Subscribe to KCSC newsletter
             </Typography>
             <SubscribeToKCSC />
           </Grid>

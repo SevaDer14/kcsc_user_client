@@ -8,8 +8,6 @@ const useStyles = makeStyles((theme) => ({
   searchBar: {
     width: "100%",
     paddingBottom: "20px",
-    paddingLeft: "10px",
-    paddingRight: "10px",
   },
   searchButton: {
     borderRadius: "0 5px 5px 0",
