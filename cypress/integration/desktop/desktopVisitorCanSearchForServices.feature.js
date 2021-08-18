@@ -55,6 +55,35 @@ describe("Visitor can search for local services", () => {
     });
   });
 
+  describe("by using advanced search", () => {
+    beforeEach(() => {
+      cy.intercept("**/api/search?q=football&category=All", {
+        fixture: "search_results_football.json",
+      });
+      cy.intercept("**/api/search?q=football&category=Autism", {
+        fixture: "search_results_football_category.json",
+      });
+      cy.visit("/services/search");
+    });
+
+    it("is expected to toggle advanced search", () => {
+      cy.get("[data-cy=advanced-search-dropdown]").should("not.exist");
+      cy.get("[data-cy=advanced-search-checkbox]").click();
+      cy.get("[data-cy=advanced-search-dropdown]").should("be.visible");
+    });
+
+    it("is expected to narrow down search by choosing category", () => {
+      cy.get("[data-cy=search-query]").type("football");
+      cy.get("[data-cy=search-submit]").click();
+      cy.get("[data-cy=search-results]").children().should("have.length", 2);
+      cy.get("[data-cy=advanced-search-checkbox]").click();
+      cy.get("[data-cy=advanced-search-dropdown]").click()
+      cy.get("li").eq(2).click()
+      cy.get("[data-cy=search-results]").children().should("have.length", 1);
+    });
+  });
+  
+
   describe("from home page", () => {
     beforeEach(() => {
       cy.intercept("**/api/search**", {
@@ -86,7 +115,7 @@ describe("Visitor can search for local services", () => {
       cy.visit("/services/search");
     });
 
-    it("is expected to toggle advanced search", () => {
+    it("is expected to show an error", () => {
       cy.get("[data-cy=search-query]").type("football");
       cy.get("[data-cy=search-submit]").click();
       cy.get("[data-cy=message]").should(

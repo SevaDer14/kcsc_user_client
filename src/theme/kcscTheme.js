@@ -33,7 +33,7 @@ const nexaBold = {
 const kcscTheme = createMuiTheme({
   palette: {
     primary: {
-      main: "#FFFFFF",
+      main: "#E86406",
       contrastText: "#6a0dad ",
     },
     secondary: {

@@ -22,6 +22,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { useTheme } from "@material-ui/core/styles";
 import store from "../state/store/configureStore";
 import Search from "../modules/Search";
+import categories from "../data/categories.js";
 
 const useStyles = makeStyles((theme) => ({
   searchBar: {
@@ -43,23 +44,13 @@ const useStyles = makeStyles((theme) => ({
 const ServiceSearch = () => {
   const classes = useStyles();
   const [query, setQuery] = useState("");
-  const [emptyQuery, setEmptyQuery] = useState(false)
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
   const [advanced, setAdvanced] = useState(false);
-  const [serviceCategory, setServiceCategory] = useState("");
+  const [serviceCategory, setServiceCategory] = useState("All");
   const theme = useTheme();
   const mobile = useMediaQuery(theme.breakpoints.down("xs"));
-
-  const categories = [
-    "Category 1",
-    "Category 2",
-    "Category 3",
-    "Category 4",
-    "Category 5",
-    "Category 6",
-  ];
 
   const setSearchQuery = () => {
     dispatch({
@@ -68,13 +59,15 @@ const ServiceSearch = () => {
     });
   };
 
-  const performSearch = async () => {
+  const performSearch = async (category) => {
     if (query === "") {
-      setEmptyQuery(true)
+      await Search.index();
     } else {
-      setEmptyQuery(false)
       setSearchQuery();
-      await Search.create(store.getState().query);
+      await Search.create(
+        store.getState().query,
+        category ? category : serviceCategory
+      );
       route && setRedirect(true);
     }
   };
@@ -106,11 +99,12 @@ const ServiceSearch = () => {
           >
             <Grid item xs={10} sm={advanced ? 5 : route ? 10 : 8}>
               <OutlinedInput
-              variant="outlined"
-              error={emptyQuery}              
+                variant="outlined"
                 data-cy="search-query"
                 onChange={(e) => setQuery(e.target.value)}
-                onKeyPress={(e) => {e.key === 'Enter' && performSearch()}}
+                onKeyPress={(e) => {
+                  e.key === "Enter" && performSearch();
+                }}
                 color="secondary"
                 value={query}
                 placeholder={"Search for a service..."}
@@ -126,12 +120,19 @@ const ServiceSearch = () => {
                     variant="outlined"
                     style={styles.dropdownContainer}
                   >
-                    <InputLabel htmlFor="dropdown">Category</InputLabel>
+                    <InputLabel
+                      htmlFor="dropdown"
+                    >
+                      Category
+                    </InputLabel>
                     <Select
                       color="secondary"
                       data-cy="advanced-search-dropdown"
                       style={styles.dropdown}
-                      onChange={(e) => setServiceCategory(e.target.value)}
+                      onChange={(e) => {
+                        setServiceCategory(e.target.value);
+                        performSearch(e.target.value);
+                      }}
                       value={serviceCategory}
                       label="Category"
                       aria-describedby="Choose categories of self care services"
@@ -191,7 +192,10 @@ const ServiceSearch = () => {
                       color="secondary"
                       data-cy="advanced-search-dropdown"
                       style={styles.dropdownMobile}
-                      onChange={(e) => setServiceCategory(e.target.value)}
+                      onChange={(e) => {
+                        setServiceCategory(e.target.value);
+                        performSearch(e.target.value);
+                      }}
                       value={serviceCategory}
                       label="Category"
                       aria-describedby="Choose categories of self care services"
@@ -211,9 +215,8 @@ const ServiceSearch = () => {
             </Hidden>
           </Grid>
           <Grid container>
-          
-            <FormHelperText style={emptyQuery ? styles.errorText : styles.helperText}>
-              {emptyQuery ? "Field cannot be empty" : 'Try "befriending" or "sports"'}
+            <FormHelperText style={styles.helperText}>
+              {'Try "befriending" or "sports"'}
             </FormHelperText>
           </Grid>
         </Box>
@@ -254,11 +257,6 @@ const styles = {
   },
   helperText: {
     marginLeft: "24px",
-  },
-  errorText: {
-    marginLeft: "24px",
-    color: 'red',
-    fontWeight: '600'
   },
   searchButton: {
     borderRadius: "0 36px 36px 0",

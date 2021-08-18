@@ -79,7 +79,7 @@ const InformationView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Container maxWidth="md">
+      <Container maxWidth="md" style={{marginTop: "32px"}}>
         <Typography variant="h3" component="h3" className={classes.sectionHeader}>
           Pinned Info:
         </Typography>
@@ -88,6 +88,7 @@ const InformationView = () => {
         </Grid>
         <Grid
           container
+          style={{marginTop: "32px"}}
           spacing={0}
           direction="column"
           alignItems="stretch"

@@ -3,9 +3,9 @@ import store from "../state/store/configureStore";
 import Functions from './Functions'
 
 const Search = {
-  async create(searchQuery) {
+  async create(searchQuery, category) {
     try {
-      const response = await axios.post(`/search?q=${searchQuery}`);
+      const response = await axios.post(`/search?q=${searchQuery}&category=${category}`);
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
         payload: response.data,
