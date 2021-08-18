@@ -72,7 +72,7 @@ describe("Visitor can search for local services", () => {
       cy.get("[data-cy=advanced-search-dropdown]").should("be.visible");
     });
 
-    it("is expected to narrow down search using search", () => {
+    it("is expected to narrow down search by choosing category", () => {
       cy.get("[data-cy=search-query]").type("football");
       cy.get("[data-cy=search-submit]").click();
       cy.get("[data-cy=search-results]").children().should("have.length", 2);
