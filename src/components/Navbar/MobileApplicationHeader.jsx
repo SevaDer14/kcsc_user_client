@@ -17,9 +17,11 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CHWLLogo from "../../assets/LogoCHWLMobile.png";
 import AppData from "../../modules/AppData";
 import { HashLink } from "react-router-hash-link";
-import Functions from '../../modules/Functions'
+import Functions from "../../modules/Functions";
+import mobileNavStyle from "../../theme/mobileNavTheme";
 
 const MobileApplicationHeader = () => {
+  const classes = mobileNavStyle();
   const trigger = useScrollTrigger();
   const [drawerOpen, setDrawerOpen] = useState(false);
   const landingPage = useRouteMatch("/home");
@@ -38,7 +40,6 @@ const MobileApplicationHeader = () => {
     };
     fetchApplicationData();
   }, [appDataFetched]);
-
 
   const handleDrawerOpen = () => {
     setDrawerOpen(true);
@@ -61,7 +62,7 @@ const MobileApplicationHeader = () => {
       return (
         <Tab
           key={`main-tab-${index}`}
-          style={styles.tabText}
+          className={classes.tabText}
           data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
           label={tab.label}
           component={Link}
@@ -73,7 +74,7 @@ const MobileApplicationHeader = () => {
       const secondaryTabs = tab.secondary_tabs.map((secondaryTab, index) => (
         <Tab
           key={`secondary-tab-${index}`}
-          style={styles.secondaryTabText}
+          className={classes.secondaryTabText}
           data-cy={`${Functions.toKebabCase(secondaryTab.label)}-tab`}
           label={secondaryTab.label}
           component={secondaryTab.ref ? HashLink : Link}
@@ -87,26 +88,21 @@ const MobileApplicationHeader = () => {
         />
       ));
       return (
-        <Box
-          style={{ ...styles.center, width: "100%" }}
-          key={`main-tab-${index}`}
-        >
+        <Box className={classes.centerWide} key={`main-tab-${index}`}>
           <Tab
-            style={styles.tabText}
+            className={classes.tabText}
             data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
             label={tab.label}
             onClick={() => toggleOpen(tab.label)}
           />
           <Collapse
-            style={{ width: "100%" }}
+            style={{ width: "100vw" }}
             in={tabOpen[tab.label]}
             timeout="auto"
             unmountOnExit
           >
             <Divider variant="fullWidth" />
-            <Box style={{ ...styles.center, backgroundColor: "#eee" }}>
-              {secondaryTabs}
-            </Box>
+            <Box className={classes.centerDark}>{secondaryTabs}</Box>
           </Collapse>
         </Box>
       );
@@ -116,19 +112,17 @@ const MobileApplicationHeader = () => {
   return (
     <>
       <Slide appear={false} direction="down" in={!trigger}>
-        <AppBar data-cy="application-header" elevation={0} style={styles.nav}>
-          <Toolbar
-            style={
-              !landingPage
-                ? styles.nav
-                : { ...styles.nav, justifyContent: "flex-end" }
-            }
-          >
+        <AppBar
+          data-cy="application-header"
+          elevation={0}
+          className={classes.nav}
+        >
+          <Toolbar className={!landingPage ? classes.nav : classes.navRight}>
             {!landingPage && (
               <img
                 src={CHWLLogo}
                 data-cy="header-logo"
-                style={styles.headerLogo}
+                className={classes.headerLogo}
                 alt="Community Health West London"
               />
             )}
@@ -139,7 +133,7 @@ const MobileApplicationHeader = () => {
               aria-haspopup="true"
               onClick={() => handleDrawerOpen()}
             >
-              <MenuIcon fontSize="large" style={styles.burger} />
+              <MenuIcon fontSize="large" />
             </IconButton>
             <Drawer
               anchor="top"
@@ -148,7 +142,7 @@ const MobileApplicationHeader = () => {
                 open: drawerOpen,
               }}
             >
-              <Box style={styles.center}>{mainTabs}</Box>
+              <Box className={classes.centerWide}>{mainTabs}</Box>
             </Drawer>
           </Toolbar>
         </AppBar>
@@ -158,30 +152,3 @@ const MobileApplicationHeader = () => {
 };
 
 export default MobileApplicationHeader;
-
-const styles = {
-  nav: {
-    display: "flex",
-    width: "100%",
-    marginBottom: "0px",
-    justifyContent: "space-between",
-    backgroundColor: "inherit"
-  },
-  headerLogo: {
-    width: "70px",
-    paddingTop: "10px",
-    paddingBottom: "10px",
-  },
-  tabText: {
-    fontSize: "1.2rem",
-  },
-  secondaryTabText: {
-    fontSize: "1rem",
-  },
-  center: {
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    alignItems: "center",
-  },
-};
