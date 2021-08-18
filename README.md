@@ -136,7 +136,17 @@ The request happens once in the begining of user session.
         },
         {
           "label": "news & info",
-          "link": "/info/news"
+          "link": "/info/news",
+          "secondary_tabs": [
+            {
+              "label": "news",
+              "link": "/info/news"
+            },
+            {
+              "label": "information",
+              "link": "/info/information"
+            }
+          ]
         },
         {
           "label": "contact",
