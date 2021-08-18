@@ -1,17 +1,19 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { Container, Box } from "@material-ui/core";
-import Navbar from "./Navbar/Navbar";
-import ApplicationFooter from "./ApplicationFooter";
-import MessageModal from "./MessageModal";
 import ScrollToTop from "./ScrollToTop";
+import LoadingScreen from "../views/LoadingScreen";
 import { Redirect } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+const Footer = React.lazy(() => import("./ApplicationFooter"));
+const Navbar = React.lazy(() => import("./Navbar/Navbar"));
+const MessageModal = React.lazy(() => import("./MessageModal"));
 
 const App = ({ component }) => {
   const layoutLoadError = useSelector((state) => state.layoutLoadError);
 
   return (
-    <>
+    <Suspense fallback={<LoadingScreen />}>
       {layoutLoadError && <Redirect to="/error" />}
       <ScrollToTop />
       <MessageModal />
@@ -19,8 +21,8 @@ const App = ({ component }) => {
       <Container maxWidth="xl" style={styles.zeroLRpadding}>
         <Box my={10}>{component}</Box>
       </Container>
-      <ApplicationFooter />
-    </>
+      <Footer />
+    </Suspense>
   );
 };
 
@@ -28,7 +30,7 @@ export default App;
 
 const styles = {
   zeroLRpadding: {
-    minHeight: '65vh',
+    minHeight: "65vh",
     paddingLeft: "0px",
     paddingRight: "0px",
   },
