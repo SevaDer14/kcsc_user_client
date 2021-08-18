@@ -165,6 +165,7 @@ const styles = {
     width: "100%",
     marginBottom: "0px",
     justifyContent: "space-between",
+    backgroundColor: "inherit"
   },
   headerLogo: {
     width: "70px",
