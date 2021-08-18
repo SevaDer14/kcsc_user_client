@@ -30,6 +30,7 @@ const MobileApplicationHeader = () => {
   const [tabOpen, setTabOpen] = useState({
     about: false,
     services: false,
+    newsAndInfo: false,
   });
 
   useEffect(() => {
@@ -49,6 +50,7 @@ const MobileApplicationHeader = () => {
     setTabOpen({
       about: false,
       services: false,
+      newsAndInfo: false,
     });
   };
 
