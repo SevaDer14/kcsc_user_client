@@ -38,6 +38,18 @@ describe("visitor can navigate between views", () => {
       cy.url().should("include", "/about/self_care");
     });
 
+    it("is expected to navigate to news page", () => {
+      cy.get("[data-cy=news-and-info-tab]").click();
+      cy.get("[data-cy=news-tab]").click();
+      cy.url().should("include", "/info/news");
+    });
+
+    it("is expected to navigate to news page", () => {
+      cy.get("[data-cy=news-and-info-tab]").click();
+      cy.get("[data-cy=information-tab]").click();
+      cy.url().should("include", "/info/information");
+    });
+
     it("is expected to navigate to about home page", () => {
       cy.get("[data-cy=home-tab]").click();
       cy.url().should("include", "/home");
