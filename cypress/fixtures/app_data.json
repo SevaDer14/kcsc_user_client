@@ -71,7 +71,17 @@
         },
         {
           "label": "news & info",
-          "link": "/info/news"
+          "link": "/info/news",
+          "secondary_tabs": [
+            {
+              "label": "news",
+              "link": "/info/news"
+            },
+            {
+              "label": "information",
+              "link": "/info/information"
+            }
+          ]
         },
         {
           "label": "contact",
