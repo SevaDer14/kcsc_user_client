@@ -20,7 +20,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import store from "../state/store/configureStore";
 import Search from "../modules/Search";
 import categories from "../data/categories.js";
-import serviceSearchTheme from "../theme/serviceSearchThem";
+import serviceSearchTheme from "../theme/serviceSearchTheme";
 
 const ServiceSearch = () => {
   const classes = serviceSearchTheme();
