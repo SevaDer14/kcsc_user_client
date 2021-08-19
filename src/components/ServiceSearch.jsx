@@ -15,42 +15,21 @@ import {
   InputLabel,
   MenuItem,
   Hidden,
-  useMediaQuery,
 } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
-import { makeStyles } from "@material-ui/core/styles";
-import { useTheme } from "@material-ui/core/styles";
 import store from "../state/store/configureStore";
 import Search from "../modules/Search";
 import categories from "../data/categories.js";
-
-const useStyles = makeStyles((theme) => ({
-  searchBar: {
-    [theme.breakpoints.up("xs")]: {
-      height: "100px",
-      marginBottom: "20%",
-    },
-    [theme.breakpoints.up("sm")]: {
-      height: "85px",
-      marginBottom: "4%",
-    },
-    [theme.breakpoints.up("lg")]: {
-      height: "65px",
-      marginBottom: "6%",
-    },
-  },
-}));
+import serviceSearchTheme from "../theme/serviceSearchTheme";
 
 const ServiceSearch = () => {
-  const classes = useStyles();
+  const classes = serviceSearchTheme();
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
   const [redirect, setRedirect] = useState(false);
   const route = useRouteMatch("/home");
   const [advanced, setAdvanced] = useState(false);
   const [serviceCategory, setServiceCategory] = useState("All");
-  const theme = useTheme();
-  const mobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   const setSearchQuery = () => {
     dispatch({
@@ -86,17 +65,9 @@ const ServiceSearch = () => {
   return (
     <>
       {redirect && <Redirect to="/services/search" />}
-      <Box style={styles.fullWidth}>
-        <Box
-          data-cy="self-care-search-bar"
-          className={classes.searchBar}
-          style={styles.searchBar}
-        >
-          <Grid
-            container
-            justify={mobile ? "flex-start" : "center"}
-            style={{ flexWrap: "wrap-reverse" }}
-          >
+      <Box className={classes.fullWidth}>
+        <Box data-cy="self-care-search-bar" className={classes.searchBar}>
+          <Grid container className={classes.gridContainer}>
             <Grid item xs={10} sm={advanced ? 5 : route ? 10 : 8}>
               <OutlinedInput
                 variant="outlined"
@@ -110,7 +81,6 @@ const ServiceSearch = () => {
                 placeholder={"Search for a service..."}
                 aria-describedby="Search for self care services"
                 className={classes.queryInput}
-                style={styles.queryInput}
               />
             </Grid>
             <Hidden xsDown>
@@ -118,17 +88,14 @@ const ServiceSearch = () => {
                 <Grid item sm={3}>
                   <FormControl
                     variant="outlined"
-                    style={styles.dropdownContainer}
+                    className={classes.dropdownContainer}
                   >
-                    <InputLabel
-                      htmlFor="dropdown"
-                    >
-                      Category
-                    </InputLabel>
+                    <InputLabel htmlFor="dropdown">Category</InputLabel>
                     <Select
+                      id="fisk"
                       color="secondary"
                       data-cy="advanced-search-dropdown"
-                      style={styles.dropdown}
+                      className={classes.dropdown}
                       onChange={(e) => {
                         setServiceCategory(e.target.value);
                         performSearch(e.target.value);
@@ -157,14 +124,18 @@ const ServiceSearch = () => {
                 variant="contained"
                 color="secondary"
                 className={classes.searchButton}
-                style={styles.searchButton}
                 disableElevation
               >
                 <SearchIcon />
               </Button>
             </Grid>
+            <Hidden smUp>
+              <FormHelperText id="mask" className={classes.helperText}>
+                {'Try "befriending" or "sports"'}
+              </FormHelperText>
+            </Hidden>
             {!route && (
-              <Grid item xs={4} sm={3} style={styles.checkbox}>
+              <Grid item xs={7} sm={3} className={classes.checkbox}>
                 <FormGroup row>
                   <FormControlLabel
                     control={
@@ -175,23 +146,23 @@ const ServiceSearch = () => {
                       />
                     }
                     label="Advanced"
-                    style={styles.checkbox}
+                    className={classes.checkbox}
                   />
                 </FormGroup>
               </Grid>
             )}
             <Hidden smUp>
               {advanced && (
-                <Grid item xs={7}>
+                <Grid item xs={4}>
                   <FormControl
                     variant="outlined"
-                    style={styles.dropdownContainer}
+                    className={classes.dropdownContainer}
                   >
                     <InputLabel htmlFor="dropdown">Category</InputLabel>
                     <Select
                       color="secondary"
                       data-cy="advanced-search-dropdown"
-                      style={styles.dropdownMobile}
+                      className={classes.dropdownMobile}
                       onChange={(e) => {
                         setServiceCategory(e.target.value);
                         performSearch(e.target.value);
@@ -214,11 +185,11 @@ const ServiceSearch = () => {
               )}
             </Hidden>
           </Grid>
-          <Grid container>
-            <FormHelperText style={styles.helperText}>
+          <Hidden xsDown>
+            <FormHelperText className={classes.helperText}>
               {'Try "befriending" or "sports"'}
             </FormHelperText>
-          </Grid>
+          </Hidden>
         </Box>
       </Box>
     </>
@@ -226,45 +197,3 @@ const ServiceSearch = () => {
 };
 
 export default ServiceSearch;
-
-const styles = {
-  searchBar: {
-    display: "flex",
-    flexDirection: "column",
-    padding: "25px 0",
-  },
-  queryInput: {
-    height: "100%",
-    width: "100%",
-    borderRadius: "36px 0 0 36px",
-    backgroundColor: "white",
-  },
-  dropdownContainer: {
-    width: "100%",
-    height: "100%",
-    backgroundColor: "white",
-  },
-  dropdown: {
-    borderRadius: "0px",
-  },
-  dropdownMobile: {
-    borderRadius: "10px",
-    marginBottom: "10px",
-  },
-  checkbox: {
-    paddingLeft: "18px",
-    alignSelf: "center",
-  },
-  helperText: {
-    marginLeft: "24px",
-  },
-  searchButton: {
-    borderRadius: "0 36px 36px 0",
-    height: "100%",
-  },
-  fullWidth: {
-    display: "flex",
-    width: "100%",
-    justifyContent: "center",
-  },
-};
