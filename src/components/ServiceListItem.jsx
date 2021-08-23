@@ -5,7 +5,7 @@ import {
   AccordionDetails,
   Typography,
   Hidden,
-  Grid
+  Grid,
 } from "@material-ui/core";
 import Service from "./Service";
 import { makeStyles } from "@material-ui/core/styles";
@@ -22,8 +22,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ServiceListItem = ({ listing, index }) => {
-  const [expanded, setExpanded] = useState(false)
+  const [expanded, setExpanded] = useState(false);
   const classes = useStyles();
+
+  const description = listing.description;
+  const shortDescriptionText = description.split(".")[0];
 
   return (
     <>
@@ -51,12 +54,16 @@ const ServiceListItem = ({ listing, index }) => {
                   component="p"
                   style={styles.shortDescription}
                 >
-                  Can be some short description here...
+                  {!expanded ? `${shortDescriptionText}...` : undefined}
                 </Typography>
               </Hidden>
             </Grid>
             <Grid item xs={2} style={styles.readMore}>
-              <Typography variant="body2" component="p" style={{fontSize: '14px'}}>
+              <Typography
+                variant="body2"
+                component="p"
+                style={{ fontSize: "14px" }}
+              >
                 {!expanded ? "Show More" : "Show Less"}
               </Typography>
             </Grid>
@@ -84,6 +91,6 @@ const styles = {
   readMore: {
     color: "#E86406",
     textAlign: "right",
-    alignSelf: 'center'
+    alignSelf: "center",
   },
 };
