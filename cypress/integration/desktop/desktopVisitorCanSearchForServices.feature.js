@@ -34,7 +34,7 @@ describe("Visitor can search for local services", () => {
         );
         cy.get("[data-cy=contacts]").should(
           "contain",
-          "email: lydia.mindsunitedfc@gmail.com\nwebsite: https://www.mindsunitedfc.com"
+          "email: lydia.mindsunitedfc@gmail.com\nWebsite: https://www.mindsunitedfc.com"
         );
       });
       cy.get("[data-cy=search-result-1]").click();

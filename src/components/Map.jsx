@@ -59,7 +59,7 @@ const Map = ({ coordinates, displayPcnBoundaries }) => {
             key={coordinates.latitude + coordinates.longitude}
             coordinates={coordinates}
           />
-        </GoogleMap>
+        </GoogleMap>    
       </div>
     )
   );

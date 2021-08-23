@@ -6,7 +6,8 @@ import {
   Divider,
   Button,
   Switch,
-  FormControlLabel
+  FormControlLabel,
+  Link,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import Map from "./Map";
@@ -31,8 +32,8 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   pcnSwitch: {
-    margin: '8px 0 0 12px',
-  }
+    margin: "8px 0 0 12px",
+  },
 }));
 
 const ScreenSplit = ({ data }) => {
@@ -41,40 +42,40 @@ const ScreenSplit = ({ data }) => {
   const [displayPcnBoundaries, setDisplayPcnBoundaries] = useState(false);
 
   const mapDisplay = () => {
-    if (collapse) {
-      return (
+    return (
+      <Box component="div" style={collapse ? styles.mapClosed : styles.map}>
         <Button
           data-cy="toggle-map-visibility-button"
           size="small"
           color="secondary"
-          onClick={() => setCollapse(false)}
+          onClick={() => setCollapse(!collapse)}
         >
-          Show on map
+          {collapse ? "Show on map" : "Collapse Map"}
         </Button>
-      );
-    } else {
-      return (
-        <Box component="div" style={styles.map}>
-          <Button
-            data-cy="toggle-map-visibility-button"
-            size="small"
-            color="secondary"
-            onClick={() => setCollapse(true)}
-          >
-            Collapse map
-          </Button>
-          <Map
-            coordinates={data.coords}
-            displayPcnBoundaries={displayPcnBoundaries}
-          />
-          <FormControlLabel
-            className={classes.pcnSwitch}
-            control={<Switch size="small" checked={displayPcnBoundaries} onChange={() => setDisplayPcnBoundaries(!displayPcnBoundaries)}/>}
-            label={<Typography color='secondary' variant="body2">Show PCN boundaries</Typography>}
-          />
-        </Box>
-      );
-    }
+        {!collapse && (
+          <>
+            <Map coordinates={data.coords} displayPcnBoundaries={displayPcnBoundaries}/>
+            <FormControlLabel
+              className={classes.pcnSwitch}
+              control={
+                <Switch
+                  size="small"
+                  checked={displayPcnBoundaries}
+                  onChange={() =>
+                    setDisplayPcnBoundaries(!displayPcnBoundaries)
+                  }
+                />
+              }
+              label={
+                <Typography color="secondary" variant="body2">
+                  Show PCN boundaries
+                </Typography>
+              }
+            />
+          </>
+        )}
+      </Box>
+    );
   };
 
   return (
@@ -111,7 +112,13 @@ const ScreenSplit = ({ data }) => {
             {data.email && `email: ${data.email}\n`}
             {data.address && `address: ${data.address}\n`}
             {data.postcode && `postcode: ${data.postcode}\n`}
-            {data.website && `website: ${data.website}\n`}
+            Website:
+            {data.website ? (
+              <Link href={data.website} target="_blank">
+                {" "}
+                {data.website}
+              </Link>
+            ) : undefined}
           </Typography>
         </Grid>
       </Grid>
@@ -130,6 +137,12 @@ const styles = {
     height: "300px",
     marginBottom: "40px",
   },
+
+  mapClosed: {
+    height: "0px",
+    marginBottom: "20px",
+  },
+
   contacts: {
     whiteSpace: "pre-wrap",
   },
