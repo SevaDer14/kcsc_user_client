@@ -14,7 +14,16 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
+
+const sizes = [
+  "iphone-x",
+  ["iphone-x", "landscape"],
+  ["ipad-2", "landscape"],
+  "macbook-15",
+];
+
+export default sizes;

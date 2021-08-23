@@ -1,10 +1,5 @@
 /* eslint-disable no-undef */
-const sizes = [
-  "iphone-x",
-  ["iphone-x", "landscape"],
-  ["ipad-2", "landscape"],
-  "macbook-15",
-];
+import sizes from "../support/index";
 
 sizes.forEach((size) => {
   describe(`visitor can navigate between views on ${size}`, () => {
