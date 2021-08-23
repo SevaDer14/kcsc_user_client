@@ -117,18 +117,9 @@ sizes.forEach((size) => {
       });
 
       it("is expected to show logo in the header", () => {
-        switch (size) {
-          case "ipad-2":
-            cy.get("[data-cy=logo]")
-              .should("have.attr", "alt")
-              .should("equal", "Community Health West London");
-            break;
-          default:
-            cy.get("[data-cy=header-logo]")
-              .should("have.attr", "alt")
-              .should("equal", "Community Health West London");
-            break;
-        }
+        cy.get("[data-cy=header-logo]")
+          .should("have.attr", "alt")
+          .should("equal", "Community Health West London");
       });
 
       it("is expected to display background and setup section", () => {
@@ -195,15 +186,9 @@ sizes.forEach((size) => {
       });
 
       it("is expected to show logo in the header", () => {
-        if (size === "ipad-2") {
-          cy.get("[data-cy=logo]")
-            .should("have.attr", "alt")
-            .should("equal", "Community Health West London");
-        } else {
-          cy.get("[data-cy=header-logo]")
-            .should("have.attr", "alt")
-            .should("equal", "Community Health West London");
-        }
+        cy.get("[data-cy=header-logo]")
+          .should("have.attr", "alt")
+          .should("equal", "Community Health West London");
       });
     });
 

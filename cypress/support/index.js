@@ -19,11 +19,6 @@ import "./commands";
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-const sizes = [
-  "iphone-x",
-  ["iphone-x", "landscape"],
-  ["ipad-2", "landscape"],
-  "macbook-15",
-];
+const sizes = ["iphone-x", ["iphone-x", "landscape"], "ipad-2", "macbook-15"];
 
 export default sizes;
