@@ -5,6 +5,8 @@ import {
   Typography,
   Divider,
   Button,
+  Switch,
+  FormControlLabel,
   Link,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
@@ -29,11 +31,15 @@ const useStyles = makeStyles((theme) => ({
       fontSize: "18px",
     },
   },
+  pcnSwitch: {
+    margin: "8px 0 0 12px",
+  },
 }));
 
 const ScreenSplit = ({ data }) => {
   const classes = useStyles();
   const [collapse, setCollapse] = useState(true);
+  const [displayPcnBoundaries, setDisplayPcnBoundaries] = useState(false);
 
   const mapDisplay = () => {
     return (
@@ -46,7 +52,28 @@ const ScreenSplit = ({ data }) => {
         >
           {collapse ? "Show on map" : "Collapse Map"}
         </Button>
-        {!collapse ? <Map coordinates={data.coords} /> : undefined}
+        {!collapse && (
+          <>
+            <Map coordinates={data.coords} displayPcnBoundaries={displayPcnBoundaries}/>
+            <FormControlLabel
+              className={classes.pcnSwitch}
+              control={
+                <Switch
+                  size="small"
+                  checked={displayPcnBoundaries}
+                  onChange={() =>
+                    setDisplayPcnBoundaries(!displayPcnBoundaries)
+                  }
+                />
+              }
+              label={
+                <Typography color="secondary" variant="body2">
+                  Show PCN boundaries
+                </Typography>
+              }
+            />
+          </>
+        )}
       </Box>
     );
   };
@@ -108,12 +135,12 @@ const styles = {
   map: {
     width: "100%",
     height: "300px",
-    marginBottom: "20px",
+    marginBottom: "40px",
   },
 
   mapClosed: {
     height: "0px",
-    marginBottom: "20px"
+    marginBottom: "20px",
   },
 
   contacts: {
