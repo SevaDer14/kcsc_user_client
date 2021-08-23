@@ -36,32 +36,19 @@ const ScreenSplit = ({ data }) => {
   const [collapse, setCollapse] = useState(true);
 
   const mapDisplay = () => {
-    if (collapse) {
-      return (
+    return (
+      <Box component="div" style={collapse ? styles.mapClosed : styles.map}>
         <Button
           data-cy="toggle-map-visibility-button"
           size="small"
           color="secondary"
-          onClick={() => setCollapse(false)}
+          onClick={() => setCollapse(!collapse)}
         >
-          Show on map
+          {collapse ? "Show on map" : "Collapse Map"}
         </Button>
-      );
-    } else {
-      return (
-        <Box component="div" style={styles.map}>
-          <Button
-            data-cy="toggle-map-visibility-button"
-            size="small"
-            color="secondary"
-            onClick={() => setCollapse(true)}
-          >
-            Collapse map
-          </Button>
-          <Map coordinates={data.coords} />
-        </Box>
-      );
-    }
+        {!collapse ? <Map coordinates={data.coords} /> : undefined}
+      </Box>
+    );
   };
 
   return (
@@ -123,6 +110,12 @@ const styles = {
     height: "300px",
     marginBottom: "20px",
   },
+
+  mapClosed: {
+    height: "0px",
+    marginBottom: "20px"
+  },
+
   contacts: {
     whiteSpace: "pre-wrap",
   },

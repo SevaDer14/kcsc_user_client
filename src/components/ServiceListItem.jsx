@@ -54,7 +54,7 @@ const ServiceListItem = ({ listing, index }) => {
                   component="p"
                   style={styles.shortDescription}
                 >
-                  {!expanded ? `${shortDescriptionText}...` : undefined}
+                  {!expanded && `${shortDescriptionText}...`}
                 </Typography>
               </Hidden>
             </Grid>
