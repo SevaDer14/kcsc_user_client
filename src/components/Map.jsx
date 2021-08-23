@@ -8,7 +8,7 @@ const convertToGMapObject = (path) => {
   return path.map((point) => ({ lng: point[0], lat: point[1] }));
 };
 
-const Map = ({ coordinates }) => {
+const Map = ({ coordinates, displayPcnBoundaries }) => {
   const center = {
     lat: coordinates.latitude,
     lng: coordinates.longitude,
@@ -54,7 +54,7 @@ const Map = ({ coordinates }) => {
           zoom={14}
           on
         >
-          {pcnBoundaries}
+          {displayPcnBoundaries && pcnBoundaries}
           <MapMarker
             key={coordinates.latitude + coordinates.longitude}
             coordinates={coordinates}
