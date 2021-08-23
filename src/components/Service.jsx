@@ -70,7 +70,6 @@ const ScreenSplit = ({ data }) => {
           <FormControlLabel
             className={classes.pcnSwitch}
             control={<Switch size="small" checked={displayPcnBoundaries} onChange={() => setDisplayPcnBoundaries(!displayPcnBoundaries)}/>}
-            labelPlacement="right"
             label={<Typography color='secondary' variant="body2">Show PCN boundaries</Typography>}
           />
         </Box>
