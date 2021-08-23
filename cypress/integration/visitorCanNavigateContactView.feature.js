@@ -4,7 +4,6 @@ import sizes from "../support/index";
 sizes.forEach((size) => {
   describe(`Visitor can navigate contact view on ${size}`, () => {
     beforeEach(() => {
-      cy.viewport("macbook-15");
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });
