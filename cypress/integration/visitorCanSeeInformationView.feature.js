@@ -15,7 +15,7 @@ sizes.forEach((size) => {
       } else {
         cy.viewport(size);
       }
-      cy.visit("/info/information");
+      cy.visit("/news_info/information");
     });
 
     it("is expected to show logo in the header", () => {

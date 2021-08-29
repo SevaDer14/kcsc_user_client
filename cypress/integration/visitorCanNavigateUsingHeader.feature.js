@@ -107,7 +107,7 @@ sizes.forEach((size) => {
       it("is expected to navigate to news page", () => {
         if (size === "macbook-15") {
           cy.get("[data-cy=news-and-info-tab]").click();
-          cy.url().should("include", "/info/news");
+          cy.url().should("include", "/news_info/news");
           cy.get("[data-cy=news-and-info-tab]").should(
             "have.class",
             "Mui-selected"
@@ -116,7 +116,7 @@ sizes.forEach((size) => {
         } else {
           cy.get("[data-cy=news-and-info-tab]").click();
           cy.get("[data-cy=news-tab]").click();
-          cy.url().should("include", "/info/news");
+          cy.url().should("include", "/news_info/news");
         }
       });
 
@@ -124,7 +124,7 @@ sizes.forEach((size) => {
         if (size === "macbook-15") {
           cy.get("[data-cy=news-and-info-tab]").click();
           cy.get("[data-cy=information-sub-tab]").click();
-          cy.url().should("include", "/info/information");
+          cy.url().should("include", "/news_info/information");
           cy.get("[data-cy=news-and-info-tab]").should(
             "have.class",
             "Mui-selected"
@@ -136,7 +136,7 @@ sizes.forEach((size) => {
         } else {
           cy.get("[data-cy=news-and-info-tab]").click();
           cy.get("[data-cy=information-tab]").click();
-          cy.url().should("include", "/info/information");
+          cy.url().should("include", "/news_info/information");
         }
       });
 

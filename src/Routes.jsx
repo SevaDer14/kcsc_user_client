@@ -60,17 +60,17 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/info/news"
+          path="/news_info/news"
           render={() => <App component={<NewsView />} />}
         />
         <Route
           exact
-          path="/info/information"
+          path="/news_info/information"
           render={() => <App component={<InformationView />} />}
         />
         <Route
           exact
-          path="/info/news/articles/:id"
+          path="/news_info/news/articles/:id"
           render={() => <App component={<ArticleView />} />}
         />
         <Route

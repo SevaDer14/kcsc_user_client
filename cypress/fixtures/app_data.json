@@ -71,15 +71,15 @@
         },
         {
           "label": "news & info",
-          "link": "/info/news",
+          "link": "/news_info/news",
           "secondary_tabs": [
             {
               "label": "news",
-              "link": "/info/news"
+              "link": "/news_info/news"
             },
             {
               "label": "information",
-              "link": "/info/information"
+              "link": "/news_info/information"
             }
           ]
         },
@@ -102,12 +102,12 @@
         {
           "parent": "news & info",
           "label": "news",
-          "link": "/info/news"
+          "link": "/news_info/news"
         },
         {
           "parent": "news & info",
           "label": "information",
-          "link": "/info/information"
+          "link": "/news_info/information"
         },
         {
           "parent": "services",
