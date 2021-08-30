@@ -78,6 +78,11 @@ const Routes = () => {
           path="/error"
           render={() => <App component={<ErrorView />} />}
         />
+        <Route
+          exact
+          path="/service_search_widget"
+          render={() => <App component={<DrupalSearchWidget />} />}
+        />
       </Switch>
     </Router>
   );
