@@ -16,6 +16,7 @@ import NewsView from "./views/NewsView";
 import ArticleView from "./views/ArticleView";
 import InformationView from "./views/InformationView";
 import ErrorView from "./views/ErrorView";
+import DrupalSearchWidget from "./views/DrupalSearchWidget";
 
 const Routes = () => {
   return (
@@ -81,7 +82,7 @@ const Routes = () => {
         <Route
           exact
           path="/service_search_widget"
-          render={() => <App component={<DrupalSearchWidget />} />}
+          render={() => <DrupalSearchWidget />}
         />
       </Switch>
     </Router>
