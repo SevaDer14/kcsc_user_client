@@ -56,7 +56,7 @@ const Article = ({ index, article }) => {
             variant="contained"
             color="secondary"
             component={Link}
-            to={`/info/news/articles/${id}`}
+            to={`/news_info/news/articles/${id}`}
             style={styles.button}
           >
             <Typography variant="button" style={styles.buttonText}>

@@ -41,11 +41,11 @@ const AdaptiveHelper = {
         setActiveMainTab(2);
         setActiveSecondaryTab(1);
         break;
-      case "/info/news":
+      case "/news_info/news":
         setActiveMainTab(3);
         setActiveSecondaryTab(0);
         break;
-      case "/info/information":
+      case "/news_info/information":
         setActiveMainTab(3);
         setActiveSecondaryTab(1);
         break;

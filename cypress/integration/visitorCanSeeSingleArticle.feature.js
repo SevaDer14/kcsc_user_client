@@ -22,7 +22,7 @@ sizes.forEach((size) => {
         cy.intercept("GET", "**/api/articles/1", {
           fixture: "single_article.json",
         });
-        cy.visit("/info/news");
+        cy.visit("/news_info/news");
         cy.get("[data-cy=article]")
           .first()
           .within(() => {

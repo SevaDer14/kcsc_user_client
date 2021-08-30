@@ -19,7 +19,7 @@ sizes.forEach((size) => {
           cy.intercept("GET", "**/api/articles**", {
             fixture: "news_view_articles.json",
           });
-          cy.visit("/info/news");
+          cy.visit("/news_info/news");
         });
 
         it("is expected to show logo in the header", () => {
