@@ -1,12 +1,11 @@
-//import axios from "axios";
+import axios from "axios";
 import Functions from "./Functions";
 
 const Inquiries = {
-  async create() {
+  async create(formData) {
     try {
-      //async create(formData) {
-      //let params = { inquiry: formData }
-      //await axios.post(`/inquiries`, params)
+      let params = { inquiry: formData }
+      await axios.post(`/inquiries`, params)
       Functions.dispatchPopup(
         "success",
         "Thank you for your inquiry, we'll be in touch soon!"
@@ -18,11 +17,10 @@ const Inquiries = {
       );
     }
   },
-  async subscribe() {
+  async subscribe(email) {
     try {
-      //async subscribe(email) {
-      //let params = { email: email }
-      //await axios.post(`/subscribe`, params)
+      let params = { email: email }
+      await axios.post(`/subscribe`, params)
       Functions.dispatchPopup(
         "success",
         "You've been successfully subscribed to KCSC!"
