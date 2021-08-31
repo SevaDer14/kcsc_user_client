@@ -77,7 +77,7 @@ const Testimonial = ({ slider, data }) => {
           <CardActions>
             <Button
               component={Link}
-              to={`/news_info/news/articles/${data.article_id}`}
+              to={data.link}
               size="small"
               color="secondary"
             >
