@@ -1,5 +1,4 @@
 import axios from "axios";
-import app_data from "../data/fixtures/app_data.json";
 import store from "../state/store/configureStore";
 import Functions from "./Functions";
 
