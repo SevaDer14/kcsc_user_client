@@ -126,7 +126,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ApplicationFooter = () => {
   const classes = useStyles();
-  const { navigation, contact, about, disclamers } = useSelector(
+  const { navigation, contact, about, disclaimers } = useSelector(
     (state) => state.appData
   );
 
@@ -227,9 +227,9 @@ const ApplicationFooter = () => {
         variant="caption"
         component="p"
       >
-        {disclamers.accessability}
+        {disclaimers?.accessability}
         <br />
-        {disclamers.copyright}
+        {disclaimers?.copyright}
       </Typography>
     </Box>
   );
