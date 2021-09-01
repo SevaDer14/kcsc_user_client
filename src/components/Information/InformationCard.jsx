@@ -12,7 +12,7 @@ const InformationCard = ({ item }) => {
   const { header, description, link } = item;
   return (
     <Card elevation={2} style={styles.fullHeight}>
-      <CardActionArea href={link} style={styles.fullHeight} data-cy="action-area">
+      <CardActionArea href={link} target='_blank' style={styles.fullHeight} data-cy="action-area">
         <Grid container direction="row" style={styles.fullHeight}>
           <Grid item sm={10} xs={11}>
             <CardContent style={styles.cardContent}>
