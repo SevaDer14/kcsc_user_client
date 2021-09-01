@@ -1,7 +1,4 @@
 import React from "react";
-import "swiper/swiper.min.css";
-import "swiper/components/pagination/pagination.min.css";
-import "swiper/components/navigation/navigation.min.css";
 import { Grid, Container, Typography } from "@material-ui/core";
 import CarouselCard from "./CarouselCard";
 
