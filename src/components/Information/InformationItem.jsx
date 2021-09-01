@@ -11,8 +11,13 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 const InformationItem = ({ item }) => {
   const { header, description, link } = item;
   return (
-    <Card elevation={0} variant="outlined" >
-      <CardActionArea href={link} style={styles.card} data-cy="action-area">
+    <Card elevation={0} variant="outlined">
+      <CardActionArea
+        href={link}
+        target="_blank"
+        style={styles.card}
+        data-cy="action-area"
+      >
         <Grid container direction="row">
           <Grid item xs={11}>
             <CardContent style={styles.cardContent}>
@@ -24,7 +29,12 @@ const InformationItem = ({ item }) => {
               >
                 {header}
               </Typography>
-              <Typography variant="body2" color="textSecondary" component="p" data-cy="description">
+              <Typography
+                variant="body2"
+                color="textSecondary"
+                component="p"
+                data-cy="description"
+              >
                 {description}
               </Typography>
             </CardContent>
@@ -42,7 +52,7 @@ export default InformationItem;
 
 const styles = {
   card: {
-    minHeight: "148px"
+    minHeight: "148px",
   },
   fullHeight: {
     height: "100%",
