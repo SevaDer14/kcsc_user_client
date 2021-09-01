@@ -14,7 +14,7 @@ const SectionCarousel = ({ cards, header }) => {
       <Typography
         variant="h3"
         gutterBottom
-        style={{ width: "100%", textAlign: "center" }}
+        style={{ width: "100%", textAlign: "center", margin: "2rem 0" }}
       >
         {header}
       </Typography>
