@@ -24,15 +24,3 @@ const ServiceListing = () => {
 };
 
 export default ServiceListing;
-
-// {serviceSearchResults.services ? (
-//   serviceSearchResults.services.map((listing, index) => (
-//     <ServiceListItem key={listing.id} index={index} listing={listing} />
-//   ))
-// ) : serviceSearchResults.services.length === 0 ? (
-//   <Typography>No results found</Typography>
-// ) : serviceSearchResults.error_message ? (
-//   <Typography>{serviceSearchResults.error_message}</Typography>
-// ) : (
-//   <Typography>Loading services...</Typography>
-// )}
