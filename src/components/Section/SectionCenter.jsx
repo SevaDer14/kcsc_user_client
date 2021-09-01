@@ -22,8 +22,6 @@ const useStyles = makeStyles((theme) => ({
       justifyContent: "center",
       paddingTop: "80px",
       paddingBottom: "80px",
-      marginRight: "13%",
-      marginLeft: "10%",
     },
   },
   image: {
@@ -32,9 +30,8 @@ const useStyles = makeStyles((theme) => ({
       objectFit: "cover",
     },
     [theme.breakpoints.up("lg")]: {
+      width: "300px",
       height: "300px",
-      width: "660px",
-      objectFit: "contain",
       borderRadius: "10px",
       marginRight: "40px",
       marginLeft: "60px",
@@ -60,6 +57,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       marginLeft: "30px",
       marginRight: "30px",
+      fontSize: "1.2rem",
     },
   },
   button: {
@@ -73,14 +71,16 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
   const classes = useStyles();
   return (
     <Grid item xs={12} className={classes.section}>
-      <CardMedia
-        component="img"
-        image={image.url}
-        data-cy="image"
-        className={classes.image}
-        alt="Community Health West London"
-      />
-      <Grid item className={classes.contentContainer}>
+      <Grid item md={6} className={classes.contentContainer}>
+        <CardMedia
+          component="img"
+          image={image.url}
+          data-cy="image"
+          className={classes.image}
+          alt="Community Health West London"
+        />
+      </Grid>
+      <Grid item md={6} className={classes.contentContainer}>
         <Typography
           data-cy="header"
           variant="h3"
