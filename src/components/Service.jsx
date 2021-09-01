@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   pcnSwitch: {
-    margin: "8px 0 0 12px",
+    margin: "8px auto 0 12px",
   },
 }));
 
@@ -54,7 +54,10 @@ const ScreenSplit = ({ data }) => {
         </Button>
         {!collapse && (
           <>
-            <Map coordinates={data.coords} displayPcnBoundaries={displayPcnBoundaries}/>
+            <Map
+              coordinates={data.coords}
+              displayPcnBoundaries={displayPcnBoundaries}
+            />
             <FormControlLabel
               className={classes.pcnSwitch}
               control={
@@ -81,7 +84,13 @@ const ScreenSplit = ({ data }) => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        {data.coords.latitude ? mapDisplay() : <Divider />}
+        {data.coords.latitude ? (
+          mapDisplay()
+        ) : (
+          <Typography variant="body2" style={{fontStyle: "italic"}}>
+            No map is available for this service
+          </Typography>
+        )}
       </Grid>
       <Grid container style={{ marginTop: "18px" }}>
         <Grid item xs={12} md={6} style={styles.gridItem}>
@@ -133,12 +142,18 @@ const styles = {
     padding: "10px",
   },
   map: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
     width: "100%",
     height: "300px",
     marginBottom: "40px",
   },
 
   mapClosed: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'flex-end',
     height: "0px",
     marginBottom: "20px",
   },
