@@ -74,7 +74,7 @@ export default IndexView;
 const styles = {
   statement: {
     textAlign: "center",
-    fontSize: "20px",
+    fontSize: "1.2rem",
     padding: "0px 20px",
   },
 };
