@@ -7,6 +7,9 @@ sizes.forEach((size) => {
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });
+      cy.intercept("POST", "**/api/subscribe", {
+        message: "Thank you for subscribing",
+      });
       cy.visit("/home");
       if (Cypress._.isArray(size)) {
         cy.viewport(size[0], size[1], size[2]);
@@ -23,7 +26,7 @@ sizes.forEach((size) => {
       it("is expected to display logo and mission statement", () => {
         cy.get("[data-cy=mission-statement]").should(
           "contain.text",
-          "Our aim is to improve people's health and well-being"
+          "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents."
         );
         cy.get("[data-cy=logo]")
           .should("have.attr", "alt")
@@ -61,7 +64,7 @@ sizes.forEach((size) => {
           cy.get("[data-cy=logo]").should("be.visible");
           cy.get("[data-cy=about]").should(
             "contain.text",
-            "Community Health West London is a Community Interest Company made up"
+            "Our aim is to improve people's health and well-being"
           );
           cy.get("[data-cy=contacts]").should(
             "contain",
