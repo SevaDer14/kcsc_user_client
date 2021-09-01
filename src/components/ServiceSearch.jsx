@@ -40,7 +40,7 @@ const ServiceSearch = () => {
 
   const performSearch = async (category) => {
     if (query === "") {
-      await Search.index();
+      const response = await Search.index();
     } else {
       setSearchQuery();
       await Search.create(
