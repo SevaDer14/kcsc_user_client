@@ -6,7 +6,7 @@ import { Container } from "@material-ui/core";
 
 const SearchSelfCareView = () => {
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" >
       <Helmet>
         <title>Search for Self Care services</title>
       </Helmet>

@@ -9,7 +9,7 @@ import {
   Tabs,
   Tab,
   Button,
-  makeStyles
+  makeStyles,
 } from "@material-ui/core";
 import header_logo from "../../assets/LogoCHWLHorisontal.svg";
 import AppData from "../../modules/AppData";
@@ -23,14 +23,14 @@ const useStyles = makeStyles({
     padding: 0,
     height: "100%",
     width: "250px",
-    '&:hover': {
-      backgroundColor: 'transparent',
+    "&:hover": {
+      backgroundColor: "transparent",
     },
   },
-})
+});
 
 const ApplicationHeader = () => {
-  const classes = useStyles()
+  const classes = useStyles();
   const trigger = useScrollTrigger();
   const [activeMainTab, setActiveMainTab] = useState(0);
   const [activeSecondaryTab, setActiveSecondaryTab] = useState(0);
@@ -52,18 +52,13 @@ const ApplicationHeader = () => {
       setActiveMainTab,
       setActiveSecondaryTab
     );
-  }, [
-    appDataFetched,
-    currentUrl,
-    setActiveMainTab,
-    setActiveSecondaryTab,
-  ]);
+  }, [appDataFetched, currentUrl, setActiveMainTab, setActiveSecondaryTab]);
 
   const handleChangeSecondary = (event, newValue) => {
     setActiveSecondaryTab(newValue);
   };
 
-  const mainTabs = main_tabs.map((tab, index) => (  
+  const mainTabs = main_tabs.map((tab, index) => (
     <Tab
       key={`main-tab-${index}`}
       style={styles.tabText}
@@ -92,7 +87,7 @@ const ApplicationHeader = () => {
   return (
     <>
       <Slide appear={false} direction="down" in={!trigger}>
-        <AppBar data-cy="application-header" color='inherit' elevation={0}>
+        <AppBar data-cy="application-header" color="inherit" elevation={0}>
           <Toolbar>
             {!landingPage && (
               <Button
@@ -106,7 +101,9 @@ const ApplicationHeader = () => {
                   data-cy="header-logo"
                   style={styles.headerLogo}
                   alt="Community Health West London"
-                  onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
                 />
               </Button>
             )}
@@ -114,7 +111,7 @@ const ApplicationHeader = () => {
               {mainTabs}
             </Tabs>
           </Toolbar>
-          {(secondaryTabs.length !== 0  && currentUrl !== '/services/search') && (
+          {secondaryTabs.length !== 0 && currentUrl !== "/services/search" && (
             <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
               <Tabs
                 style={styles.navTabs}

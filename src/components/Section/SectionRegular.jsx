@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
-import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
-      backgroundColor: "#eee",
+      backgroundColor: "#fafafa",
       width: "100vw",
       padding: "0px",
       borderRadius: "0px",
@@ -40,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Section = ({ id, header, description, image, buttons }) => {
+const Section = ({ header, description, image, buttons }) => {
   const classes = useStyles();
   const [redirect, setRedirect] = useState("");
 

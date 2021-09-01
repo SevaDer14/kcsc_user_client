@@ -12,26 +12,36 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       display: "flex",
       flexDirection: "column",
+      alignItems: "center",
       height: "auto",
       width: "100%",
       overFlow: "hidden",
-      paddingBottom: "40px",
+      paddingBottom: "40px", 
+    },
+    [theme.breakpoints.up("md")]: {
+      margin: 'auto',
+      width: "80%",
+      paddingBottom: "40px", 
     },
     [theme.breakpoints.up("lg")]: {
       flexDirection: "row",
       justifyContent: "center",
+      alignItems: "flex-start",
       paddingTop: "80px",
       paddingBottom: "80px",
+      borderBottom: '1px solid #bbb6',
+      maxWidth: theme.breakpoints.values.xl
     },
   },
   image: {
     [theme.breakpoints.up("xs")]: {
-      height: "200px",
+      width: "100%",
+      height: "350px",  
       objectFit: "cover",
     },
     [theme.breakpoints.up("lg")]: {
-      width: "300px",
-      height: "300px",
+      width: "80%",
+      height: "350px",
       borderRadius: "10px",
       marginRight: "40px",
       marginLeft: "60px",
@@ -70,8 +80,8 @@ const useStyles = makeStyles((theme) => ({
 const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
   const classes = useStyles();
   return (
-    <Grid item xs={12} className={classes.section}>
-      <Grid item md={6} className={classes.contentContainer}>
+    <Grid item container className={classes.section}>
+      <Grid item xs={12} lg={6} className={classes.contentContainer}>
         <CardMedia
           component="img"
           image={image.url}
@@ -80,7 +90,7 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
           alt="Community Health West London"
         />
       </Grid>
-      <Grid item md={6} className={classes.contentContainer}>
+      <Grid item xs={12} lg={6} className={classes.contentContainer}>
         <Typography
           data-cy="header"
           variant="h3"

@@ -33,5 +33,6 @@ const styles = {
     minHeight: "65vh",
     paddingLeft: "0px",
     paddingRight: "0px",
+    marginTop: "-12px",
   },
 };
