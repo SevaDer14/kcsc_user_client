@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
       alignItems: "center",
     },
     [theme.breakpoints.up("lg")]: {
-      maxWidth: "90%",
+      maxWidth: theme.breakpoints.values.lg,
     },
   },
   gridItemWithDivider: {
