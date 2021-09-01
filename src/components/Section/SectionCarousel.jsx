@@ -6,8 +6,8 @@ import { Grid, Container, Typography } from "@material-ui/core";
 import CarouselCard from "./CarouselCard";
 
 const SectionCarousel = ({ cards, header }) => {
-  const listOfPartnersCards = cards.map((card) => (
-    <Grid item xs={12} md={6} lg={4}>
+  const listOfPartnersCards = cards.map((card, i) => (
+    <Grid key={`partner-card-${i}`} item xs={12} md={6} lg={4}>
       <CarouselCard card={card} />
     </Grid>
   ));
