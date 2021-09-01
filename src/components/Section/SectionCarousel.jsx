@@ -1,64 +1,31 @@
 import React from "react";
-import SwiperCore, { Pagination, Navigation, Autoplay } from "swiper/core";
-import { Swiper, SwiperSlide } from "swiper/react";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import "swiper/swiper.min.css";
 import "swiper/components/pagination/pagination.min.css";
 import "swiper/components/navigation/navigation.min.css";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Container, Typography } from "@material-ui/core";
 import CarouselCard from "./CarouselCard";
 
-const SectionCarousel = ({ cards }) => {
-  const isPhone = useMediaQuery("(max-width:620px)");
-  const isTablet = useMediaQuery("(max-width:1280px)");
-  const isBig = useMediaQuery("(max-width:1920px)");
-
+const SectionCarousel = ({ cards, header }) => {
   const listOfPartnersCards = cards.map((card) => (
-    <SwiperSlide data-cy={`partner-${card.id}-card`} key={card.id}>
+    <Grid item xs={12} md={6} lg={4}>
       <CarouselCard card={card} />
-    </SwiperSlide>
+    </Grid>
   ));
 
-  SwiperCore.use([Pagination, Navigation, Autoplay]);
-
   return (
-    <Grid
-      style={styles.section}
-      container
-      alignItems="center"
-      direction="column"
-      data-cy="page-section"
-    >
-      <Box style={styles.carousel}>
-        <Swiper
-          slidesPerView={isPhone ? 1 : isTablet ? 2 : isBig ? 3 : 5}
-          spaceBetween={30}
-          grabCursor={true}
-          navigation={true}
-          loop={true}
-          autoplay={{
-            delay: 4000,
-            disableOnInteraction: false,
-          }}
-        >
-          <section>{listOfPartnersCards}</section>
-        </Swiper>
-      </Box>
-    </Grid>
+    <Container maxWidth="lg" style={{ padding: "1rem" }}>
+      <Typography
+        variant="h3"
+        gutterBottom
+        style={{ width: "100%", textAlign: "center" }}
+      >
+        {header}
+      </Typography>
+      <Grid container spacing={3} data-cy="page-section">
+        {listOfPartnersCards}
+      </Grid>
+    </Container>
   );
 };
 
 export default SectionCarousel;
-
-const styles = {
-  section: {
-    height: "650px",
-    position: "relative",
-    display: "flex",
-    justifyContent: "center"
-  },
-  carousel: {
-    position: "absolute",
-    width: "100%",
-  },
-};
