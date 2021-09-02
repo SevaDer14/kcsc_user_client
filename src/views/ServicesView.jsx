@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       alignItems: "center",
       flexWrap: "nowrap",
+      marginTop: "120px"
     },
   },
 }));

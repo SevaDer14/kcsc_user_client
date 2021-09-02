@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
       textAlign: "center",
       padding: "30px",
+      width: '100vw'
     },
     [theme.breakpoints.up("sm")]: {
       padding: "40px 80px",
@@ -22,12 +23,13 @@ const useStyles = makeStyles((theme) => ({
       height: "auto",
       textAlign: "center",
       padding: "30px",
+      width: '100vw'
     },
     [theme.breakpoints.up("sm")]: {
       padding: "40px 80px",
     },
     [theme.breakpoints.up("lg")]: {
-      padding: "40px 400px",
+      padding: "40px 20%",
     },
   },
   header: {
@@ -35,6 +37,9 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: "25px",
     },
   },
+  description: {
+    fontSize: '1.5rem'
+  }
 }));
 
 const Section = ({ header, description, id }) => {
@@ -62,6 +67,7 @@ const Section = ({ header, description, id }) => {
         variant="body1"
         component="p"
         gutterBottom
+        className={classes.description}
       >
         {description}
       </Typography>
