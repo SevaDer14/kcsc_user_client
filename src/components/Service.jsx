@@ -3,7 +3,6 @@ import {
   Grid,
   Box,
   Typography,
-  Divider,
   Button,
   Switch,
   FormControlLabel,

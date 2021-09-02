@@ -73,7 +73,7 @@ export default Article;
 
 const styles = {
   article: {
-    height: "650px",
+    minHeight: "450px",
     backgroundSize: "cover",
   },
   itemContainer: {
@@ -83,6 +83,7 @@ const styles = {
     width: "100%",
     maxHeight: "400px",
     borderRadius: "10px",
+    objectFit: "cover",
   },
   buttonContainer: {
     marginTop: "20px",

@@ -50,6 +50,9 @@ const useStyles = makeStyles((theme) => ({
   contentContainer: {
     [theme.breakpoints.up("lg")]: {
       paddingTop: "20px",
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'flex-start'
     },
   },
   header: {
@@ -65,14 +68,16 @@ const useStyles = makeStyles((theme) => ({
   },
   description: {
     [theme.breakpoints.up("xs")]: {
-      marginLeft: "30px",
+      marginLeft: "2px",
       marginRight: "30px",
       fontSize: "1.2rem",
+      textAlign: "left"
     },
   },
   button: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "35px",
+      marginLeft: "-8px",
     },
   },
 }));

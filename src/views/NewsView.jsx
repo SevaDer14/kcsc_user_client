@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Grid } from "@material-ui/core";
+import { Grid, Container } from "@material-ui/core";
 import Articles from "../modules/Articles";
 import Article from "../components/Articles/Article"
 
@@ -28,9 +28,12 @@ const NewsView = () => {
       <Helmet>
         <title>News</title>
       </Helmet>
-      <Grid container spacing={0} direction="column" alignItems="stretch">
+      <Container maxWidth='lg'>
+        <Grid container spacing={0} direction="column" alignItems="stretch">
         {articlesList}
       </Grid>
+      </Container>
+      
     </>
   );
 };
