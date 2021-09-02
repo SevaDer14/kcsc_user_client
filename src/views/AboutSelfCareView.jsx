@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
+// uncomment to engage API calls
 //import Sections from "../modules/Sections";
 import about_self_care_view_sections from "../data/fixtures/about_self_care_view_sections.json";
 import { Grid, makeStyles } from "@material-ui/core";
@@ -23,6 +24,7 @@ const AboutSelfCareView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
+      // uncomment to engage API calls
       //let response = await Sections.read("about_self_care");
       //setSections(response);
       setSections(about_self_care_view_sections.sections);
