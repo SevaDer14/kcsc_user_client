@@ -10,6 +10,7 @@ const centerSectionTheme = makeStyles((theme) => ({
       width: "100%",
       overFlow: "hidden",
       paddingBottom: "40px",
+      marginBottom: "40px",
     },
     [theme.breakpoints.up("md")]: {
       margin: "auto",
@@ -36,14 +37,44 @@ const centerSectionTheme = makeStyles((theme) => ({
     },
   },
 
+  imageBox: {
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "40px",
+      width: "100%",
+      maxHeight: "200px",
+      minHeight: "200px",
+    },
+    [theme.breakpoints.up("sm")]: {
+      borderRadius: "10px",
+      height: "300px",
+      width: "100%",
+      maxHeight: "500px",
+    },
+    [theme.breakpoints.up("md")]: {
+      marginBottom: "0px",
+      marginTop: "60px",
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginBottom: "60px",
+      marginTop: "0px",
+    },
+  },
+
   image: {
     [theme.breakpoints.up("xs")]: {
-      width: "100%",
-      height: "350px",
       objectFit: "cover",
+      height: "200px",
+      width: "100vw",
+    },
+    [theme.breakpoints.up("sm")]: {
+      borderRadius: "10px",
+      height: "300px",
+      width: "80vw",
     },
     [theme.breakpoints.up("md")]: {
       borderRadius: "10px",
+      height: "300px",
+      width: "60vw",
     },
     [theme.breakpoints.up("lg")]: {
       width: "80%",
@@ -55,23 +86,27 @@ const centerSectionTheme = makeStyles((theme) => ({
 
   header: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "10px",
-    },
-    [theme.breakpoints.up("sm")]: {
       marginTop: "20px",
+      padding: "0px 20px",
+      fontSize: '2rem'
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "30px",
+      padding: "0px",
     },
   },
 
   description: {
     [theme.breakpoints.up("xs")]: {
-      marginLeft: "2px",
-      marginRight: "30px",
-      fontSize: "1.2rem",
+      padding: '0px 50px',
+      fontSize: "1.1rem",
       textAlign: "left",
-      padding: "0 3rem",
+    },
+    [theme.breakpoints.up("sm")]: {
+      padding: "0px 100px",
+    },
+    [theme.breakpoints.up("md")]: {
+      padding: "0px 150px",
     },
     [theme.breakpoints.up("lg")]: {
       padding: "0",

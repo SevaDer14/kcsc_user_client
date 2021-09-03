@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Typography,
-  Box,
-  Grid,
-  CardMedia,
-} from "@material-ui/core";
+import { Typography, Box, Grid, CardMedia } from "@material-ui/core";
 import centerSectionTheme from "../../theme/centerSectionTheme";
 
 const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
@@ -12,13 +7,15 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
   return (
     <Grid item container className={classes.section}>
       <Grid item xs={12} lg={6} className={classes.contentContainer}>
-        <CardMedia
-          component="img"
-          image={image.url}
-          data-cy="image"
-          className={classes.image}
-          alt="Community Health West London"
-        />
+        <Box className={classes.imageBox}>
+          <CardMedia
+            component="img"
+            image={image.url}
+            data-cy="image"
+            className={classes.image}
+            alt="Community Health West London"
+          />
+        </Box>
       </Grid>
       <Grid item xs={12} lg={6} className={classes.contentContainer}>
         <Typography
