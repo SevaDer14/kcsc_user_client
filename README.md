@@ -18,7 +18,7 @@ Client Application for Community Health West London
 
 `/contact`: Contact page (`<ContactView />`)
 
-`/info/news`: News page (`<NewsView />`)
+`/news_info/news`: News page (`<NewsView />`)
 
 ## Config
 
@@ -136,15 +136,15 @@ The request happens once in the begining of user session.
         },
         {
           "label": "news & info",
-          "link": "/info/news",
+          "link": "/news_info/news",
           "secondary_tabs": [
             {
               "label": "news",
-              "link": "/info/news"
+              "link": "/news_info/news"
             },
             {
               "label": "information",
-              "link": "/info/information"
+              "link": "/news_info/information"
             }
           ]
         },
@@ -167,12 +167,12 @@ The request happens once in the begining of user session.
         {
           "parent": "news & info",
           "label": "news",
-          "link": "/info/news"
+          "link": "/news_info/news"
         },
         {
           "parent": "news & info",
           "label": "information",
-          "link": "/info/information"
+          "link": "/news_info/information"
         },
         {
           "parent": "services",
@@ -261,6 +261,8 @@ The request happens once in the begining of user session.
 ```
 
 ## GET `/sections?view=${view}`
+
+view values: "services", "about_us", "about_self_care", "information"
 
 The App is built from different `Views`. Each `View` is dynamically built from `Section` components. On render each `View` makes a request to get data for what `Sections` in what order it should display (first one in the array will be on top the page). With the request the `view` param is being sent to API, that acts as filter so only `Sections` with corresponding `view` attribute are sent.
 

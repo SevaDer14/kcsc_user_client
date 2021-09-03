@@ -17,7 +17,6 @@ const useStyles = makeStyles((theme) => ({
       position: "absolute",
       width: "90%",
       height: "auto",
-      border: "4px solid #ea7005",
       borderRadius: "7px",
     },
     [theme.breakpoints.up("md")]: {
@@ -77,7 +76,7 @@ const Testimonial = ({ slider, data }) => {
           <CardActions>
             <Button
               component={Link}
-              to={`/info/news/articles/${data.article_id}`}
+              to={data.link}
               size="small"
               color="secondary"
             >

@@ -35,7 +35,7 @@ const CarouselCard = ({ card }) => {
         <Typography
           data-cy="organization"
           gutterBottom
-          variant="h4"
+          variant="h5"
           component="h2"
         >
           {card.organization}
@@ -92,8 +92,9 @@ export default CarouselCard;
 
 const styles = {
   card: {
+    position: "relative",
     height: "500px",
-    padding: "40px",
+    padding: "40px 20px 20px 20px",
     display: "flex",
     flexDirection: "column",
   },

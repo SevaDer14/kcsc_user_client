@@ -1,5 +1,6 @@
 {
   "app_data": {
+    "tagline": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
     "testimonials": [
       {
         "id": 1,
@@ -71,15 +72,15 @@
         },
         {
           "label": "news & info",
-          "link": "/info/news",
+          "link": "/news_info/news",
           "secondary_tabs": [
             {
               "label": "news",
-              "link": "/info/news"
+              "link": "/news_info/news"
             },
             {
               "label": "information",
-              "link": "/info/information"
+              "link": "/news_info/information"
             }
           ]
         },
@@ -102,12 +103,12 @@
         {
           "parent": "news & info",
           "label": "news",
-          "link": "/info/news"
+          "link": "/news_info/news"
         },
         {
           "parent": "news & info",
           "label": "information",
-          "link": "/info/information"
+          "link": "/news_info/information"
         },
         {
           "parent": "services",
@@ -180,8 +181,8 @@
         }
       ]
     },
-    "about": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
-    "disclamers": {
+    "about": "Our aim is to improve people's health and well-being",
+    "disclaimers": {
       "copyright": "2021 All Rights Reserved by Community Health West London.",
       "accessability": "This site is built according to Web Content Accessibility Guidlines"
     }

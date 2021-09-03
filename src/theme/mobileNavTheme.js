@@ -7,7 +7,7 @@ const mobileNavStyle = makeStyles((theme) => ({
       width: "100%",
       marginBottom: "0px",
       justifyContent: "space-between",
-      backgroundColor: "inherit",
+      backgroundColor: "white",
     },
   },
   navRight: {
@@ -16,7 +16,7 @@ const mobileNavStyle = makeStyles((theme) => ({
       width: "100%",
       marginBottom: "0px",
       justifyContent: "flex-end",
-      backgroundColor: "inherit",
+      backgroundColor: "white",
     },
   },
   headerLogo: {

@@ -21,7 +21,7 @@ const serviceSearchTheme = makeStyles((theme) => ({
       flexDirection: "column",
       height: "100px",
       marginBottom: "20%",
-      padding: "25px 0",
+      padding: "15px 0",
     },
     [theme.breakpoints.up("sm")]: {
       height: "85px",

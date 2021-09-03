@@ -6,6 +6,7 @@ import ScreenSplit from "../components/ScreenSplit";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import TestimonialSlider from "../components/TestimonialSlider";
 import ServiceSearch from "../components/ServiceSearch";
+import { useSelector } from "react-redux";
 
 const useStyles = makeStyles((theme) => ({
   leftSection: {
@@ -33,6 +34,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const IndexView = () => {
+  const { tagline } = useSelector(
+    (state) => state.appData
+  );
   const classes = useStyles();
 
   const mainLogo = (
@@ -45,7 +49,7 @@ const IndexView = () => {
         alt="Community Health West London"
       />
       <Typography data-cy="mission-statement" style={styles.statement}>
-        Our aim is to improve people's health and well-being
+        {tagline}
       </Typography>
       <ServiceSearch />
     </Box>
@@ -70,7 +74,8 @@ export default IndexView;
 const styles = {
   statement: {
     textAlign: "center",
-    fontSize: "28px",
-    padding: "0 20px",
+    fontSize: "1.2rem",
+    padding: "0px 15%",
+    margin: "1rem 0"
   },
 };

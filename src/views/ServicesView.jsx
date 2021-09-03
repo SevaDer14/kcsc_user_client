@@ -4,7 +4,6 @@ import { Grid, makeStyles } from "@material-ui/core";
 //import Sections from "../modules/Sections";
 import services_view_section from "../data/fixtures/services_view_section.json";
 import SectionSelector from "../components/Section/SectionSelector";
-import Functions from '../modules/Functions'
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -13,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
       flexDirection: "column",
       alignItems: "center",
       flexWrap: "nowrap",
+      marginTop: "120px",
     },
   },
 }));
@@ -30,9 +30,9 @@ const ServicesView = () => {
     fetchPageData();
   }, []);
 
-  const sectionList = sections.map((section) => {
+  const sectionList = sections.map((section, index) => {
     return (
-      <Grid item key={section.id} id={Functions.toKebabCase(section.header)}>
+      <Grid item key={section.id} id={`section-${index + 1}`}>
         <SectionSelector id={section.id} section={section} />
       </Grid>
     );
@@ -43,11 +43,7 @@ const ServicesView = () => {
       <Helmet>
         <title>Self Care Services</title>
       </Helmet>
-      <Grid
-        container
-        className={classes.grid}
-        spacing={0}
-      >
+      <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
     </>

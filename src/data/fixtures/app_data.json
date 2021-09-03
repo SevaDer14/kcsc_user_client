@@ -1,5 +1,7 @@
 {
   "app_data": {
+    "tagline": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
+
     "testimonials": [
       {
         "id": 1,
@@ -7,7 +9,7 @@
         "text": "\"In my personal life, I am a daughter, a mother, a sister, a wife, a friend, a counselor, a working woman, etc. Even though and because I know I am all these things, I often forget who I am. I know I will use mindfulness as part of a lifestyle change to focus on my self-care and reconnecting with myself. I also learned some things I want to practice with my 3 young children to teach them now self-care lessons that will last their lifetime. Life is too short and precious to miss any of it.\"",
         "photo": "https://freerangestock.com/sample/114840/a-caucasian-woman-posing-with-a-smile.jpg",
         "alt": "Maggie Black smiling to the camera",
-        "article_id": 2
+        "link": "/news_info/news/articles/1"
       },
       {
         "id": 2,
@@ -15,7 +17,7 @@
         "text": "\"I work with patients with life threatening illnesses who often feel so uncertain, anxious and depressed about their future. I so many times feel powerless for them. I feel that mindfulness is something they all can utilize anywhere, anytime. It is good to have a tool they can take home with them, to empower them to also help themselves.\"",
         "photo": "https://t3.ftcdn.net/jpg/01/15/46/70/360_F_115467073_9hWxkk2M8b4obn3Aq0JW3YDxtYt5nXqn.jpg",
         "alt": "Richard Erricson smiling to the camera",
-        "article_id": 3
+        "link": "/news_info/news/articles/2"
       }
     ],
     "navigation": {
@@ -71,15 +73,15 @@
         },
         {
           "label": "news & info",
-          "link": "/info/news",
+          "link": "/news_info/news",
           "secondary_tabs": [
             {
               "label": "news",
-              "link": "/info/news"
+              "link": "/news_info/news"
             },
             {
               "label": "information",
-              "link": "/info/information"
+              "link": "/news_info/information"
             }
           ]
         },
@@ -102,12 +104,12 @@
         {
           "parent": "news & info",
           "label": "news",
-          "link": "/info/news"
+          "link": "/news_info/news"
         },
         {
           "parent": "news & info",
           "label": "information",
-          "link": "/info/information"
+          "link": "/news_info/information"
         },
         {
           "parent": "services",
@@ -180,7 +182,7 @@
         }
       ]
     },
-    "about": "Community Health West London is a Community Interest Company made up of six local charities. We are working together with the wider community to improve the health and wellbeing of our residents.",
+    "about": "Our aim is to improve people's health and well-being",
     "disclamers": {
       "copyright": "2021 All Rights Reserved by Community Health West London.",
       "accessability": "This site is built according to Web Content Accessibility Guidlines"

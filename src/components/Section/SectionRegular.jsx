@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
-import SectionWide from "./SectionWide";
 import SectionCenter from "./SectionCenter";
 import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
     [theme.breakpoints.up("xs")]: {
-      backgroundColor: "#eee",
+      backgroundColor: "#fafafa",
       width: "100vw",
       padding: "0px",
       borderRadius: "0px",
@@ -40,9 +39,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Section = ({ id, header, description, image, buttons }) => {
+const Section = ({ header, description, image, buttons }) => {
   const classes = useStyles();
-  let idEven = id % 2 === 0;
   const [redirect, setRedirect] = useState("");
 
   const buttonList = buttons.map((button) => (
@@ -69,23 +67,13 @@ const Section = ({ id, header, description, image, buttons }) => {
       {redirect && <Redirect to={redirect} />}
       <Paper className={classes.container} elevation={0}>
         <Grid item className={classes.section} data-cy="page-section">
-          {idEven ? (
-            <SectionCenter
-              header={header}
-              description={description}
-              image={image}
-              buttons={buttons}
-              buttonList={buttonList}
-            />
-          ) : (
-            <SectionWide
-              header={header}
-              description={description}
-              image={image}
-              buttons={buttons}
-              buttonList={buttonList}
-            />
-          )}
+          <SectionCenter
+            header={header}
+            description={description}
+            image={image}
+            buttons={buttons}
+            buttonList={buttonList}
+          />
         </Grid>
       </Paper>
     </>
