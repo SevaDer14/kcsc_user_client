@@ -88,14 +88,13 @@ const ScreenSplit = ({ data }) => {
         ) : (
           <Box component="div" style={collapse ? styles.mapClosed : styles.map}>
             <Button
-              data-cy="toggle-map-visibility-button"
+              data-cy="disabled-show-on-map-button"
               size="small"
               disabled
               color="secondary"
               style={{ marginLeft: "auto" }}
-              onClick={() => setCollapse(!collapse)}
             >
-              {collapse ? "Show on map" : "Collapse Map"}
+              Show on map
             </Button>
           </Box>
         )}
