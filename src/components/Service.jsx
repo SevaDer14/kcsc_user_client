@@ -86,9 +86,18 @@ const ScreenSplit = ({ data }) => {
         {data.coords.latitude ? (
           mapDisplay()
         ) : (
-          <Typography variant="body2" style={{fontStyle: "italic"}}>
-            No map is available for this service
-          </Typography>
+          <Box component="div" style={collapse ? styles.mapClosed : styles.map}>
+            <Button
+              data-cy="toggle-map-visibility-button"
+              size="small"
+              disabled
+              color="secondary"
+              style={{ marginLeft: "auto" }}
+              onClick={() => setCollapse(!collapse)}
+            >
+              {collapse ? "Show on map" : "Collapse Map"}
+            </Button>
+          </Box>
         )}
       </Grid>
       <Grid container style={{ marginTop: "18px" }}>
@@ -141,18 +150,18 @@ const styles = {
     padding: "10px",
   },
   map: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
     width: "100%",
     height: "300px",
     marginBottom: "40px",
   },
 
   mapClosed: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-end',
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-end",
     height: "0px",
     marginBottom: "20px",
   },
