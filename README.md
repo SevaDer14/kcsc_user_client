@@ -262,6 +262,8 @@ The request happens once in the begining of user session.
 
 ## GET `/sections?view=${view}`
 
+view values: "services", "about_us", "about_self_care", "information"
+
 The App is built from different `Views`. Each `View` is dynamically built from `Section` components. On render each `View` makes a request to get data for what `Sections` in what order it should display (first one in the array will be on top the page). With the request the `view` param is being sent to API, that acts as filter so only `Sections` with corresponding `view` attribute are sent.
 
 For a different `Views` response would have different array of `Sections`. Sections come in different `variants`: `regular`, `no_image`, `carousel`, `slider`. Depending on it, case statment in `SectionSelector` component handles which type of section to render.
