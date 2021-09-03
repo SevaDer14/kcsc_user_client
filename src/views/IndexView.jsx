@@ -75,6 +75,7 @@ const styles = {
   statement: {
     textAlign: "center",
     fontSize: "1.2rem",
-    padding: "0px 20px",
+    padding: "0px 15%",
+    margin: "1rem 0"
   },
 };

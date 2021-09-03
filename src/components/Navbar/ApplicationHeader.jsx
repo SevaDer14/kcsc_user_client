@@ -78,9 +78,13 @@ const ApplicationHeader = () => {
         style={styles.secondaryTabText}
         data-cy={`${Functions.toKebabCase(tab.label)}-sub-tab`}
         label={tab.label}
-        component={tab.ref ? HashLink : Link}
-        smooth={tab.ref ? true : undefined}
-        to={tab.ref ? `${tab.link}#${tab.ref}` : tab.link}
+        component={tab.link === "/services" ? HashLink : Link}
+        smooth={tab.link === "/services" ? true : undefined}
+        to={
+          tab.link === "/services"
+            ? `${tab.link}#section-${index + 1}`
+            : tab.link
+        }
       />
     ));
 
