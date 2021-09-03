@@ -79,11 +79,11 @@ const MobileApplicationHeader = () => {
           className={classes.secondaryTabText}
           data-cy={`${Functions.toKebabCase(secondaryTab.label)}-tab`}
           label={secondaryTab.label}
-          component={secondaryTab.ref ? HashLink : Link}
-          smooth={secondaryTab.ref ? true : undefined}
+          component={secondaryTab.link === "/services" ? HashLink : Link}
+          smooth={secondaryTab.link === "/services" ? true : undefined}
           to={
-            secondaryTab.ref
-              ? `${secondaryTab.link}#${secondaryTab.ref}`
+            secondaryTab.link === "/services"
+              ? `${secondaryTab.link}#section-${index + 1}`
               : secondaryTab.link
           }
           onClick={() => handleDrawerClose()}
