@@ -16,6 +16,7 @@ import NewsView from "./views/NewsView";
 import ArticleView from "./views/ArticleView";
 import InformationView from "./views/InformationView";
 import ErrorView from "./views/ErrorView";
+import SearchWidget from "./views/SearchWidget";
 
 const Routes = () => {
   return (
@@ -77,6 +78,11 @@ const Routes = () => {
           exact
           path="/error"
           render={() => <App component={<ErrorView />} />}
+        />
+        <Route
+          exact
+          path="/service_search_widget"
+          render={() => <SearchWidget />}
         />
       </Switch>
     </Router>
