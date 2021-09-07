@@ -8,18 +8,17 @@ import Functions from "./Functions";
 const Articles = {
   async index() {
     try {
-      // const response = await axios.get(`/articles`);
+      // const response = await axios.get(`/articles`);      
+      // return response.data.articles;
       return news_view_articles.articles;
-      //return response.data.articles;
     } catch (e) {
       Functions.redirectToErrorPage();
     }
   },
   async show(id) {
     try {
-      //async show(id) {
       // const response = await axios.get(`/articles/${id}`);
-      //return response.data.article;
+      // return response.data.article;
       switch (id) {
         case "1":
           return single_article.article;

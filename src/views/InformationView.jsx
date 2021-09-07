@@ -37,8 +37,10 @@ const InformationView = () => {
       //setSections(response);
       setSections(information_view_sections.sections);
       let response = await Information.index();
-      setPinnedItems(response.pinned);
-      setOtherItems(response.other);
+      let pinnedItems = response.filter(item => item.pinned === true)
+      let otherItems = response.filter(item => item.pinned === false)
+      setPinnedItems(pinnedItems);
+      setOtherItems(otherItems);
     };
     fetchPageData();
   }, []);
