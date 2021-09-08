@@ -59,7 +59,7 @@ The request happens once in the begining of user session.
 
 **Example of response from fixture:**
 
-```
+``` json
 {
   "app_data": {
     "testimonials": [
@@ -270,7 +270,7 @@ For a different `Views` response would have different array of `Sections`. Secti
 
 **Example of response from fixture:**
 
-```
+``` json
 {
   "sections": [
     {
@@ -320,7 +320,7 @@ For a different `Views` response would have different array of `Sections`. Secti
         },
         {
           "id": 2,
-          "logo": "https://scontent-arn2-2.xx.fbcdn.net/v/t31.18172-8/1119949_644130218939075_1717776792_o.jpg?_nc_cat=108&ccb=1-3&_nc_sid=6e5ad9&_nc_ohc=xV2RGd7fgnsAX-pFmUi&_nc_ht=scontent-arn2-2.xx&oh=f2a844537acc3a1ea5d5ee74efc8f5df&oe=6125A1A2",
+          "logo": "https://www.royalgardenhotel.co.uk/media/3162/copy-of-smart-master-colour.jpg?width=499&height=186",
           "alt": "logo of SMART organization",
           "organization": "SMART",
           "description": "Description of what this partner does",
@@ -367,7 +367,7 @@ NewsView is different from others as is constructed from `Articles` that are sep
 
 **Example of response from fixture:**
 
-```
+``` json
 {
   "articles": [
     {
@@ -401,7 +401,7 @@ By clicking read more on the article visitor is being redirectied to `ArticleVie
 
 **Example of response from fixture:**
 
-```
+``` json
 {
   "article": {
     "id": 1,
@@ -423,7 +423,7 @@ One of the features is to search for the list of Self Care services using `searc
 
 **Example of response from fixture:**
 
-```
+``` json
 {
   "services": [
     {
@@ -459,37 +459,38 @@ One of the features is to search for the list of Self Care services using `searc
 
 ```
 
-
 ## GET `/information`
 
 index action to get all information items in Information Veiw
 
 **Example of response from fixture:**
-```
+
+``` json
 {
-  "information_items": {
-    "pinned": [
+  "information_items": [
       {
+        "pinned": true,
         "id": 1,
         "header": "Item-0",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
       },
       {
+        "pinned": true,
         "id": 2,
         "header": "Item-1",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
         "link": "https://www.netdoctor.co.uk/health-services/nhs/a4489/what-is-the-nhs/"
-      }
-    ],
-    "other": [
+      },
       {
+        "pinned": false,
         "id": 1,
         "header": "Other Item-0",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
         "link": "https://www.nhs.uk/nhs-services/"
       },
       {
+        "pinned": false,
         "id": 2,
         "header": "Other Item-1",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -504,7 +505,7 @@ index action to get all information items in Information Veiw
 
 index axtion for all servides
 
-```
+``` json
 {
   "services": [
     {
@@ -553,4 +554,3 @@ index axtion for all servides
 }
 
 ```
-

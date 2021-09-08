@@ -10,6 +10,9 @@ sizes.forEach((size) => {
       cy.intercept("GET", "**/api/sections**", {
         fixture: "information_view_sections.json",
       });
+      cy.intercept("GET", "**/api/information**", {
+        fixture: "information_items.json",
+      });
       if (Cypress._.isArray(size)) {
         cy.viewport(size[0], size[1], size[2]);
       } else {
