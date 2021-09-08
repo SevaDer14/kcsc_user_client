@@ -4,12 +4,14 @@ import { Typography, Box, Grid, Button } from "@material-ui/core";
 
 const Article = ({ index, article }) => {
   let { title, teaser, image, id } = article;
+  let alt = image?.alt
+  
   return (
     <Grid
       style={
         index !== 0
           ? styles.article
-          : { ...styles.article, backgroundImage: `url(${image.url})` }
+          : { ...styles.article, backgroundImage: `url(${image?.url})` }
       }
       container
       alignItems="center"
@@ -18,7 +20,7 @@ const Article = ({ index, article }) => {
     >
       {index !== 0 && (
         <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
-          <img style={styles.image} src={image.url} alt={image.alt} />
+          <img style={styles.image} src={image?.url} alt={alt} />
         </Grid>
       )}
 

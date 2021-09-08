@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Grid, Container } from "@material-ui/core";
 import Articles from "../modules/Articles";
-import Article from "../components/Articles/Article"
+import Article from "../components/Articles/Article";
 
 const NewsView = () => {
   const [articles, setArticles] = useState([]);
@@ -18,7 +18,7 @@ const NewsView = () => {
   const articlesList = articles.map((article, index) => {
     return (
       <Grid item key={article.id}>
-        <Article index={index} article={article}  />
+        <Article index={index} article={article} />
       </Grid>
     );
   });
@@ -28,12 +28,13 @@ const NewsView = () => {
       <Helmet>
         <title>News</title>
       </Helmet>
-      <Container maxWidth='lg'>
-        <Grid container spacing={0} direction="column" alignItems="stretch">
-        {articlesList}
-      </Grid>
+      <Container maxWidth="lg">
+        {articles.length > 0 && (
+          <Grid container spacing={0} direction="column" alignItems="stretch">
+            {articlesList}
+          </Grid>
+        )}
       </Container>
-      
     </>
   );
 };
