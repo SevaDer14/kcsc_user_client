@@ -25,7 +25,7 @@ sizes.forEach((size) => {
       it("is expected to redirect to home page", () => {
         cy.url().should("include", "/home");
         cy.get("[data-cy=secondary-nav-bar]").should("not.exist");
-        if (size == "macbook-15") {
+        if (size === "macbook-15") {
           cy.get("[data-cy=home-tab]").should("have.class", "Mui-selected");
         }
       });

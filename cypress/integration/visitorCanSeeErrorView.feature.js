@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import sizes from "../support/index";
 
 sizes.forEach((size) => {
