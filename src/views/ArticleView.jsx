@@ -7,6 +7,7 @@ const ArticleView = () => {
   const { id } = useParams();
   const [article, setArticle] = useState({});
   const { title, author, date, image, body } = article;
+  let alt = image?.alt
 
   useEffect(() => {
     const fetchPageData = async () => {
@@ -18,7 +19,7 @@ const ArticleView = () => {
 
   return (
     <Container style={styles.container} data-cy="article" maxWidth="md">
-      {image ? (
+      {article ? (
         <>
           <Typography component="h3" variant="h3" data-cy="title">
             {title}
@@ -29,7 +30,7 @@ const ArticleView = () => {
                 component="p"
                 variant="subtitle1"
                 data-cy="author"
-              >{`Written by: ${author}`}</Typography>
+              >{`Written by: ${author?.name}`}</Typography>
             </Grid>
             <Grid item>
               <Typography component="p" variant="subtitle1" data-cy="date">
@@ -44,8 +45,8 @@ const ArticleView = () => {
           />
           <img
             data-cy="image"
-            src={image.url}
-            alt={image.alt}
+            src={image?.url}
+            alt={alt}
             style={styles.image}
           />
           <Typography
