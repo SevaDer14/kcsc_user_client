@@ -124,9 +124,9 @@ sizes.forEach((size) => {
       it("is expected to show an error", () => {
         cy.get("[data-cy=search-query]").type("football");
         cy.get("[data-cy=search-submit]").click();
-        cy.get("[data-cy=message]").should(
+        cy.get("[data-cy=search-results]").should(
           "contain.text",
-          "An error occurred during request, please try again"
+          "No results found"
         );
       });
     });
