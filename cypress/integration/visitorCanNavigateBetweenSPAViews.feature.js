@@ -141,44 +141,20 @@ sizes.forEach((size) => {
           });
       });
 
-      it("is expected to display partners carousel", () => {
+      it("is expected to display partners Grid", () => {
         cy.get("[data-cy=partner-card]")
           .first()
           .within(() => {
-            switch (size) {
-              case "iphone-x":
-                cy.get("[data-cy=partner-logo]").should("exist");
-                cy.get("[data-cy=organization]").should(
-                  "contain.text",
-                  "One Westminster"
-                );
-                cy.get("[data-cy=description]").should(
-                  "contain.text",
-                  "Description of what this partner does"
-                );
-                cy.get("[data-cy=link]").should("have.length", 2);
-                break;
-              case "macbook-15":
-                cy.get("[data-cy=partner-logo]").should("exist");
-                cy.get("[data-cy=organization]").should(
-                  "contain.text",
-                  "SMART"
-                );
-                cy.get("[data-cy=description]").should(
-                  "contain.text",
-                  "Description of what this partner does"
-                );
-                cy.get("[data-cy=link]").should("have.length", 3);
-                break;
-
-              default:
-                cy.get("[data-cy=partner-logo]").should("exist");
-                cy.get("[data-cy=organization]").should(
-                  "contain.text",
-                  "Open Age"
-                );
-                break;
-            }
+            cy.get("[data-cy=partner-logo]").should("exist");
+            cy.get("[data-cy=organization]").should(
+              "contain.text",
+              "Kensington & Chelsea Social Council"
+            );
+            cy.get("[data-cy=description]").should(
+              "contain.text",
+              "Description of what this partner does"
+            );
+            cy.get("[data-cy=link]").should("have.length", 3);
           });
       });
     });
