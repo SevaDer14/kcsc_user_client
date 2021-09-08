@@ -74,14 +74,11 @@ const Testimonial = ({ slider, data }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
-              component={Link}
-              to={data.link}
-              size="small"
-              color="secondary"
-            >
-              Learn More
-            </Button>
+            <Link to={data.link ? data.link : "/#"}>
+              <Button size="small" color="secondary">
+                Learn More
+              </Button>
+            </Link>
           </CardActions>
         </Card>
       </motion.div>
