@@ -22,7 +22,7 @@ const Search = {
       });
     }
   },
-  async index(category) {
+  async index() {
     try {
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
