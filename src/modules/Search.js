@@ -22,13 +22,13 @@ const Search = {
       });
     }
   },
-  async index() {
+  async index(category) {
     try {
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
         payload: { loading: true },
       });
-      const response = await axios.get(`/services`);
+      const response = await axios.get();
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
         payload: response.data,
