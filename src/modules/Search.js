@@ -28,7 +28,7 @@ const Search = {
         type: "SET_SEARCH_RESULTS",
         payload: { loading: true },
       });
-      const response = await axios.get();
+      const response = await axios.get(`/services`);
       store.dispatch({
         type: "SET_SEARCH_RESULTS",
         payload: response.data,
