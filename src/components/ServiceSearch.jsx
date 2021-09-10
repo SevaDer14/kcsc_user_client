@@ -39,16 +39,12 @@ const ServiceSearch = () => {
   };
 
   const performSearch = async (category) => {
-    if (query === "") {
-      await Search.index();
-    } else {
-      setSearchQuery();
-      await Search.create(
-        store.getState().query,
-        category ? category : serviceCategory
-      );
-      route && setRedirect(true);
-    }
+    setSearchQuery();
+    await Search.create(
+      store.getState().query,
+      category ? category : serviceCategory
+    );
+    route && setRedirect(true);
   };
 
   useEffect(() => {
