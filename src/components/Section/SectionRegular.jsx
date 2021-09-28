@@ -1,7 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
 import SectionCenter from "./SectionCenter";
-import { Redirect } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -41,7 +40,6 @@ const useStyles = makeStyles((theme) => ({
 
 const Section = ({ header, description, image, buttons }) => {
   const classes = useStyles();
-  const [redirect, setRedirect] = useState("");
 
   const buttonList = buttons.map((button) => (
     <Button
@@ -59,7 +57,6 @@ const Section = ({ header, description, image, buttons }) => {
 
   return (
     <>
-      {redirect && <Redirect to={redirect} />}
       <Paper className={classes.container} elevation={0}>
         <Grid item className={classes.section} data-cy="page-section">
           <SectionCenter
