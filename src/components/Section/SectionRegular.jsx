@@ -50,13 +50,8 @@ const Section = ({ header, description, image, buttons }) => {
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
-      onClick={() => {
-        if (button.link.includes("http")) {
-          window.open(button.link);
-        } else {
-          setRedirect(button.link);
-        }
-      }}
+      href={`${button.link}`}
+      target={button.link.includes("http") ? "_blank" : undefined}
     >
       <Typography variant="button">{button.text}</Typography>
     </Button>
