@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Articles from "../modules/Articles";
 import { Container, Typography, Divider, Grid } from "@material-ui/core";
+import parse from 'html-react-parser';
 
 const ArticleView = () => {
   const { id } = useParams();
@@ -55,7 +56,7 @@ const ArticleView = () => {
             data-cy="body"
             style={styles.body}
           >
-            {body}
+            {parse(body)}
           </Typography>
         </>
       ) : (
