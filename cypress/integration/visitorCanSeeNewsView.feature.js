@@ -19,9 +19,6 @@ sizes.forEach((size) => {
       });
 
       describe("About View", () => {
-        // beforeEach(() => {
-        // });
-
         it("is expected to show logo in the header", () => {
           cy.get("[data-cy=header-logo]")
             .should("have.attr", "alt")
