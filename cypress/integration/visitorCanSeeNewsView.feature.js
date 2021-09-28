@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import sizes from "../support/index";
 sizes.forEach((size) => {
-  describe("visitor can see information view", () => {
+  describe("visitor can see News view", () => {
     describe("Vistor is able to see list of Articles", () => {
       beforeEach(() => {
         cy.intercept("GET", "**/api/app_data**", {
