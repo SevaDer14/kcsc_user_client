@@ -33,6 +33,7 @@ const InformationView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
+      // Here for future, when api stores sections.
       //let response = await Sections.read("about_us");
       //setSections(response);
       setSections(information_view_sections.sections);

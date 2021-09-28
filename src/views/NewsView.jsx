@@ -12,7 +12,11 @@ const NewsView = () => {
       let response = await Articles.index();
       setArticles(response);
     };
+
     fetchPageData();
+    return () => {
+      setArticles([]);
+    };
   }, []);
 
   const articlesList = articles.map((article, index) => {

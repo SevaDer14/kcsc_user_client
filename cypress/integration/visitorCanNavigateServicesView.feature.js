@@ -57,8 +57,12 @@ sizes.forEach((size) => {
             "contain.text",
             "Find self-care service"
           );
-          cy.get("[data-cy=button_1]").click();
-          cy.url().should("eq", "http://localhost:3001/services/search");
+          cy.get("[data-cy=button_1]").should(
+            "have.attr",
+            "href",
+            "/services/search"
+          );
+          // cy.url().should("eq", "http://localhost:3001/services/search");
         });
       cy.visit("/services");
       cy.window().then((win) => {
@@ -77,9 +81,9 @@ sizes.forEach((size) => {
           );
           cy.get("[data-cy=image]").should("be.visible");
           cy.get("[data-cy=button_1]").should("contain.text", "my care my way");
-          cy.get("[data-cy=button_1]").click();
-          cy.get("@redirect").should(
-            "be.calledWith",
+          cy.get("[data-cy=button_1]").should(
+            "have.attr",
+            "href",
             "http://mycaremyway.co.uk/"
           );
         });

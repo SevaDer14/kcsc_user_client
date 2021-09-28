@@ -7,9 +7,7 @@ sizes.forEach((size) => {
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });
-      cy.intercept("POST", "**/api/subscribe", {
-        message: "Thank you for subscribing",
-      });
+
       cy.visit("/home");
       if (Cypress._.isArray(size)) {
         cy.viewport(size[0], size[1], size[2]);
@@ -60,6 +58,9 @@ sizes.forEach((size) => {
       });
 
       it("is expected to display footer", () => {
+        cy.intercept("POST", "**/api/subscribe", {
+          message: "Thank you for subscribing",
+        });
         cy.get("[data-cy=application-footer]").within(() => {
           cy.get("[data-cy=logo]").should("be.visible");
           cy.get("[data-cy=about]").should(
@@ -100,9 +101,6 @@ sizes.forEach((size) => {
 
     describe("About View", () => {
       beforeEach(() => {
-        cy.intercept("GET", "**/api/sections**", {
-          fixture: "about_us_view_sections.json",
-        });
         cy.visit("/");
         switch (size) {
           case "macbook-15":

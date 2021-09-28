@@ -7,9 +7,6 @@ sizes.forEach((size) => {
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });
-      cy.intercept("GET", "**/api/sections**", {
-        fixture: "information_view_sections.json",
-      });
       cy.intercept("GET", "**/api/information**", {
         fixture: "information_items.json",
       });

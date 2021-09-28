@@ -1,27 +1,24 @@
 /* eslint-disable no-undef */
 import sizes from "../support/index";
 sizes.forEach((size) => {
-  describe("visitor can see information view", () => {
+  describe("visitor can see News view", () => {
     describe("Vistor is able to see list of Articles", () => {
       beforeEach(() => {
         cy.intercept("GET", "**/api/app_data**", {
           fixture: "app_data.json",
+        });
+        cy.intercept("GET", "**/api/articles**", {
+          fixture: "news_view_articles.json",
         });
         if (Cypress._.isArray(size)) {
           cy.viewport(size[0], size[1], size[2]);
         } else {
           cy.viewport(size);
         }
+        cy.visit("/news_info/news");
       });
 
       describe("About View", () => {
-        beforeEach(() => {
-          cy.intercept("GET", "**/api/articles**", {
-            fixture: "news_view_articles.json",
-          });
-          cy.visit("/news_info/news");
-        });
-
         it("is expected to show logo in the header", () => {
           cy.get("[data-cy=header-logo]")
             .should("have.attr", "alt")
