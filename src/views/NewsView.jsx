@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet-async";
 import { Grid, Container } from "@material-ui/core";
 import Articles from "../modules/Articles";
 import Article from "../components/Articles/Article";
-import { cleanup } from "@testing-library/react";
 
 const NewsView = () => {
   const [articles, setArticles] = useState([]);
@@ -13,9 +12,11 @@ const NewsView = () => {
       let response = await Articles.index();
       setArticles(response);
     };
-    return cleanup(() => {
-      fetchPageData();
-    });
+
+    fetchPageData();
+    return () => {
+      setArticles([]);
+    };
   }, []);
 
   const articlesList = articles.map((article, index) => {

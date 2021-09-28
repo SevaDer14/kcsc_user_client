@@ -120,7 +120,7 @@ sizes.forEach((size) => {
         }
       });
 
-      it.only("is expected to navigate to information page", () => {
+      it("is expected to navigate to information page", () => {
         if (size === "macbook-15") {
           cy.get("[data-cy=news-and-info-tab]").click();
           cy.get("[data-cy=information-sub-tab]").click();
