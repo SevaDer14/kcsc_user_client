@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-import { Container, Grid, makeStyles, Typography } from "@material-ui/core";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
@@ -83,9 +83,6 @@ const InformationView = () => {
         {sectionList}
       </Grid>
       <Container maxWidth="md" style={{marginTop: "32px"}}>
-        <Typography variant="h3" component="h3" className={classes.sectionHeader}>
-          Pinned Info:
-        </Typography>
         <Grid container spacing={3} data-cy="pinned-information-items">
           {pinnedItemsList}
         </Grid>
@@ -97,9 +94,6 @@ const InformationView = () => {
           alignItems="stretch"
           data-cy="other-information-items"
         >
-          <Typography variant="h3" component="h3" className={classes.sectionHeader}>
-            Other Info:
-          </Typography>
           {otherItemsList}
         </Grid>
       </Container>
