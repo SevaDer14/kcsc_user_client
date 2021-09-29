@@ -16,6 +16,7 @@ const ArticleView = () => {
       setArticle(response);
     };
     fetchPageData();
+    
   }, [id]);
 
   return (
@@ -56,7 +57,7 @@ const ArticleView = () => {
             data-cy="body"
             style={styles.body}
           >
-            {parse(body)}
+            {body && parse(body)}
           </Typography>
         </>
       ) : (
