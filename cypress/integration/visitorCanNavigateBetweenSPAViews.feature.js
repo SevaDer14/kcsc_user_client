@@ -186,7 +186,7 @@ sizes.forEach((size) => {
             break;
           default:
             cy.get("[data-cy=burger-menu]").click();
-            cy.get("[data-cy=home-tab]").click();
+            cy.get("[data-cy=home-tab]").click({force: true});
             break;
         }
         cy.url().should("contain", "http://localhost:3001/home");
