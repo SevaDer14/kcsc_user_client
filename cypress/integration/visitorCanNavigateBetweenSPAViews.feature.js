@@ -101,6 +101,9 @@ sizes.forEach((size) => {
 
     describe("About View", () => {
       beforeEach(() => {
+        cy.intercept("GET", "**/api/sections?view=about_us", {
+          fixture: "about_us_view_sections.json",
+        });
         cy.visit("/");
         switch (size) {
           case "macbook-15":
@@ -114,7 +117,7 @@ sizes.forEach((size) => {
             cy.get("[data-cy=about-tab]").click();
             cy.get("[data-cy=organization-tab]").click();
             break;
-        }
+        }        
       });
 
       it("is expected to show logo in the header", () => {
