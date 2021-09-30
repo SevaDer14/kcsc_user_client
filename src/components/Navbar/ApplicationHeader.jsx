@@ -51,7 +51,8 @@ const ApplicationHeader = () => {
       currentUrl,
       main_tabs,
       setActiveMainTab,
-      setActiveSecondaryTab
+      setActiveSecondaryTab,
+      setParent
     );
   }, [appDataFetched, main_tabs, currentUrl, setActiveMainTab, setActiveSecondaryTab]);
 
@@ -66,8 +67,7 @@ const ApplicationHeader = () => {
       data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
       label={tab.label}
       component={Link}
-      to={tab.link}
-      onClick={() => setParent(`${tab.label}`)}
+      to={tab.link}    
     />
   ));
 

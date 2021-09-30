@@ -67,7 +67,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     [theme.breakpoints.up("xs")]: {
       width: "100%",
-      maxWidth: '387px',
+      maxWidth: "387px",
       height: "100%",
       textAlign: "left",
       padding: "20px",
