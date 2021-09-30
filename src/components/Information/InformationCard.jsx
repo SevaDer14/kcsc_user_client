@@ -11,9 +11,9 @@ import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 const InformationCard = ({ item }) => {
   const { header, description, link } = item;
   return (
-    <Card elevation={2} style={styles.fullHeight}>
-      <CardActionArea href={link} target='_blank' style={styles.fullHeight} data-cy="action-area">
-        <Grid container direction="row" style={styles.fullHeight}>
+    <Card elevation={2} >
+      <CardActionArea href={link} target='_blank' style={styles.cardActionArea} data-cy="action-area">
+        <Grid container direction="row" >
           <Grid item sm={10} xs={11}>
             <CardContent style={styles.cardContent}>
               <Typography gutterBottom variant="h5" component="h2" data-cy="header">
@@ -24,8 +24,8 @@ const InformationCard = ({ item }) => {
               </Typography>
             </CardContent>
           </Grid>
-          <Grid item sm={2} xs={1}>
-            <ArrowForwardIosIcon color="secondary" style={styles.fullHeight} />
+          <Grid item container sm={2} xs={1} alignContent='center' style={styles.arrow}>
+            <ArrowForwardIosIcon color="secondary" />
           </Grid>
         </Grid>
       </CardActionArea>
@@ -36,10 +36,18 @@ const InformationCard = ({ item }) => {
 export default InformationCard;
 
 const styles = {
-  fullHeight: {
-    height: "100%",
+  card: {
+    height: "270px",
+    width: '100%'
+  },
+  cardActionArea: {
+    height: '280px'
   },
   cardContent: {
     padding: "30px 20px",
+    height: '100%'
   },
+  arrow: {
+    height: '270px'
+  }
 };

@@ -68,7 +68,7 @@ const InformationView = () => {
 
   const pinnedItemsList = pinnedItems.map((item, index) => {
     return (
-      <Grid item key={`pinned-item-${index}`} sm={6} data-cy="information-card">
+      <Grid item key={`pinned-item-${index}`} xs={12} sm={6} data-cy="information-card">
         <InformationCard item={item} />
       </Grid>
     );
