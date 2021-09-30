@@ -49,10 +49,11 @@ const ApplicationHeader = () => {
     fetchApplicationData();
     AdaptiveHelper.muiActiveTabSelect(
       currentUrl,
+      main_tabs,
       setActiveMainTab,
       setActiveSecondaryTab
     );
-  }, [appDataFetched, currentUrl, setActiveMainTab, setActiveSecondaryTab]);
+  }, [appDataFetched, main_tabs, currentUrl, setActiveMainTab, setActiveSecondaryTab]);
 
   const handleChangeSecondary = (event, newValue) => {
     setActiveSecondaryTab(newValue);
