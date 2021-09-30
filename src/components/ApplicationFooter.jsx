@@ -5,12 +5,13 @@ import {
   Typography,
   CardMedia,
   makeStyles,
+  Button,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import LogoCHWL from "../assets/LogoCHWL.png";
 import { useSelector } from "react-redux";
 import Functions from "../modules/Functions";
-import SubscribeToKCSC from "./SubscribeToKCSC";
+// import SubscribeToKCSC from "./SubscribeToKCSC";
 
 const useStyles = makeStyles((theme) => ({
   footerContainer: {
@@ -42,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: "none",
       borderRight: "1px solid rgba(0,0,0,0.3)",
       height: "180px",
-      width: "auto"
+      width: "auto",
     },
   },
   gridItemNoDivider: {
@@ -66,6 +67,7 @@ const useStyles = makeStyles((theme) => ({
   textField: {
     [theme.breakpoints.up("xs")]: {
       width: "100%",
+      maxWidth: "387px",
       height: "100%",
       textAlign: "left",
       padding: "20px",
@@ -115,11 +117,14 @@ const useStyles = makeStyles((theme) => ({
       color: "#000",
     },
   },
+  subscribeButton: {
+    marginBottom: "36px",
+  },
   disclaimers: {
     [theme.breakpoints.up("xs")]: {
-    textAlign: "center",
-    paddingTop: "60px",
-    paddingBottom: "20px",
+      textAlign: "center",
+      paddingTop: "60px",
+      paddingBottom: "20px",
     },
   },
 }));
@@ -205,10 +210,20 @@ const ApplicationFooter = () => {
               <br />
               Email: {contact.email}
             </Typography>
-            <Typography  data-cy="subscribe-text" variant="subtitle1">
+            {/* <Typography  data-cy="subscribe-text" variant="subtitle1">
               Subscribe to KCSC newsletter
             </Typography>
-            <SubscribeToKCSC />
+            <SubscribeToKCSC /> */}
+            <Button
+              data-cy="subscribe-to-kcsc-redirect"
+              className={classes.subscribeButton}
+              variant="contained"
+              color="secondary"
+              href="https://www.kcsc.org.uk/mailing-list-sign"
+              target="_blank"
+            >
+              Subscribe to KCSC Newsletter
+            </Button>
           </Grid>
         </Grid>
         <Grid

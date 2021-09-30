@@ -71,10 +71,11 @@ sizes.forEach((size) => {
             "contain",
             "Phone: 0207-243 9806Email: info@communityhealthwestlondon.org.uk"
           );
-          cy.get("[data-cy=subscribe-text]").should(
-            "contain",
-            "Subscribe to KCSC newsletter"
-          );
+          // Uncomment when implement subscription form
+          // cy.get("[data-cy=subscribe-text]").should(
+          //   "contain",
+          //   "Subscribe to KCSC newsletter"
+          // );
           cy.get("[data-cy=navigation]").within(() => {
             cy.get("[data-cy=link]").should("have.length", 5);
             cy.get("[data-cy=link]").eq(0).should("contain", "home");
@@ -87,10 +88,16 @@ sizes.forEach((size) => {
             "contain",
             "This site is built according to Web Content Accessibility Guidlines2021 All Rights Reserved by Community Health West London."
           );
-          cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
-            cy.get("[data-cy=input]").type("example@mail.com");
-            cy.get("[data-cy=submit-button]").click();
-          });
+          // Uncomment when implement subscription form
+          // cy.get("[data-cy=subscribe-to-kcsc]").within(() => {
+          //   cy.get("[data-cy=input]").type("example@mail.com");
+          //   cy.get("[data-cy=submit-button]").click();
+          // });
+          cy.get("[data-cy=subscribe-to-kcsc-redirect]").should(
+            "have.attr",
+            "href",
+            "https://www.kcsc.org.uk/mailing-list-sign"
+          );
         });
         cy.get("[data-cy=message]").should(
           "contain.text",
