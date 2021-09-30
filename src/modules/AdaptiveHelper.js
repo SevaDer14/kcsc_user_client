@@ -1,61 +1,28 @@
 const AdaptiveHelper = {
   muiActiveTabSelect(currentUrl, setActiveMainTab, setActiveSecondaryTab) {
-    switch (currentUrl) {
-      case "/home":
-        setActiveMainTab(0);
-        setActiveSecondaryTab(0);
-        break;
-      case "/services":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(0);
-        break;
-      case "/services/search":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(0);
-        break;
-      case "/services#find-a-self-care-service":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(0);
-        break;
-      case "/services#long-term-self-care":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(1);
-        break;
-      case "/services#mental-health":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(2);
-        break;
-      case "/services#north-kensington-self-care":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(3);
-        break;
-      case "/services#find-a-link-workers":
-        setActiveMainTab(1);
-        setActiveSecondaryTab(4);
-        break;
-      case "/about/organization":
-        setActiveMainTab(2);
-        setActiveSecondaryTab(0);
-        break;
-      case "/about/self_care":
-        setActiveMainTab(2);
-        setActiveSecondaryTab(1);
-        break;
-      case "/news_info/news":
-        setActiveMainTab(3);
-        setActiveSecondaryTab(0);
-        break;
-      case "/news_info/information":
-        setActiveMainTab(3);
-        setActiveSecondaryTab(1);
-        break;
-      case "/contact":
-        setActiveMainTab(4);
-        setActiveSecondaryTab(0);
-        break;
-      default:
-        setActiveMainTab(0);
-        setActiveSecondaryTab(0);
+    const routeToActiveTabMap = {
+      "/home": [0, 0],
+      "#find-a-self-care-service": [1, 0],
+      "#long-term-self-care": [1, 1],
+      "#mental-health": [1, 2],
+      "#north-kensington-self-care": [1, 3],
+      "#find-a-link-workers": [1, 4],
+      "/services": [1, 0],
+      "/organization": [2, 0],
+      "/self_care": [2, 1],
+      "/about": [2, 0],
+      "/news_info/news": [3, 0],
+      "/information": [3, 1],
+      "/news_info": [3, 0],
+      "/contact": [4, 0],
+    };
+
+    for (let key of Object.keys(routeToActiveTabMap)) {
+      if (currentUrl.includes(key)) {
+        setActiveMainTab(routeToActiveTabMap[key][0]);
+        setActiveSecondaryTab(routeToActiveTabMap[key][1]);
+        break
+      }
     }
   },
 };
