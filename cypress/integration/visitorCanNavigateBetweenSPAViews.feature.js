@@ -108,6 +108,9 @@ sizes.forEach((size) => {
 
     describe("About View", () => {
       beforeEach(() => {
+        cy.intercept("GET", "**/api/sections?view=about_us", {
+          fixture: "about_us_view_sections.json",
+        });
         cy.visit("/");
         switch (size) {
           case "macbook-15":
@@ -121,7 +124,7 @@ sizes.forEach((size) => {
             cy.get("[data-cy=about-tab]").click();
             cy.get("[data-cy=organization-tab]").click();
             break;
-        }
+        }        
       });
 
       it("is expected to show logo in the header", () => {
@@ -190,7 +193,7 @@ sizes.forEach((size) => {
             break;
           default:
             cy.get("[data-cy=burger-menu]").click();
-            cy.get("[data-cy=home-tab]").click();
+            cy.get("[data-cy=home-tab]").click({force: true});
             break;
         }
         cy.url().should("contain", "http://localhost:3001/home");

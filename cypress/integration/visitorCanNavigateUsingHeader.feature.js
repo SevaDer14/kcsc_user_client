@@ -7,6 +7,18 @@ sizes.forEach((size) => {
       cy.intercept("GET", "**/api/app_data**", {
         fixture: "app_data.json",
       });
+      cy.intercept("GET", "**/api/sections?view=about_us", {
+        fixture: "about_us_view_sections.json",
+      });
+      cy.intercept("GET", "**/api/sections?view=about_self_care", {
+        fixture: "about_self_care_view_sections.json",
+      });
+      cy.intercept("GET", "**/api/sections?view=information", {
+        fixture: "information_view_sections.json",
+      });
+      cy.intercept("GET", "**/api/sections?view=services", {
+        fixture: "services_view_section.json",
+      });
       if (Cypress._.isArray(size)) {
         cy.viewport(size[0], size[1], size[2]);
       } else {

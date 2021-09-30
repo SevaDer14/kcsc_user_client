@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
-//import Sections from "../modules/Sections";
-import about_us_view_sections from "../data/fixtures/about_us_view_sections.json";
+import Sections from "../modules/Sections";
 import { Grid, makeStyles } from "@material-ui/core";
 import SectionSelector from "../components/Section/SectionSelector";
 
@@ -23,9 +22,8 @@ const AboutUsView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
-      //let response = await Sections.read("about_us");
-      //setSections(response);
-      setSections(about_us_view_sections.sections);
+      let response = await Sections.index("about_us");
+      setSections(response);
     };
     fetchPageData();
   }, []);

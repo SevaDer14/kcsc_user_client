@@ -2,7 +2,7 @@ import axios from "axios";
 import store from "../state/store/configureStore";
 
 const Sections = {
-  async read(view) {
+  async index(view) {
     try {
       const response = await axios.get(`/sections?view=${view}`);
       return response.data.sections;

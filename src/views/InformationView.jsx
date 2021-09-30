@@ -4,9 +4,9 @@ import { Container, Grid, makeStyles } from "@material-ui/core";
 import Information from "../modules/Information";
 import InformationItem from "../components/Information/InformationItem";
 import InformationCard from "../components/Information/InformationCard";
-import information_view_sections from "../data/fixtures/information_view_sections.json";
 import Functions from "../modules/Functions";
 import SectionSelector from "../components/Section/SectionSelector";
+import Sections from "../modules/Sections";
 
 const useStyles = makeStyles((theme) => ({
   grid: {
@@ -33,10 +33,8 @@ const InformationView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
-      // Here for future, when api stores sections.
-      //let response = await Sections.read("about_us");
-      //setSections(response);
-      setSections(information_view_sections.sections);
+      let sections = await Sections.index("information");
+      setSections(sections);
       let response = await Information.index();
       let pinnedItems = response.filter(item => item.pinned === true)
       let otherItems = response.filter(item => item.pinned === false)

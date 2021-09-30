@@ -10,10 +10,10 @@ const SectionCenter = ({ header, description, image, buttons, buttonList }) => {
         <Box className={classes.imageBox}>
           <CardMedia
             component="img"
-            image={image.url}
+            image={image?.url}
             data-cy="image"
             className={classes.image}
-            alt="Community Health West London"
+            alt={image?.alt}
           />
         </Box>
       </Grid>
