@@ -9,6 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -74,8 +75,9 @@ const Testimonial = ({ slider, data }) => {
           </CardContent>
           <CardActions>
             <Button
-              href={data?.link}
-              target="_blank"
+              component={Link}
+              to={data?.link}
+              target={!data?.link.includes(window.location.hostname) && "_blank"}
               size="small"
               color="secondary"
             >

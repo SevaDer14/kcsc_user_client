@@ -7,14 +7,16 @@ import {
   Grid,
 } from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
+import { Link } from "react-router-dom";
 
 const InformationItem = ({ item }) => {
   const { header, description, link } = item;
   return (
     <Card elevation={0} variant="outlined">
       <CardActionArea
-        href={link}
-        target="_blank"
+        component={Link}
+        to={link}
+        target={!link.includes(window.location.hostname) && "_blank"}
         style={styles.card}
         data-cy="action-area"
       >
