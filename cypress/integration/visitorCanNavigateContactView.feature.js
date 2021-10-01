@@ -54,12 +54,6 @@ sizes.forEach((size) => {
 
       it("is expected to submit form and receive success message", () => {
         cy.get("[data-cy=contact-form]").within(() => {
-          cy.get("[data-cy=purpose-lable]").should(
-            "contain",
-            "Purpose of inquiry"
-          );
-          cy.get("select").select("I want to donate");
-          cy.get("[data-cy=purpose]").should("contain", "I want to donate");
           cy.get("[data-cy=name]").should("contain", "Enter your name");
           cy.get("[data-cy=name]").type("Bob Kramer");
           cy.get("[data-cy=email]").should("contain", "Enter your email");
