@@ -32,6 +32,10 @@ const AdaptiveHelper = {
       }
     }
   },
+  handleRedirect(url) {
+    navigation
+    return navigationProps
+  }
 };
 
 export default AdaptiveHelper;

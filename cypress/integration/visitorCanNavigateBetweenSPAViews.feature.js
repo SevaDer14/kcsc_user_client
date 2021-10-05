@@ -99,10 +99,10 @@ sizes.forEach((size) => {
             "https://www.kcsc.org.uk/mailing-list-sign"
           );
         });
-        cy.get("[data-cy=message]").should(
-          "contain.text",
-          "You've been successfully subscribed to KCSC!"
-        );
+        // cy.get("[data-cy=message]").should(
+        //   "contain.text",
+        //   "You've been successfully subscribed to KCSC!"
+        // );
       });
     });
 
