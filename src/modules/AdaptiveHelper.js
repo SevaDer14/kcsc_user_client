@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+
+var Url = require("url-parse");
+
 const AdaptiveHelper = {
   muiActiveTabSelect(
     currentUrl,
@@ -31,6 +35,24 @@ const AdaptiveHelper = {
         break;
       }
     }
+  },
+  handleRedirect(url) {
+    let link = new Url(url);
+    let navigationProps = {};
+
+    if (link.hostname === window.location.hostname) {
+      navigationProps = {
+        component: Link,
+        to: link.pathname,
+      };
+    } else {
+      navigationProps = {
+        href: url,
+        target: "_blank",
+        rel: "noopener",
+      };
+    }
+    return navigationProps;
   },
 };
 

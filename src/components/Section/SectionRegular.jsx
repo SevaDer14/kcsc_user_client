@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
 import SectionCenter from "./SectionCenter";
+import AdaptiveHelper from "../../modules/AdaptiveHelper";
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -48,8 +49,7 @@ const Section = ({ header, description, image, buttons }) => {
       data-cy={`button_${button.id}`}
       variant="contained"
       color="secondary"
-      href={`${button.link}`}
-      target={button.link.includes("http") ? "_blank" : undefined}
+      {...AdaptiveHelper.handleRedirect(button.link)}
     >
       <Typography variant="button">{button.text}</Typography>
     </Button>

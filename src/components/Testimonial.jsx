@@ -9,6 +9,7 @@ import {
   Button,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
+import AdaptiveHelper from '../modules/AdaptiveHelper'
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -34,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("md")]: {
       height: "350px",
     },
+  },
+  text: {
+    minHeight: "210px",
   },
 }));
 
@@ -73,9 +77,8 @@ const Testimonial = ({ slider, data }) => {
             </Typography>
           </CardContent>
           <CardActions>
-            <Button
-              href={data?.link}
-              target="_blank"
+            <Button          
+              {...AdaptiveHelper.handleRedirect(data?.link)}
               size="small"
               color="secondary"
             >
