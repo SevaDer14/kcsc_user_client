@@ -7,16 +7,14 @@ import {
   Grid,
 } from "@material-ui/core";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
-import { Link } from "react-router-dom";
+import AdaptiveHelper from '../../modules/AdaptiveHelper'
 
 const InformationItem = ({ item }) => {
   const { header, description, link } = item;
   return (
     <Card elevation={0} variant="outlined">
       <CardActionArea
-        component={Link}
-        to={link}
-        target={!link.includes(window.location.hostname) && "_blank"}
+        {...AdaptiveHelper.handleRedirect(link)}
         style={styles.card}
         data-cy="action-area"
       >
