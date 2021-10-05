@@ -1,7 +1,6 @@
 import React from "react";
 import { Typography, Button, Grid, Paper, makeStyles } from "@material-ui/core";
 import SectionCenter from "./SectionCenter";
-import { Link } from "react-router-dom";
 import AdaptiveHelper from "../../modules/AdaptiveHelper";
 
 const useStyles = makeStyles((theme) => ({
