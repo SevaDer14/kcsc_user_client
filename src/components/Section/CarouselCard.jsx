@@ -50,35 +50,35 @@ const CarouselCard = ({ card }) => {
         </Typography>
       </CardContent>
       <CardActions style={styles.buttonContainer}>
-        {card.links.web && (
+        {card.web && (
           <Button
             data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
-            onClick={()=> window.open(card.links.web)}
+            onClick={() => window.open(card.web)}
           >
             <LanguageIcon />
           </Button>
         )}
-        {card.links.facebook && (
+        {card.facebook && (
           <Button
             data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
-            onClick={()=>window.open(card.links.facebook)}
+            onClick={() => window.open(card.facebook)}
           >
             <FacebookIcon />
           </Button>
         )}
-        {card.links.twitter && (
+        {card.twitter && (
           <Button
             data-cy="link"
             size="large"
             variant="contained"
             color="secondary"
-            onClick={()=>window.open(card.links.twitter)}
+            onClick={() => window.open(card.twitter)}
           >
             <TwitterIcon />
           </Button>
