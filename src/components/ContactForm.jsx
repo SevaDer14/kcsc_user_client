@@ -4,9 +4,7 @@ import {
   Box,
   Button,
   Typography,
-  Select,
   FormControl,
-  InputLabel,
 } from "@material-ui/core";
 import Inquiries from "../modules/Inquiries";
 import { useSelector } from "react-redux";
@@ -27,7 +25,6 @@ const ContactForm = () => {
   const classes = useStyles();
   const { form } = useSelector((state) => state.appData.contact);
   const [formData, setFormData] = useState({
-    purpose: "",
     name: "",
     email: "",
     message: "",
@@ -46,30 +43,14 @@ const ContactForm = () => {
   };
 
   const formElements = form.map((formField, index) => {
-    let { dataKey, placeholder, options, type, required, multiline, rows } =
+    let { dataKey, placeholder, type, required, multiline, rows } =
       formField;
     if (formField.type === "dropdown") {
       return (
-        <FormControl key={`form-input-${index}`} variant="outlined">
-          <InputLabel data-cy={`${dataKey}-lable`} style={{margin: "12px"}} htmlFor="form-dropdown">
-            {placeholder}
-          </InputLabel>
-          <Select
-            native
-            data-cy={dataKey}
-            value={formData.purpose}
-            style={styles.formInput}
-            onChange={(event) => saveToState(event, dataKey)}
-            label={placeholder}
-            inputProps={{
-              id: "form-dropdown",
-            }}
-          >
-            {options.map((option, index) => (
-              <option key={`option-${index}`} value={option} data-cy={`option-${index}`}>{option}</option>
-            ))}
-          </Select>
-        </FormControl>
+        <FormControl
+          key={`form-input-${index}`}
+          variant="outlined"
+        ></FormControl>
       );
     } else {
       return (
@@ -120,7 +101,7 @@ const styles = {
     display: "flex",
     flexDirection: "column",
     width: "100%",
-    maxWidth: "800px",    
+    maxWidth: "800px",
   },
   formInput: {
     margin: "10px",
