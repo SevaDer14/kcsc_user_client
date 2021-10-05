@@ -31,10 +31,11 @@ const TestimonialSlider = () => {
   let slideShow = undefined;
 
   const sliderHandler = (number) => {
-    if (slider + number === testimonials.length + 1) {
+    let value = testimonials.length;
+    if (slider + number === value + 1) {
       setSlider(1);
     } else if (slider + number === 0) {
-      setSlider(2);
+      setSlider(value);
     } else {
       setSlider(slider + number);
     }
