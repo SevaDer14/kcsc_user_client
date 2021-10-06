@@ -117,7 +117,7 @@ const ApplicationHeader = () => {
             </Tabs>
           </Toolbar>
           {secondaryTabs.length !== 0 && currentUrl !== "/services/search" && (
-            <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
+            <Toolbar data-cy="secondary-nav-bar" style={(document.URL.indexOf("news_info/information") >= 0) ? styles.secondaryNavBarInfo : styles.secondaryNavBar}>
               <Tabs
                 style={styles.navTabs}
                 value={activeSecondaryTab}
@@ -153,6 +153,13 @@ const styles = {
     backgroundColor: "#eee",
     borderTop: "1px solid #ccc",
     borderBottom: "1px solid #ccc",
+    left: "0",
+    width: "100%",
+  },
+  secondaryNavBarInfo: {
+    backgroundColor: "#fff",
+    borderTop: "1px solid #ccc",
+    borderBottom: "none",
     left: "0",
     width: "100%",
   },
