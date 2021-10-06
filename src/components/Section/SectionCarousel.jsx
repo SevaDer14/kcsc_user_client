@@ -10,7 +10,7 @@ const SectionCarousel = ({ cards, header }) => {
   ));
 
   return (
-    <Box maxWidth="lg" style={{ padding: "1rem" }}>
+    <Box style={{ padding: "1rem" }}>
       <Typography
         variant="h3"
         gutterBottom
