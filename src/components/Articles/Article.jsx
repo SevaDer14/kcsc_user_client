@@ -1,44 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Box, Grid, Button } from "@material-ui/core";
+import { Typography, Box, Grid, Button, useMediaQuery } from "@material-ui/core";
 
-const Article = ({ index, article }) => {
+const Article = ({ article }) => {
   let { title, teaser, image, id } = article;
-  let alt = image?.alt
-  
+  let alt = image?.alt;
+  let mobile = useMediaQuery('(max-width:1279px)')
+
   return (
     <Grid
-      style={
-        index !== 0
-          ? styles.article
-          : { ...styles.article, backgroundImage: `url(${image?.url})` }
-      }
+      style={mobile ? {height: 'auto'} : {height: '300px'}}
       container
       alignItems="center"
       direction="row"
       data-cy="article"
     >
-      {index !== 0 && (
-        <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
-          <img style={styles.image} src={image?.url} alt={alt} />
-        </Grid>
-      )}
-
-      <Grid
-        item
-        xs={12}
-        lg={6}
-        style={
-          index !== 0
-            ? styles.itemContainer
-            : { ...styles.itemContainer, backgroundColor: "#0008" }
-        }
-      >
+      <Grid item xs={12} lg={6} data-cy="image" style={styles.itemContainer}>
+        <img style={styles.image} src={image?.url} alt={alt} />
+      </Grid>
+      <Grid item xs={12} lg={6} style={styles.itemContainer}>
         <Typography
           data-cy="title"
           variant="h3"
           component="h3"
-          style={index !== 0 ? { color: "#000" } : { color: "#fff" }}
+          style={{ color: "#000" }}
           gutterBottom
         >
           {title}
@@ -47,7 +32,7 @@ const Article = ({ index, article }) => {
           data-cy="teaser"
           variant="body1"
           component="p"
-          style={index !== 0 ? { color: "#000" } : { color: "#fff" }}
+          style={{ color: "#000" }}
           gutterBottom
         >
           {teaser}
@@ -74,16 +59,12 @@ const Article = ({ index, article }) => {
 export default Article;
 
 const styles = {
-  article: {
-    minHeight: "450px",
-    backgroundSize: "cover",
-  },
   itemContainer: {
-    padding: "5%",
+    padding: "0 5%",
   },
   image: {
     width: "100%",
-    maxHeight: "400px",
+    maxHeight: "300px",
     borderRadius: "10px",
     objectFit: "cover",
   },
