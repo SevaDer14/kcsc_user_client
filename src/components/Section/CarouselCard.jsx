@@ -11,20 +11,23 @@ import {
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import LanguageIcon from "@material-ui/icons/Language";
+import cardTheme from "../../theme/cardTheme"
+
 
 const CarouselCard = ({ card }) => {
+  const classes = cardTheme()
   return (
     <Card
       data-cy="partner-card"
       elevation={0}
       variant="outlined"
-      style={styles.card}
+      className={classes.card}
     >
-      <Box style={styles.logoContainer}>
+      <Box className={classes.logoContainer}>
         <CardMedia
           data-cy="partner-logo"
           component="img"
-          style={styles.logo}
+          className={classes.logo}
           alt={card.alt}
           image={card.logo}
           title={card.organization}
@@ -49,7 +52,7 @@ const CarouselCard = ({ card }) => {
           {card.description}
         </Typography>
       </CardContent>
-      <CardActions style={styles.buttonContainer}>
+      <CardActions className={classes.buttonContainer}>
         {card.web && (
           <Button
             data-cy="link"
@@ -89,29 +92,3 @@ const CarouselCard = ({ card }) => {
 };
 
 export default CarouselCard;
-
-const styles = {
-  card: {
-    position: "relative",
-    height: "500px",
-    padding: "40px 20px 20px 20px",
-    display: "flex",
-    flexDirection: "column",
-  },
-  logoContainer: {
-    display: "flex",
-    alignItems: "center",
-    height: "40%",
-  },
-  buttonContainer: {
-    alignSelf: "flex-end",
-    position: "absolute",
-    bottom: "20px",
-  },
-  logo: {
-    margin: "auto",
-    maxHeight: "90%",
-    maxWidth: "90%",
-    objectFit: "contain",
-  },
-};

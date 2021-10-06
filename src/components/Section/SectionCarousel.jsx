@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, Container, Typography } from "@material-ui/core";
+import { Grid, Box, Typography } from "@material-ui/core";
 import CarouselCard from "./CarouselCard";
 
 const SectionCarousel = ({ cards, header }) => {
@@ -10,7 +10,7 @@ const SectionCarousel = ({ cards, header }) => {
   ));
 
   return (
-    <Container maxWidth="lg" style={{ padding: "1rem" }}>
+    <Box style={{ padding: "1rem" }}>
       <Typography
         variant="h3"
         gutterBottom
@@ -18,10 +18,10 @@ const SectionCarousel = ({ cards, header }) => {
       >
         {header}
       </Typography>
-      <Grid container spacing={3} data-cy="page-section">
+      <Grid container spacing={0} data-cy="page-section">
         {listOfPartnersCards}
       </Grid>
-    </Container>
+    </Box>
   );
 };
 
