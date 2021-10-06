@@ -18,7 +18,7 @@ const SectionCarousel = ({ cards, header }) => {
       >
         {header}
       </Typography>
-      <Grid container spacing={3} data-cy="page-section">
+      <Grid container spacing={0} data-cy="page-section">
         {listOfPartnersCards}
       </Grid>
     </Container>
