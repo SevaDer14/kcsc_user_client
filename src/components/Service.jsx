@@ -70,7 +70,7 @@ const ScreenSplit = ({ data }) => {
               }
               label={
                 <Typography color="secondary" variant="body2">
-                  Show PCN boundaries
+                  Show West London PCN boundaries
                 </Typography>
               }
             />
