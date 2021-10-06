@@ -18,7 +18,7 @@ sizes.forEach((size) => {
         cy.visit("/news_info/news");
       });
 
-      describe.only("About View", () => {
+      describe("About View", () => {
         it("is expected to show logo in the header", () => {
           cy.get("[data-cy=header-logo]")
             .should("have.attr", "alt")
