@@ -54,11 +54,19 @@ const ApplicationHeader = () => {
       setActiveSecondaryTab,
       setParent
     );
-  }, [appDataFetched, main_tabs, currentUrl, setActiveMainTab, setActiveSecondaryTab]);
+  }, [
+    appDataFetched,
+    main_tabs,
+    currentUrl,
+    setActiveMainTab,
+    setActiveSecondaryTab,
+  ]);
 
   const handleChangeSecondary = (event, newValue) => {
     setActiveSecondaryTab(newValue);
   };
+
+  const isWhite = document.URL.indexOf("news_info/information") >= 0;
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
@@ -67,7 +75,7 @@ const ApplicationHeader = () => {
       data-cy={`${Functions.toKebabCase(tab.label)}-tab`}
       label={tab.label}
       component={Link}
-      to={tab.link}    
+      to={tab.link}
     />
   ));
 
@@ -117,7 +125,12 @@ const ApplicationHeader = () => {
             </Tabs>
           </Toolbar>
           {secondaryTabs.length !== 0 && currentUrl !== "/services/search" && (
-            <Toolbar data-cy="secondary-nav-bar" style={(document.URL.indexOf("news_info/information") >= 0) ? styles.secondaryNavBarInfo : styles.secondaryNavBar}>
+            <Toolbar
+              data-cy="secondary-nav-bar"
+              style={
+                isWhite ? styles.secondaryNavBarInfo : styles.secondaryNavBar
+              }
+            >
               <Tabs
                 style={styles.navTabs}
                 value={activeSecondaryTab}
