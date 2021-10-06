@@ -29,30 +29,14 @@ sizes.forEach((size) => {
           cy.get("[data-cy=article]").should("have.length", 6);
         });
 
-        it("is expected to display hero article", () => {
+        it("is expected to display article details", () => {
           cy.get("[data-cy=article]")
             .first()
             .within(() => {
-              cy.get("[data-cy=title]").should(
-                "contain.text",
-                "Most recent article"
-              );
+              cy.get("[data-cy=title]").should("contain.text", "Most recent article");
               cy.get("[data-cy=teaser]").should(
                 "contain.text",
-                "As self-care has become more mainstream, the"
-              );
-              cy.get("[data-cy=image]").should("not.exist");
-            });
-        });
-
-        it("is expected to display regular article", () => {
-          cy.get("[data-cy=article]")
-            .eq(1)
-            .within(() => {
-              cy.get("[data-cy=title]").should("contain.text", "Article 2");
-              cy.get("[data-cy=teaser]").should(
-                "contain.text",
-                "Several organizations and researchers take a"
+                "As self-care has become more mainstream"
               );
               cy.get("[data-cy=image]").should("be.visible");
             });

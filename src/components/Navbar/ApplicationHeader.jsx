@@ -90,8 +90,7 @@ const ApplicationHeader = () => {
     ));
 
   return (
-    <>
-      <Slide appear={false} direction="down" in={!trigger}>
+      <Slide appear={false} direction="down" in={!trigger} >
         <AppBar data-cy="application-header" color="inherit" elevation={0}>
           <Toolbar>
             {!landingPage && (
@@ -130,7 +129,6 @@ const ApplicationHeader = () => {
           )}
         </AppBar>
       </Slide>
-    </>
   );
 };
 
