@@ -12,16 +12,10 @@ const cardTheme = makeStyles((theme) => ({
     margin: "auto",
     marginTop: "10px",
     [theme.breakpoints.up("md")]: {
-      margin: "auto",
-      marginTop: "10px",
       minWidth: "350px",
-      maxWidth: "400px",
     },
     [theme.breakpoints.up("lg")]: {
-      margin: "auto",
-      marginTop: "10px",
       minWidth: "300px",
-      maxWidth: "400px",
     },
   },
   logoContainer: {
