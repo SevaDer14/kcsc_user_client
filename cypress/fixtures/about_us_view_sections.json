@@ -45,11 +45,10 @@
           "alt": "logo of Kensington & Chelsea Social Council organization",
           "organization": "Kensington & Chelsea Social Council",
           "description": "Description of what this partner does",
-          "links": {
-            "web": "https://www.kcsc.org.uk/",
-            "facebook": "https://www.facebook.com/smartchelsea",
-            "twitter": "https://twitter.com/smartlondon"
-          }
+
+          "web": "https://www.kcsc.org.uk/",
+          "facebook": "https://www.facebook.com/smartchelsea",
+          "twitter": "https://twitter.com/smartlondon"
         },
         {
           "id": 2,
@@ -57,11 +56,10 @@
           "alt": "logo of SMART organization",
           "organization": "SMART",
           "description": "Description of what this partner does",
-          "links": {
-            "web": "https://www.smartlondon.org.uk/",
-            "facebook": "https://www.facebook.com/KCSocialCouncil/",
-            "twitter": "https://twitter.com/kcsocialcouncil"
-          }
+
+          "web": "https://www.smartlondon.org.uk/",
+          "facebook": "https://www.facebook.com/KCSocialCouncil/",
+          "twitter": "https://twitter.com/kcsocialcouncil"
         },
         {
           "id": 3,
@@ -69,11 +67,10 @@
           "alt": "logo of Open Age organization",
           "organization": "Open Age",
           "description": "Description of what this partner does",
-          "links": {
-            "web": "https://www.openage.org.uk/",
-            "facebook": "",
-            "twitter": "https://twitter.com/open_age"
-          }
+
+          "web": "https://www.openage.org.uk/",
+          "facebook": "",
+          "twitter": "https://twitter.com/open_age"
         },
         {
           "id": 4,
@@ -81,11 +78,10 @@
           "alt": "logo of One Westminster organization",
           "organization": "One Westminster",
           "description": "Description of what this partner does",
-          "links": {
-            "web": "https://www.onewestminster.org.uk/",
-            "facebook": "",
-            "twitter": "https://twitter.com/One_Westminster"
-          }
+
+          "web": "https://www.onewestminster.org.uk/",
+          "facebook": "",
+          "twitter": "https://twitter.com/One_Westminster"
         }
       ]
     },
