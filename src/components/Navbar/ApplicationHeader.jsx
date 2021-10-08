@@ -66,7 +66,7 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const isWhite = document.URL.indexOf("news_info/information") >= 0;
+  const isWhite = document.URL.indexOf("news_info") >= 0;
 
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
