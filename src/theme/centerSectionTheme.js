@@ -88,9 +88,8 @@ const centerSectionTheme = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       marginTop: "20px",
       padding: "0px 20px",
-      fontSize: '2rem',
+      fontSize: "2rem",
       textAlign: "left",
-
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "12px",
@@ -100,7 +99,7 @@ const centerSectionTheme = makeStyles((theme) => ({
 
   description: {
     [theme.breakpoints.up("xs")]: {
-      padding: '0px 50px',
+      padding: "0px 50px",
       fontSize: "1.1rem",
       textAlign: "left",
     },
