@@ -88,10 +88,12 @@ const centerSectionTheme = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       marginTop: "20px",
       padding: "0px 20px",
-      fontSize: '2rem'
+      fontSize: '2rem',
+      textAlign: "left",
+
     },
     [theme.breakpoints.up("md")]: {
-      marginTop: "30px",
+      marginTop: "12px",
       padding: "0px",
     },
   },
@@ -115,7 +117,7 @@ const centerSectionTheme = makeStyles((theme) => ({
 
   button: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "35px",
+      marginTop: "12px",
       marginLeft: "-8px",
     },
   },
