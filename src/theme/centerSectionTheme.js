@@ -41,12 +41,11 @@ const centerSectionTheme = makeStyles((theme) => ({
     [theme.breakpoints.up("xs")]: {
       marginTop: "40px",
       width: "100%",
-      maxHeight: "200px",
-      minHeight: "200px",
+      maxHeight: "300px",
+      minHeight: "300px",
     },
     [theme.breakpoints.up("sm")]: {
       borderRadius: "10px",
-      height: "300px",
       width: "100%",
       maxHeight: "500px",
     },
@@ -63,7 +62,7 @@ const centerSectionTheme = makeStyles((theme) => ({
   image: {
     [theme.breakpoints.up("xs")]: {
       objectFit: "cover",
-      height: "200px",
+      height: "300px",
       width: "100vw",
     },
     [theme.breakpoints.up("sm")]: {
@@ -87,13 +86,17 @@ const centerSectionTheme = makeStyles((theme) => ({
   header: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "20px",
-      padding: "0px 20px",
+      padding: "18px 20px",
       fontSize: "2rem",
-      textAlign: "left",
+      textAlign: "center",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "12px",
+      padding: "18px 0px",
+    },
+    [theme.breakpoints.up("lg")]: {
       padding: "0px",
+      textAlign: "left",
     },
   },
 
@@ -116,8 +119,12 @@ const centerSectionTheme = makeStyles((theme) => ({
 
   button: {
     [theme.breakpoints.up("xs")]: {
-      marginTop: "12px",
+      marginTop: "18px",
       marginLeft: "-8px",
+      justifySelf: "flex-end",
+    },
+    [theme.breakpoints.up("xs")]: {
+      marginTop: "12px",
     },
   },
 }));
