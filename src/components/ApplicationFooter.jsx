@@ -74,6 +74,8 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("lg")]: {
       padding: "10px 20px",
+      display: "flex",
+      alignItems: "center",
     },
   },
   contactField: {
