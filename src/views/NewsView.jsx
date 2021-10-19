@@ -34,7 +34,7 @@ const NewsView = () => {
         </Grid>
       );
     } else {
-      return <></>;
+      return null;
     }
   });
 
