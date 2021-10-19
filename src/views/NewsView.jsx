@@ -20,12 +20,20 @@ const NewsView = () => {
   }, []);
 
   const articlesList = articles.map((article, index) => {
-    return (
-     
-      <Grid item key={article.id} style={{padding: '50px 7% 50px 7%',  borderBottom: "1px solid #bbb6",}}>
-        <Article index={index} article={article} />
-      </Grid>
-    );
+    if (article.case_study === false) {
+      return (
+        <Grid
+          item
+          key={article.id}
+          style={{
+            padding: "50px 7% 50px 7%",
+            borderBottom: "1px solid #bbb6",
+          }}
+        >
+          <Article index={index} article={article} />
+        </Grid>
+      );
+    }
   });
 
   return (
@@ -35,7 +43,13 @@ const NewsView = () => {
       </Helmet>
       <Container maxWidth="xl">
         {articles.length > 0 && (
-          <Grid container spacing={0} direction="column" alignItems="stretch" style={{marginTop: '125px'}}>
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="stretch"
+            style={{ marginTop: "125px" }}
+          >
             {articlesList}
           </Grid>
         )}

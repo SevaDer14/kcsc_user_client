@@ -1,15 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Typography, Box, Grid, Button, useMediaQuery } from "@material-ui/core";
+import {
+  Typography,
+  Box,
+  Grid,
+  Button,
+  useMediaQuery,
+} from "@material-ui/core";
 
 const Article = ({ article }) => {
   let { title, teaser, image, id } = article;
   let alt = image?.alt;
-  let mobile = useMediaQuery('(max-width:1279px)')
+  let mobile = useMediaQuery("(max-width:1279px)");
 
   return (
     <Grid
-      style={mobile ? {height: 'auto'} : {height: '300px'}}
+      style={mobile ? { height: "auto" } : { height: "300px" }}
       container
       alignItems="center"
       direction="row"
