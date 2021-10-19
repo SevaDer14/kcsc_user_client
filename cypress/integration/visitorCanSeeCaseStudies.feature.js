@@ -7,8 +7,8 @@ sizes.forEach((size) => {
         cy.intercept("GET", "**/api/app_data**", {
           fixture: "app_data.json",
         });
-        cy.intercept("GET", "**/api/articles**", {
-          fixture: "news_view_articles.json",
+        cy.intercept("GET", "**/api/case_studies**", {
+          fixture: "case_study_view.json",
         });
         if (Cypress._.isArray(size)) {
           cy.viewport(size[0], size[1], size[2]);

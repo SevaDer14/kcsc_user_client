@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Grid, Container } from "@material-ui/core";
-import Articles from "../modules/Articles";
-import Article from "../components/Articles/Article";
+import CaseStudies from "../modules/CaseStudies";
+import CaseStudy from "../components/Articles/Article";
 
 const NewsView = () => {
   const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchPageData = async () => {
-      let response = await Articles.index();
+      let response = await CaseStudies.index();
       setArticles(response);
     };
 
@@ -20,22 +20,18 @@ const NewsView = () => {
   }, []);
 
   const caseStudyList = articles.map((article, index) => {
-    if (article.case_study === true) {
-      return (
-        <Grid
-          item
-          key={article.id}
-          style={{
-            padding: "50px 7% 50px 7%",
-            borderBottom: "1px solid #bbb6",
-          }}
-        >
-          <Article index={index} article={article} />
-        </Grid>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <Grid
+        item
+        key={article.id}
+        style={{
+          padding: "50px 7% 50px 7%",
+          borderBottom: "1px solid #bbb6",
+        }}
+      >
+        <CaseStudy index={index} article={article} />
+      </Grid>
+    );
   });
 
   return (

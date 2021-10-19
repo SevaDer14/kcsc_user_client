@@ -20,22 +20,18 @@ const NewsView = () => {
   }, []);
 
   const articlesList = articles.map((article, index) => {
-    if (article.case_study === false) {
-      return (
-        <Grid
-          item
-          key={article.id}
-          style={{
-            padding: "50px 7% 50px 7%",
-            borderBottom: "1px solid #bbb6",
-          }}
-        >
-          <Article index={index} article={article} />
-        </Grid>
-      );
-    } else {
-      return null;
-    }
+    return (
+      <Grid
+        item
+        key={article.id}
+        style={{
+          padding: "50px 7% 50px 7%",
+          borderBottom: "1px solid #bbb6",
+        }}
+      >
+        <Article index={index} article={article} />
+      </Grid>
+    );
   });
 
   return (
