@@ -26,7 +26,7 @@ const ArticleView = () => {
           <Typography component="h3" variant="h3" data-cy="title">
             {title}
           </Typography>
-          <Grid container justify="space-between" style={styles.information}>
+          <Grid container justifyContent="space-between" style={styles.information}>
             <Grid item>
               <Typography
                 component="p"
