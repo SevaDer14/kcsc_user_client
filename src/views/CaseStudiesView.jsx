@@ -19,8 +19,8 @@ const NewsView = () => {
     };
   }, []);
 
-  const articlesList = articles.map((article, index) => {
-    if (article.case_study === false) {
+  const caseStudyList = articles.map((article, index) => {
+    if (article.case_study === true) {
       return (
         <Grid
           item
@@ -41,7 +41,7 @@ const NewsView = () => {
   return (
     <>
       <Helmet>
-        <title>News</title>
+        <title>Case Studies</title>
       </Helmet>
       <Container maxWidth="xl">
         {articles.length > 0 && (
@@ -52,7 +52,7 @@ const NewsView = () => {
             alignItems="stretch"
             style={{ marginTop: "125px" }}
           >
-            {articlesList}
+            {caseStudyList}
           </Grid>
         )}
       </Container>

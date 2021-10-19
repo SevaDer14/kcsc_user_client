@@ -21,17 +21,17 @@ sizes.forEach((size) => {
       describe("Case Studies View", () => {
         
         it("is expected to display case studies", () => {
-          cy.get("[data-cy=case-study]").should("have.length", 2);
+          cy.get("[data-cy=article]").should("have.length", 2);
         });
 
         it("is expected to display article details", () => {
-          cy.get("[data-cy=case-study]")
+          cy.get("[data-cy=article]")
             .first()
             .within(() => {
-              cy.get("[data-cy=name]").should("contain.text", "Maggie Black");
-              cy.get("[data-cy=text]").should(
+              cy.get("[data-cy=title]").should("contain.text", "case study 1");
+              cy.get("[data-cy=teaser]").should(
                 "contain.text",
-                "\"In my personal life, I am a daughter, a mother"
+                "Teaser about case study 1 Tens of millions"
               );
               cy.get("[data-cy=image]").should("be.visible");
             });
