@@ -12,12 +12,15 @@ const ArticleView = () => {
 
   useEffect(() => {
     const fetchPageData = async () => {
+      debugger
       let response = await Articles.show(id);
       setArticle(response);
     };
     fetchPageData();
     
   }, [id]);
+
+  
 
   return (
     <Container style={styles.container} data-cy="article" maxWidth="md">

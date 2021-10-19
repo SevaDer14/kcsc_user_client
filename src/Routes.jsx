@@ -67,6 +67,11 @@ const Routes = () => {
         />
         <Route
           exact
+          path="/about/case_studies/case_study/:id"
+          render={() => <App component={<ArticleView />} />}
+        />
+        <Route
+          exact
           path="/news_info/news"
           render={() => <App component={<NewsView />} />}
         />
