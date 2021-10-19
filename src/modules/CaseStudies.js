@@ -12,8 +12,8 @@ const CaseStudies = {
   },
   async show(id) {
     try {
-      const response = await axios.get(`/case_studies/${id}`);
-      return response.data.case_study;
+      const response = await axios.get(`/articles/${id}`);
+      return response.data.article;
     } catch (e) {
       Functions.redirectToErrorPage();
     }
