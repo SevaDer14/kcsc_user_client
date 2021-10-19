@@ -1,0 +1,26 @@
+{
+  "case_study": [
+    {
+      "id": 1,
+      "title": "case study 1",
+      "teaser": "Teaser about case study 1 Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
+      "date": "2021-05-07",
+      "case_study": true,
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 2,
+      "title": "case study 2",
+      "teaser": "Teaser about case study 2 Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
+      "date": "2021-05-08",
+      "case_study": true,
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    }
+  ]
+}
