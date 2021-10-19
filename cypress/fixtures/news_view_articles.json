@@ -5,6 +5,7 @@
       "title": "Most recent article",
       "teaser": "As self-care has become more mainstream, the definitions have started to become more applicable to the general public and tend to focus on tuning in to one’s needs and meeting those needs. “Self-care is anything that you do for yourself that ...",
       "date": "2021-05-12",
+      "case_studies": false,
       "image": {
         "url": "https://healthtechmagazine.net/sites/healthtechmagazine.net/files/styles/cdw_hero/public/articles/%5Bcdw_tech_site%3Afield_site_shortname%5D/202007/20200630_HT_Web_MonITor_Tech-Organizations-Should-Consider.jpg?itok=adOWwJ9x",
         "alt": "Nice doctor picture"
@@ -15,6 +16,7 @@
       "title": "Article 2",
       "teaser": "Several organizations and researchers take a health-oriented approach when defining self-care. The World Health Organization defines self-care as: “the ability of individuals, families, and communities to promote health ...",
       "date": "2021-05-11",
+      "case_studies": false,
       "image": {
         "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
         "alt": "Doctor holding tablet"
@@ -25,6 +27,7 @@
       "title": "Article 3",
       "teaser": "According to this definition, self-care includes everything related to staying physically healthy — including hygiene, nutrition, and ...",
       "date": "2021-05-10",
+      "case_studies": false,
       "image": {
         "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
         "alt": "Doctor holding tablet"
@@ -35,6 +38,7 @@
       "title": "Article 4",
       "teaser": "Paula Gill Lopez, PhD, an associate professor and chair of the department of psychological and educational consultation at Fairfield University in Fairfield, Connecticut, says the need ...",
       "date": "2021-05-09",
+      "case_studies": false,
       "image": {
         "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
         "alt": "Doctor holding tablet"
@@ -45,6 +49,7 @@
       "title": "Article 5",
       "teaser": "Let’s clear up one common misconception from the get-go: Self-care is not synonymous with self-indulgence or being selfish. Self-care means ...",
       "date": "2021-05-08",
+      "case_studies": false,
       "image": {
         "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
         "alt": "Doctor holding tablet"
@@ -55,6 +60,29 @@
       "title": "Article 6",
       "teaser": "Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
       "date": "2021-05-07",
+      "case_studies": false,
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 7,
+      "title": "case study 1",
+      "teaser": "Teaser about case study 1 Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
+      "date": "2021-05-07",
+      "case_studies": true,
+      "image": {
+        "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
+        "alt": "Doctor holding tablet"
+      }
+    },
+    {
+      "id": 8,
+      "title": "case study 2",
+      "teaser": "Teaser about case study 2 Tens of millions of Americans have lost crucial jobless benefits, and lawmakers still can’t seem to agree on a relief measure. Israel’s troubled school reopenings could be a lesson for the U.S.",
+      "date": "2021-05-08",
+      "case_studies": true,
       "image": {
         "url": "https://i1.wp.com/www.thekashmirmonitor.net/wp-content/uploads/2020/02/nurse.jpg",
         "alt": "Doctor holding tablet"
