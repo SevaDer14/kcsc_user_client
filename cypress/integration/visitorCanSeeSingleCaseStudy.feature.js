@@ -23,7 +23,7 @@ sizes.forEach((size) => {
 
     describe("single case study view", () => {
       beforeEach(() => {
-        cy.get("[data-cy=article]")
+        cy.get("[data-cy=case-study]")
           .first()
           .within(() => {
             cy.get("[data-cy=read-more-button]").click();

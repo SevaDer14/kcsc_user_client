@@ -18,6 +18,7 @@ import InformationView from "./views/InformationView";
 import ErrorView from "./views/ErrorView";
 import SearchWidget from "./views/SearchWidget";
 import CaseStudiesView from "./views/CaseStudiesView";
+import CaseStudyArticleView from "./views/CaseStudyArticleView";
 
 const Routes = () => {
   return (
@@ -67,8 +68,8 @@ const Routes = () => {
         />
         <Route
           exact
-          path="/about/case_studies/case_study/:id"
-          render={() => <App component={<ArticleView />} />}
+          path="/about/case_studies/:id"
+          render={() => <App component={<CaseStudyArticleView />} />}
         />
         <Route
           exact

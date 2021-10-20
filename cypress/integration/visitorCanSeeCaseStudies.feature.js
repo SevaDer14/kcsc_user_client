@@ -21,11 +21,11 @@ sizes.forEach((size) => {
       describe("Case Studies View", () => {
         
         it("is expected to display case studies", () => {
-          cy.get("[data-cy=article]").should("have.length", 2);
+          cy.get("[data-cy=case-study]").should("have.length", 2);
         });
 
-        it("is expected to display article details", () => {
-          cy.get("[data-cy=article]")
+        it("is expected to display case study details", () => {
+          cy.get("[data-cy=case-study]")
             .first()
             .within(() => {
               cy.get("[data-cy=title]").should("contain.text", "case study 1");

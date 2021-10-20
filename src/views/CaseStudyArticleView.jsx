@@ -4,16 +4,16 @@ import Articles from "../modules/Articles";
 import { Container, Typography, Divider, Grid } from "@material-ui/core";
 import parse from 'html-react-parser';
 
-const ArticleView = () => {
+const CaseStudyArticleView = () => {
   const { id } = useParams();
-  const [article, setArticle] = useState({});
-  const { title, author, date, image, body } = article;
+  const [caseStudyArticle, setCaseStudyArticle] = useState({});
+  const { title, author, date, image, body } = caseStudyArticle;
   let alt = image?.alt
 
   useEffect(() => {
     const fetchPageData = async () => {
       let response = await Articles.show(id);
-      setArticle(response);
+      setCaseStudyArticle(response);
     };
     fetchPageData();
     
@@ -22,8 +22,8 @@ const ArticleView = () => {
   
 
   return (
-    <Container style={styles.container} data-cy="article" maxWidth="md">
-      {article ? (
+    <Container style={styles.container} data-cy="case-study" maxWidth="md">
+      {caseStudyArticle ? (
         <>
           <Typography component="h3" variant="h3" data-cy="title">
             {title}
@@ -69,7 +69,7 @@ const ArticleView = () => {
   );
 };
 
-export default ArticleView;
+export default CaseStudyArticleView;
 
 const styles = {
   container: {

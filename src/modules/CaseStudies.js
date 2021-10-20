@@ -5,7 +5,7 @@ const CaseStudies = {
   async index() {
     try {
       const response = await axios.get(`/case_studies/`);
-      return response.data.case_study;
+      return response.data.case_studies;
     } catch (e) {
       Functions.redirectToErrorPage();
     }

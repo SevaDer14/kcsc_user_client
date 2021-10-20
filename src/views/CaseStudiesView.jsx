@@ -2,34 +2,34 @@ import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { Grid, Container } from "@material-ui/core";
 import CaseStudies from "../modules/CaseStudies";
-import CaseStudy from "../components/Articles/Article";
+import CaseStudyArticle from "../components/CaseStudies/CaseStudyArticle";
 
 const NewsView = () => {
-  const [articles, setArticles] = useState([]);
+  const [caseStudies, setCaseStudies] = useState([]);
 
   useEffect(() => {
     const fetchPageData = async () => {
       let response = await CaseStudies.index();
-      setArticles(response);
+      setCaseStudies(response);
     };
 
     fetchPageData();
     return () => {
-      setArticles([]);
+      setCaseStudies([]);
     };
   }, []);
 
-  const caseStudyList = articles.map((article, index) => {
+  const caseStudyList = caseStudies.map((caseStudy, index) => {
     return (
       <Grid
         item
-        key={article.id}
+        key={caseStudy.id}
         style={{
           padding: "50px 7% 50px 7%",
           borderBottom: "1px solid #bbb6",
         }}
       >
-        <CaseStudy index={index} article={article} />
+        <CaseStudyArticle index={index} caseStudy={caseStudy} />
       </Grid>
     );
   });
@@ -40,7 +40,7 @@ const NewsView = () => {
         <title>Case Studies</title>
       </Helmet>
       <Container maxWidth="xl">
-        {articles.length > 0 && (
+        {caseStudies.length > 0 && (
           <Grid
             container
             spacing={0}
