@@ -67,6 +67,10 @@
             {
               "label": "self care",
               "link": "/about/self_care"
+            },
+            {
+              "label": "case studies",
+              "link": "/about/case_studies"
             }
           ]
         },
@@ -99,6 +103,11 @@
           "parent": "about",
           "label": "self care",
           "link": "/about/self_care"
+        },
+        {
+          "parent": "about",
+          "label": "case studies",
+          "link": "/about/case_studies"
         },
         {
           "parent": "news & info",
