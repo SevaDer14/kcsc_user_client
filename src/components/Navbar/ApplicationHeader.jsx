@@ -66,8 +66,6 @@ const ApplicationHeader = () => {
     setActiveSecondaryTab(newValue);
   };
 
-  const isWhite = document.URL.indexOf("news_info") >= 0;
-
   const mainTabs = main_tabs.map((tab, index) => (
     <Tab
       key={`main-tab-${index}`}
@@ -98,50 +96,43 @@ const ApplicationHeader = () => {
     ));
 
   return (
-      <Slide appear={false} direction="down" in={!trigger} >
-        <AppBar data-cy="application-header" color="inherit" elevation={0}>
-          <Toolbar>
-            {!landingPage && (
-              <Button
-                disableRipple
-                className={classes.logoButton}
-                component={Link}
-                to="/home"
-              >
-                <img
-                  src={header_logo}
-                  data-cy="header-logo"
-                  style={styles.headerLogo}
-                  alt="Community Health West London"
-                  onClick={() =>
-                    window.scrollTo({ top: 0, behavior: "smooth" })
-                  }
-                />
-              </Button>
-            )}
-            <Tabs value={activeMainTab} style={styles.navTabs} centered>
-              {mainTabs}
+    <Slide appear={false} direction="down" in={!trigger}>
+      <AppBar data-cy="application-header" color="inherit" elevation={0}>
+        <Toolbar>
+          {!landingPage && (
+            <Button
+              disableRipple
+              className={classes.logoButton}
+              component={Link}
+              to="/home"
+            >
+              <img
+                src={header_logo}
+                data-cy="header-logo"
+                style={styles.headerLogo}
+                alt="Community Health West London"
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              />
+            </Button>
+          )}
+          <Tabs value={activeMainTab} style={styles.navTabs} centered>
+            {mainTabs}
+          </Tabs>
+        </Toolbar>
+        {secondaryTabs.length !== 0 && currentUrl !== "/services/search" && (
+          <Toolbar data-cy="secondary-nav-bar" style={styles.secondaryNavBar}>
+            <Tabs
+              style={styles.navTabs}
+              value={activeSecondaryTab}
+              onChange={handleChangeSecondary}
+              centered
+            >
+              {secondaryTabs}
             </Tabs>
           </Toolbar>
-          {secondaryTabs.length !== 0 && currentUrl !== "/services/search" && (
-            <Toolbar
-              data-cy="secondary-nav-bar"
-              style={
-                isWhite ? styles.secondaryNavBarInfo : styles.secondaryNavBar
-              }
-            >
-              <Tabs
-                style={styles.navTabs}
-                value={activeSecondaryTab}
-                onChange={handleChangeSecondary}
-                centered
-              >
-                {secondaryTabs}
-              </Tabs>
-            </Toolbar>
-          )}
-        </AppBar>
-      </Slide>
+        )}
+      </AppBar>
+    </Slide>
   );
 };
 
@@ -161,13 +152,6 @@ const styles = {
     minWidth: 140,
   },
   secondaryNavBar: {
-    backgroundColor: "#eee",
-    borderTop: "1px solid #ccc",
-    borderBottom: "1px solid #ccc",
-    left: "0",
-    width: "100%",
-  },
-  secondaryNavBarInfo: {
     backgroundColor: "#fff",
     borderTop: "1px solid #ccc",
     borderBottom: "none",
