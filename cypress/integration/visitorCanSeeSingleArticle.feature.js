@@ -38,7 +38,6 @@ sizes.forEach((size) => {
         cy.get("[data-cy=image]")
           .should("have.attr", "alt")
           .should("equal", "Nice doctor picture");
-        cy.get("[data-cy=author]").should("contain.text", "Bob Kramer");
         cy.get("[data-cy=date]").should("contain.text", "2021-05-12");
       });
     });
