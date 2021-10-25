@@ -7,7 +7,7 @@ import parse from 'html-react-parser';
 const CaseStudyArticleView = () => {
   const { id } = useParams();
   const [caseStudyArticle, setCaseStudyArticle] = useState({});
-  const { title, author, date, image, body } = caseStudyArticle;
+  const { title, date, image, body } = caseStudyArticle;
   let alt = image?.alt
 
   useEffect(() => {
@@ -28,14 +28,7 @@ const CaseStudyArticleView = () => {
           <Typography component="h3" variant="h3" data-cy="title">
             {title}
           </Typography>
-          <Grid container justifyContent="space-between" style={styles.information}>
-            <Grid item>
-              <Typography
-                component="p"
-                variant="subtitle1"
-                data-cy="author"
-              >{`Written by: ${author?.name}`}</Typography>
-            </Grid>
+          <Grid container justifyContent="flex-end" style={styles.information}>
             <Grid item>
               <Typography component="p" variant="subtitle1" data-cy="date">
                 {date}
