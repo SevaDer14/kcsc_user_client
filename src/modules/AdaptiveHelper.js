@@ -20,7 +20,7 @@ const AdaptiveHelper = {
       [main_tabs[1]?.link]: [1, 0, main_tabs[1]?.label],
       [main_tabs[2]?.secondary_tabs[0].link]: [2, 0, main_tabs[2]?.label],
       [main_tabs[2]?.secondary_tabs[1].link]: [2, 1, main_tabs[2]?.label],
-      [main_tabs[2]?.secondary_tabs[2].link]: [2, 2, main_tabs[2]?.label],
+      //[main_tabs[2]?.secondary_tabs[2].link]: [2, 2, main_tabs[2]?.label],
       [main_tabs[2]?.link]: [2, 0, main_tabs[2]?.label],
       [main_tabs[3]?.secondary_tabs[0].link]: [3, 0, main_tabs[3]?.label],
       [main_tabs[3]?.secondary_tabs[1].link]: [3, 1, main_tabs[3]?.label],

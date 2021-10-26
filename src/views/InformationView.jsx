@@ -80,7 +80,7 @@ const InformationView = () => {
       <Grid container className={classes.grid} spacing={0}>
         {sectionList}
       </Grid>
-      <Container maxWidth="md" style={{marginTop: "32px"}}>
+      <Container maxWidth="md" style={{marginTop: "80px"}}>
         <Grid container spacing={3} data-cy="pinned-information-items">
           {pinnedItemsList}
         </Grid>

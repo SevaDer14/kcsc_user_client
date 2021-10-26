@@ -22,6 +22,7 @@ const cardTheme = makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     height: "40%",
+    padding: '16px'
   },
   buttonContainer: {
     alignSelf: "flex-end",
